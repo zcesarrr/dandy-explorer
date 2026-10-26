@@ -49,8 +49,93 @@ const toons: (Toon & { id: number })[] = [
                 description: "This Toon drops 2 random candy items after completing a machine, and 4 random candy items when injured.",
             },
         ],
-        rarity: "main",
+        rarity: "normal",
         category: "none",
+    },
+    {
+        id: 3,
+        name: "Gigi",
+        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/91/Gigi_Render.png",
+        stats: buildBaseStats(3, 5, 3, 1, 3, 3),
+        abilities: [
+            {
+                name: "Surprise!",
+                type: "active",
+                description: "This Toon can grant herself a random item from any Tier (Dandy's Shop items included). Has a Cooldown of 60.",
+            },
+        ],
+        rarity: "normal",
+        category: "none",
+    },
+    {
+        id: 4,
+        name: "Bobette",
+        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/f/f0/Bobette_Render.png",
+        stats: buildBaseStats(2, 4, 3, 5, 2, 2),
+        abilities: [
+            {
+                name: "Precious Packaging",
+                type: "active",
+                description: "This Toon can duck and cover herself into a gift box for 8 seconds, in which she is invincible yet unable to move.",
+            },
+            {
+                name: "Festive Aura",
+                type: "passive",
+                description: "The festive aura of this Toon passively gives those around her 50% faster stamina regeneration and a 25% speed boost that lasts for 5 seconds.",
+            },
+        ],
+        rarity: "main",
+        category: "holiday",
+    },
+    {
+        id: 5,
+        name: "Rudie",
+        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/64/Rudie_Render.png",
+        stats: buildBaseStats(3, 3, 3, 3, 3, 3),
+        abilities: [
+            {
+                name: "Antler Charge",
+                type: "active",
+                description: "This Toon uses his antlers to quickly charge forward in a short burst, helping him escape tricky situations.",
+            },
+        ],
+        rarity: "normal",
+        category: "holiday",
+    },
+    {
+        id: 6,
+        name: "Bassie",
+        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0c/Bassie_Render.png",
+        stats: buildBaseStats(2, 1, 5, 4, 4, 2),
+        abilities: [
+            {
+                name: "Springful Sharing",
+                type: "active",
+                description: "This Toon can drop items from her inventory, sharing them with other Toons.",
+            },
+            {
+                name: "Easter Basket",
+                type: "passive",
+                description: "This Toon's basket provides her with an extra inventory slot for carrying 1 extra item.",
+            },
+        ],
+        rarity: "main",
+        category: "easter",
+    },
+    {
+        id: 7,
+        name: "Cocoa",
+        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/51/Cocoa_Render.png",
+        stats: buildBaseStats(3, 3, 4, 2, 4, 2),
+        abilities: [
+            {
+                name: "Bonbon",
+                type: "active",
+                description: "This Toon places a Bonbon candy item that can be picked up and used by anyone. When used, the Bonbon boosts extraction speed (+50%) and movement speed (+25%) for 10 seconds. Has a cooldown of 40.",
+            },
+        ],
+        rarity: "normal",
+        category: "easter",
     },
  ];
 
