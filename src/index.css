@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@layer base {
+  @font-face {
+    font-family: "Fredoka";
+    src: url("./assets/fonts/Fredoka-Bold.ttf") format("truetype");
+  }
+}
+
+@theme {
+  --font-fredoka: "Fredoka", sans-serif;
+}
+
+@layer utilities {
+  .text-stroke {
+    text-shadow:
+      1px 1px 0 black,
+      -1px -1px 0 black,
+      1px -1px 0 black,
+      -1px 1px 0 black;
+  }
+}
