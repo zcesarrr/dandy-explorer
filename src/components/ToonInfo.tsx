@@ -14,7 +14,7 @@ export default function ToonInfo({ className, name, iconUrl, stats }: ToonInfoPr
             <img
                 src={iconUrl}
                 alt="Eclipse Icon"
-                className="bg-black/60 rounded-lg"
+                className="w-[max(128px,30dvh)] mx-auto bg-black/60 rounded-lg"
             />
             <p className="font-fredoka text-white text-3xl text-stroke text-center my-1">{name}</p>
             <ul className="flex flex-col gap-2">

@@ -6,13 +6,13 @@ export default function StatCard({ name, value, icon, color }: Stat) {
 
     return (
         <div 
-            className="p-1.5 flex flex-col h-16 gap-1.5 rounded-md"
+            className="p-[clamp(0.25rem,0.7dvh,0.375rem)] h-[clamp(2.8rem,7dvh,4rem)] gap-[clamp(0.2rem,0.5dvh,0.375rem)] flex flex-col rounded-md"
             style={{
                 background: `linear-gradient(to top,#00000060,transparent), ${color}`
             }}
         >
-            <p className="font-fredoka text-white text-stroke text-center leading-none">{name}</p>
-            <ul className="flex justify-center gap-4 p-1 bg-black/50 rounded-sm min-h-0">
+            <p className="font-fredoka text-white text-stroke text-center leading-none text-[clamp(0.8rem,1.9dvh,1rem)]">{name}</p>
+            <ul className="p-[clamp(0.15rem,0.4dvh,0.25rem)] flex justify-center gap-4 bg-black/50 rounded-sm min-h-0">
                 {Array.from({ length: value }, (_, index) => (
                     <li key={index} className="h-full">
                         <img
