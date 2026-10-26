@@ -3,6 +3,7 @@ import AbilitiesBox from "./components/AbilitiesBox";
 import ToonButton from "./components/ToonButton";
 import ToonInfo from "./components/ToonInfo";
 import toons from "./mocks/toons";
+import ShinyButton from "./components/ShinyButton";
 
 export default function App() {
   const [selectedToonId, setSelectedToonId] = useState(0);
@@ -17,11 +18,13 @@ export default function App() {
             {toons.map(item => (
               <li key={item.id}>
                 <ToonButton
-                  onClick={() => {
-                    if (item.id == selectedToonId) return;
-                    setSelectedToonId(item.id)
+                  buttonProps={{
+                    onClick: () => {
+                      if (item.id == selectedToonId) return;
+                      setSelectedToonId(item.id)
+                    },
+                    active: selectedToonId == item.id,
                   }}
-                  active={selectedToonId == item.id}
                   name={item.name}
                   iconUrl={item.iconUrl}
                   rarity={item.rarity}
@@ -43,9 +46,9 @@ export default function App() {
               className="bg-black/30 p-4 rounded-xl"
               abilities={toonData.abilities}
             />
-            <div>
-              
-            </div>
+            <ul>
+              <li><ShinyButton className="w-8">Hello</ShinyButton></li>
+            </ul>
           </div>
         </div>
       </div>
