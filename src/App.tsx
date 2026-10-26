@@ -17,10 +17,14 @@ export default function App() {
             {toons.map(item => (
               <li key={item.id}>
                 <ToonButton
-                  onClick={() => setSelectedToonId(item.id)}
+                  onClick={() => {
+                    if (item.id == selectedToonId) return;
+                    setSelectedToonId(item.id)
+                  }}
                   active={selectedToonId == item.id}
                   name={item.name}
                   iconUrl={item.iconUrl}
+                  rarity={item.rarity}
                 />
               </li>
             ))}
@@ -32,6 +36,7 @@ export default function App() {
             name={toonData.name}
             iconUrl={toonData.iconUrl}
             stats={toonData.stats}
+            rarity={toonData.rarity}
           />
           <AbilitiesBox
             className="bg-black/30 p-4 rounded-xl"

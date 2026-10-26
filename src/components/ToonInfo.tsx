@@ -1,4 +1,6 @@
 import type { Stat } from "../types/stats";
+import type { ToonRarity } from "../types/toons";
+import { rarityBackgroundColor } from "../utils/styles";
 import StatCard from "./StatCard";
 
 type ToonInfoProps = {
@@ -6,15 +8,19 @@ type ToonInfoProps = {
     name: string;
     iconUrl: string;
     stats: Stat[];
+    rarity: ToonRarity,
 };
 
-export default function ToonInfo({ className, name, iconUrl, stats }: ToonInfoProps) {
+export default function ToonInfo({ className, name, iconUrl, stats, rarity }: ToonInfoProps) {
     return (
         <div className={`${className}`}>
             <img
                 src={iconUrl}
                 alt="Eclipse Icon"
-                className="w-[max(128px,30dvh)] mx-auto bg-black/60 rounded-lg"
+                className="w-[max(128px,30dvh)] mx-auto rounded-lg"
+                style={{
+                    background: rarityBackgroundColor(rarity),
+                }}
             />
             <p className="font-fredoka text-white text-3xl text-stroke text-center my-1">{name}</p>
             <ul className="flex flex-col gap-2">
