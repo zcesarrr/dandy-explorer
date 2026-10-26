@@ -4,6 +4,13 @@ import type { Stat } from "../types/stats";
 export default function StatCard({ name, value, icon, color }: Stat) {
     const { path: iconPath, alt: iconAlt } = ICONS[icon];
 
+    const isHeartIcon = icon == "heart";
+    const iconLength = isHeartIcon && value < 3 ? value + 1 : value;
+
+    const shouldBeHeartBroken = (index: number) => {
+        return isHeartIcon && value < 3 && index == 0;
+    }
+
     return (
         <div 
             className="p-[clamp(0.25rem,0.7dvh,0.375rem)] h-[clamp(2.8rem,7dvh,4rem)] gap-[clamp(0.2rem,0.5dvh,0.375rem)] flex flex-col rounded-md"
@@ -13,12 +20,15 @@ export default function StatCard({ name, value, icon, color }: Stat) {
         >
             <p className="font-fredoka text-white text-stroke text-center leading-none text-[clamp(0.8rem,1.9dvh,1rem)]">{name}</p>
             <ul className="p-[clamp(0.15rem,0.4dvh,0.25rem)] flex justify-center gap-4 bg-black/50 rounded-sm min-h-0">
-                {Array.from({ length: value }, (_, index) => (
+                {Array.from({ length: iconLength }, (_, index) => (
                     <li key={index} className="h-full">
                         <img
-                            src={iconPath}
+                            src={shouldBeHeartBroken(index) ? ICONS.heartBroken.path : iconPath}
                             alt={iconAlt}
-                            className="h-full"
+                            className="h-full aspect-square"
+                            style={{
+                                filter: `${shouldBeHeartBroken(index) ? "brightness(0)" : ""}`,
+                            }}
                         />
                     </li>
                 ))}
