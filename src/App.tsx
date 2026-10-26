@@ -38,10 +38,15 @@ export default function App() {
             stats={toonData.stats}
             rarity={toonData.rarity}
           />
-          <AbilitiesBox
-            className="bg-black/30 p-4 rounded-xl"
-            abilities={toonData.abilities}
-          />
+          <div>
+            <AbilitiesBox
+              className="bg-black/30 p-4 rounded-xl"
+              abilities={toonData.abilities}
+            />
+            <div>
+              
+            </div>
+          </div>
         </div>
       </div>
     </div>
