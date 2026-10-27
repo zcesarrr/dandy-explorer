@@ -10,6 +10,7 @@ import type { IconId } from "./types/icons";
 import AbilityCard from "./components/AbilityCard";
 import { CloseIcon } from "@solar-icons/react/bold/close";
 import QuestCard from "./components/QuestCard";
+import IconLabelCard from "./components/IconLabelCard";
 
 export default function App() {
   const [selectedToonId, setSelectedToonId] = useState(0);
@@ -60,6 +61,16 @@ export default function App() {
     {
       name: "Unlock Requirements",
       icon: "key",
+      content: (
+        <ul className="flex flex-col gap-2">
+          <li>
+            <IconLabelCard />
+          </li>
+          <li>
+            <IconLabelCard />
+          </li>
+        </ul>
+      ),
     },
   ];
 
