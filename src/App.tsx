@@ -9,6 +9,7 @@ import ICONS from "./constants/icons";
 import type { IconId } from "./types/icons";
 import AbilityCard from "./components/AbilityCard";
 import { CloseIcon } from "@solar-icons/react/bold/close";
+import QuestCard from "./components/QuestCard";
 
 export default function App() {
   const [selectedToonId, setSelectedToonId] = useState(0);
@@ -34,7 +35,7 @@ export default function App() {
             <li>
               <div className="bg-black/40 rounded-lg p-2 h-16 flex justify-center items-center">
                 <CloseIcon
-                  color="#00000060"
+                  color="#000000aa"
                   className="w-full h-full"
                 />
               </div>
@@ -47,13 +48,12 @@ export default function App() {
       name: "Mastery Quests",
       icon: "medal",
       content: (
-        <ul className="flex flex-col gap-4">
-          <li>
-            Quest 1
-          </li>
-          <li>
-            Quest 2
-          </li>
+        <ul className="flex flex-col gap-2">
+          {toonData.quests?.map((item, index) => (
+            <li key={index}>
+              <QuestCard description={item} />
+            </li>
+          ))}
         </ul>
       ),
     },

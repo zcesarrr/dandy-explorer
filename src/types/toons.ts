@@ -11,4 +11,5 @@ export type Toon = {
     abilities: Ability[];
     rarity: ToonRarity;
     category: ToonCategory;
+    quests?: string[];
 };

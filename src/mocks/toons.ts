@@ -16,6 +16,14 @@ const toons: (Toon & { id: number })[] = [
         ],
         rarity: "normal",
         category: "halloween",
+        quests: [
+            "Experience 15 Blackouts!",
+            "Survive 50 Floors!",
+            "Travel 10k Meters!",
+            "Encounter 75 Twisteds!",
+            "Survive 3 Floors with 7 other Players in your round!",
+            "Use 80 Items!",
+        ],
     },
     {
         id: 1,
