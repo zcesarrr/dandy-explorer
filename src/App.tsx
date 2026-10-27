@@ -61,7 +61,7 @@ export default function App() {
       <div className="w-full max-w-7xl grid grid-cols-[1fr_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
         {/* TOON SELECTOR */}
         <div className="relative w-full">
-          <ul className="absolute inset-0 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1">
+          <ul className="absolute inset-0 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-gray-400">
             {toons.map(item => (
               <li key={item.id}>
                 <ToonButton
