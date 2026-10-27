@@ -8,7 +8,7 @@ export type ShinyButtonProps = {
 
 type ComponentProps = ShinyButtonProps & {
     children: ReactNode;
-}
+};
 
 export default function ShinyButton({ children, className, onClick, active }: ComponentProps) {
     return (

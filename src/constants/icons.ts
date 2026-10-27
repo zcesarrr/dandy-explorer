@@ -2,6 +2,7 @@ import type { Icon } from "@solar-icons/react/lib/types";
 import { HeartIcon } from "@solar-icons/react/bold/heart";
 import { HeartCrackIcon } from "@solar-icons/react/bold/heart-crack";
 import { StarIcon } from "@solar-icons/react/bold/star";
+import type { IconId } from "../types/icons";
 
 const ICONS = {
     heart: {
@@ -16,6 +17,6 @@ const ICONS = {
         node: StarIcon,
         alt: "Star Icon",
     },
-} satisfies Record<string, { node: Icon, alt: string }>;
+} satisfies Record<IconId, { node: Icon, alt: string }>;
 
 export default ICONS;

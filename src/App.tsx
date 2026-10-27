@@ -4,9 +4,16 @@ import ToonButton from "./components/ToonButton";
 import ToonInfo from "./components/ToonInfo";
 import toons from "./mocks/toons";
 import ShinyButton from "./components/ShinyButton";
+import ICONS from "./constants/icons";
+import type { IconId } from "./types/icons";
+
+const detailsTabs = [
+  "star", "heart", "heartBroken",
+] satisfies IconId[];
 
 export default function App() {
   const [selectedToonId, setSelectedToonId] = useState(0);
+  const [activeDetailsTabIndex, setActiveDetailsTabIndex] = useState(0);
 
   const toonData = toons[selectedToonId];
 
@@ -41,13 +48,30 @@ export default function App() {
             stats={toonData.stats}
             rarity={toonData.rarity}
           />
-          <div>
+          <div className="flex flex-col justify-between">
             <AbilitiesBox
               className="bg-black/30 p-4 rounded-xl"
               abilities={toonData.abilities}
             />
-            <ul>
-              <li><ShinyButton className="w-8">Hello</ShinyButton></li>
+            <ul className="grid grid-cols-3 grid-rows-1 gap-2 h-12">
+              {detailsTabs.map((item, index) => {
+                const Icon = ICONS[item].node;
+
+                return (
+                  <li key={index}>
+                    <ShinyButton 
+                      className="w-full h-full" 
+                      active={activeDetailsTabIndex == index}
+                      onClick={() => {
+                        if (activeDetailsTabIndex == index) return;
+                        setActiveDetailsTabIndex(index);
+                      }}
+                    >
+                      {<Icon className="w-full h-full" color="white" />}
+                    </ShinyButton>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>
