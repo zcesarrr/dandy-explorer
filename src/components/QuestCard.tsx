@@ -5,7 +5,7 @@ type QuestCard = {
 export default function QuestCard({ description }: QuestCard) {
     return (
         <div className="bg-black/40 rounded-lg p-2">
-            <p className="font-fredoka text-white text-stroke text-center">{description}</p>
+            <p className="font-fredoka text-white text-stroke text-center leading-5">{description}</p>
         </div>
     );
 }

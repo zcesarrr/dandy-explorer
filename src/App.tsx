@@ -59,15 +59,27 @@ export default function App() {
       ),
     },
     {
-      name: "Unlock Requirements",
+      name: "Requirements",
       icon: "key",
       content: (
         <ul className="flex flex-col gap-2">
           <li>
-            <IconLabelCard />
+            <IconLabelCard icon="waterdrop" label="1500 Ichor" />
           </li>
           <li>
-            <IconLabelCard />
+            <IconLabelCard icon="question" label="Encounter Twisted Dandy" />
+          </li>
+          <li>
+            <IconLabelCard icon="magnifier" label="100% Research on Twisted Vee" />
+          </li>
+          <li>
+            <IconLabelCard icon="medal" label="Complete all Mastery Quests on Brightney" />
+          </li>
+          <li>
+            <IconLabelCard icon="person" label="Own 15 or more Toons" />
+          </li>
+          <li>
+            <IconLabelCard icon="diploma" label="Own 3+ Titles" />
           </li>
         </ul>
       ),

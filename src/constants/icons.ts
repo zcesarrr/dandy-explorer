@@ -6,6 +6,11 @@ import { StarIcon } from "@solar-icons/react/bold/star";
 import { MedalRibbonStarIcon } from "@solar-icons/react/bold/medal-ribbon-star";
 import { KeyIcon } from "@solar-icons/react/bold/key";
 import { HandStarsIcon } from "@solar-icons/react/bold/hand-stars";
+import { WaterdropIcon } from "@solar-icons/react/bold/waterdrop";
+import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
+import { MagnifierIcon } from "@solar-icons/react/bold/magnifier";
+import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
+import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
 
 const ICONS = {
     heart: {
@@ -31,6 +36,26 @@ const ICONS = {
     handStars: {
         node: HandStarsIcon,
         alt: "Hand Stars Icon",
+    },
+    waterdrop: {
+        node: WaterdropIcon,
+        alt: "Waterdrop Icon",
+    },
+    person: {
+        node: UserRoundedIcon,
+        alt: "Person Icon",
+    },
+    magnifier: {
+        node: MagnifierIcon,
+        alt: "Magnifier Icon",
+    },
+    question: {
+        node: QuestionCircleIcon,
+        alt: "Question Mark Icon",
+    },
+    diploma: {
+        node: DiplomaIcon,
+        alt: "Diploma Icon",
     },
     
 } satisfies Record<IconId, { node: Icon, alt: string }>;
