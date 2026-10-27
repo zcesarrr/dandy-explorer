@@ -1,1 +1,1 @@
-export type IconId = "heart" | "heartBroken" | "star";
+export type IconId = "heart" | "heartBroken" | "star" | "medal" | "key" | "handStars";

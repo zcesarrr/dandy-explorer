@@ -8,7 +8,7 @@ import ICONS from "./constants/icons";
 import type { IconId } from "./types/icons";
 
 const detailsTabs = [
-  "star", "heart", "heartBroken",
+  "handStars", "medal", "key",
 ] satisfies IconId[];
 
 export default function App() {
