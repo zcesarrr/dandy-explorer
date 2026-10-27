@@ -12,6 +12,7 @@ type ToonButtonProps = {
 export default function ToonButton({ buttonProps, name, iconUrl, rarity }: ToonButtonProps) {
     return (
         <ShinyButton 
+            className="p-2"
             {...buttonProps}
         >
             <img
