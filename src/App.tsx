@@ -13,10 +13,10 @@ import QuestCard from "./components/QuestCard";
 import IconLabelCard from "./components/IconLabelCard";
 
 export default function App() {
-  const [selectedToonId, setSelectedToonId] = useState(0);
+  const [selectedToonIndex, setSelectedToonIndex] = useState(0);
   const [activeDetailsTabIndex, setActiveDetailsTabIndex] = useState(0);
 
-  const toonData = toons[selectedToonId];
+  const toonData = toons[selectedToonIndex];
 
   //TODO: Make the Mastery Quests UI heheh
   const detailsTabs: { name: string, icon: IconId, content?: ReactNode }[] = [
@@ -95,15 +95,15 @@ export default function App() {
         {/* TOON SELECTOR */}
         <div className="relative w-full">
           <ul className="absolute inset-0 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
-            {toons.map(item => (
-              <li key={item.id}>
+            {toons.map((item, index) => (
+              <li key={index}>
                 <ToonButton
                   buttonProps={{
                     onClick: () => {
-                      if (item.id == selectedToonId) return;
-                      setSelectedToonId(item.id)
+                      if (index == selectedToonIndex) return;
+                      setSelectedToonIndex(index)
                     },
-                    active: selectedToonId == item.id,
+                    active: selectedToonIndex == index,
                   }}
                   name={item.name}
                   iconUrl={item.iconUrl}
