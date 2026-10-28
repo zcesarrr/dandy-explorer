@@ -5,6 +5,7 @@ import type { Requirement, RequirementType } from "../types/requirements";
 const iconByType = {
     ichor: "waterdrop",
     pumpkin: "pumpkin",
+    easter: "easterEgg",
     encounter: "question",
     research: "magnifier",
     mastery: "medal",

@@ -10,7 +10,8 @@ import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
 import { MagnifierIcon } from "@solar-icons/react/bold/magnifier";
 import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
-import Pumpkin from "../components/Icons/Pumpkin";
+import PumpkinIcon from "../components/Icons/PumpkinIcon";
+import EasterEggIcon from "../components/Icons/EasterEggIcon";
 
 const ICONS = {
     heart: {
@@ -58,9 +59,13 @@ const ICONS = {
         alt: "Diploma Icon",
     },
     pumpkin: {
-        node: Pumpkin,
+        node: PumpkinIcon,
         alt: "Pumpkin Icon",
-    }
+    },
+    easterEgg: {
+        node: EasterEggIcon,
+        alt: "Pumpkin Icon",
+    },
     
 } satisfies Record<string, IconEntry>;
 

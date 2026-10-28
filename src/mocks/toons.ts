@@ -139,6 +139,20 @@ const toons: (Toon & { id: number })[] = [
         ],
         rarity: "main",
         category: "easter",
+        requirements: [
+            {
+               type: "easter",
+               label: "3000 Baskets"
+            },
+            {
+               type: "ichor",
+               label: "2500 Ichor"
+            },
+            {
+               type: "research",
+               label: "100% Research on Twisted Bassie"
+            },
+        ],
     },
     {
         id: 7,

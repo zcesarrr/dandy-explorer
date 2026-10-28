@@ -1,6 +1,6 @@
 import type { IconProps } from "@solar-icons/react";
 
-export default function Pumpkin({ className, color }: IconProps) {
+export default function PumpkinIcon({ className, color }: IconProps) {
     return (
         <svg
             viewBox="0 0 512 512"
