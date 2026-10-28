@@ -1,4 +1,5 @@
 import type { Ability } from "./abilities";
+import type { Requirement } from "./requirements";
 import type { Stat } from "./stats";
 
 export type ToonRarity = "normal" | "main";
@@ -12,4 +13,5 @@ export type Toon = {
     rarity: ToonRarity;
     category: ToonCategory;
     quests?: string[];
+    requirements?: Requirement[];
 };

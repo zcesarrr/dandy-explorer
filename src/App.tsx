@@ -63,24 +63,11 @@ export default function App() {
       icon: "key",
       content: (
         <ul className="flex flex-col gap-2">
-          <li>
-            <RequirementCard type="ichor" label="1500 Ichor" />
-          </li>
-          <li>
-            <RequirementCard type="encounter" label="Encounter Twisted Dandy" />
-          </li>
-          <li>
-            <RequirementCard type="research" label="100% Research on Twisted Vee" />
-          </li>
-          <li>
-            <RequirementCard type="mastery" label="Complete all Mastery Quests on Brightney" />
-          </li>
-          <li>
-            <RequirementCard type="toonsOwning" label="Own 15 or more Toons" />
-          </li>
-          <li>
-            <RequirementCard type="titlesOwning" label="Own 3+ Titles" />
-          </li>
+          {toonData.requirements?.map((item, index) => (
+            <li key={index}>
+              <RequirementCard {...item} />
+            </li>
+          ))}
         </ul>
       ),
     },

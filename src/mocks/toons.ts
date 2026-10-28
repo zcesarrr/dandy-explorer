@@ -24,6 +24,16 @@ const toons: (Toon & { id: number })[] = [
             "Survive 3 Floors with 7 other Players in your round!",
             "Use 80 Items!",
         ],
+        requirements: [
+            {
+                type: "ichor",
+                label: "1500 Pumpkins",
+            },
+            {
+                type: "toonsOwning",
+                label: "Own 5 or more Toons",
+            },
+        ],
     },
     {
         id: 1,
