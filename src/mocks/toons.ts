@@ -104,6 +104,20 @@ const toons: (Toon & { id: number })[] = [
         ],
         rarity: "main",
         category: "holiday",
+        requirements: [
+            {
+               type: "ornament",
+               label: "3000 Ornaments"
+            },
+            {
+               type: "ichor",
+               label: "2500 Ichor"
+            },
+            {
+               type: "research",
+               label: "100% Research on Twisted Bobette"
+            },
+        ],
     },
     {
         id: 5,

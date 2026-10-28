@@ -2,6 +2,7 @@ export type RequirementType =
     "ichor" | 
     "pumpkin" |
     "easter" |
+    "ornament" |
     "encounter" |
     "research" |
     "mastery" |

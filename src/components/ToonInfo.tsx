@@ -16,7 +16,7 @@ export default function ToonInfo({ className, name, iconUrl, stats, rarity }: To
         <div className={`${className}`}>
             <img
                 src={iconUrl}
-                alt="Eclipse Icon"
+                alt={`${name} Icon`}
                 className="w-[max(128px,30dvh)] mx-auto rounded-lg"
                 style={{
                     background: rarityBackgroundColor(rarity),

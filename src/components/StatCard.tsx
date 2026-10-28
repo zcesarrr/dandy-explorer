@@ -30,7 +30,6 @@ export default function StatCard({ name, value, icon, color }: Stat) {
                         <li key={index} className="h-full">
                             <Icon 
                                 className="h-full"
-                                alt={selectedIcon.alt}
                                 color={!shouldBeHeartBroken(index) ? "white" : ""}
                             />
                         </li>

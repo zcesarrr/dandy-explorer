@@ -6,6 +6,7 @@ const iconByType = {
     ichor: "waterdrop",
     pumpkin: "pumpkin",
     easter: "easterEgg",
+    ornament: "ornament",
     encounter: "question",
     research: "magnifier",
     mastery: "medal",
