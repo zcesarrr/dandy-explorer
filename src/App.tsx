@@ -81,7 +81,21 @@ export default function App() {
       <div className="w-full max-w-7xl grid grid-cols-[1fr_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
         {/* TOON SELECTOR */}
         <div className="relative w-full">
-          <ul className="absolute inset-0 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
+          {/* INPUT SEARCH */}
+          <div className="h-10 relative flex mx-1.5">
+            <ICONS.magnifier.node
+              color="#777"
+              className="absolute h-full aspect-square p-1.5"
+            />
+            <input
+              type="search"
+              placeholder="Search Toons..."
+              className="w-full h-full rounded-xl bg-[linear-gradient(to_top,#11111180,#44444460)] text-white font-fredoka text-xl pl-10 border-2 border-black shadow-[0_4px_0px_0px_black] focus:outline-none focus:border-white placeholder:text-white/20 placeholder:tracking-wide"
+            />
+          </div>
+
+          {/* TOONS LIST */}
+          <ul className="absolute inset-0 top-12 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
             {toons.map((item, index) => (
               <li key={index}>
                 <ToonButton

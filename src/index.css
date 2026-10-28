@@ -20,3 +20,7 @@
       -1px 1px 0 black;
   }
 }
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
