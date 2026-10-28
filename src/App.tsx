@@ -11,6 +11,7 @@ import AbilityCard from "./components/AbilityCard";
 import { CloseIcon } from "@solar-icons/react/bold/close";
 import QuestCard from "./components/QuestCard";
 import RequirementCard from "./components/RequirementCard";
+import Input from "./components/Input";
 
 export default function App() {
   const [selectedToonIndex, setSelectedToonIndex] = useState(0);
@@ -82,17 +83,12 @@ export default function App() {
         {/* TOON SELECTOR */}
         <div className="relative w-full">
           {/* INPUT SEARCH */}
-          <div className="h-10 relative flex mx-1.5">
-            <ICONS.magnifier.node
-              color="#777"
-              className="absolute h-full aspect-square p-1.5"
-            />
-            <input
-              type="search"
-              placeholder="Search Toons..."
-              className="w-full h-full rounded-xl bg-[linear-gradient(to_top,#11111180,#44444460)] text-white font-fredoka text-xl pl-10 border-2 border-black shadow-[0_4px_0px_0px_black] focus:outline-none focus:border-white placeholder:text-white/20 placeholder:tracking-wide"
-            />
-          </div>
+          <Input
+            type="search"
+            placeholder="Search Toons..."
+            icon="magnifier"
+            className="h-10 mx-1.5"
+          />
 
           {/* TOONS LIST */}
           <ul className="absolute inset-0 top-12 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
