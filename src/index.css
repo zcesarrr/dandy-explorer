@@ -9,6 +9,7 @@
 
 @theme {
   --font-fredoka: "Fredoka", sans-serif;
+  --breakpoint-xs: 480px
 }
 
 @layer utilities {

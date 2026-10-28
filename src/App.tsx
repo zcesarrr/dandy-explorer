@@ -79,9 +79,9 @@ export default function App() {
   return (
     <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,#00000050,transparent),repeating-linear-gradient(135deg,#404040_0px,#404040_18px,#454545_18px,#454545_36px)] min-h-dvh p-4">
       {/* CONTAINER */}
-      <div className="w-full max-w-7xl grid grid-cols-[1fr_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
+      <div className="w-full max-w-7xl sm:grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3 max-sm:h-[calc(100dvh-32px)]">
         {/* TOON SELECTOR */}
-        <div className="relative w-full">
+        <div className="relative w-full max-sm:hidden">
           {/* INPUT SEARCH */}
           <Input
             type="search"
