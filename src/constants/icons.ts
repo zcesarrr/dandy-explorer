@@ -7,12 +7,12 @@ import { KeyIcon } from "@solar-icons/react/bold/key";
 import { HandStarsIcon } from "@solar-icons/react/bold/hand-stars";
 import { WaterdropIcon } from "@solar-icons/react/bold/waterdrop";
 import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
-import { MagnifierIcon } from "@solar-icons/react/bold/magnifier";
 import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
 import PumpkinIcon from "../components/Icons/PumpkinIcon";
 import EasterEggIcon from "../components/Icons/EasterEggIcon";
 import OrnamentIcon from "../components/Icons/OrnamentIcon";
+import MagnifierIcon from "../components/Icons/MagnifierIcon";
 
 const ICONS = {
     heart: {
