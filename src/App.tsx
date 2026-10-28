@@ -10,7 +10,7 @@ import type { IconId } from "./types/icons";
 import AbilityCard from "./components/AbilityCard";
 import { CloseIcon } from "@solar-icons/react/bold/close";
 import QuestCard from "./components/QuestCard";
-import IconLabelCard from "./components/IconLabelCard";
+import RequirementCard from "./components/RequirementCard";
 
 export default function App() {
   const [selectedToonIndex, setSelectedToonIndex] = useState(0);
@@ -64,22 +64,22 @@ export default function App() {
       content: (
         <ul className="flex flex-col gap-2">
           <li>
-            <IconLabelCard icon="waterdrop" label="1500 Ichor" />
+            <RequirementCard type="ichor" label="1500 Ichor" />
           </li>
           <li>
-            <IconLabelCard icon="question" label="Encounter Twisted Dandy" />
+            <RequirementCard type="encounter" label="Encounter Twisted Dandy" />
           </li>
           <li>
-            <IconLabelCard icon="magnifier" label="100% Research on Twisted Vee" />
+            <RequirementCard type="research" label="100% Research on Twisted Vee" />
           </li>
           <li>
-            <IconLabelCard icon="medal" label="Complete all Mastery Quests on Brightney" />
+            <RequirementCard type="mastery" label="Complete all Mastery Quests on Brightney" />
           </li>
           <li>
-            <IconLabelCard icon="person" label="Own 15 or more Toons" />
+            <RequirementCard type="toonsOwning" label="Own 15 or more Toons" />
           </li>
           <li>
-            <IconLabelCard icon="diploma" label="Own 3+ Titles" />
+            <RequirementCard type="titlesOwning" label="Own 3+ Titles" />
           </li>
         </ul>
       ),
