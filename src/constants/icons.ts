@@ -1,5 +1,4 @@
-import type { Icon } from "@solar-icons/react/lib/types";
-import type { IconId } from "../types/icons";
+import type { IconEntry } from "../types/icons";
 import { HeartIcon } from "@solar-icons/react/bold/heart";
 import { HeartCrackIcon } from "@solar-icons/react/bold/heart-crack";
 import { StarIcon } from "@solar-icons/react/bold/star";
@@ -11,6 +10,7 @@ import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
 import { MagnifierIcon } from "@solar-icons/react/bold/magnifier";
 import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
+import Pumpkin from "../components/Icons/Pumpkin";
 
 const ICONS = {
     heart: {
@@ -57,7 +57,11 @@ const ICONS = {
         node: DiplomaIcon,
         alt: "Diploma Icon",
     },
+    pumpkin: {
+        node: Pumpkin,
+        alt: "Pumpkin Icon",
+    }
     
-} satisfies Record<IconId, { node: Icon, alt: string }>;
+} satisfies Record<string, IconEntry>;
 
 export default ICONS;

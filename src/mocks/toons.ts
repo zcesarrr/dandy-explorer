@@ -26,7 +26,7 @@ const toons: (Toon & { id: number })[] = [
         ],
         requirements: [
             {
-                type: "ichor",
+                type: "pumpkin",
                 label: "1500 Pumpkins",
             },
             {

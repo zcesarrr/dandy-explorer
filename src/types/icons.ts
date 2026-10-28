@@ -1,12 +1,11 @@
-export type IconId = 
-    "heart" |
-    "heartBroken" |
-    "star" |
-    "medal" |
-    "key" |
-    "handStars" |
-    "waterdrop" |
-    "person" |
-    "magnifier" |
-    "question" |
-    "diploma";
+import type { ComponentType } from "react";
+import type ICONS from "../constants/icons";
+
+export type IconProps = {
+    className?: string;
+    color?: string;
+};
+
+export type IconComponent = ComponentType<IconProps>;
+export type IconEntry = { node: IconComponent; alt: string };
+export type IconId = keyof typeof ICONS;
