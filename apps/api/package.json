@@ -1,7 +1,7 @@
 {
   "name": "@dandy-explorer/api",
   "scripts": {
-    "dev": "tsx src/index.ts",
+    "dev": "tsx --watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
