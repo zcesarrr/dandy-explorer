@@ -2,7 +2,7 @@
   "name": "dandy-explorer",
   "private": true,
   "scripts": {
-    "dev": "pnpm --parallel --filter @dandy-explorer/web dev --filter @dandy-explorer/api dev",
+    "dev": "pnpm --parallel --filter @dandy-explorer/web --filter @dandy-explorer/api dev",
     "build": "pnpm --filter @dandy-explorer/web build && pnpm --filter @dandy-explorer/api build",
     "lint": "oxlint"
   },
