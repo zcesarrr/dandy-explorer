@@ -1,0 +1,11 @@
+{
+  "name": "@dandy-explorer/shared",
+  "private": true,
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "type": "module"
+}

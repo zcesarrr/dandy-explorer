@@ -13,8 +13,9 @@ export default function App() {
   const [activeDetailsTabIndex, setActiveDetailsTabIndex] = useState(0);
 
   const toonData = toons[selectedToonIndex];
-
   const currentDetailsTab = TOON_TABS[activeDetailsTabIndex];
+
+  if (!toonData || !currentDetailsTab) return null; // while i implement a better validation
 
   return (
     <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,#00000050,transparent),repeating-linear-gradient(135deg,#404040_0px,#404040_18px,#454545_18px,#454545_36px)] min-h-dvh p-4">
