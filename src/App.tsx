@@ -1,7 +1,6 @@
 // Believe me, I wrote those comments myself, not an AI. I just wanted to keep this code organized because React messes up the readability
 
 import { useState, type ReactNode } from "react";
-import ToonButton from "./components/ToonButton";
 import ToonInfo from "./components/ToonInfo";
 import toons from "./mocks/toons";
 import ShinyButton from "./components/ShinyButton";
@@ -11,7 +10,7 @@ import AbilityCard from "./components/AbilityCard";
 import { CloseIcon } from "@solar-icons/react/bold/close";
 import QuestCard from "./components/QuestCard";
 import RequirementCard from "./components/RequirementCard";
-import Input from "./components/Input";
+import ToonSelector from "./components/ToonSelector";
 
 export default function App() {
   const [selectedToonIndex, setSelectedToonIndex] = useState(0);
@@ -19,7 +18,6 @@ export default function App() {
 
   const toonData = toons[selectedToonIndex];
 
-  //TODO: Make the Mastery Quests UI heheh
   const detailsTabs: { name: string, icon: IconId, content?: ReactNode }[] = [
     {
       name: "Abilities",
@@ -80,36 +78,11 @@ export default function App() {
     <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,#00000050,transparent),repeating-linear-gradient(135deg,#404040_0px,#404040_18px,#454545_18px,#454545_36px)] min-h-dvh p-4">
       {/* CONTAINER */}
       <div className="w-full max-w-7xl sm:grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3 max-sm:h-[calc(100dvh-32px)]">
-        {/* TOON SELECTOR */}
-        <div className="relative w-full max-sm:hidden">
-          {/* INPUT SEARCH */}
-          <Input
-            type="search"
-            placeholder="Search Toons..."
-            icon="magnifier"
-            className="h-10 mx-1.5"
-          />
-
-          {/* TOONS LIST */}
-          <ul className="absolute inset-0 top-12 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
-            {toons.map((item, index) => (
-              <li key={index}>
-                <ToonButton
-                  buttonProps={{
-                    onClick: () => {
-                      if (index == selectedToonIndex) return;
-                      setSelectedToonIndex(index)
-                    },
-                    active: selectedToonIndex == index,
-                  }}
-                  name={item.name}
-                  iconUrl={item.iconUrl}
-                  rarity={item.rarity}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
+        <ToonSelector
+          toons={toons}
+          selected={selectedToonIndex}
+          onSelect={setSelectedToonIndex}
+        />
 
         {/* TOON INFORMATION */}
         <div className="grid grid-cols-2 gap-3">
