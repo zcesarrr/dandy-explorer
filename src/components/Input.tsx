@@ -23,7 +23,7 @@ export default function Input({ className, icon, placeholder, type }: InputProps
             <input
                 type={type}
                 placeholder={placeholder}
-                className="w-full h-full rounded-xl bg-[linear-gradient(to_top,#111111aa,#44444490)] text-white font-fredoka text-xl border-2 border-black shadow-[0_4px_0px_0px_black] focus:outline-none focus:border-white placeholder:text-white/20 placeholder:tracking-wide"
+                className="w-full h-full rounded-xl bg-[linear-gradient(to_top,#111111aa,#33333390)] text-white font-fredoka text-xl border-2 border-black shadow-[0_4px_0px_0px_black] focus:outline-none focus:border-white placeholder:text-white/20 placeholder:tracking-wide"
                 style={{
                     paddingLeft: `${icon ? "40px" : "8px"}`,
                 }}
