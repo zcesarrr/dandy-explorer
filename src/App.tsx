@@ -1,16 +1,12 @@
 // Believe me, I wrote those comments myself, not an AI. I just wanted to keep this code organized because React messes up the readability
 
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
 import ToonInfo from "./components/ToonInfo";
 import toons from "./mocks/toons";
 import ShinyButton from "./components/ShinyButton";
 import ICONS from "./constants/icons";
-import type { IconId } from "./types/icons";
-import AbilityCard from "./components/AbilityCard";
-import { CloseIcon } from "@solar-icons/react/bold/close";
-import QuestCard from "./components/QuestCard";
-import RequirementCard from "./components/RequirementCard";
 import ToonSelector from "./components/ToonSelector";
+import { TOON_TABS } from "./constants/toonTabs";
 
 export default function App() {
   const [selectedToonIndex, setSelectedToonIndex] = useState(0);
@@ -18,61 +14,7 @@ export default function App() {
 
   const toonData = toons[selectedToonIndex];
 
-  const detailsTabs: { name: string, icon: IconId, content?: ReactNode }[] = [
-    {
-      name: "Abilities",
-      icon: "handStars",
-      content: (
-        <ul className="flex flex-col gap-4">
-          {toonData.abilities.map((item, index) => (
-            <li key={index}>
-              <AbilityCard
-                {...item}
-              />
-            </li>
-          ))}
-          {toonData.abilities.length < 2 && (
-            <li>
-              <div className="bg-black/40 rounded-lg p-2 h-16 flex justify-center items-center">
-                <CloseIcon
-                  color="#000000aa"
-                  className="w-full h-full"
-                />
-              </div>
-            </li>
-          )}
-        </ul>
-      ),
-    },
-    {
-      name: "Mastery Quests",
-      icon: "medal",
-      content: (
-        <ul className="flex flex-col gap-2">
-          {toonData.quests?.map((item, index) => (
-            <li key={index}>
-              <QuestCard description={item} />
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-    {
-      name: "Requirements",
-      icon: "key",
-      content: (
-        <ul className="flex flex-col gap-2">
-          {toonData.requirements?.map((item, index) => (
-            <li key={index}>
-              <RequirementCard {...item} />
-            </li>
-          ))}
-        </ul>
-      ),
-    },
-  ];
-
-  const currentDetailsTab = detailsTabs[activeDetailsTabIndex];
+  const currentDetailsTab = TOON_TABS[activeDetailsTabIndex];
 
   return (
     <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,#00000050,transparent),repeating-linear-gradient(135deg,#404040_0px,#404040_18px,#454545_18px,#454545_36px)] min-h-dvh p-4">
@@ -101,12 +43,12 @@ export default function App() {
               <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">{currentDetailsTab.name}</p>
 
               {/* TAB CONTENT */}
-              {currentDetailsTab.content}
+              <currentDetailsTab.Component toon={toonData} />
             </div>
 
             {/* TABS */}
             <ul className="grid grid-cols-3 grid-rows-1 gap-2 h-12">
-              {detailsTabs.map((item, index) => {
+              {TOON_TABS.map((item, index) => {
                 const Icon = ICONS[item.icon].node;
 
                 return (

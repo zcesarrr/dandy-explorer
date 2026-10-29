@@ -1,7 +1,7 @@
 import type { Toon } from "../types/toons";
 import { buildBaseStats } from "../utils/stats";
 
-const toons: (Toon & { id: number })[] = [
+const toons: Toon[] = [
     {
         id: 0,
         name: "Eclipse",

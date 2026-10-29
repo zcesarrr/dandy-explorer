@@ -10,7 +10,7 @@ type ToonSelectorProps = {
 
 export default function ToonSelector({ toons, selected, onSelect }: ToonSelectorProps) {
     return (
-        <div className="relative w-full max-sm:hidden">
+        <div className="relative w-full">
             <Input
                 type="search"
                 placeholder="Search Toons..."
