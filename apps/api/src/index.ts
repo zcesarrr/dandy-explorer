@@ -1,3 +1,4 @@
+import env from "./config/env.js";
 import e from "express";
 import helmet from "helmet";
 import errorHandler from "./middlewares/errorHandler.js";
@@ -16,6 +17,6 @@ app.get("/", (_, res) => {
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-app.listen(3000, () => {
-    console.log(`http://localhost:${3000}`);
+app.listen(env.PORT, () => {
+    console.log(`http://localhost:${env.PORT}`);
 });
