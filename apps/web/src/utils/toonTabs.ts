@@ -1,7 +1,7 @@
-import { TOON_TABS } from "../constants/toonTabs";
+import { TOON_TABS, type ToonTabKey } from "../constants/toonTabs";
 import type { ToonTabDef } from "../types/toonTabs";
 
-export function isToonTabKey(key: string | undefined): boolean {
+export function isToonTabKey(key: string | undefined): key is ToonTabKey {
     return TOON_TABS.some((t) => t.key === key);
 }
 

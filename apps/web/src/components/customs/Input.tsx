@@ -13,7 +13,7 @@ export default function Input({ className, icon, placeholder, type }: InputProps
     const Icon = icon ? ICONS[icon].node : null;
 
     return (
-        <div className={`${className} relative flex`}>
+        <div className={`${className ?? ""} relative flex`}>
             {Icon &&
                 <Icon
                     color="#777"

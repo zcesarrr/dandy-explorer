@@ -1,17 +1,15 @@
-// Believe me, I wrote those comments myself, not an AI. I just wanted to keep this code organized because React messes up the readability
-
-import ToonInfo from "../components/blocks/ToonInfo";
 import toons from "../mocks/toons";
-import ToonSelector from "../components/blocks/ToonSelector";
-import { TOON_TABS } from "../constants/toonTabs";
 import { Navigate, useNavigate, useParams } from "react-router";
-import { getToonTab, isToonTabKey } from "../utils/toonTabs";
-import TabBar from "../components/blocks/TabBar";
+import { isToonTabKey } from "../utils/toonTabs";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
+import { useIsDesktop } from "../hooks/useIsDesktop";
+import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
+import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 
 export default function ToonPage() {
     const { toonId, tab } = useParams();
     const navigate = useNavigate();
+    const isDesktop = useIsDesktop();
 
     const toonData = toonId === undefined ?
         toons[0] :
@@ -23,65 +21,38 @@ export default function ToonPage() {
     if (tab !== undefined && !isToonTabKey(tab)) {
         return <Navigate to={`/toon/${toonData.id}`} replace />;
     }
-    const currentTab = getToonTab(tab);
 
-    return (
-        <MobileToonScreen
-            toon={toonData}
-            tab={tab}
-            onSelectTab={(key) => 
-                navigate(
-                    key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
-                    { replace: true }
-                )
-            }
-        />
-    );
+    if (!isDesktop && toonId === undefined) {
+        return (
+            <MobileSelectorScreen
+                onSelect={id => navigate(`/toon/${id}`)}
+                toons={toons}
+            />
+        );
+    }
 
-    return (
-        <div className="flex flex-col justify-center items-center min-h-dvh p-4">
-            {/* CONTAINER */}
-            <div className="w-full max-w-7xl sm:grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3 max-sm:h-[calc(100dvh-32px)]">
-                <ToonSelector
-                    toons={toons}
-                    selected={toonData.id}
-                    onSelect={(id) => navigate(`/toon/${id}/${currentTab.key}`)}
-                />
-
-                {/* TOON INFORMATION */}
-                <div className="grid grid-cols-2 gap-3">
-                    <ToonInfo
-                        className="bg-black/30 p-4 rounded-xl"
-                        name={toonData.name}
-                        iconUrl={toonData.iconUrl}
-                        stats={toonData.stats}
-                        rarity={toonData.rarity}
-                    />
-
-                    {/* DETAILS SECTION */}
-                    <div className="flex flex-col justify-between">
-                        {/* PANEL */}
-                        <div className="bg-black/30 p-4 rounded-xl">
-                            <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">
-                                {currentTab.name}
-                            </p>
-
-                            {/* TAB CONTENT */}
-                            <currentTab.Component toon={toonData} />
-                        </div>
-
-                        {/* TABS */}
-                        <TabBar
-                            items={TOON_TABS}
-                            activeKey={currentTab.key}
-                            onSelect={(key) => {
-                                if (key == currentTab.key) return;
-                                navigate(`/toon/${toonData.id}/${key}`);
-                            }}
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+    if (isDesktop) {
+        return (
+            <DesktopToonScreen
+                onSelectToon={id => navigate(tab ? `/toon/${id}/${tab}` : `/toon/${id}`)}
+                onSelectTab={key => navigate(`/toon/${toonData.id}/${key}`)}
+                toons={toons}
+                toon={toonData}
+                tab={tab}
+            />
+        );
+    } else {
+        return (
+            <MobileToonScreen
+                toon={toonData}
+                tab={tab}
+                onSelectTab={(key) => 
+                    navigate(
+                        key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
+                        { replace: true }
+                    )
+                }
+            />
+        );
+    }
 }

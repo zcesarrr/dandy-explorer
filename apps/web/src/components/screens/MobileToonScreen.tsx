@@ -1,4 +1,4 @@
-import { TOON_TABS } from "../../constants/toonTabs";
+import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs";
 import type { Toon } from "../../types/toons";
 import { getToonTab } from "../../utils/toonTabs";
 import TabBar, { type TabBarItem } from "../blocks/TabBar";
@@ -6,7 +6,7 @@ import ToonInfo from "../blocks/ToonInfo";
 
 type MobileToonScreenProps = {
     toon: Toon;
-    tab: string | undefined;
+    tab: ToonTabKey | undefined;
     onSelectTab: (key: string) => void;
 };
 

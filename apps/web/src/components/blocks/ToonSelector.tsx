@@ -5,13 +5,13 @@ import ToonButton from "../ToonButton";
 export type ToonSelectorProps = {
     className?: string;
     toons: Toon[];
-    selected: number;
+    selected?: number | undefined;
     onSelect: (id: number) => void;
 };
 
 export default function ToonSelector({ className, toons, selected, onSelect }: ToonSelectorProps) {
     return (
-        <div className={`${className} relative w-full`}>
+        <div className={`${className ?? ""} relative w-full`}>
             <Input
                 type="search"
                 placeholder="Search Toons..."

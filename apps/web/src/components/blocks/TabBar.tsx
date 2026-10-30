@@ -13,7 +13,7 @@ type TabBarProps = {
 
 export default function TabBar({ className, items, activeKey, onSelect }: TabBarProps) {
     return (
-        <ul className={`${className} grid grid-flow-col auto-cols-fr grid-rows-1 gap-2 h-12`}>
+        <ul className={`${className ?? ""} grid grid-flow-col auto-cols-fr grid-rows-1 gap-2 h-12`}>
             {items.map(item => {
                 const Icon = ICONS[item.icon].node;
 

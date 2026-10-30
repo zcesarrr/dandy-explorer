@@ -14,7 +14,7 @@ type ComponentProps = ShinyButtonProps & {
 export default function ShinyButton({ children, className, onClick, active, ariaLabel }: ComponentProps) {
     return (
         <button 
-            className={`${className} active:outline-2 hover:outline-2 hover:shadow-none active:translate-y-0.5 outline-white/50 flex flex-col gap-1 bg-[linear-gradient(to_top,#111111,#444444)] border-2 border-black rounded-xl shadow-[0_4px_0px_0px_black]`}
+            className={`${className ?? ""} active:outline-2 hover:outline-2 hover:shadow-none active:translate-y-0.5 outline-white/50 flex flex-col gap-1 bg-[linear-gradient(to_top,#111111,#444444)] border-2 border-black rounded-xl shadow-[0_4px_0px_0px_black]`}
             onClick={onClick}
             aria-label={ariaLabel}
             style={{

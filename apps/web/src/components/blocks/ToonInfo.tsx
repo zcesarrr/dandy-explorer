@@ -13,7 +13,7 @@ type ToonInfoProps = {
 
 export default function ToonInfo({ className, name, iconUrl, stats, rarity }: ToonInfoProps) {
     return (
-        <div className={`${className}`}>
+        <div className={`${className ?? ""}`}>
             <img
                 src={iconUrl}
                 alt={`${name} Icon`}

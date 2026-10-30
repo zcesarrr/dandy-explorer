@@ -5,7 +5,7 @@ export default function MagnifierIcon({ className, color }: IconProps) {
         <svg
             viewBox="0 0 24 24"
             fill="transparent"
-            className={`${className}`}
+            className={`${className ?? ""}`}
         >
             <path
                 stroke={color}
