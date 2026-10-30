@@ -5,8 +5,8 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={<ToonPage />} />
-      <Route path="/toon/:id" element={<ToonPage />} />
-      <Route path="/toon/:id/:tab" element={<ToonPage />} />
+      <Route path="/toon/:toonId" element={<ToonPage />} />
+      <Route path="/toon/:toonId/:tab" element={<ToonPage />} />
     </Routes>
   );
 }

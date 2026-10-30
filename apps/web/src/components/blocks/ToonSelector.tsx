@@ -19,15 +19,15 @@ export default function ToonSelector({ toons, selected, onSelect }: ToonSelector
             />
 
             <ul className="absolute inset-0 top-12.5 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
-                {toons.map((item, index) => (
-                    <li key={index}>
+                {toons.map(item => (
+                    <li key={item.id}>
                         <ToonButton
                             buttonProps={{
                                 onClick: () => {
-                                    if (index == selected) return;
-                                    onSelect(index);
+                                    if (item.id == selected) return;
+                                    onSelect(item.id);
                                 },
-                                active: selected == index,
+                                active: selected == item.id,
                             }}
                             name={item.name}
                             iconUrl={item.iconUrl}
