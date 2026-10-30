@@ -1,5 +1,5 @@
 import type { ToonTabProps } from "../../types/toonTabs";
-import RequirementCard from "../RequirementCard";
+import RequirementCard from "../cards/RequirementCard";
 
 export default function RequirementsTab({ toon }: ToonTabProps) {
     return (

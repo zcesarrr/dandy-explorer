@@ -1,6 +1,6 @@
-import type { Toon } from "../types/toons";
-import Input from "./Input";
-import ToonButton from "./ToonButton";
+import type { Toon } from "../../types/toons";
+import Input from "../customs/Input";
+import ToonButton from "../ToonButton";
 
 type ToonSelectorProps = {
     toons: Toon[];

@@ -1,6 +1,6 @@
 import type { ToonRarity } from "../types/toons";
 import { rarityBackgroundColor } from "../utils/styles";
-import ShinyButton, { type ShinyButtonProps } from "./ShinyButton";
+import ShinyButton, { type ShinyButtonProps } from "./customs/ShinyButton";
 
 type ToonButtonProps = {
     buttonProps: ShinyButtonProps

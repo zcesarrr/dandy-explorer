@@ -1,7 +1,7 @@
-import type { Stat } from "../types/stats";
-import type { ToonRarity } from "../types/toons";
-import { rarityBackgroundColor } from "../utils/styles";
-import StatCard from "./StatCard";
+import type { Stat } from "../../types/stats";
+import type { ToonRarity } from "../../types/toons";
+import { rarityBackgroundColor } from "../../utils/styles";
+import StatCard from "../cards/StatCard";
 
 type ToonInfoProps = {
     className?: string;

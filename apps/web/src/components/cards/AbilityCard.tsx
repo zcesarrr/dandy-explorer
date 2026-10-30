@@ -1,5 +1,5 @@
-import type { Ability } from "../types/abilities";
-import { abilityTypeString } from "../utils/abilities";
+import type { Ability } from "../../types/abilities";
+import { abilityTypeString } from "../../utils/abilities";
 
 export default function AbilityCard({ name, type, description }: Ability) {
     return (

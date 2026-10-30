@@ -9,10 +9,10 @@ import { WaterdropIcon } from "@solar-icons/react/bold/waterdrop";
 import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
 import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
-import PumpkinIcon from "../components/Icons/PumpkinIcon";
-import EasterEggIcon from "../components/Icons/EasterEggIcon";
-import OrnamentIcon from "../components/Icons/OrnamentIcon";
-import MagnifierIcon from "../components/Icons/MagnifierIcon";
+import PumpkinIcon from "../components/icons/PumpkinIcon";
+import EasterEggIcon from "../components/icons/EasterEggIcon";
+import OrnamentIcon from "../components/icons/OrnamentIcon";
+import MagnifierIcon from "../components/icons/MagnifierIcon";
 
 const ICONS = {
     heart: {

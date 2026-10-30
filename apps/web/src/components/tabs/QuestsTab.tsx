@@ -1,5 +1,5 @@
 import type { ToonTabProps } from "../../types/toonTabs";
-import QuestCard from "../QuestCard";
+import QuestCard from "../cards/QuestCard";
 
 export default function QuestsTab({ toon }: ToonTabProps) {
     return (

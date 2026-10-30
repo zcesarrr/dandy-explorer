@@ -1,6 +1,6 @@
-import AbilitiesTab from "../components/Tabs/AbilitiesTab";
-import QuestsTab from "../components/Tabs/QuestsTab";
-import RequirementsTab from "../components/Tabs/RequirementsTab";
+import AbilitiesTab from "../components/tabs/AbilitiesTab";
+import QuestsTab from "../components/tabs/QuestsTab";
+import RequirementsTab from "../components/tabs/RequirementsTab";
 import type { ToonTabDef } from "../types/toonTabs";
 
 export const TOON_TABS = [
