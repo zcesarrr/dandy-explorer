@@ -2,7 +2,8 @@ import ICONS from "../../constants/icons";
 import type { IconId } from "../../types/icons";
 import ShinyButton from "../customs/ShinyButton";
 
-type TabBarItem = { key: string, icon: IconId, name: string };
+export type TabBarItem = { key: string, icon: IconId, name: string };
+
 type TabBarProps = {
     className?: string;
     items: readonly TabBarItem[];
