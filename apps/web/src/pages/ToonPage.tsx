@@ -6,17 +6,24 @@ import ShinyButton from "../components/customs/ShinyButton";
 import ICONS from "../constants/icons";
 import ToonSelector from "../components/blocks/ToonSelector";
 import { TOON_TABS } from "../constants/toonTabs";
-import { useNavigate, useParams } from "react-router";
+import { Navigate, useNavigate, useParams } from "react-router";
 import { getToonTab } from "../utils/toonTabs";
 
 export default function ToonPage() {
     const { toonId, tab } = useParams();
     const navigate = useNavigate();
 
-    const toonData = toons.find((toon) => toon.id === Number(toonId)) ?? toons[0];
-    const currentTab = getToonTab(tab);
+    const toonData = toonId === undefined ?
+        toons[0] :
+        toons.find((toon) => toon.id === Number(toonId));
+    
+    if (toonId !== undefined && !toonData) return <Navigate to="/" replace />;
+    if (!toonData) return null; // while i implement a better validation
 
-    if (!toonData || !currentTab) return null; // while i implement a better validation
+    if (tab !== undefined && !TOON_TABS.some((t) => t.key === tab)) {
+        return <Navigate to={`/toon/${toonData.id}`} replace />;
+    }
+    const currentTab = getToonTab(tab);
 
     return (
         <div className="flex flex-col justify-center items-center bg-[linear-gradient(to_top,#00000050,transparent),repeating-linear-gradient(135deg,#404040_0px,#404040_18px,#454545_18px,#454545_36px)] min-h-dvh p-4">
@@ -25,7 +32,7 @@ export default function ToonPage() {
                 <ToonSelector
                     toons={toons}
                     selected={toonData.id}
-                    onSelect={(id) => navigate(`/toon/${id}/${currentTab.key}`, { replace: true })}
+                    onSelect={(id) => navigate(`/toon/${id}/${currentTab.key}`)}
                 />
 
                 {/* TOON INFORMATION */}
@@ -65,7 +72,7 @@ export default function ToonPage() {
                                                 navigate(`/toon/${toonData.id}/${item.key}`);
                                             }}
                                         >
-                                            {<Icon className="w-full h-full" color="white" />}
+                                            <Icon className="w-full h-full" color="white" />
                                         </ShinyButton>
                                     </li>
                                 );

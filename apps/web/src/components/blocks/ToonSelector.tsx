@@ -5,7 +5,7 @@ import ToonButton from "../ToonButton";
 type ToonSelectorProps = {
     toons: Toon[];
     selected: number;
-    onSelect: (index: number) => void;
+    onSelect: (id: number) => void;
 };
 
 export default function ToonSelector({ toons, selected, onSelect }: ToonSelectorProps) {
