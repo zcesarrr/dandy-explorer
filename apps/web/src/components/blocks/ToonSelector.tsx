@@ -2,15 +2,16 @@ import type { Toon } from "../../types/toons";
 import Input from "../customs/Input";
 import ToonButton from "../ToonButton";
 
-type ToonSelectorProps = {
+export type ToonSelectorProps = {
+    className?: string;
     toons: Toon[];
     selected: number;
     onSelect: (id: number) => void;
 };
 
-export default function ToonSelector({ toons, selected, onSelect }: ToonSelectorProps) {
+export default function ToonSelector({ className, toons, selected, onSelect }: ToonSelectorProps) {
     return (
-        <div className="relative w-full">
+        <div className={`${className} relative w-full`}>
             <Input
                 type="search"
                 placeholder="Search Toons..."

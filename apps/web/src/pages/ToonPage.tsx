@@ -2,12 +2,11 @@
 
 import ToonInfo from "../components/blocks/ToonInfo";
 import toons from "../mocks/toons";
-import ShinyButton from "../components/customs/ShinyButton";
-import ICONS from "../constants/icons";
 import ToonSelector from "../components/blocks/ToonSelector";
 import { TOON_TABS } from "../constants/toonTabs";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { getToonTab } from "../utils/toonTabs";
+import TabBar from "../components/blocks/TabBar";
 
 export default function ToonPage() {
     const { toonId, tab } = useParams();
@@ -58,26 +57,14 @@ export default function ToonPage() {
                         </div>
 
                         {/* TABS */}
-                        <ul className="grid grid-cols-3 grid-rows-1 gap-2 h-12">
-                            {TOON_TABS.map(item => {
-                                const Icon = ICONS[item.icon].node;
-
-                                return (
-                                    <li key={item.key}>
-                                        <ShinyButton
-                                            className="w-full h-full p-1"
-                                            active={item.key == currentTab.key}
-                                            onClick={() => {
-                                                if (item.key == currentTab.key) return;
-                                                navigate(`/toon/${toonData.id}/${item.key}`);
-                                            }}
-                                        >
-                                            <Icon className="w-full h-full" color="white" />
-                                        </ShinyButton>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                        <TabBar
+                            items={TOON_TABS}
+                            activeKey={currentTab.key}
+                            onSelect={(key) => {
+                                if (key == currentTab.key) return;
+                                navigate(`/toon/${toonData.id}/${key}`);
+                            }}
+                        />
                     </div>
                 </div>
             </div>
