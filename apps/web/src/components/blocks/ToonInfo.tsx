@@ -1,6 +1,6 @@
 import type { Stat } from "../../types/stats";
-import type { ToonRarity } from "../../types/toons";
-import { rarityBackgroundColor } from "../../utils/styles";
+import type { ToonCategory, ToonRarity } from "../../types/toons";
+import { toonBackgroundColor } from "../../utils/styles";
 import StatCard from "../cards/StatCard";
 
 type ToonInfoProps = {
@@ -9,9 +9,10 @@ type ToonInfoProps = {
     iconUrl: string;
     stats: Stat[];
     rarity: ToonRarity,
+    category: ToonCategory;
 };
 
-export default function ToonInfo({ className, name, iconUrl, stats, rarity }: ToonInfoProps) {
+export default function ToonInfo({ className, name, iconUrl, stats, rarity, category }: ToonInfoProps) {
     return (
         <div className={`${className ?? ""}`}>
             <img
@@ -19,7 +20,7 @@ export default function ToonInfo({ className, name, iconUrl, stats, rarity }: To
                 alt={`${name} Icon`}
                 className="w-[max(128px,30dvh)] mx-auto rounded-lg"
                 style={{
-                    background: rarityBackgroundColor(rarity),
+                    background: toonBackgroundColor(rarity, category),
                 }}
             />
             <p className="font-fredoka text-white text-3xl text-stroke text-center my-1">{name}</p>

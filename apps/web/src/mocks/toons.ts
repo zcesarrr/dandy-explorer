@@ -183,6 +183,26 @@ const toons: Toon[] = [
         rarity: "normal",
         category: "easter",
     },
+    {
+        id: 8,
+        name: "Shelly",
+        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a6/Shelly_Render.png",
+        stats: buildBaseStats(2, 5, 3, 2, 3, 3),
+        abilities: [
+            {
+                name: "Inspiration",
+                type: "active",
+                description: "This Toon can boost the Extraction Speed of a selected Toon by 75% for 15 seconds. Has a cooldown of 60.",
+            },
+            {
+                name: "Problem Solver",
+                type: "passive",
+                description: "This Toon gains a 25% Movement Speed boost when any Machine is completed for 10 seconds.",
+            },
+        ],
+        rarity: "main",
+        category: "none",
+    },
  ];
 
 export default toons;

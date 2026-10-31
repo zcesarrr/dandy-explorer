@@ -36,9 +36,7 @@ export default function ToonSelector({ className, toons, selected, onSelect, too
                                 },
                                 active: selected == item.id,
                             }}
-                            name={item.name}
-                            iconUrl={item.iconUrl}
-                            rarity={item.rarity}
+                            {...item}
                         />
                     </li>
                 ))}

@@ -5,6 +5,7 @@ import { getToonTab } from "../../utils/toonTabs";
 import TabBar, { type TabBarItem } from "../blocks/TabBar";
 import ToonInfo from "../blocks/ToonInfo";
 import ShinyButton from "../customs/ShinyButton";
+import ToonImage from "../ToonImage";
 
 const items: TabBarItem[] = [
     {
@@ -29,10 +30,9 @@ export default function MobileToonScreen({ toon, tab, onSelectTab, onBackClick }
         <div className="h-dvh flex flex-col">
             <div className="flex justify-between items-center h-10 mx-2 mt-[max(0.5rem,env(safe-area-inset-top))] gap-2 mb-1">
                 <div className="flex h-full items-center gap-1">
-                    <img
-                        src={toon.iconUrl}
-                        alt={`${toon.name} icon`}
-                        className="h-full aspect-square bg-black/40 rounded-lg"
+                    <ToonImage
+                        className="h-full aspect-square rounded-lg"
+                        {...toon}
                     />
                     <p className="font-fredoka text-stroke text-white">{toon.name}</p>
                 </div>
@@ -60,6 +60,7 @@ export default function MobileToonScreen({ toon, tab, onSelectTab, onBackClick }
                         iconUrl={toon.iconUrl}
                         stats={toon.stats}
                         rarity={toon.rarity}
+                        category={toon.category}
                     />
                 )}
             </main>
