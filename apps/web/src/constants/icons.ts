@@ -9,6 +9,7 @@ import { WaterdropIcon } from "@solar-icons/react/bold/waterdrop";
 import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
 import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
+import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -70,6 +71,10 @@ const ICONS = {
     ornament: {
         node: OrnamentIcon,
         alt: "Ornament Icon",
+    },
+    leftArrow: {
+        node: AltArrowLeftIcon,
+        alt: "Left Arrow",
     },
     
 } satisfies Record<string, IconEntry>;

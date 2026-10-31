@@ -1,6 +1,6 @@
 import ToonSelector, { type ToonSelectorProps } from "../blocks/ToonSelector";
 
-type MobileSelectorScreenProps = Omit<ToonSelectorProps, "className">;
+type MobileSelectorScreenProps = Omit<ToonSelectorProps, "className" | "selected">;
 
 export default function MobileSelectorScreen({ onSelect, toons }: MobileSelectorScreenProps) {
     return (
@@ -8,7 +8,6 @@ export default function MobileSelectorScreen({ onSelect, toons }: MobileSelector
             <ToonSelector
                 className="h-full"
                 onSelect={onSelect}
-                selected={undefined}
                 toons={toons}
             />
         </div>
