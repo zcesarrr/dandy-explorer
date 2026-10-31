@@ -9,6 +9,7 @@ export default function MobileSelectorScreen({ onSelect, toons }: MobileSelector
                 className="h-full"
                 onSelect={onSelect}
                 toons={toons}
+                toonButtonSize="106px"
             />
         </div>
     );

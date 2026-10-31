@@ -7,9 +7,10 @@ export type ToonSelectorProps = {
     toons: Toon[];
     selected?: number;
     onSelect: (id: number) => void;
+    toonButtonSize?: string;
 };
 
-export default function ToonSelector({ className, toons, selected, onSelect }: ToonSelectorProps) {
+export default function ToonSelector({ className, toons, selected, onSelect, toonButtonSize = undefined }: ToonSelectorProps) {
     return (
         <div className={`${className ?? ""} relative w-full`}>
             <Input
@@ -19,7 +20,12 @@ export default function ToonSelector({ className, toons, selected, onSelect }: T
                 className="h-10 mx-1.5"
             />
 
-            <ul className="absolute inset-0 top-12.5 overflow-y-auto grid grid-cols-[repeat(auto-fit,136px)] content-start justify-center gap-2 p-1 scrollbar-thumb-black/80">
+            <ul 
+                className="absolute inset-0 top-12.5 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80"
+                style={{
+                    gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "136px"})`
+                }}
+            >
                 {toons.map(item => (
                     <li key={item.id}>
                         <ToonButton
