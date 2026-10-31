@@ -41,18 +41,21 @@ export default function ToonPage() {
                 tab={tab}
             />
         );
-    } else {
-        return (
-            <MobileToonScreen
-                toon={toonData}
-                tab={tab}
-                onSelectTab={(key) => 
-                    navigate(
-                        key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
-                        { replace: true }
-                    )
-                }
-            />
-        );
     }
+
+    return (
+        <MobileToonScreen
+            toon={toonData}
+            tab={tab}
+            onSelectTab={(key) => 
+                navigate(
+                    key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
+                    { replace: true }
+                )
+            }
+            onBackClick={() => {
+                navigate("/", { replace: true });
+            }}
+        />
+    );
 }
