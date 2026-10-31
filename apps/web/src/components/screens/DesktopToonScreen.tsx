@@ -19,7 +19,7 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
     return (
         <div className="flex flex-col justify-center items-center min-h-dvh p-4">
             {/* CONTAINER */}
-            <div className="w-full max-w-7xl grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
+            <main className="w-full max-w-7xl grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
                 <ToonSelector
                     toons={toons}
                     selected={toon.id}
@@ -34,7 +34,7 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
                     />
 
                     {/* DETAILS SECTION */}
-                    <div className="flex flex-col justify-between">
+                    <section className="flex flex-col justify-between" aria-label="Toon details">
                         {/* PANEL */}
                         <div className="bg-black/30 p-4 rounded-xl">
                             <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">
@@ -46,14 +46,16 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
                         </div>
 
                         {/* TABS */}
-                        <TabBar
-                            items={TOON_TABS}
-                            activeKey={currentTab.key}
-                            onSelect={onSelectTab}
-                        />
-                    </div>
+                        <nav aria-label="Detail sections">
+                            <TabBar
+                                items={TOON_TABS}
+                                activeKey={currentTab.key}
+                                onSelect={onSelectTab}
+                            />
+                        </nav>
+                    </section>
                 </div>
-            </div>
+            </main>
         </div>
     );
 }

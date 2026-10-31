@@ -37,7 +37,7 @@ export default function MobileToonScreen({ toon, tab, onSelectTab, onBackClick }
                     color="white"
                 />
             </ShinyButton>
-            <div key={`${toon.id}-${tab ?? "info"}`} className="flex-1 min-h-0 overflow-y-auto p-4 bg-black/40 m-2 rounded-lg">
+            <main key={`${toon.id}-${tab ?? "info"}`} className="flex-1 min-h-0 overflow-y-auto p-4 bg-black/40 m-2 rounded-lg">
                 {currentTab ? (
                     <div>
                         <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">{currentTab.name}</p>
@@ -51,10 +51,13 @@ export default function MobileToonScreen({ toon, tab, onSelectTab, onBackClick }
                         rarity={toon.rarity}
                     />
                 )}
-            </div>
-            <div className="shrink-0 p-2 mb-[max(0.5rem,env(safe-area-inset-bottom))]">
+            </main>
+            <nav 
+                className="shrink-0 p-2 mb-[max(0.5rem,env(safe-area-inset-bottom))]"
+                aria-label="Toon sections"
+            >
                 <TabBar items={items} activeKey={tab ?? "info"} onSelect={onSelectTab} />
-            </div>
+            </nav>
         </div>
     );
 }
