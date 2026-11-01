@@ -10,6 +10,7 @@ import { UserRoundedIcon } from "@solar-icons/react/bold/user-rounded";
 import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
 import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
+import {  CloseIcon } from "@solar-icons/react/bold/close";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -74,7 +75,11 @@ const ICONS = {
     },
     leftArrow: {
         node: AltArrowLeftIcon,
-        alt: "Left Arrow",
+        alt: "Left Arrow Icon",
+    },
+    cross: {
+        node: CloseIcon,
+        alt: "Cross Icon",
     },
     
 } satisfies Record<string, IconEntry>;
