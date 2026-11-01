@@ -53,27 +53,33 @@ export default function ToonSelector({ className, toons, selected, onSelect, too
                     />
                 </div>
             ) : (
-                <ul 
-                    className="absolute inset-0 top-12.5 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80"
-                    style={{
-                        gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "136px"})`
-                    }}
-                >
-                    {filteredToons.map(item => (
-                        <li key={item.id}>
-                            <ToonButton
-                                buttonProps={{
-                                    onClick: () => {
-                                        if (item.id == selected) return;
-                                        onSelect(item.id);
-                                    },
-                                    active: selected == item.id,
-                                }}
-                                {...item}
-                            />
-                        </li>
-                    ))}
-                </ul>
+                <div>
+                    {search !== "" && (
+                        <p className="mt-1 mx-2 font-fredoka text-[#aaa]">Results: {filteredToons.length} toons</p>
+                    )}
+                    <ul 
+                        className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80"
+                        style={{
+                            top: `${search !== "" ? "70px" : "50px"}`,
+                            gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "136px"})`,
+                        }}
+                    >
+                        {filteredToons.map(item => (
+                            <li key={item.id}>
+                                <ToonButton
+                                    buttonProps={{
+                                        onClick: () => {
+                                            if (item.id == selected) return;
+                                            onSelect(item.id);
+                                        },
+                                        active: selected == item.id,
+                                    }}
+                                    {...item}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             )}
         </div>
     );
