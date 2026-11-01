@@ -30,6 +30,8 @@ export default function ToonSelector({ className, toons, selected, onSelect, too
     const filteredToons = search !== "" 
         ? toons.filter((toon) => normalizeString(toon.name).includes(search))
         : toons;
+    
+    const resultsCount = filteredToons.length;
 
     return (
         <div className={`${className ?? ""} relative w-full`}>
@@ -41,8 +43,8 @@ export default function ToonSelector({ className, toons, selected, onSelect, too
                 onValueChange={(value) => setInputSearch(value)}
             />
 
-            {filteredToons.length === 0 ? (
-                <div className="flex flex-col items-center mt-4 p-8 gap-4">
+            {resultsCount === 0 ? (
+                <div className="flex flex-col items-center p-8 gap-4">
                     <p className="font-fredoka text-white text-2xl text-stroke text-center">
                         Sorry, but your Toon is in another show!
                     </p>
@@ -55,7 +57,7 @@ export default function ToonSelector({ className, toons, selected, onSelect, too
             ) : (
                 <div>
                     {search !== "" && (
-                        <p className="mt-1 mx-2 font-fredoka text-[#aaa]">Results: {filteredToons.length} toons</p>
+                        <p className="mt-1 mx-2 font-fredoka text-[#aaa]">Results: {resultsCount} toon{resultsCount > 1 ? "s" : ""}</p>
                     )}
                     <ul 
                         className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80"

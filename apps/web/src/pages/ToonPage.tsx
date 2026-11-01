@@ -1,3 +1,6 @@
+// Made for Dandy's World fans.
+// Dandy Explorer is not affiliated with BlushCrunch Studio, this content is not official or endorsed by BlushCrunch Studio in any way.
+
 import toons from "../mocks/toons";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { isToonTabKey } from "../utils/toonTabs";
@@ -22,40 +25,46 @@ export default function ToonPage() {
         return <Navigate to={`/toon/${toonData.id}`} replace />;
     }
 
-    if (!isDesktop && toonId === undefined) {
-        return (
-            <MobileSelectorScreen
-                onSelect={id => navigate(`/toon/${id}`)}
-                toons={toons}
-            />
-        );
-    }
+    const Page = () => {
+        if (!isDesktop && toonId === undefined) {
+            return (
+                <MobileSelectorScreen
+                    onSelect={id => navigate(`/toon/${id}`)}
+                    toons={toons}
+                />
+            );
+        }
 
-    if (isDesktop) {
+        if (isDesktop) {
+            return (
+                <DesktopToonScreen
+                    onSelectToon={id => navigate(tab ? `/toon/${id}/${tab}` : `/toon/${id}`)}
+                    onSelectTab={key => navigate(`/toon/${toonData.id}/${key}`)}
+                    toons={toons}
+                    toon={toonData}
+                    tab={tab}
+                />
+            );
+        }
+
         return (
-            <DesktopToonScreen
-                onSelectToon={id => navigate(tab ? `/toon/${id}/${tab}` : `/toon/${id}`)}
-                onSelectTab={key => navigate(`/toon/${toonData.id}/${key}`)}
-                toons={toons}
+            <MobileToonScreen
                 toon={toonData}
                 tab={tab}
+                onSelectTab={(key) => 
+                    navigate(
+                        key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
+                        { replace: true }
+                    )
+                }
+                onBackClick={() => {
+                    navigate("/", { replace: true });
+                }}
             />
         );
     }
 
     return (
-        <MobileToonScreen
-            toon={toonData}
-            tab={tab}
-            onSelectTab={(key) => 
-                navigate(
-                    key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
-                    { replace: true }
-                )
-            }
-            onBackClick={() => {
-                navigate("/", { replace: true });
-            }}
-        />
+        <Page />
     );
 }
