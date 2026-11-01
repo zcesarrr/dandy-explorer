@@ -27,7 +27,7 @@ export default function MobileToonScreen({ toon, tab, onSelectTab, onBackClick }
     const currentTab = tab ? getToonTab(tab) : undefined;
 
     return (
-        <div className="h-dvh flex flex-col">
+        <div className="h-full flex flex-col">
             <div className="flex justify-between items-center h-10 mx-2 mt-[max(0.5rem,env(safe-area-inset-top))] gap-2 mb-1">
                 <div className="flex h-full items-center gap-1">
                     <ToonImage

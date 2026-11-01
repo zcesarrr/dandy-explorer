@@ -4,7 +4,7 @@ type MobileSelectorScreenProps = Omit<ToonSelectorProps, "className" | "selected
 
 export default function MobileSelectorScreen({ onSelect, toons }: MobileSelectorScreenProps) {
     return (
-        <div className="h-dvh pt-2">
+        <div className="h-full pt-2">
             <ToonSelector
                 className="h-full"
                 onSelect={onSelect}

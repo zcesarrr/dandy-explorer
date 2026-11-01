@@ -17,7 +17,7 @@ export default function Input({ className, icon, placeholder, type, onValueChang
     useEffect(() => {
         if (!onValueChange) return;
         onValueChange(value);
-    }, [value]);
+    }, [value, onValueChange]);
 
     const Icon = icon ? ICONS[icon].node : null;
     const isInputSearch = type === "search";

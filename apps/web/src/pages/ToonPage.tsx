@@ -1,6 +1,3 @@
-// Made for Dandy's World fans.
-// Dandy Explorer is not affiliated with BlushCrunch Studio, this content is not official or endorsed by BlushCrunch Studio in any way.
-
 import toons from "../mocks/toons";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { isToonTabKey } from "../utils/toonTabs";
@@ -8,6 +5,7 @@ import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
+import DisclaimerFooter from "../components/blocks/DisclaimerFooter";
 
 export default function ToonPage() {
     const { toonId, tab } = useParams();
@@ -25,7 +23,7 @@ export default function ToonPage() {
         return <Navigate to={`/toon/${toonData.id}`} replace />;
     }
 
-    const Page = () => {
+    const page = () => {
         if (!isDesktop && toonId === undefined) {
             return (
                 <MobileSelectorScreen
@@ -64,7 +62,12 @@ export default function ToonPage() {
         );
     }
 
+    const showFooter = isDesktop || toonId === undefined;
+
     return (
-        <Page />
+        <div className="h-dvh flex flex-col">
+            <div className="flex-1 min-h-0">{page()}</div>
+            {showFooter && <DisclaimerFooter />}
+        </div>
     );
 }
