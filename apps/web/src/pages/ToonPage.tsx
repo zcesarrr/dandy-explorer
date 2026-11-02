@@ -9,6 +9,7 @@ import { useToon, useToons } from "../hooks/useToons";
 
 export default function ToonPage() {
     const { toonId, tab } = useParams();
+
     const { data: toons } = useToons();
     const id = toonId ? Number(toonId) : toons?.[0]?.id;
     const { data: selectedToon, isLoading, isError } = useToon(id);
