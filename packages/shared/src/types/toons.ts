@@ -1,3 +1,8 @@
+import type { Ability } from "./abilities.js";
+import type { Quests } from "./quests.js";
+import type { Requirement } from "./requirements.js";
+import type { Stat } from "./stats.js";
+
 export type ToonRarity = "normal" | "main";
 export type ToonCategory = "none" | "halloween" | "holiday" | "easter";
 
@@ -7,4 +12,11 @@ export type Toon = {
     icon_url: string;
     rarity: ToonRarity;
     category: ToonCategory;
+};
+
+export type ToonDetailed = Toon & {
+    stats: Stat[];
+    abilities: Ability[];
+    quests: Quests[];
+    requirements: Requirement[];
 };
