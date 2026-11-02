@@ -1,22 +1,19 @@
-import type { ToonCategory, ToonRarity } from "../types/toons";
+import type { Toon } from "@dandy-explorer/shared";
 import { toonBackgroundColor } from "../utils/styles";
 
 type ToonImageProps = {
     className?: string;
-    name: string;
-    iconUrl: string;
-    rarity: ToonRarity;
-    category: ToonCategory;
+    toon: Toon;
 };
 
-export default function ToonImage({ className = "", name, iconUrl, rarity, category }: ToonImageProps) {
+export default function ToonImage({ className = "", toon }: ToonImageProps) {
     return (
         <img
-            src={iconUrl}
-            alt={`${name} icon`}
+            src={toon.icon_url}
+            alt={`${toon.name} icon`}
             className={className}
             style={{
-                background: toonBackgroundColor(rarity, category),
+                background: toonBackgroundColor(toon.rarity, toon.category),
             }}
         />
     );

@@ -1,37 +1,27 @@
-import type { Stat } from "../../types/stats";
-import type { ToonCategory, ToonRarity } from "../../types/toons";
-import { toonBackgroundColor } from "../../utils/styles";
+import type { Stat, Toon } from "@dandy-explorer/shared";
 import StatCard from "../cards/StatCard";
+import ToonImage from "../ToonImage";
+import { buildStats } from "../../utils/stats";
 
 type ToonInfoProps = {
     className?: string;
-    name: string;
-    iconUrl: string;
+    toon: Toon;
     stats: Stat[];
-    rarity: ToonRarity,
-    category: ToonCategory;
 };
 
-export default function ToonInfo({ className, name, iconUrl, stats, rarity, category }: ToonInfoProps) {
+export default function ToonInfo({ className, toon, stats}: ToonInfoProps) {
     return (
         <div className={`${className ?? ""}`}>
-            <img
-                src={iconUrl}
-                alt={`${name} Icon`}
+            <ToonImage
+                toon={toon}
                 className="w-[max(128px,30dvh)] mx-auto rounded-lg"
-                style={{
-                    background: toonBackgroundColor(rarity, category),
-                }}
             />
-            <p className="font-fredoka text-white text-3xl text-stroke text-center my-1">{name}</p>
+            <p className="font-fredoka text-white text-3xl text-stroke text-center my-1">{toon.name}</p>
             <ul className="flex flex-col gap-2">
-                {stats.map((item, index) => (
+                {buildStats(stats.map(stat => stat.value)).map((item, index) => (
                     <li key={index}>
                         <StatCard
-                            name={item.name}
-                            value={item.value}
-                            icon={item.icon}
-                            color={item.color}
+                            {...item}
                         />
                     </li>
                 ))}

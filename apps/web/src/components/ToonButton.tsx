@@ -1,16 +1,13 @@
-import type { ToonCategory, ToonRarity } from "../types/toons";
+import type { Toon } from "@dandy-explorer/shared";
 import ShinyButton, { type ShinyButtonProps } from "./customs/ShinyButton";
 import ToonImage from "./ToonImage";
 
 type ToonButtonProps = {
     buttonProps: ShinyButtonProps
-    name: string;
-    iconUrl: string;
-    rarity: ToonRarity,
-    category: ToonCategory
+    toon: Toon;
 };
 
-export default function ToonButton({ buttonProps, name, iconUrl, rarity, category }: ToonButtonProps) {
+export default function ToonButton({ buttonProps, toon }: ToonButtonProps) {
     return (
         <ShinyButton 
             className="p-2"
@@ -18,12 +15,9 @@ export default function ToonButton({ buttonProps, name, iconUrl, rarity, categor
         >
             <ToonImage
                 className="rounded-lg"
-                iconUrl={iconUrl}
-                name={name}
-                rarity={rarity}
-                category={category}
+                toon={toon}
             />
-            <p className="font-fredoka text-white text-stroke text-center leading-none text-lg">{name}</p>
+            <p className="font-fredoka text-white text-stroke text-center leading-none text-lg">{toon.name}</p>
         </ShinyButton>
     );
 }

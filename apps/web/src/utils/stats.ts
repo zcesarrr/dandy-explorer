@@ -1,49 +1,42 @@
-import type { Stat } from "../types/stats";
+import type { StatCardProps } from "../components/cards/StatCard";
 
-export function buildBaseStats(
-    health: number,
-    skillCheck: number,
-    movSpeed: number,
-    stamina: number,
-    stealth: number,
-    extSpeed: number
-): Stat[] {
+export function buildStats(indexes: number[]): StatCardProps[] {
     return [
         {
             name: "Health",
             color: "#ce5c5d",
             icon: "heart",
-            value: health,
+            value: indexes[0] ?? 1,
         },
         {
             name: "Skill Check",
             color: "#d09158",
             icon: "star",
-            value: skillCheck,
+            value: indexes[1] ?? 1,
         },
         {
             name: "Movement Speed",
             color: "#cdce5d",
             icon: "star",
-            value: movSpeed,
+            value: indexes[2] ?? 1,
         },
         {
             name: "Stamina",
             color: "#5acd59",
             icon: "star",
-            value: stamina,
+            value: indexes[3] ?? 1,
         },
         {
             name: "Stealth",
             color: "#5b8ecf",
             icon: "star",
-            value: stealth,
+            value: indexes[4] ?? 1,
         },
         {
             name: "Extraction Speed",
             color: "#854ecf",
             icon: "star",
-            value: extSpeed,
+            value: indexes[5] ?? 1,
         },
     ];
 }

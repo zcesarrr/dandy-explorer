@@ -1,13 +1,13 @@
+import type { ToonDetailed } from "@dandy-explorer/shared";
 import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs";
-import type { Toon } from "../../types/toons";
 import { getToonTab } from "../../utils/toonTabs";
 import TabBar from "../blocks/TabBar";
 import ToonInfo from "../blocks/ToonInfo";
 import ToonSelector from "../blocks/ToonSelector";
 
 type DesktopToonScreenProps = {
-    toons: Toon[];
-    toon: Toon;
+    toons: ToonDetailed[];
+    toon: ToonDetailed;
     tab: ToonTabKey | undefined;
     onSelectToon: (id: number) => void;
     onSelectTab: (key: string) => void;
@@ -30,7 +30,8 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
                 <div className="grid grid-cols-2 gap-3">
                     <ToonInfo
                         className="bg-black/30 p-4 rounded-xl"
-                        {...toon}
+                        toon={toon}
+                        stats={toon.stats}
                     />
 
                     {/* DETAILS SECTION */}

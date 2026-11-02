@@ -1,7 +1,14 @@
 import ICONS from "../../constants/icons";
-import type { Stat } from "../../types/stats";
+import type { IconId } from "../../types/icons";
 
-export default function StatCard({ name, value, icon, color }: Stat) {
+export type StatCardProps = {
+    name: string;
+    value: number;
+    icon: IconId;
+    color: string;
+};
+
+export default function StatCard({ name, value, icon, color }: StatCardProps) {
     const isHeartIcon = icon == "heart";
     const length = isHeartIcon && value < 3 ? value + 1 : value;
 

@@ -1,6 +1,6 @@
+import type { RequirementType } from "@dandy-explorer/shared";
 import ICONS from "../../constants/icons";
 import type { IconId } from "../../types/icons";
-import type { Requirement, RequirementType } from "../../types/requirements";
 
 const iconByType = {
     ichor: "waterdrop",
@@ -14,7 +14,12 @@ const iconByType = {
     titlesOwning: "diploma",
 } satisfies Record<RequirementType, IconId> ;
 
-export default function RequirementCard({ type, label }: Requirement) {
+type RequirementProps = {
+    type: RequirementType;
+    label: string;
+};
+
+export default function RequirementCard({ type, label }: RequirementProps) {
     const Icon = ICONS[iconByType[type]].node;
 
     return (

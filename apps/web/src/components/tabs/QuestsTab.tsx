@@ -4,9 +4,9 @@ import QuestCard from "../cards/QuestCard";
 export default function QuestsTab({ toon }: ToonTabProps) {
     return (
         <ul className="flex flex-col gap-2">
-            {toon.quests?.map((item, index) => (
+            {toon.quests.map((item, index) => (
                 <li key={index}>
-                    <QuestCard description={item} />
+                    <QuestCard content={item.content} />
                 </li>
             ))}
         </ul>

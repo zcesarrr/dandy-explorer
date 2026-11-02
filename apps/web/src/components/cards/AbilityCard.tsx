@@ -1,7 +1,13 @@
-import type { Ability } from "../../types/abilities";
+import type { AbilityType } from "@dandy-explorer/shared";
 import { abilityTypeString } from "../../utils/abilities";
 
-export default function AbilityCard({ name, type, description }: Ability) {
+type AbilityCardProps = {
+    name: string;
+    type: AbilityType;
+    description: string;
+};
+
+export default function AbilityCard({ name, type, description }: AbilityCardProps) {
     return (
         <div className="font-fredoka text-stroke text-center bg-black/40 rounded-lg p-2">
             <p className="text-white text-2xl leading-none">{name}</p>

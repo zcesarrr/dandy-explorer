@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import type { Toon } from "../../types/toons";
 import Input from "../customs/Input";
 import ToonButton from "../ToonButton";
+import type { Toon } from "@dandy-explorer/shared";
 
 function normalizeString(str: string): string {
     return str.toLowerCase().trim();
@@ -76,7 +76,7 @@ export default function ToonSelector({ className, toons, selected, onSelect, too
                                         },
                                         active: selected == item.id,
                                     }}
-                                    {...item}
+                                    toon={item}
                                 />
                             </li>
                         ))}

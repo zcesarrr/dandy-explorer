@@ -1,208 +1,82 @@
-import type { Toon } from "../types/toons";
-import { buildBaseStats } from "../utils/stats";
+import type { ToonDetailed } from "@dandy-explorer/shared";
 
-const toons: Toon[] = [
+const toons: ToonDetailed[] = [
     {
         id: 0,
-        name: "Eclipse",
-        iconUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdandys-world-robloxhorror%2Fimages%2F5%2F55%2FEclipse_Render.png%2Frevision%2Flatest%3Fcb%3D20251010190941&f=1&nofb=1&ipt=faa62515cb15756fee2d0ec6cfec3413fd3be744c44037743d6e18fa5b460064&ipo=images",
-        stats: buildBaseStats(3, 3, 4, 3, 2, 3),
-        abilities: [
-            {
-                name: "Total Eclipse",
-                type: "passive",
-                description: "This Toon transforms into a werewolf in blackouts, giving off a glow, gaining 2 Stamina Stars, a 20% Movement Speed boost, and briefly highlighting all Twisteds on the floor.",
-            },
-        ],
-        rarity: "normal",
-        category: "halloween",
-        quests: [
-            "Experience 15 Blackouts!",
-            "Survive 50 Floors!",
-            "Travel 10k Meters!",
-            "Encounter 75 Twisteds!",
-            "Survive 3 Floors with 7 other Players in your round!",
-            "Use 80 Items!",
-        ],
-        requirements: [
-            {
-                type: "pumpkin",
-                label: "1500 Pumpkins",
-            },
-            {
-                type: "toonsOwning",
-                label: "Own 5 or more Toons",
-            },
-        ],
-    },
-    {
-        id: 1,
-        name: "Gourdy",
-        iconUrl: "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.wikia.nocookie.net%2Fdandys-world-robloxhorror%2Fimages%2Fc%2Fc1%2FGourdy_Render.png%2Frevision%2Flatest%2Fscale-to-width-down%2F268%3Fcb%3D20251010191037&f=1&nofb=1&ipt=fcc8def53cf17bb8bbb60283db385f34201bfdd189f3a286ccd0aee06df22cca&ipo=images",
-        stats: buildBaseStats(2, 5, 4, 1, 1, 5),
-        abilities: [
-            {
-                name: "Trick or Treat",
-                type: "active",
-                description: "This Toon applies a random 20% boost for 15 seconds to all Toons within range. Has a cooldown of 35.",
-            },
-            {
-                name: "Sugar Rush",
-                type: "passive",
-                description: "Provides a 20% speed boost to all Players for 5 seconds when the Elevator opens and when Panic Mode begins.",
-            },
-        ],
-        rarity: "main",
-        category: "halloween",
-    },
-    {
-        id: 2,
         name: "Yatta",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/7/75/Yatta_Render.png",
-        stats: buildBaseStats(3, 3, 4, 1, 2, 5),
+        icon_url: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/7/75/Yatta_Render.png",
+        rarity: "normal",
+        category: "none",
+        stats: [
+            { id: 0, toon_id: 0, index: 0, value: 3 },
+            { id: 1, toon_id: 0, index: 1, value: 3 },
+            { id: 2, toon_id: 0, index: 2, value: 4 },
+            { id: 3, toon_id: 0, index: 3, value: 1 },
+            { id: 4, toon_id: 0, index: 4, value: 2 },
+            { id: 5, toon_id: 0, index: 5, value: 5 },
+        ],
         abilities: [
             {
+                id: 0,
+                toon_id: 0,
                 name: "Piñata Party",
-                type: "passive",
                 description: "This Toon drops 2 random candy items after completing a machine, and 4 random candy items when injured.",
-            },
-        ],
-        rarity: "normal",
-        category: "none",
-    },
-    {
-        id: 3,
-        name: "Gigi",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/9/91/Gigi_Render.png",
-        stats: buildBaseStats(3, 5, 3, 1, 3, 3),
-        abilities: [
-            {
-                name: "Surprise!",
-                type: "active",
-                description: "This Toon can grant herself a random item from any Tier (Dandy's Shop items included). Has a Cooldown of 60.",
-            },
-        ],
-        rarity: "normal",
-        category: "none",
-    },
-    {
-        id: 4,
-        name: "Bobette",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/f/f0/Bobette_Render.png",
-        stats: buildBaseStats(2, 4, 3, 5, 2, 2),
-        abilities: [
-            {
-                name: "Precious Packaging",
-                type: "active",
-                description: "This Toon can duck and cover herself into a gift box for 8 seconds, in which she is invincible yet unable to move.",
-            },
-            {
-                name: "Festive Aura",
                 type: "passive",
-                description: "The festive aura of this Toon passively gives those around her 50% faster stamina regeneration and a 25% speed boost that lasts for 5 seconds.",
             },
         ],
-        rarity: "main",
-        category: "holiday",
+        quests: [
+            {
+                id: 0,
+                toon_id: 0,
+                content: "Finish 85 Machines!",
+            },
+            {
+                id: 1,
+                toon_id: 0,
+                content: "Pick up 50 Research Capsules!",
+            },
+            {
+                id: 2,
+                toon_id: 0,
+                content: "Pick up 120 Items!",
+            },
+            {
+                id: 3,
+                toon_id: 0,
+                content: "Survive 20 Floors with Looey Render Looey in your run!",
+            },
+            {
+                id: 4,
+                toon_id: 0,
+                content: "Travel 45000 Meters!",
+            },
+            {
+                id: 5,
+                toon_id: 0,
+                content: "Use 120 Items!",
+            },
+        ],
         requirements: [
             {
-               type: "ornament",
-               label: "3000 Ornaments"
+                id: 0,
+                toon_id: 0,
+                type: "ichor",
+                label: "2000 Ichor",
             },
             {
-               type: "ichor",
-               label: "2500 Ichor"
+                id: 1,
+                toon_id: 0,
+                type: "toonsOwning",
+                label: "Own 15 or more Toons",
             },
             {
-               type: "research",
-               label: "100% Research on Twisted Bobette"
+                id: 2,
+                toon_id: 0,
+                type: "research",
+                label: "50% Research on Twisted Yatta",
             },
         ],
-    },
-    {
-        id: 5,
-        name: "Rudie",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/6/64/Rudie_Render.png",
-        stats: buildBaseStats(3, 3, 3, 3, 3, 3),
-        abilities: [
-            {
-                name: "Antler Charge",
-                type: "active",
-                description: "This Toon uses his antlers to quickly charge forward in a short burst, helping him escape tricky situations.",
-            },
-        ],
-        rarity: "normal",
-        category: "holiday",
-    },
-    {
-        id: 6,
-        name: "Bassie",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0c/Bassie_Render.png",
-        stats: buildBaseStats(2, 1, 5, 4, 4, 2),
-        abilities: [
-            {
-                name: "Springful Sharing",
-                type: "active",
-                description: "This Toon can drop items from her inventory, sharing them with other Toons.",
-            },
-            {
-                name: "Easter Basket",
-                type: "passive",
-                description: "This Toon's basket provides her with an extra inventory slot for carrying 1 extra item.",
-            },
-        ],
-        rarity: "main",
-        category: "easter",
-        requirements: [
-            {
-               type: "easter",
-               label: "3000 Baskets"
-            },
-            {
-               type: "ichor",
-               label: "2500 Ichor"
-            },
-            {
-               type: "research",
-               label: "100% Research on Twisted Bassie"
-            },
-        ],
-    },
-    {
-        id: 7,
-        name: "Cocoa",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/51/Cocoa_Render.png",
-        stats: buildBaseStats(3, 3, 4, 2, 4, 2),
-        abilities: [
-            {
-                name: "Bonbon",
-                type: "active",
-                description: "This Toon places a Bonbon candy item that can be picked up and used by anyone. When used, the Bonbon boosts extraction speed (+50%) and movement speed (+25%) for 10 seconds. Has a cooldown of 40.",
-            },
-        ],
-        rarity: "normal",
-        category: "easter",
-    },
-    {
-        id: 8,
-        name: "Shelly",
-        iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/a/a6/Shelly_Render.png",
-        stats: buildBaseStats(2, 5, 3, 2, 3, 3),
-        abilities: [
-            {
-                name: "Inspiration",
-                type: "active",
-                description: "This Toon can boost the Extraction Speed of a selected Toon by 75% for 15 seconds. Has a cooldown of 60.",
-            },
-            {
-                name: "Problem Solver",
-                type: "passive",
-                description: "This Toon gains a 25% Movement Speed boost when any Machine is completed for 10 seconds.",
-            },
-        ],
-        rarity: "main",
-        category: "none",
-    },
- ];
+    }
+];
 
 export default toons;
