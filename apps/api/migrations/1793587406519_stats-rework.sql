@@ -1,0 +1,18 @@
+-- Up Migration
+ALTER TABLE stats
+    DROP COLUMN name,
+    DROP COLUMN icon,
+    DROP COLUMN color,
+    ADD COLUMN index SMALLINT NOT NULL CHECK(index >= 0 and INDEX <= 5) DEFAULT(0);
+
+-- Down Migration
+ALTER TABLE stats
+    ADD COLUMN name VARCHAR(20) NOT NULL DEFAULT 'Stat Name',
+    ADD COLUMN icon stat_icon NOT NULL DEFAULT 'star',
+    ADD COLUMN color VARCHAR(9) NOT NULL DEFAULT '#aaaaaa',
+    DROP COLUMN index;
+
+ALTER TABLE STATS
+    ALTER COLUMN name DROP DEFAULT,
+    ALTER COLUMN icon DROP DEFAULT,
+    ALTER COLUMN color DROP DEFAULT;

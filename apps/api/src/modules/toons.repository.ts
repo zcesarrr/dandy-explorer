@@ -13,7 +13,7 @@ export class ToonsRepository {
             SELECT 
                 t.*, 
                 COALESCE((
-                    SELECT json_agg(s) FROM stats s WHERE s.toon_id = t.id
+                    SELECT json_agg(s ORDER BY s.index ASC) FROM stats s WHERE s.toon_id = t.id
                 ), '[]') AS stats,
                 COALESCE((
                     SELECT json_agg(a) FROM abilities a WHERE a.toon_id = t.id
