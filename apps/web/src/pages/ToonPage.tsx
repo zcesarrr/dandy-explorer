@@ -1,4 +1,3 @@
-import { toons } from "../mocks/dbMock";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { isToonTabKey } from "../utils/toonTabs";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
@@ -6,21 +5,22 @@ import { useIsDesktop } from "../hooks/useIsDesktop";
 import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import DisclaimerFooter from "../components/blocks/DisclaimerFooter";
+import { useToon, useToons } from "../hooks/useToons";
 
 export default function ToonPage() {
     const { toonId, tab } = useParams();
+    const { data: toons } = useToons();
+    const id = toonId ? Number(toonId) : toons?.[0]?.id;
+    const { data: selectedToon, isLoading, isError } = useToon(id);
+
     const navigate = useNavigate();
     const isDesktop = useIsDesktop();
-
-    const toonData = toonId === undefined ?
-        toons[0] :
-        toons.find((toon) => toon.id === Number(toonId));
     
-    if (toonId !== undefined && !toonData) return <Navigate to="/" replace />;
-    if (!toonData) return null; // while i implement a better validation
+    if (isError) return <Navigate to="/" replace />
+    if (!toons || isLoading || !selectedToon) return null;
 
     if (tab !== undefined && !isToonTabKey(tab)) {
-        return <Navigate to={`/toon/${toonData.id}`} replace />;
+        return <Navigate to={`/toon/${selectedToon.id}`} replace />;
     }
 
     const page = () => {
@@ -37,9 +37,9 @@ export default function ToonPage() {
             return (
                 <DesktopToonScreen
                     onSelectToon={id => navigate(tab ? `/toon/${id}/${tab}` : `/toon/${id}`)}
-                    onSelectTab={key => navigate(`/toon/${toonData.id}/${key}`)}
+                    onSelectTab={key => navigate(`/toon/${selectedToon.id}/${key}`)}
                     toons={toons}
-                    selectedToon={toonData}
+                    selectedToon={selectedToon}
                     tab={tab}
                 />
             );
@@ -47,11 +47,11 @@ export default function ToonPage() {
 
         return (
             <MobileToonScreen
-                toon={toonData}
+                toon={selectedToon}
                 tab={tab}
                 onSelectTab={(key) => 
                     navigate(
-                        key === "info" ? `/toon/${toonData.id}` : `/toon/${toonData.id}/${key}`,
+                        key === "info" ? `/toon/${selectedToon.id}` : `/toon/${selectedToon.id}/${key}`,
                         { replace: true }
                     )
                 }
