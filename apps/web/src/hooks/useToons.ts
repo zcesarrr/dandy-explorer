@@ -1,5 +1,5 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { getToon, getToonAbilities, getToons } from "../api/toons";
+import { useQuery } from "@tanstack/react-query";
+import { getToon, getToonAbilities, getToonQuests, getToonRequirements, getToons } from "../api/toons";
 
 export function useToons() {
     return useQuery({
@@ -22,6 +22,22 @@ export function useToonAbilities(toonId: number) {
     return useQuery({
         queryKey: ["toons", toonId, "abilities"],
         queryFn: () => getToonAbilities(toonId),
+        staleTime: "static",
+    });
+}
+
+export function useToonQuests(toonId: number) {
+    return useQuery({
+        queryKey: ["toons", toonId, "quests"],
+        queryFn: () => getToonQuests(toonId),
+        staleTime: "static",
+    });
+}
+
+export function useToonRequirements(toonId: number) {
+    return useQuery({
+        queryKey: ["toons", toonId, "requirements"],
+        queryFn: () => getToonRequirements(toonId),
         staleTime: "static",
     });
 }
