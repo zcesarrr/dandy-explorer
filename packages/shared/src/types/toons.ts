@@ -1,5 +1,5 @@
 import type { Ability } from "./abilities.js";
-import type { Quests } from "./quests.js";
+import type { Quest } from "./quests.js";
 import type { Requirement } from "./requirements.js";
 import type { Stat } from "./stats.js";
 
@@ -17,6 +17,6 @@ export type Toon = {
 export type ToonDetailed = Toon & {
     stats: Stat[];
     abilities: Ability[];
-    quests: Quests[];
+    quests: Quest[];
     requirements: Requirement[];
 };
