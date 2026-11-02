@@ -1,4 +1,4 @@
-import type { ToonDetailed } from "@dandy-explorer/shared";
+import type { ToonDetail } from "@dandy-explorer/shared";
 import ICONS from "../../constants/icons";
 import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs";
 import { getToonTab } from "../../utils/toonTabs";
@@ -17,7 +17,7 @@ const items: TabBarItem[] = [
 ];
 
 type MobileToonScreenProps = {
-    toon: ToonDetailed;
+    toon: ToonDetail;
     tab: ToonTabKey | undefined;
     onSelectTab: (key: string) => void;
     onBackClick: () => void;
@@ -52,12 +52,11 @@ export default function MobileToonScreen({ toon, tab, onSelectTab, onBackClick }
                 {currentTab ? (
                     <div>
                         <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">{currentTab.name}</p>
-                        <currentTab.Component toon={toon} />
+                        <currentTab.Component toonId={toon.id} />
                     </div>
                 ): (
                     <ToonInfo
                         toon={toon}
-                        stats={toon.stats}
                     />
                 )}
             </main>

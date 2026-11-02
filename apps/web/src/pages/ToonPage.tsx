@@ -1,4 +1,4 @@
-import toons from "../mocks/toons";
+import { toons } from "../mocks/dbMock";
 import { Navigate, useNavigate, useParams } from "react-router";
 import { isToonTabKey } from "../utils/toonTabs";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
@@ -39,7 +39,7 @@ export default function ToonPage() {
                     onSelectToon={id => navigate(tab ? `/toon/${id}/${tab}` : `/toon/${id}`)}
                     onSelectTab={key => navigate(`/toon/${toonData.id}/${key}`)}
                     toons={toons}
-                    toon={toonData}
+                    selectedToon={toonData}
                     tab={tab}
                 />
             );

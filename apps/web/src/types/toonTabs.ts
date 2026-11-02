@@ -1,9 +1,8 @@
 import type { ComponentType } from "react";
 import type { IconId } from "./icons";
-import type { ToonDetailed } from "@dandy-explorer/shared";
 
 export type ToonTabProps = {
-    toon: ToonDetailed;
+    toonId: number;
 };
 
 export type ToonTabDef = {

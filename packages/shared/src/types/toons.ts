@@ -20,3 +20,5 @@ export type ToonDetailed = Toon & {
     quests: Quest[];
     requirements: Requirement[];
 };
+
+export type ToonDetail = Toon & { stats: Stat[] };

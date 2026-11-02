@@ -1,10 +1,10 @@
 import type { ToonTabProps } from "../../types/toonTabs";
 import RequirementCard from "../cards/RequirementCard";
 
-export default function RequirementsTab({ toon }: ToonTabProps) {
+export default function RequirementsTab({ toonId }: ToonTabProps) {
     return (
         <ul className="flex flex-col gap-2">
-            {toon.requirements.map((item, index) => (
+            {items.map((item, index) => (
                 <li key={index}>
                     <RequirementCard {...item} />
                 </li>

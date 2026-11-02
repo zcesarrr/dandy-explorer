@@ -1,4 +1,4 @@
-import type { ToonDetailed } from "@dandy-explorer/shared";
+import type { Toon, ToonDetail } from "@dandy-explorer/shared";
 import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs";
 import { getToonTab } from "../../utils/toonTabs";
 import TabBar from "../blocks/TabBar";
@@ -6,14 +6,14 @@ import ToonInfo from "../blocks/ToonInfo";
 import ToonSelector from "../blocks/ToonSelector";
 
 type DesktopToonScreenProps = {
-    toons: ToonDetailed[];
-    toon: ToonDetailed;
+    toons: Toon[];
+    selectedToon: ToonDetail;
     tab: ToonTabKey | undefined;
     onSelectToon: (id: number) => void;
     onSelectTab: (key: string) => void;
 };
 
-export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
+export default function DesktopToonScreen({ toons, selectedToon, tab, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
     const currentTab = getToonTab(tab);
 
     return (
@@ -22,7 +22,7 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
             <main className="w-full max-w-7xl grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
                 <ToonSelector
                     toons={toons}
-                    selected={toon.id}
+                    selected={selectedToon.id}
                     onSelect={onSelectToon}
                 />
 
@@ -30,8 +30,7 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
                 <div className="grid grid-cols-2 gap-3">
                     <ToonInfo
                         className="bg-black/30 p-4 rounded-xl"
-                        toon={toon}
-                        stats={toon.stats}
+                        toon={selectedToon}
                     />
 
                     {/* DETAILS SECTION */}
@@ -43,7 +42,7 @@ export default function DesktopToonScreen({ toons, toon, tab, onSelectToon, onSe
                             </p>
 
                             {/* TAB CONTENT */}
-                            <currentTab.Component toon={toon} />
+                            <currentTab.Component toonId={selectedToon.id} />
                         </div>
 
                         {/* TABS */}
