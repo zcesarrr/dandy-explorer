@@ -14,11 +14,4 @@ export type Toon = {
     category: ToonCategory;
 };
 
-export type ToonDetailed = Toon & {
-    stats: Stat[];
-    abilities: Ability[];
-    quests: Quest[];
-    requirements: Requirement[];
-};
-
 export type ToonDetail = Toon & { stats: Stat[] };

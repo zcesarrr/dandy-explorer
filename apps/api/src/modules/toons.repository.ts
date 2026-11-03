@@ -1,4 +1,4 @@
-import type { ToonDetailed } from "@dandy-explorer/shared";
+import type { Toon, ToonDetail } from "@dandy-explorer/shared";
 import type { Pool } from "pg";
 
 export class ToonsRepository {
@@ -8,25 +8,23 @@ export class ToonsRepository {
         this.pool = pool;
     }
 
-    async findAllDetailed(): Promise<ToonDetailed[]> {
-        const result = await this.pool.query<ToonDetailed>(`
-            SELECT 
-                t.*, 
-                COALESCE((
-                    SELECT json_agg(s ORDER BY s.index ASC) FROM stats s WHERE s.toon_id = t.id
-                ), '[]') AS stats,
-                COALESCE((
-                    SELECT json_agg(a) FROM abilities a WHERE a.toon_id = t.id
-                ), '[]') AS abilities,
-                COALESCE((
-                    SELECT json_agg(q) FROM quests q WHERE q.toon_id = t.id
-                ), '[]') AS quests,
-                COALESCE((
-                    SELECT json_agg(r) FROM requirements r WHERE r.toon_id = t.id
-                ), '[]') AS requirements
-            FROM toons t;
-        `);
+    async findAll(): Promise<Toon[]> {
+        const result = await this.pool.query<Toon>("SELECT * FROM toons");
 
         return result.rows;
+    }
+
+    async find(id: number): Promise<ToonDetail | undefined> {
+        const result = await this.pool.query<ToonDetail>(`
+            SELECT
+                t.*,
+                COALESCE((
+                    SELECT json_agg(s ORDER BY s.index ASC) FROM stats s WHERE s.toon_id = $1
+                ), '[]') AS stats
+            FROM toons t
+            WHERE t.id = $1;
+        `, [id]);
+
+        return result.rows[0];
     }
 }

@@ -11,5 +11,6 @@ const toonsController = new ToonsController(toonsService);
 const router = Router();
 
 router.get("/", toonsController.getAll);
+router.get("/:id", toonsController.get);
 
 export default router;

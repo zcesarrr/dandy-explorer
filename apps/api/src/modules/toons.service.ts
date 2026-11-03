@@ -1,5 +1,6 @@
-import type { ToonDetailed } from "@dandy-explorer/shared";
+import type { Toon, ToonDetail } from "@dandy-explorer/shared";
 import type { ToonsRepository } from "./toons.repository.js";
+import { HttpError } from "../errors/httpError.js";
 
 export class ToonsService {
     private readonly toonsRepository: ToonsRepository;
@@ -8,8 +9,16 @@ export class ToonsService {
         this.toonsRepository = toonsRepository;
     }
 
-    async getAll(): Promise<ToonDetailed[]> {
-        const toons: ToonDetailed[] = await this.toonsRepository.findAllDetailed();
+    async getAll(): Promise<Toon[]> {
+        const toons: Toon[] = await this.toonsRepository.findAll();
         return toons;
+    }
+
+    async get(id: number): Promise<ToonDetail> {
+        const toon = await this.toonsRepository.find(id);
+
+        if (!toon) throw new HttpError(404, "The requested Toon could not be found");
+
+        return toon;
     }
 }

@@ -14,6 +14,7 @@ export default function errorHandler(
 
     if (err instanceof HttpError) {
         res.status(err.statusCode).json({
+            success: false,
             error: err.message,
         });
         return;
