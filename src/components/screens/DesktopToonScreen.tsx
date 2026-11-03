@@ -10,7 +10,7 @@ type DesktopToonScreenProps = {
     selectedToonSlug: string;
     tabKey: ToonTabKey | undefined;
     onSelectToon: (slug: string) => void;
-    onSelectTab: (key: string) => void;
+    onSelectTab: (key: ToonTabKey) => void;
 };
 
 export default function DesktopToonScreen({ toons, selectedToonSlug, tabKey, onSelectToon, onSelectTab }: DesktopToonScreenProps) {

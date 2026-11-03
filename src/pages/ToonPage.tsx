@@ -6,6 +6,14 @@ import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import DisclaimerFooter from "../components/blocks/DisclaimerFooter";
 import TOONS from "../constants/toons";
+import type { ToonTabKey } from "../constants/toonTabs";
+
+function composeEndpoint(
+    toonSlug: string,
+    tabKey: ToonTabKey | undefined = undefined
+): string {
+    return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}`
+}
 
 export default function ToonPage() {
     const { toonSlug, tabKey } = useParams();
@@ -15,18 +23,18 @@ export default function ToonPage() {
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? TOONS[0].slug));
 
     if (!selectedToonData) {
-        return <Navigate to={`/toon/${TOONS[0].slug}`} replace />;
+        return <Navigate to={composeEndpoint(TOONS[0].slug)} replace />;
     }
 
     if (tabKey !== undefined && !isToonTabKey(tabKey)) {
-        return <Navigate to={`/toon/${selectedToonData.slug}`} replace />;
+        return <Navigate to={composeEndpoint(selectedToonData.slug)} replace />;
     }
 
     const page = () => {
         if (!isDesktop && toonSlug === undefined) {
             return (
                 <MobileSelectorScreen
-                    onSelect={id => navigate(`/toon/${id}`)}
+                    onSelect={slug => navigate(composeEndpoint(slug))}
                     toons={TOONS}
                 />
             );
@@ -35,8 +43,8 @@ export default function ToonPage() {
         if (isDesktop) {
             return (
                 <DesktopToonScreen
-                    onSelectToon={id => navigate(tabKey ? `/toon/${id}/${tabKey}` : `/toon/${id}`)}
-                    onSelectTab={key => navigate(`/toon/${selectedToonData.slug}/${key}`)}
+                    onSelectToon={slug => navigate(composeEndpoint(slug, tabKey))}
+                    onSelectTab={key => navigate(composeEndpoint(selectedToonData.slug, key))}
                     toons={TOONS}
                     selectedToonSlug={selectedToonData.slug}
                     tabKey={tabKey}
@@ -50,7 +58,7 @@ export default function ToonPage() {
                 tabKey={tabKey}
                 onSelectTab={(key) => 
                     navigate(
-                        key === "info" ? `/toon/${selectedToonData.slug}` : `/toon/${selectedToonData.slug}/${key}`,
+                        key === "info" ? composeEndpoint(selectedToonData.slug) : composeEndpoint(selectedToonData.slug, key as ToonTabKey),
                         { replace: true }
                     )
                 }

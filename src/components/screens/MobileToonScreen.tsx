@@ -9,7 +9,7 @@ import ToonImage from "../ToonImage";
 
 const items: TabBarItem[] = [
     {
-        key: "info",
+        key: "info" as ToonTabKey,
         name: "Info",
         icon: "person",
     },

@@ -1,14 +1,15 @@
 import ICONS from "../../constants/icons";
+import type { ToonTabKey } from "../../constants/toonTabs";
 import type { IconId } from "../../types/icons";
 import ShinyButton from "../customs/ShinyButton";
 
-export type TabBarItem = { key: string, icon: IconId, name: string };
+export type TabBarItem = { key: ToonTabKey, icon: IconId, name: string };
 
 type TabBarProps = {
     className?: string;
     items: readonly TabBarItem[];
     activeKey: string;
-    onSelect: (key: string) => void;
+    onSelect: (key: ToonTabKey) => void;
 }
 
 export default function TabBar({ className, items, activeKey, onSelect }: TabBarProps) {
