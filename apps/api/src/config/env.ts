@@ -4,6 +4,7 @@ const envSchema = z.object({
     NODE_ENV: z.enum(["development", "production", "test"]),
     PORT: z.string().transform(Number),
     DATABASE_URL: z.url(),
+    ALLOWED_ORIGINS: z.string().transform(origin => origin.split(',')).pipe(z.string().array()),
 });
 
 const parsed = envSchema.safeParse(process.env);

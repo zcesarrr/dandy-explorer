@@ -1,21 +1,17 @@
 import type { Ability, Quest, Requirement, Toon, ToonDetail } from "@dandy-explorer/shared";
-import { abilities, quests, requirements, stats, toons } from "../mocks/dbMock";
+import { abilities, quests, requirements, stats } from "../mocks/dbMock";
+import { apiFetch } from "../utils/api";
 
 async function delay() {
     await new Promise(resolve => setTimeout(resolve, 250));
 }
 
 export async function getToons(): Promise<Toon[]> {
-    await delay();
-
-    return toons;
+    return await apiFetch<Toon[]>("/toons");
 }
 
 export async function getToon(id: number): Promise<ToonDetail> {
-    await delay();
-
-    const toon = toons.find(toon => toon.id === id);
-    if (!toon) throw new Error("Toon not found");
+    const toon = await apiFetch<ToonDetail>(`/toons/${id}`);
 
     return {
         ...toon,
