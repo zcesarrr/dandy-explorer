@@ -2,7 +2,7 @@ import type { Ability, Quest, Requirement, Toon, ToonDetail } from "@dandy-explo
 import { abilities, quests, requirements, stats, toons } from "../mocks/dbMock";
 
 async function delay() {
-    await new Promise(resolve => setTimeout(resolve, 750));
+    await new Promise(resolve => setTimeout(resolve, 250));
 }
 
 export async function getToons(): Promise<Toon[]> {

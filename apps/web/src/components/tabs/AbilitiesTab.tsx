@@ -2,9 +2,12 @@ import { CloseIcon } from "@solar-icons/react/bold/close";
 import AbilityCard from "../cards/AbilityCard";
 import type { ToonTabProps } from "../../types/toonTabs";
 import { useToonAbilities } from "../../hooks/useToons";
+import TabSpinner from "./TabSpinner";
 
 export default function AbilitiesTab({ toonId }: ToonTabProps) {
-    const { data = [] } = useToonAbilities(toonId);
+    const { data = [], isPending } = useToonAbilities(toonId);
+
+    if (isPending) return <TabSpinner />
 
     return (
         <ul className="flex flex-col gap-4">

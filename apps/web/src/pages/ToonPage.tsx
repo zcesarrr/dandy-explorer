@@ -11,14 +11,14 @@ const waitContainer = "font-fredoka text-white text-stroke text-2xl tracking-wid
 export default function ToonPage() {
     const { toonId, tab } = useParams();
 
-    const { data: toons, isLoading: isToonsLoading } = useToons();
+    const { data: toons, isLoading: isToonsPending } = useToons();
     const id = toonId ? Number(toonId) : toons?.[0]?.id;
-    const { data: selectedToon, isLoading: isSelectedToonLoading, isError: isSelectedToonError } = useToon(id);
+    const { data: selectedToon, isPending: isSelectedToonPending, isError: isSelectedToonError } = useToon(id);
 
     const navigate = useNavigate();
     const isDesktop = useIsDesktop();
 
-    if (isSelectedToonLoading || isToonsLoading) {
+    if (isSelectedToonPending || isToonsPending) {
         return (
             <div className={waitContainer}>
                 <img
@@ -31,7 +31,7 @@ export default function ToonPage() {
         );
     };
 
-    if (isSelectedToonError || (!isSelectedToonLoading && (!selectedToon || !toons))) {
+    if (isSelectedToonError || (!isSelectedToonPending && (!selectedToon || !toons))) {
         return (
             <div className={waitContainer}>
                 <p>Sorry, but an error has occurred.</p>

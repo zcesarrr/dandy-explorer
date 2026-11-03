@@ -11,6 +11,7 @@ import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
 import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
 import {  CloseIcon } from "@solar-icons/react/bold/close";
+import { LoaderIcon } from "@solar-icons/react/bold/loader";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -80,6 +81,10 @@ const ICONS = {
     cross: {
         node: CloseIcon,
         alt: "Cross Icon",
+    },
+    loader: {
+        node: LoaderIcon,
+        alt: "Loader Icon",
     },
     
 } satisfies Record<string, IconEntry>;
