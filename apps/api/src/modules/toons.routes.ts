@@ -12,5 +12,8 @@ const router = Router();
 
 router.get("/", toonsController.getAll);
 router.get("/:id", toonsController.get);
+router.get("/:id/abilities", toonsController.getAbilities);
+router.get("/:id/quests", toonsController.getQuests);
+router.get("/:id/requirements", toonsController.getRequirements);
 
 export default router;

@@ -25,4 +25,34 @@ export class ToonsController {
             data: toon,
         });
     };
+
+    getAbilities = async (req: Request, res: Response) => {
+        const id = req.params.id;
+
+        const abilities = await this.toonsService.getAbilities(Number(id));
+        res.status(200).json({
+            success: true,
+            data: abilities,
+        });
+    }
+
+    getQuests = async (req: Request, res: Response) => {
+        const id = req.params.id;
+
+        const quests = await this.toonsService.getQuests(Number(id));
+        res.status(200).json({
+            success: true,
+            data: quests,
+        });
+    }
+
+    getRequirements = async (req: Request, res: Response) => {
+        const id = req.params.id;
+
+        const requirements = await this.toonsService.getRequirements(Number(id));
+        res.status(200).json({
+            success: true,
+            data: requirements,
+        });
+    }
 }

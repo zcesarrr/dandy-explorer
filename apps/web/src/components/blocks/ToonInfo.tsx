@@ -9,6 +9,7 @@ type ToonInfoProps = {
 };
 
 export default function ToonInfo({ className, toon }: ToonInfoProps) {
+    console.log(toon.stats);
     return (
         <div className={`${className ?? ""}`}>
             <ToonImage

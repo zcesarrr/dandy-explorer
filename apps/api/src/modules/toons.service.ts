@@ -1,4 +1,4 @@
-import type { Toon, ToonDetail } from "@dandy-explorer/shared";
+import type { Ability, Quest, Requirement, Toon, ToonDetail } from "@dandy-explorer/shared";
 import type { ToonsRepository } from "./toons.repository.js";
 import { HttpError } from "../errors/httpError.js";
 
@@ -10,8 +10,7 @@ export class ToonsService {
     }
 
     async getAll(): Promise<Toon[]> {
-        const toons: Toon[] = await this.toonsRepository.findAll();
-        return toons;
+        return await this.toonsRepository.findAll();
     }
 
     async get(id: number): Promise<ToonDetail> {
@@ -20,5 +19,17 @@ export class ToonsService {
         if (!toon) throw new HttpError(404, "The requested Toon could not be found");
 
         return toon;
+    }
+
+    async getAbilities(toonId: number): Promise<Ability[]> {
+        return await this.toonsRepository.findAbilities(toonId);
+    }
+
+    async getQuests(toonId: number): Promise<Quest[]> {
+        return await this.toonsRepository.findQuests(toonId);
+    }
+
+    async getRequirements(toonId: number): Promise<Requirement[]> {
+        return await this.toonsRepository.findRequirements(toonId);
     }
 }
