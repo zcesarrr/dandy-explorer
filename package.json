@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "pnpm --parallel --filter @dandy-explorer/web --filter @dandy-explorer/api dev",
     "build": "pnpm --filter @dandy-explorer/web build && pnpm --filter @dandy-explorer/api build",
-    "lint": "oxlint"
+    "lint": "oxlint",
+    "migrate": "pnpm --filter @dandy-explorer/api migrate"
   },
   "devEngines": {
     "packageManager": {
