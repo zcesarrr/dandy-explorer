@@ -7,18 +7,40 @@ import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import DisclaimerFooter from "../components/blocks/DisclaimerFooter";
 import { useToon, useToons } from "../hooks/useToons";
 
+const waitContainer = "font-fredoka text-white text-stroke text-2xl tracking-wider text-center flex flex-col gap-4 h-dvh justify-center items-center";
 export default function ToonPage() {
     const { toonId, tab } = useParams();
 
-    const { data: toons } = useToons();
+    const { data: toons, isLoading: isToonsLoading } = useToons();
     const id = toonId ? Number(toonId) : toons?.[0]?.id;
-    const { data: selectedToon, isLoading, isError } = useToon(id);
+    const { data: selectedToon, isLoading: isSelectedToonLoading, isError: isSelectedToonError } = useToon(id);
 
     const navigate = useNavigate();
     const isDesktop = useIsDesktop();
-    
-    if (isError) return <Navigate to="/" replace />
-    if (!toons || isLoading || !selectedToon) return null;
+
+    if (isSelectedToonLoading || isToonsLoading) {
+        return (
+            <div className={waitContainer}>
+                <img
+                    src={"/dandy.webp"}
+                    alt="Dandy Render"
+                    className="w-32"
+                />
+                <p>Loading content...</p>
+            </div>
+        );
+    };
+
+    if (isSelectedToonError || (!isSelectedToonLoading && (!selectedToon || !toons))) {
+        return (
+            <div className={waitContainer}>
+                <p>Sorry, but an error has occurred.</p>
+                <p>Try again later!</p>
+            </div>
+        );
+    }
+
+    if (!selectedToon || !toons) return null;
 
     if (tab !== undefined && !isToonTabKey(tab)) {
         return <Navigate to={`/toon/${selectedToon.id}`} replace />;
