@@ -4,7 +4,7 @@ import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
-import DisclaimerFooter from "../components/blocks/DisclaimerFooter";
+import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons";
 import type { ToonTabKey } from "../constants/toonTabs";
 
@@ -74,7 +74,7 @@ export default function ToonPage() {
     return (
         <div className="h-dvh flex flex-col">
             <div className="flex-1 min-h-0">{page()}</div>
-            {showFooter && <DisclaimerFooter />}
+            {showFooter && <Footer />}
         </div>
     );
 }
