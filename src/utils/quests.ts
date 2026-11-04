@@ -1,4 +1,4 @@
-import type { Quest, QuestParams, QuestType } from "../types/quests";
+import type { QuestParams, QuestType } from "../types/quests";
 
 const questTemplates: {
     [K in QuestType]: (p: QuestParams[K]) => string;
@@ -22,6 +22,6 @@ const questTemplates: {
     useInstructions: ({ count }) => `Use ${count} Instructions!`,
 };
 
-export function renderQuest<K extends QuestType>(q: Quest) {
-    
+export function renderQuest<K extends QuestType>(q: { type: K, params: QuestParams[K] }) {
+    return questTemplates[q.type](q.params);
 }

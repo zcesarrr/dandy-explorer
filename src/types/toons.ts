@@ -1,4 +1,5 @@
 import type { Ability } from "./abilities.js";
+import type { Quest } from "./quests.js";
 import type { Requirement } from "./requirements.js";
 
 export type ToonRarity = "normal" | "main";
@@ -12,6 +13,6 @@ export type Toon = {
     category: ToonCategory;
     stats: [number, number, number, number, number, number];
     abilities: Ability[];
-    quests: string[];
+    quests: Quest[];
     requirements: Requirement[];
 };

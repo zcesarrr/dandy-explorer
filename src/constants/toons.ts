@@ -15,12 +15,30 @@ const yatta: Toon = {
         },
     ],
     quests: [
-        "Finish 85 Machines!",
-        "Pick up 50 Research Capsules!",
-        "Pick up 120 Items!",
-        "Survive 20 Floors with Looey in your run!",
-        "Travel 45000 Meters!",
-        "Use 120 Items!",
+        {
+            type: "finishMachines",
+            params: { count: 85 },
+        },
+        {
+            type: "pickCapsules",
+            params: { count: 50 },
+        },
+        {
+            type: "pickItems",
+            params: { count: 120 },
+        },
+        {
+            type: "surviveFloorsWith",
+            params: { count: 20, toon: "Looey" },
+        },
+        {
+            type: "travel",
+            params: { meters: 45000 },
+        },
+        {
+            type: "useItems",
+            params: { count: 120 },
+        },
     ],
     requirements: [
         {
@@ -53,12 +71,30 @@ const looey: Toon = {
         },
     ],
     quests: [
-        "Finish 30 Machines!",
-        "Activate this Toon's Passive Ability 30 times!",
-        "Pick up 50 Research Capsules!",
-        "Pick up 45 Items!",
-        "Survive 30 Floors!",
-        "Travel 80000 Meters!",
+        {
+            type: "finishMachines",
+            params: { count: 30 },
+        },
+        {
+            type: "usePassiveAbility",
+            params: { count: 30 },
+        },
+        {
+            type: "pickCapsules",
+            params: { count: 50 },
+        },
+        {
+            type: "pickItems",
+            params: { count: 45 },
+        },
+        {
+            type: "surviveFloors",
+            params: { count: 30 },
+        },
+        {
+            type: "travel",
+            params: { meters: 80000 },
+        },
     ],
     requirements: [
         {

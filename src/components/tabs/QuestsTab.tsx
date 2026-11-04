@@ -1,4 +1,5 @@
 import type { ToonTabProps } from "../../types/toonTabs";
+import { renderQuest } from "../../utils/quests";
 import QuestCard from "../cards/QuestCard";
 
 export default function QuestsTab({ toon }: ToonTabProps) {
@@ -6,7 +7,7 @@ export default function QuestsTab({ toon }: ToonTabProps) {
         <ul className="flex flex-col gap-2">
             {toon.quests.map((item, index) => (
                 <li key={index}>
-                    <QuestCard content={item} />
+                    <QuestCard content={renderQuest(item)} />
                 </li>
             ))}
         </ul>
