@@ -43,15 +43,15 @@ const yatta: Toon = {
     requirements: [
         {
             type: "ichor",
-            label: "2000 Ichor",
+            params: { count: 2000 },
         },
         {
             type: "toonsOwning",
-            label: "Own 15 or more Toons",
+            params: { count: 15 },
         },
         {
             type: "research",
-            label: "50% Research on Twisted Yatta",
+            params: { count: 50, twisted: "Twisted Yatta" },
         },
     ],
 };
@@ -99,18 +99,18 @@ const looey: Toon = {
     requirements: [
         {
             type: "ichor",
-            label: "1000 Ichor",
+            params: { count: 1000 },
         },
         {
             type: "mastery",
-            label: "Complete all Mastery Quests on Poppy",
+            params: { toon: "Poppy" },
         },
     ],
 };
 
 const TOONS = [
     yatta,
-    looey
+    looey,
 ] as const satisfies Toon[];
 
 export default TOONS;

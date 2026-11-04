@@ -1,8 +1,7 @@
 import type { QuestParams, QuestType } from "../types/quests";
+import { createRenderer } from "./render";
 
-const questTemplates: {
-    [K in QuestType]: (p: QuestParams[K]) => string;
-} = {
+const questTemplates = {
     custom: ({ text }) => text,
     travel: ({ meters }) => `Travel ${meters} Meters!`,
     dandysShop: ({ count }) => `Purchase ${count} Items from Dandy's Elevator Shop!`,
@@ -20,8 +19,8 @@ const questTemplates: {
     useActiveAbility: ({ count }) => `Use this Toon's Active Ability ${count} Times!`,
     usePassiveAbility: ({ count }) => `Use this Toon's Passive Ability ${count} Times!`,
     useInstructions: ({ count }) => `Use ${count} Instructions!`,
+} satisfies {
+    [K in QuestType]: (p: QuestParams[K]) => string;
 };
 
-export function renderQuest<K extends QuestType>(q: { type: K, params: QuestParams[K] }) {
-    return questTemplates[q.type](q.params);
-}
+export const renderQuest = createRenderer<QuestParams>(questTemplates);

@@ -1,15 +1,17 @@
-export type RequirementType = 
-    "ichor" | 
-    "pumpkin" |
-    "easter" |
-    "ornament" |
-    "encounter" |
-    "research" |
-    "mastery" |
-    "toonsOwning" |
-    "titlesOwning";
+export type RequirementParams = {
+    ichor: { count: number },
+    pumpkin: { count: number },
+    easter: { count: number },
+    ornament: { count: number },
+    encounter: { twisted: string },
+    research: { count: number, twisted: string },
+    mastery: { toon: string },
+    toonsOwning: { count: number },
+    titlesOwning: { count: number },
+};
+
+export type RequirementType = keyof RequirementParams;
 
 export type Requirement = {
-    type: RequirementType;
-    label: string;
-};
+    [K in RequirementType]: { type: K, params: RequirementParams[K] };
+}[RequirementType];
