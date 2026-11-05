@@ -4,6 +4,8 @@ import looey from "./toons/looey";
 import bobette from "./toons/bobette";
 import bassie from "./toons/bassie";
 import gourdy from "./toons/gourdy";
+import eclipse from "./toons/eclipse";
+import ginger from "./toons/ginger";
 
 const TOONS = [
     yatta,
@@ -11,6 +13,8 @@ const TOONS = [
     bobette,
     bassie,
     gourdy,
+    eclipse,
+    ginger,
 ] as const satisfies Toon[];
 
 export default TOONS;

@@ -5,38 +5,30 @@ import type { Toon, ToonCategory, ToonRarity } from "../../types/toons";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
 
-type SortOption = 
-    "name" | 
-    "rarity" | 
-    "category" | 
-    "health" | 
-    "skillCheck" | 
-    "moveSpeed" |
-    "stamina" |
-    "stealth" |
-    "extSpeed";
+const SortOptions = {
+    name: "Name",
+    rarity: "Rarity",
+    category: "Event",
+    health: "Health",
+    skillCheck: "Skill Check",
+    moveSpeed: "Movement Speed",
+    stamina: "Stamina",
+    stealth: "Stealth",
+    extSpeed: "Extraction Speed",
+};
+
+type SortKey = keyof typeof SortOptions;
 type SortDir = "asc" | "desc";
 
 const SORT_GROUPS: { 
-    entry: { value: SortOption, label: string }[],
+    entry: SortKey[],
     title?: string,
 }[] = [
     { 
-        entry: [
-            { value: "name", label: "Name" },
-            { value: "rarity", label: "Rarity" },
-            { value: "category", label: "Event" },
-        ],
+        entry: ["name", "rarity", "category"],
     },
     {
-        entry: [
-            { value: "health", label: "Health" },
-            { value: "skillCheck", label: "Skill Check" },
-            { value: "moveSpeed", label: "Movement Speed" },
-            { value: "stamina", label: "Stamina" },
-            { value: "stealth", label: "Stealth" },
-            { value: "extSpeed", label: "Extraction Speed" },
-        ],
+        entry: ["health", "skillCheck", "moveSpeed", "stamina", "stealth", "extSpeed"],
         title: "Stats",
     },
 ];
@@ -69,7 +61,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
     const [inputSearch, setInputSearch] = useState<string>("");
     const [search, setSearch] = useState<string>("");
 
-    const [sort, setSort] = useState<SortOption>("name");
+    const [sort, setSort] = useState<SortKey>("name");
     const [sortDir, setSortDir] = useState<SortDir>("asc");
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
@@ -162,18 +154,18 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                                         {group.title && <p className="px-1 text-white/50">{group.title}</p>}
                                         <ul className="flex flex-col gap-1">
                                             {group.entry.map(entry => (
-                                                <li key={entry.value}>
+                                                <li key={entry}>
                                                     <button
                                                         onClick={() => {
-                                                            setSort(entry.value);
+                                                            setSort(entry);
                                                             setIsSortOpen(false);
                                                         }}
                                                         className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
                                                         style={{
-                                                            background: `${entry.value === sort ? "#ffffff30" : ""}`,
+                                                            background: `${entry === sort ? "#ffffff30" : ""}`,
                                                         }}
                                                     >
-                                                        {entry.label}
+                                                        {SortOptions[entry]}
                                                     </button>
                                                 </li>
                                             ))}
@@ -210,13 +202,19 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                 </div>
             ) : (
                 <div>
-                    {search !== "" && (
-                        <p className="mt-1 mx-2 font-fredoka text-[#aaa]">Results: {resultsCount} toon{resultsCount > 1 ? "s" : ""}</p>
-                    )}
+                    <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide">
+                        <p>Ordering by: {SortOptions[sort]}</p>
+                        {search !== "" && (
+                            <>
+                                <div className="w-1 h-1 rounded-full bg-[#aaa] mt-0.5"/>
+                                <p>Results: {resultsCount} toon{resultsCount > 1 ? "s" : ""}</p>
+                            </>
+                        )}
+                    </div>
                     <ul 
-                        className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80"
+                        className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80 top-17.5"
                         style={{
-                            top: `${search !== "" ? "70px" : "50px"}`,
+                            
                             gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "136px"})`,
                         }}
                     >
