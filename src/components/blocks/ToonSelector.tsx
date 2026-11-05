@@ -42,11 +42,11 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
     const sortRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const timemout = setTimeout(() => {
+        const timeout = setTimeout(() => {
             setSearch(normalizeString(inputSearch));
         }, 250);
 
-        return () => clearTimeout(timemout);
+        return () => clearTimeout(timeout);
     }, [inputSearch]);
 
     useEffect(() => {

@@ -11,7 +11,6 @@ import { QuestionCircleIcon } from "@solar-icons/react/bold/question-circle";
 import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
 import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
 import {  CloseIcon } from "@solar-icons/react/bold/close";
-import { LoaderIcon } from "@solar-icons/react/bold/loader";
 import { FilterIcon } from "@solar-icons/react/bold/filter";
 import { SortFromBottomToTopIcon } from "@solar-icons/react/bold/sort-from-bottom-to-top";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
@@ -83,10 +82,6 @@ const ICONS = {
     cross: {
         node: CloseIcon,
         alt: "Cross Icon",
-    },
-    loader: {
-        node: LoaderIcon,
-        alt: "Loader Icon",
     },
     filter: {
         node: FilterIcon,

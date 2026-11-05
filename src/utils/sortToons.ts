@@ -39,11 +39,12 @@ const STAT_INDEX: Partial<Record<SortKey, number>> = {
     extSpeed: 5,
 };
 
+const collator = new Intl.Collator(undefined, { sensitivity: "base" });
 export function sortToons(toons: Toon[], sortKey: SortKey, sortDir: SortDir): Toon[] {
     const dir = sortDir === "asc" ? 1 : -1;
 
     return [...toons].sort((a, b) => {
-        const byName = a.name.localeCompare(b.name);
+        const byName = collator.compare(a.name, b.name);
         const sortFallback = (result: number) => result * dir || byName;
 
         switch (sortKey) {
