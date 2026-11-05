@@ -127,7 +127,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                         <ICONS.sort.node
                             color="white"
                             style={{
-                                scale: sortDir === "asc" ? "1.2" : "-1.2",
+                                transform: `scale(1, ${sortDir === "asc" ? "":"-"}1.2)`,
                             }}
                         />
                     </ShinyButton>
