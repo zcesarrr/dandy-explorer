@@ -12,6 +12,7 @@ import { DiplomaIcon } from "@solar-icons/react/bold/diploma";
 import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
 import {  CloseIcon } from "@solar-icons/react/bold/close";
 import { LoaderIcon } from "@solar-icons/react/bold/loader";
+import { FilterIcon } from "@solar-icons/react/bold/filter";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -86,7 +87,10 @@ const ICONS = {
         node: LoaderIcon,
         alt: "Loader Icon",
     },
-    
+    filter: {
+        node: FilterIcon,
+        alt: "Filter Icon",
+    },
 } as const satisfies Record<string, IconEntry>;
 
 export default ICONS;
