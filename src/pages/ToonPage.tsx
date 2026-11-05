@@ -7,6 +7,9 @@ import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons";
 import type { ToonTabKey } from "../constants/toonTabs";
+import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, sortToons } from "../utils/sortToons";
+
+const DEFAULT_TOON_SLUG = sortToons(TOONS, DEFAULT_SORT_KEY, DEFAULT_SORT_DIR)[0]!.slug;
 
 function composeEndpoint(
     toonSlug: string,
@@ -20,10 +23,10 @@ export default function ToonPage() {
     const navigate = useNavigate();
     const isDesktop = useIsDesktop();
     
-    const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? TOONS[0].slug));
+    const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? DEFAULT_TOON_SLUG));
 
     if (!selectedToonData) {
-        return <Navigate to={composeEndpoint(TOONS[0].slug)} replace />;
+        return <Navigate to={composeEndpoint(DEFAULT_TOON_SLUG)} replace />;
     }
 
     if (tabKey !== undefined && !isToonTabKey(tabKey)) {

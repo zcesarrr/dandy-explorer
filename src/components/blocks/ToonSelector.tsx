@@ -1,49 +1,23 @@
 import { useEffect, useRef, useState } from "react";
 import Input from "../customs/Input";
 import ToonButton from "../ToonButton";
-import type { Toon, ToonCategory, ToonRarity } from "../../types/toons";
+import type { Toon } from "../../types/toons";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
-
-const SortOptions = {
-    name: "Name",
-    rarity: "Rarity",
-    category: "Event",
-    health: "Health",
-    skillCheck: "Skill Check",
-    moveSpeed: "Movement Speed",
-    stamina: "Stamina",
-    stealth: "Stealth",
-    extSpeed: "Extraction Speed",
-};
-
-type SortKey = keyof typeof SortOptions;
-type SortDir = "asc" | "desc";
+import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, sortLabel, sortToons, type SortDir, type SortKey } from "../../utils/sortToons";
 
 const SORT_GROUPS: { 
-    entry: SortKey[],
     title?: string,
+    entries: SortKey[],
 }[] = [
     { 
-        entry: ["name", "rarity", "category"],
+        entries: ["name", "rarity", "category"],
     },
     {
-        entry: ["health", "skillCheck", "moveSpeed", "stamina", "stealth", "extSpeed"],
         title: "Stats",
+        entries: ["health", "skillCheck", "moveSpeed", "stamina", "stealth", "extSpeed"],
     },
 ];
-
-const RARITY_PRIORITY: Record<ToonRarity, number> = {
-    normal: 0,
-    main: 1,
-};
-
-const CATEGORY_PRIORITY: Record<ToonCategory, number> = {
-    none: 0,
-    easter: 1,
-    halloween: 2,
-    holiday: 3,
-};
 
 function normalizeString(str: string): string {
     return str.toLowerCase().trim();
@@ -61,8 +35,8 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
     const [inputSearch, setInputSearch] = useState<string>("");
     const [search, setSearch] = useState<string>("");
 
-    const [sort, setSort] = useState<SortKey>("name");
-    const [sortDir, setSortDir] = useState<SortDir>("asc");
+    const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_SORT_KEY);
+    const [sortDir, setSortDir] = useState<SortDir>(DEFAULT_SORT_DIR);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
@@ -91,37 +65,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
         ? toons.filter((toon) => normalizeString(toon.name).includes(search))
         : toons;
 
-    const dir = sortDir === "asc" ? 1 : -1;
-    const sortedToons = [...filteredToons].sort((a, b) => {
-        const sortFallback = (result: number) => {
-            return result * dir || a.name.localeCompare(b.name);
-        };
-
-        switch (sort) {
-            case "name":
-                return a.name.localeCompare(b.name) * dir;
-            case "rarity":
-                return sortFallback(
-                    (RARITY_PRIORITY[a.rarity] - RARITY_PRIORITY[b.rarity])
-                );
-            case "category":
-                return sortFallback(
-                    (CATEGORY_PRIORITY[a.category] - CATEGORY_PRIORITY[b.category])
-                );
-            case "health":
-                return sortFallback(a.stats[0] - b.stats[0]);
-            case "skillCheck":
-                return sortFallback(a.stats[1] - b.stats[1]);
-            case "moveSpeed":
-                return sortFallback(a.stats[2] - b.stats[2]);
-            case "stamina":
-                return sortFallback(a.stats[3] - b.stats[3]);
-            case "stealth":
-                return sortFallback(a.stats[4] - b.stats[4]);
-            case "extSpeed":
-                return sortFallback(a.stats[5] - b.stats[5]);
-        }
-    });
+    const sortedToons = sortToons(filteredToons, sortKey, sortDir);
     
     const resultsCount = sortedToons.length;
 
@@ -153,19 +97,19 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                                     <li key={index}>
                                         {group.title && <p className="px-1 text-white/50">{group.title}</p>}
                                         <ul className="flex flex-col gap-1">
-                                            {group.entry.map(entry => (
-                                                <li key={entry}>
+                                            {group.entries.map(key => (
+                                                <li key={key}>
                                                     <button
                                                         onClick={() => {
-                                                            setSort(entry);
+                                                            setSortKey(key);
                                                             setIsSortOpen(false);
                                                         }}
                                                         className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
                                                         style={{
-                                                            background: `${entry === sort ? "#ffffff30" : ""}`,
+                                                            background: `${key === sortKey ? "#ffffff30" : ""}`,
                                                         }}
                                                     >
-                                                        {SortOptions[entry]}
+                                                        {sortLabel(key)}
                                                     </button>
                                                 </li>
                                             ))}
@@ -203,7 +147,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
             ) : (
                 <div>
                     <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide">
-                        <p>Ordering by: {SortOptions[sort]}</p>
+                        <p>Ordering by: {sortLabel(sortKey)}</p>
                         {search !== "" && (
                             <>
                                 <div className="w-1 h-1 rounded-full bg-[#aaa] mt-0.5"/>
