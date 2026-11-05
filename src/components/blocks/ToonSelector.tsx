@@ -104,9 +104,10 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                                                             setSortKey(key);
                                                             setIsSortOpen(false);
                                                         }}
-                                                        className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
+                                                        className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10 hover:cursor-pointer"
                                                         style={{
-                                                            background: `${key === sortKey ? "#ffffff30" : ""}`,
+                                                            background: key === sortKey ? "#ffffff30" : "",
+                                                            cursor: key === sortKey ? "default" : "",
                                                         }}
                                                     >
                                                         {sortLabel(key)}
