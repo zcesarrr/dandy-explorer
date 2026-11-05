@@ -1,21 +1,44 @@
 import { useEffect, useRef, useState } from "react";
 import Input from "../customs/Input";
 import ToonButton from "../ToonButton";
-import type { Toon, ToonRarity } from "../../types/toons";
+import type { Toon, ToonCategory, ToonRarity } from "../../types/toons";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
 
-type SortOption = "name" | "rarity";
+type SortOption = 
+    "name" | 
+    "rarity" | 
+    "category" | 
+    "health" | 
+    "skillCheck" | 
+    "moveSpeed" |
+    "stamina" |
+    "stealth" |
+    "extSpeed";
 type SortDir = "asc" | "desc";
 
 const SORT_OPTIONS: { value: SortOption, label: string }[] = [
     { value: "name", label: "Name" },
     { value: "rarity", label: "Rarity" },
+    { value: "category", label: "Event" },
+    { value: "health", label: "Health" },
+    { value: "skillCheck", label: "Skill Check" },
+    { value: "moveSpeed", label: "Movement Speed" },
+    { value: "stamina", label: "Stamina" },
+    { value: "stealth", label: "Stealth" },
+    { value: "extSpeed", label: "Extraction Speed" },
 ];
 
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
     normal: 0,
     main: 1,
+};
+
+const CATEGORY_PRIORITY: Record<ToonCategory, number> = {
+    none: 0,
+    easter: 1,
+    halloween: 2,
+    holiday: 3,
 };
 
 function normalizeString(str: string): string {
@@ -64,16 +87,37 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
         ? toons.filter((toon) => normalizeString(toon.name).includes(search))
         : toons;
 
+    const dir = sortDir === "asc" ? 1 : -1;
     const sortedToons = [...filteredToons].sort((a, b) => {
+        const sortFallback = (result: number) => {
+            return result * dir || a.name.localeCompare(b.name);
+        };
+
         switch (sort) {
             case "name":
-                return a.name.localeCompare(b.name);
+                return a.name.localeCompare(b.name) * dir;
             case "rarity":
-                const rarityDifference = RARITY_PRIORITY[a.rarity] - RARITY_PRIORITY[b.rarity];
-                return rarityDifference || a.name.localeCompare(b.name);
+                return sortFallback(
+                    (RARITY_PRIORITY[a.rarity] - RARITY_PRIORITY[b.rarity])
+                );
+            case "category":
+                return sortFallback(
+                    (CATEGORY_PRIORITY[a.category] - CATEGORY_PRIORITY[b.category])
+                );
+            case "health":
+                return sortFallback(a.stats[0] - b.stats[0]);
+            case "skillCheck":
+                return sortFallback(a.stats[1] - b.stats[1]);
+            case "moveSpeed":
+                return sortFallback(a.stats[2] - b.stats[2]);
+            case "stamina":
+                return sortFallback(a.stats[3] - b.stats[3]);
+            case "stealth":
+                return sortFallback(a.stats[4] - b.stats[4]);
+            case "extSpeed":
+                return sortFallback(a.stats[5] - b.stats[5]);
         }
     });
-    if (sortDir == "desc") sortedToons.reverse();
     
     const resultsCount = sortedToons.length;
 
