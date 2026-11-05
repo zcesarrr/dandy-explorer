@@ -17,16 +17,28 @@ type SortOption =
     "extSpeed";
 type SortDir = "asc" | "desc";
 
-const SORT_OPTIONS: { value: SortOption, label: string }[] = [
-    { value: "name", label: "Name" },
-    { value: "rarity", label: "Rarity" },
-    { value: "category", label: "Event" },
-    { value: "health", label: "Health" },
-    { value: "skillCheck", label: "Skill Check" },
-    { value: "moveSpeed", label: "Movement Speed" },
-    { value: "stamina", label: "Stamina" },
-    { value: "stealth", label: "Stealth" },
-    { value: "extSpeed", label: "Extraction Speed" },
+const SORT_GROUPS: { 
+    entry: { value: SortOption, label: string }[],
+    title?: string,
+}[] = [
+    { 
+        entry: [
+            { value: "name", label: "Name" },
+            { value: "rarity", label: "Rarity" },
+            { value: "category", label: "Event" },
+        ],
+    },
+    {
+        entry: [
+            { value: "health", label: "Health" },
+            { value: "skillCheck", label: "Skill Check" },
+            { value: "moveSpeed", label: "Movement Speed" },
+            { value: "stamina", label: "Stamina" },
+            { value: "stealth", label: "Stealth" },
+            { value: "extSpeed", label: "Extraction Speed" },
+        ],
+        title: "Stats",
+    },
 ];
 
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
@@ -144,21 +156,28 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                         </ShinyButton>
 
                         {isSortOpen && (
-                            <ul className="absolute right-0 flex flex-col gap-1 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/90 p-1">
-                                {SORT_OPTIONS.map(item => (
-                                    <li key={item.value}>
-                                        <button
-                                            onClick={() => {
-                                                setSort(item.value);
-                                                setIsSortOpen(false);
-                                            }}
-                                            className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
-                                            style={{
-                                                background: `${item.value === sort ? "#ffffff30" : ""}`,
-                                            }}
-                                        >
-                                            {item.label}
-                                        </button>
+                            <ul className="absolute right-0 flex flex-col gap-2 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/95 p-1 font-fredoka text-white">
+                                {SORT_GROUPS.map((group, index) => (
+                                    <li key={index}>
+                                        {group.title && <p className="px-1 text-white/50">{group.title}</p>}
+                                        <ul className="flex flex-col gap-1">
+                                            {group.entry.map(entry => (
+                                                <li key={entry.value}>
+                                                    <button
+                                                        onClick={() => {
+                                                            setSort(entry.value);
+                                                            setIsSortOpen(false);
+                                                        }}
+                                                        className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
+                                                        style={{
+                                                            background: `${entry.value === sort ? "#ffffff30" : ""}`,
+                                                        }}
+                                                    >
+                                                        {entry.label}
+                                                    </button>
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </li>
                                 ))}
                             </ul>
