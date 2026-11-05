@@ -6,6 +6,7 @@ import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
 
 type SortOption = "name" | "rarity";
+type SortDir = "asc" | "desc";
 
 const SORT_OPTIONS: { value: SortOption, label: string }[] = [
     { value: "name", label: "Name" },
@@ -34,6 +35,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
     const [search, setSearch] = useState<string>("");
 
     const [sort, setSort] = useState<SortOption>("name");
+    const [sortDir, setSortDir] = useState<SortDir>("asc");
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
@@ -63,54 +65,72 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
         : toons;
 
     const sortedToons = [...filteredToons].sort((a, b) => {
-        if (sort === "rarity") {
-            const rarityDifference = RARITY_PRIORITY[a.rarity] - RARITY_PRIORITY[b.rarity];
-            return rarityDifference || a.name.localeCompare(b.name);
+        switch (sort) {
+            case "name":
+                return a.name.localeCompare(b.name);
+            case "rarity":
+                const rarityDifference = RARITY_PRIORITY[a.rarity] - RARITY_PRIORITY[b.rarity];
+                return rarityDifference || a.name.localeCompare(b.name);
         }
-
-        return a.name.localeCompare(b.name);
     });
+    if (sortDir == "desc") sortedToons.reverse();
     
     const resultsCount = sortedToons.length;
 
     return (
         <div className={`${className ?? ""} relative w-full`}>
-            <div className="flex h-10 mx-1.5 gap-2">
+            <div className="flex h-10 mx-1.5 gap-1">
                 <Input
                     type="search"
                     placeholder="Search Toons..."
                     icon="magnifier"
-                    className="w-full"
+                    className="w-full min-w-0 flex-1"
                     onValueChange={(value) => setInputSearch(value)}
                 />
-                <div ref={sortRef} className="relative">
-                    <ShinyButton 
-                        className="flex justify-center items-center w-16 h-full"
-                        onClick={() => setIsSortOpen((prev) => !prev)}
-                    >
-                        <ICONS.filter.node color="white" />
-                    </ShinyButton>
+                <div
+                    className="w-0.5 bg-black/60 rounded-full translate-y-0.5 scale-y-80"
+                />
+                <div className="flex gap-1">
+                    <div ref={sortRef} className="relative">
+                        <ShinyButton 
+                            className="flex shrink-0 justify-center items-center w-16 h-full"
+                            onClick={() => setIsSortOpen((prev) => !prev)}
+                        >
+                            <ICONS.filter.node color="white" />
+                        </ShinyButton>
 
-                    {isSortOpen && (
-                        <ul className="absolute right-0 flex flex-col gap-1 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/90 p-1">
-                            {SORT_OPTIONS.map(item => (
-                                <li key={item.value}>
-                                    <button
-                                        onClick={() => {
-                                            setSort(item.value);
-                                            setIsSortOpen(false);
-                                        }}
-                                        className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
-                                        style={{
-                                            background: `${item.value === sort ? "#ffffff30" : ""}`,
-                                        }}
-                                    >
-                                        {item.label}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    )}
+                        {isSortOpen && (
+                            <ul className="absolute right-0 flex flex-col gap-1 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/90 p-1">
+                                {SORT_OPTIONS.map(item => (
+                                    <li key={item.value}>
+                                        <button
+                                            onClick={() => {
+                                                setSort(item.value);
+                                                setIsSortOpen(false);
+                                            }}
+                                            className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10"
+                                            style={{
+                                                background: `${item.value === sort ? "#ffffff30" : ""}`,
+                                            }}
+                                        >
+                                            {item.label}
+                                        </button>
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+                    </div>
+                    <ShinyButton 
+                        className="flex shrink-0 justify-center items-center w-12"
+                        onClick={() => setSortDir((prev) => prev === "asc" ? "desc" : "asc")}
+                    >
+                        <ICONS.sort.node
+                            color="white"
+                            style={{
+                                scale: sortDir === "asc" ? "1.2" : "-1.2",
+                            }}
+                        />
+                    </ShinyButton>
                 </div>
             </div>
 

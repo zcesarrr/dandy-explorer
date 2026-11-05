@@ -13,6 +13,7 @@ import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
 import {  CloseIcon } from "@solar-icons/react/bold/close";
 import { LoaderIcon } from "@solar-icons/react/bold/loader";
 import { FilterIcon } from "@solar-icons/react/bold/filter";
+import { SortFromBottomToTopIcon } from "@solar-icons/react/bold/sort-from-bottom-to-top";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -90,6 +91,10 @@ const ICONS = {
     filter: {
         node: FilterIcon,
         alt: "Filter Icon",
+    },
+    sort: {
+        node: SortFromBottomToTopIcon,
+        alt: "Sort Icon",
     },
 } as const satisfies Record<string, IconEntry>;
 
