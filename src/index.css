@@ -3,7 +3,8 @@
 @layer base {
   @font-face {
     font-family: "Fredoka";
-    src: url("./assets/fonts/Fredoka-Bold.ttf") format("truetype");
+    src: url("./assets/fonts/Fredoka-Bold.woff2") format("woff2");
+    font-display: swap;
   }
 }
 
@@ -26,9 +27,13 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
-body {
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+
   background: 
     linear-gradient(to top, #00000050, transparent),
     repeating-linear-gradient(135deg, #404040 0px, #404040 18px, #454545 18px, #454545 36px);
-    background-attachment: fixed;
 }
