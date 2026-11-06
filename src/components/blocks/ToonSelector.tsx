@@ -32,7 +32,6 @@ export type ToonSelectorProps = {
 };
 
 export default function ToonSelector({ className, toons, selectedSlug, onSelect, toonButtonSize = undefined }: ToonSelectorProps) {
-    const [inputSearch, setInputSearch] = useState<string>("");
     const [search, setSearch] = useState<string>("");
 
     const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_SORT_KEY);
@@ -40,14 +39,6 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            setSearch(normalizeString(inputSearch));
-        }, 250);
-
-        return () => clearTimeout(timeout);
-    }, [inputSearch]);
 
     useEffect(() => {
         if (!isSortOpen) return;
@@ -61,8 +52,9 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
         return () => document.removeEventListener("mousedown", handleClick);
     }, [isSortOpen]);
 
+    const query = normalizeString(search);
     const filteredToons = search !== "" 
-        ? toons.filter((toon) => normalizeString(toon.name).includes(search))
+        ? toons.filter((toon) => normalizeString(toon.name).includes(query))
         : toons;
 
     const sortedToons = sortToons(filteredToons, sortKey, sortDir);
@@ -73,11 +65,13 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
         <div className={`${className ?? ""} relative w-full`}>
             <div className="flex h-10 mx-1.5 gap-1">
                 <Input
+                    ariaLabel="Search Toons"
                     type="search"
                     placeholder="Search Toons..."
                     icon="magnifier"
                     className="w-full min-w-0 flex-1"
-                    onValueChange={(value) => setInputSearch(value)}
+                    value={search}
+                    onChange={(value) => setSearch(value)}
                 />
                 <div
                     className="w-0.5 bg-black/60 rounded-full translate-y-0.5 scale-y-80"
@@ -149,7 +143,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                 <div>
                     <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide">
                         <p>Ordering by: {sortLabel(sortKey)}</p>
-                        {search !== "" && (
+                        {query !== "" && (
                             <>
                                 <div className="w-1 h-1 rounded-full bg-[#aaa] mt-0.5"/>
                                 <p>Results: {resultsCount} toon{resultsCount > 1 ? "s" : ""}</p>
