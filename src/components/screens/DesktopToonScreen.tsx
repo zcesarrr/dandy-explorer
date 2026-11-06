@@ -7,13 +7,13 @@ import ToonSelector from "../blocks/ToonSelector";
 
 type DesktopToonScreenProps = {
     toons: Toon[];
-    selectonToon: Toon;
+    selectedToon: Toon;
     tabKey: ToonTabKey | undefined;
     onSelectToon: (slug: string) => void;
     onSelectTab: (key: ToonTabKey) => void;
 };
 
-export default function DesktopToonScreen({ toons, selectonToon, tabKey, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
+export default function DesktopToonScreen({ toons, selectedToon, tabKey, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
     const currentTab = getToonTab(tabKey);
 
     return (
@@ -22,7 +22,7 @@ export default function DesktopToonScreen({ toons, selectonToon, tabKey, onSelec
             <main className="w-full max-w-7xl grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
                 <ToonSelector
                     toons={toons}
-                    selectedSlug={selectonToon.slug}
+                    selectedSlug={selectedToon.slug}
                     onSelect={onSelectToon}
                 />
 
@@ -30,7 +30,7 @@ export default function DesktopToonScreen({ toons, selectonToon, tabKey, onSelec
                 <div className="grid grid-cols-2 gap-3">
                     <ToonInfo
                         className="bg-black/30 p-4 rounded-xl"
-                        toon={selectonToon}
+                        toon={selectedToon}
                     />
 
                     {/* DETAILS SECTION */}
@@ -42,7 +42,7 @@ export default function DesktopToonScreen({ toons, selectonToon, tabKey, onSelec
                             </p>
 
                             {/* TAB CONTENT */}
-                            <currentTab.Component toon={selectonToon} />
+                            <currentTab.Component toon={selectedToon} />
                         </div>
 
                         {/* TABS */}

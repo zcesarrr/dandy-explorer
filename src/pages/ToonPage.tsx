@@ -7,13 +7,13 @@ import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons";
 import type { ToonTabKey } from "../constants/toonTabs";
-import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, sortToons } from "../utils/sortToons";
-
-const DEFAULT_TOON_SLUG = sortToons(TOONS, DEFAULT_SORT_KEY, DEFAULT_SORT_DIR)[0]!.slug;
+import { useToonListParams } from "../hooks/useToonListParams";
+import { filterToons } from "../utils/toonsFiltering";
 
 export default function ToonPage() {
-    const { search } = useLocation();
+    const { search: queryString } = useLocation();
     const { toonSlug, tabKey } = useParams();
+    const { sortKey, sortDir, search } = useToonListParams();
     const navigate = useNavigate();
     const isDesktop = useIsDesktop();
 
@@ -21,13 +21,15 @@ export default function ToonPage() {
         toonSlug: string,
         tabKey: ToonTabKey | undefined = undefined
     ): string => {
-        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${search}`
+        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
     }
-    
-    const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? DEFAULT_TOON_SLUG));
+
+    const toonsFiltered = filterToons(TOONS, search, sortKey, sortDir);
+    const defaultToon = toonsFiltered[0] ?? filterToons(TOONS, "", sortKey, sortDir)[0]!;
+    const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
 
     if (!selectedToonData) {
-        return <Navigate to={composeEndpoint(DEFAULT_TOON_SLUG)} replace />;
+        return <Navigate to={composeEndpoint(defaultToon.slug)} replace />;
     }
 
     if (tabKey !== undefined && !isToonTabKey(tabKey)) {
@@ -39,7 +41,7 @@ export default function ToonPage() {
             return (
                 <MobileSelectorScreen
                     onSelect={slug => navigate(composeEndpoint(slug))}
-                    toons={TOONS}
+                    toons={toonsFiltered}
                 />
             );
         }
@@ -49,8 +51,8 @@ export default function ToonPage() {
                 <DesktopToonScreen
                     onSelectToon={slug => navigate(composeEndpoint(slug, tabKey))}
                     onSelectTab={key => navigate(composeEndpoint(selectedToonData.slug, key))}
-                    toons={TOONS}
-                    selectonToon={selectedToonData}
+                    toons={toonsFiltered}
+                    selectedToon={selectedToonData}
                     tabKey={tabKey}
                 />
             );
@@ -67,7 +69,7 @@ export default function ToonPage() {
                     )
                 }
                 onBackClick={() => {
-                    navigate("/", { replace: true });
+                    navigate(`/${queryString}`, { replace: true });
                 }}
             />
         );

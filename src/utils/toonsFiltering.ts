@@ -42,11 +42,20 @@ const STAT_INDEX: Partial<Record<SortKey, number>> = {
     extSpeed: 5,
 };
 
-const collator = new Intl.Collator(undefined, { sensitivity: "base" });
-export function sortToons(toons: Toon[], sortKey: SortKey, sortDir: SortDir): Toon[] {
+function normalizeString(str: string): string {
+    return str.toLowerCase().trim();
+}
+
+const collator = new Intl.Collator("en", { sensitivity: "base" });
+export function filterToons(toons: Toon[], search: string, sortKey: SortKey, sortDir: SortDir): Toon[] {
     const dir = sortDir === "asc" ? 1 : -1;
 
-    return [...toons].sort((a, b) => {
+    const query = normalizeString(search);
+    const filteredToons = query !== "" 
+        ? toons.filter((toon) => normalizeString(toon.name).includes(query))
+        : toons;
+
+    return [...filteredToons].sort((a, b) => {
         const byName = collator.compare(a.name, b.name);
         const sortFallback = (result: number) => result * dir || byName;
 

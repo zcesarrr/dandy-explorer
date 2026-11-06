@@ -4,7 +4,7 @@ import ToonButton from "../ToonButton";
 import type { Toon } from "../../types/toons";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
-import { sortLabel, sortToons, type SortKey } from "../../utils/sortToons";
+import { sortLabel, type SortKey } from "../../utils/toonsFiltering";
 import { useToonListParams } from "../../hooks/useToonListParams";
 
 const SORT_GROUPS: { 
@@ -19,10 +19,6 @@ const SORT_GROUPS: {
         entries: ["health", "skillCheck", "moveSpeed", "stamina", "stealth", "extSpeed"],
     },
 ];
-
-function normalizeString(str: string): string {
-    return str.toLowerCase().trim();
-}
 
 export type ToonSelectorProps = {
     className?: string;
@@ -52,14 +48,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
         return () => document.removeEventListener("mousedown", handleClick);
     }, [isSortOpen]);
 
-    const query = normalizeString(search);
-    const filteredToons = query !== "" 
-        ? toons.filter((toon) => normalizeString(toon.name).includes(query))
-        : toons;
-
-    const sortedToons = sortToons(filteredToons, sortKey, sortDir);
-    
-    const resultsCount = sortedToons.length;
+    const resultsCount = toons.length;
 
     return (
         <div className={`${className ?? ""} relative w-full`}>
@@ -72,7 +61,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                     className="w-full min-w-0 flex-1"
                     value={searchInput}
                     onChange={(value) => {
-                        setSearchInput(value)
+                        setSearchInput(value);
                         setSearch(value);
                     }}
                 />
@@ -144,9 +133,9 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                 </div>
             ) : (
                 <div>
-                    <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide">
+                    <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide max-xs:text-sm">
                         <p>Ordering by: {sortLabel(sortKey)}</p>
-                        {query !== "" && (
+                        {search.trim() !== "" && (
                             <>
                                 <div className="w-1 h-1 rounded-full bg-[#aaa] mt-0.5"/>
                                 <p>Results: {resultsCount} toon{resultsCount > 1 ? "s" : ""}</p>
@@ -160,7 +149,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                             gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "136px"})`,
                         }}
                     >
-                        {sortedToons.map(item => (
+                        {toons.map(item => (
                             <li key={item.slug}>
                                 <ToonButton
                                     buttonProps={{

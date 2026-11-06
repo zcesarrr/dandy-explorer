@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router";
-import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, SORT_KEYS, type SortDir, type SortKey } from "../utils/sortToons";
+import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, SORT_KEYS, type SortDir, type SortKey } from "../utils/toonsFiltering";
 
 export function useToonListParams() {
     const [params, setParams] = useSearchParams();

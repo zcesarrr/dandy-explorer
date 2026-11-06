@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 function anchor(url: string) {
     return {
@@ -9,6 +9,8 @@ function anchor(url: string) {
 }
 
 export default function AboutPage() {
+    const { search } = useLocation();
+
     return (
         <div className="font-fredoka text-white text-stroke p-4 flex flex-col h-dvh justify-center items-center text-center tracking-wide">
             <div className="max-w-lg">
@@ -33,7 +35,7 @@ export default function AboutPage() {
                     <p>If you have any issues related to Dandy Explorer, please contact me via email: cesarz.contact@gmail.com</p>
                 </div>
 
-                <Link to="/" className="underline underline-offset-2 hover:text-yellow-300 active:text-yellow-300">Go Home</Link>
+                <Link to={{ pathname: "/", search }} className="underline underline-offset-2 hover:text-yellow-300 active:text-yellow-300">Go Home</Link>
             </div>
         </div>
     );
