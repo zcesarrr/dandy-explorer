@@ -49,7 +49,7 @@ export default function ToonPage() {
                     onSelectToon={slug => navigate(composeEndpoint(slug, tabKey))}
                     onSelectTab={key => navigate(composeEndpoint(selectedToonData.slug, key))}
                     toons={TOONS}
-                    selectedToonSlug={selectedToonData.slug}
+                    selectonToon={selectedToonData}
                     tabKey={tabKey}
                 />
             );

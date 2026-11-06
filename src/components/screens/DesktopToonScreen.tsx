@@ -7,17 +7,14 @@ import ToonSelector from "../blocks/ToonSelector";
 
 type DesktopToonScreenProps = {
     toons: Toon[];
-    selectedToonSlug: string;
+    selectonToon: Toon;
     tabKey: ToonTabKey | undefined;
     onSelectToon: (slug: string) => void;
     onSelectTab: (key: ToonTabKey) => void;
 };
 
-export default function DesktopToonScreen({ toons, selectedToonSlug, tabKey, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
+export default function DesktopToonScreen({ toons, selectonToon, tabKey, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
     const currentTab = getToonTab(tabKey);
-    const selectedToonData = toons.find(toon => toon.slug === selectedToonSlug);
-
-    if (!selectedToonData) return null;
 
     return (
         <div className="flex flex-col justify-center items-center h-full p-4">
@@ -25,7 +22,7 @@ export default function DesktopToonScreen({ toons, selectedToonSlug, tabKey, onS
             <main className="w-full max-w-7xl grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
                 <ToonSelector
                     toons={toons}
-                    selectedSlug={selectedToonSlug}
+                    selectedSlug={selectonToon.slug}
                     onSelect={onSelectToon}
                 />
 
@@ -33,7 +30,7 @@ export default function DesktopToonScreen({ toons, selectedToonSlug, tabKey, onS
                 <div className="grid grid-cols-2 gap-3">
                     <ToonInfo
                         className="bg-black/30 p-4 rounded-xl"
-                        toon={selectedToonData}
+                        toon={selectonToon}
                     />
 
                     {/* DETAILS SECTION */}
@@ -45,7 +42,7 @@ export default function DesktopToonScreen({ toons, selectedToonSlug, tabKey, onS
                             </p>
 
                             {/* TAB CONTENT */}
-                            <currentTab.Component toon={selectedToonData} />
+                            <currentTab.Component toon={selectonToon} />
                         </div>
 
                         {/* TABS */}
