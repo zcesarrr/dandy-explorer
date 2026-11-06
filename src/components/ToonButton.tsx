@@ -14,7 +14,7 @@ export default function ToonButton({ buttonProps, toon }: ToonButtonProps) {
             {...buttonProps}
         >
             <ToonImage
-                className="rounded-lg"
+                className="rounded-lg w-full aspect-square"
                 toon={toon}
             />
             <p className="font-fredoka text-white text-stroke text-center leading-none text-lg">{toon.name}</p>
