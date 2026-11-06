@@ -12,11 +12,14 @@ const SORT_LABELS = {
     extSpeed: "Extraction Speed",
 };
 
+
 export type SortKey = keyof typeof SORT_LABELS;
 export type SortDir = "asc" | "desc";
 
 export const DEFAULT_SORT_KEY: SortKey = "name";
 export const DEFAULT_SORT_DIR: SortDir = "asc";
+
+export const SORT_KEYS = Object.keys(SORT_LABELS) as SortKey[];
 
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
     normal: 0,

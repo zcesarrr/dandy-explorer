@@ -4,7 +4,8 @@ import ToonButton from "../ToonButton";
 import type { Toon } from "../../types/toons";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
-import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, sortLabel, sortToons, type SortDir, type SortKey } from "../../utils/sortToons";
+import { sortLabel, sortToons, type SortKey } from "../../utils/sortToons";
+import { useToonListParams } from "../../hooks/useToonListParams";
 
 const SORT_GROUPS: { 
     title?: string,
@@ -32,10 +33,9 @@ export type ToonSelectorProps = {
 };
 
 export default function ToonSelector({ className, toons, selectedSlug, onSelect, toonButtonSize = undefined }: ToonSelectorProps) {
-    const [search, setSearch] = useState<string>("");
+    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir } = useToonListParams();
 
-    const [sortKey, setSortKey] = useState<SortKey>(DEFAULT_SORT_KEY);
-    const [sortDir, setSortDir] = useState<SortDir>(DEFAULT_SORT_DIR);
+    const [searchInput, setSearchInput] = useState<string>(search);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
@@ -53,7 +53,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
     }, [isSortOpen]);
 
     const query = normalizeString(search);
-    const filteredToons = search !== "" 
+    const filteredToons = query !== "" 
         ? toons.filter((toon) => normalizeString(toon.name).includes(query))
         : toons;
 
@@ -70,8 +70,11 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                     placeholder="Search Toons..."
                     icon="magnifier"
                     className="w-full min-w-0 flex-1"
-                    value={search}
-                    onChange={(value) => setSearch(value)}
+                    value={searchInput}
+                    onChange={(value) => {
+                        setSearchInput(value)
+                        setSearch(value);
+                    }}
                 />
                 <div
                     className="w-0.5 bg-black/60 rounded-full translate-y-0.5 scale-y-80"
@@ -116,7 +119,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                     </div>
                     <ShinyButton 
                         className="flex shrink-0 justify-center items-center w-12"
-                        onClick={() => setSortDir((prev) => prev === "asc" ? "desc" : "asc")}
+                        onClick={() => setSortDir(sortDir === "asc" ? "desc" : "asc")}
                     >
                         <ICONS.sort.node
                             color="white"

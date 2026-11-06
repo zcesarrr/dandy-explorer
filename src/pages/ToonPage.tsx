@@ -1,4 +1,4 @@
-import { Navigate, useNavigate, useParams } from "react-router";
+import { Navigate, useLocation, useNavigate, useParams } from "react-router";
 import { isToonTabKey } from "../utils/toonTabs";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
@@ -11,17 +11,18 @@ import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, sortToons } from "../utils/sortToon
 
 const DEFAULT_TOON_SLUG = sortToons(TOONS, DEFAULT_SORT_KEY, DEFAULT_SORT_DIR)[0]!.slug;
 
-function composeEndpoint(
-    toonSlug: string,
-    tabKey: ToonTabKey | undefined = undefined
-): string {
-    return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}`
-}
-
 export default function ToonPage() {
+    const { search } = useLocation();
     const { toonSlug, tabKey } = useParams();
     const navigate = useNavigate();
     const isDesktop = useIsDesktop();
+
+    const composeEndpoint = (
+        toonSlug: string,
+        tabKey: ToonTabKey | undefined = undefined
+    ): string => {
+        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${search}`
+    }
     
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? DEFAULT_TOON_SLUG));
 
