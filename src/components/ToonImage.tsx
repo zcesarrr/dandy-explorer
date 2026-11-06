@@ -1,5 +1,5 @@
 import type { Toon } from "../types/toons";
-import { toonBackgroundColor } from "../utils/styles";
+import { TOON_BACKGROUND_COLOR } from "../constants/styles";
 
 type ToonImageProps = {
     className?: string;
@@ -13,7 +13,7 @@ export default function ToonImage({ className = "", toon }: ToonImageProps) {
             alt={`${toon.name} icon`}
             className={className}
             style={{
-                background: toonBackgroundColor(toon.rarity, toon.category),
+                background: TOON_BACKGROUND_COLOR[toon.rarity][toon.category],
             }}
         />
     );
