@@ -11,7 +11,7 @@ import { useToonListParams } from "../hooks/useToonListParams";
 import { filterToons } from "../utils/toonsFiltering";
 
 export default function ToonPage() {
-    const { search: queryString } = useLocation();
+    const { search: queryString, pathname } = useLocation();
     const { toonSlug, tabKey } = useParams();
     const { sortKey, sortDir, search } = useToonListParams();
     const isDesktop = useIsDesktop();
@@ -26,6 +26,10 @@ export default function ToonPage() {
     const toonsFiltered = filterToons(TOONS, search, sortKey, sortDir);
     const defaultToon = toonsFiltered[0] ?? filterToons(TOONS, "", sortKey, sortDir)[0]!;
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
+
+    if (pathname === "/" && isDesktop) {
+        return <Navigate to={composeEndpoint(defaultToon.slug, "abilities")} replace />;
+    }
 
     if (!selectedToonData) {
         return <Navigate to={composeEndpoint(defaultToon.slug)} replace />;
