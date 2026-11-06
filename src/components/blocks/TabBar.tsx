@@ -8,11 +8,10 @@ export type TabBarItem = { key: ToonTabKey, icon: IconId, name: string };
 type TabBarProps = {
     className?: string;
     items: readonly TabBarItem[];
-    activeKey: string;
-    onSelect: (key: ToonTabKey) => void;
+    getHref: (key: ToonTabKey) => string;
 }
 
-export default function TabBar({ className, items, activeKey, onSelect }: TabBarProps) {
+export default function TabBar({ className, items, getHref }: TabBarProps) {
     return (
         <ul className={`${className ?? ""} grid grid-flow-col auto-cols-fr grid-rows-1 gap-2 h-12`}>
             {items.map(item => {
@@ -22,8 +21,7 @@ export default function TabBar({ className, items, activeKey, onSelect }: TabBar
                     <li key={item.key}>
                         <ShinyButton
                             className="w-full h-full p-1"
-                            active={item.key == activeKey}
-                            onClick={() => onSelect(item.key)}
+                            href={getHref(item.key)}
                             ariaLabel={item.name}
                         >
                             <Icon className="w-full h-full" color="white" />

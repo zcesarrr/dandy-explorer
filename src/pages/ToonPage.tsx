@@ -1,4 +1,4 @@
-import { Navigate, useLocation, useNavigate, useParams } from "react-router";
+import { Navigate, useLocation, useParams } from "react-router";
 import { isToonTabKey } from "../utils/toonTabs";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
@@ -14,7 +14,6 @@ export default function ToonPage() {
     const { search: queryString } = useLocation();
     const { toonSlug, tabKey } = useParams();
     const { sortKey, sortDir, search } = useToonListParams();
-    const navigate = useNavigate();
     const isDesktop = useIsDesktop();
 
     const composeEndpoint = (
@@ -40,7 +39,7 @@ export default function ToonPage() {
         if (!isDesktop && toonSlug === undefined) {
             return (
                 <MobileSelectorScreen
-                    onSelect={slug => navigate(composeEndpoint(slug))}
+                    getHrefToonButton={slug => composeEndpoint(slug)}
                     toons={toonsFiltered}
                 />
             );
@@ -49,8 +48,8 @@ export default function ToonPage() {
         if (isDesktop) {
             return (
                 <DesktopToonScreen
-                    onSelectToon={slug => navigate(composeEndpoint(slug, tabKey))}
-                    onSelectTab={key => navigate(composeEndpoint(selectedToonData.slug, key))}
+                    getHrefToonButton={slug => composeEndpoint(slug, tabKey)}
+                    getHrefTab={key => composeEndpoint(selectedToonData.slug, key)}
                     toons={toonsFiltered}
                     selectedToon={selectedToonData}
                     tabKey={tabKey}
@@ -62,15 +61,11 @@ export default function ToonPage() {
             <MobileToonScreen
                 toon={selectedToonData}
                 tabKey={tabKey}
-                onSelectTab={(key) => 
-                    navigate(
-                        key === "info" ? composeEndpoint(selectedToonData.slug) : composeEndpoint(selectedToonData.slug, key as ToonTabKey),
-                        { replace: true }
-                    )
+                getHrefTab={(key) => key === "info" 
+                    ? composeEndpoint(selectedToonData.slug)
+                    : composeEndpoint(selectedToonData.slug, key as ToonTabKey)
                 }
-                onBackClick={() => {
-                    navigate(`/${queryString}`, { replace: true });
-                }}
+                getHrefBack={() => `/${queryString}`}
             />
         );
     }

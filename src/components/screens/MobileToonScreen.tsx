@@ -19,11 +19,11 @@ const items: TabBarItem[] = [
 type MobileToonScreenProps = {
     toon: Toon;
     tabKey: ToonTabKey | undefined;
-    onSelectTab: (key: string) => void;
-    onBackClick: () => void;
+    getHrefTab: (key: string) => string;
+    getHrefBack: () => string;
 };
 
-export default function MobileToonScreen({ toon, tabKey, onSelectTab, onBackClick }: MobileToonScreenProps) {
+export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack }: MobileToonScreenProps) {
     const currentTab = tabKey ? getToonTab(tabKey) : undefined;
 
     return (
@@ -39,7 +39,7 @@ export default function MobileToonScreen({ toon, tabKey, onSelectTab, onBackClic
                 <ShinyButton 
                     className="flex h-full w-24 justify-center items-center" 
                     ariaLabel="Back to toons"
-                    onClick={onBackClick}
+                    href={getHrefBack()}
                 >
                     <ICONS.leftArrow.node
                         className="w-full h-full"
@@ -65,7 +65,7 @@ export default function MobileToonScreen({ toon, tabKey, onSelectTab, onBackClic
                 className="shrink-0 p-2 mb-[max(0.5rem,env(safe-area-inset-bottom))]"
                 aria-label="Toon sections"
             >
-                <TabBar items={items} activeKey={tabKey ?? "info"} onSelect={onSelectTab} />
+                <TabBar items={items} getHref={getHrefTab} />
             </nav>
         </div>
     );

@@ -9,11 +9,11 @@ type DesktopToonScreenProps = {
     toons: Toon[];
     selectedToon: Toon;
     tabKey: ToonTabKey | undefined;
-    onSelectToon: (slug: string) => void;
-    onSelectTab: (key: ToonTabKey) => void;
+    getHrefToonButton: (slug: string) => string;
+    getHrefTab: (key: ToonTabKey) => string;
 };
 
-export default function DesktopToonScreen({ toons, selectedToon, tabKey, onSelectToon, onSelectTab }: DesktopToonScreenProps) {
+export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHrefToonButton, getHrefTab }: DesktopToonScreenProps) {
     const currentTab = getToonTab(tabKey);
 
     return (
@@ -22,8 +22,7 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, onSelec
             <main className="w-full max-w-7xl grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] bg-black/40 rounded-xl p-4 gap-3">
                 <ToonSelector
                     toons={toons}
-                    selectedSlug={selectedToon.slug}
-                    onSelect={onSelectToon}
+                    getHrefToonButton={getHrefToonButton}
                 />
 
                 {/* TOON INFORMATION */}
@@ -49,8 +48,7 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, onSelec
                         <nav aria-label="Detail sections">
                             <TabBar
                                 items={TOON_TABS}
-                                activeKey={currentTab.key}
-                                onSelect={onSelectTab}
+                                getHref={getHrefTab}
                             />
                         </nav>
                     </section>

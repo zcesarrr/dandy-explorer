@@ -23,12 +23,11 @@ const SORT_GROUPS: {
 export type ToonSelectorProps = {
     className?: string;
     toons: Toon[];
-    selectedSlug?: string;
-    onSelect: (slug: string) => void;
+    getHrefToonButton: (slug: string) => string;
     toonButtonSize?: string;
 };
 
-export default function ToonSelector({ className, toons, selectedSlug, onSelect, toonButtonSize = undefined }: ToonSelectorProps) {
+export default function ToonSelector({ className, toons, getHrefToonButton, toonButtonSize = undefined }: ToonSelectorProps) {
     const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir } = useToonListParams();
 
     const [searchInput, setSearchInput] = useState<string>(search);
@@ -157,11 +156,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                             <li key={item.slug}>
                                 <ToonButton
                                     buttonProps={{
-                                        onClick: () => {
-                                            if (item.slug == selectedSlug) return;
-                                            onSelect(item.slug);
-                                        },
-                                        active: selectedSlug == item.slug,
+                                        href: getHrefToonButton(item.slug),
                                     }}
                                     toon={item}
                                 />
