@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/bobette.webp";
 
 const bobette: Toon = {
     slug: "bobette",
     name: "Bobette",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/f/f0/Bobette_Render.png",
+    iconUrl: icon,
     rarity: "main",
     category: "holiday",
     stats: [2, 4, 3, 5, 2, 2],

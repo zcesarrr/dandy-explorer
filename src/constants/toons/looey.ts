@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/looey.webp";
 
 const looey: Toon = {
     slug: "looey",
     name: "Looey",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/d/d0/Looey_Render.png",
+    iconUrl: icon,
     rarity: "normal",
     category: "none",
     stats: [3, 4, 3, 3, 2, 3],

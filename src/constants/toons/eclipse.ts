@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/eclipse.webp";
 
 const eclipse: Toon = {
     slug: "eclipse",
     name: "Eclipse",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/5/55/Eclipse_Render.png",
+    iconUrl: icon,
     rarity: "normal",
     category: "halloween",
     stats: [3, 3, 4, 3, 2, 3],

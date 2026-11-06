@@ -86,6 +86,8 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                                             {group.entries.map(key => (
                                                 <li key={key}>
                                                     <button
+                                                        type="button"
+                                                        aria-label="Toggle sort popover"
                                                         onClick={() => {
                                                             setSortKey(key);
                                                             setIsSortOpen(false);
@@ -108,6 +110,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                     </div>
                     <ShinyButton 
                         className="flex shrink-0 justify-center items-center w-12"
+                        ariaLabel="Switch sort direction"
                         onClick={() => setSortDir(sortDir === "asc" ? "desc" : "asc")}
                     >
                         <ICONS.sort.node
@@ -129,6 +132,7 @@ export default function ToonSelector({ className, toons, selectedSlug, onSelect,
                         src="/vee.webp"
                         className="h-64"
                         alt="Vee Render"
+                        loading="lazy"
                     />
                 </div>
             ) : (

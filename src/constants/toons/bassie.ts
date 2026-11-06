@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/bassie.webp";
 
 const bassie: Toon = {
     slug: "bassie",
     name: "Bassie",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/0/0c/Bassie_Render.png",
+    iconUrl: icon,
     rarity: "main",
     category: "easter",
     stats: [2, 1, 5, 4, 4, 2],

@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/yatta.webp";
 
 const yatta: Toon = {
     slug: "yatta",
     name: "Yatta",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/7/75/Yatta_Render.png",
+    iconUrl: icon,
     rarity: "normal",
     category: "none",
     stats: [3, 3, 4, 1, 2, 5],

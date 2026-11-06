@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/ginger.webp";
 
 const ginger: Toon = {
     slug: "ginger",
     name: "Ginger",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c6/Ginger_Render.png",
+    iconUrl: icon,
     rarity: "normal",
     category: "holiday",
     stats: [3, 3, 2, 3, 4, 3],

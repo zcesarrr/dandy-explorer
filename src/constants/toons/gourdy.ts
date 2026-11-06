@@ -1,9 +1,10 @@
 import type { Toon } from "../../types/toons";
+import icon from "../../assets/toons/gourdy.webp";
 
 const gourdy: Toon = {
     slug: "gourdy",
     name: "Gourdy",
-    iconUrl: "https://static.wikia.nocookie.net/dandys-world-robloxhorror/images/c/c1/Gourdy_Render.png",
+    iconUrl: icon,
     rarity: "main",
     category: "halloween",
     stats: [2, 5, 4, 1, 1, 5],
