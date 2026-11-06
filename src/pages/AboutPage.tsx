@@ -14,6 +14,8 @@ export default function AboutPage() {
 
     return (
         <div className="font-fredoka text-white text-stroke p-4 flex flex-col h-dvh justify-center items-center text-center tracking-wide">
+            <title>About | Dandy Explorer</title>
+
             <div className="max-w-lg">
                 <div className="mb-8">
                     <p className="text-3xl mb-1.5">Dandy Explorer</p>

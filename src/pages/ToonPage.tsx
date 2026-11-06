@@ -1,5 +1,5 @@
 import { Navigate, useLocation, useParams } from "react-router";
-import { isToonTabKey } from "../utils/toonTabs";
+import { getToonTab, isToonTabKey } from "../utils/toonTabs";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
@@ -9,6 +9,23 @@ import TOONS from "../constants/toons";
 import type { ToonTabKey } from "../constants/toonTabs";
 import { useToonListParams } from "../hooks/useToonListParams";
 import { filterToons } from "../utils/toonsFiltering";
+
+const APP_NAME = "Dandy Explorer"
+
+export function getTitle(
+    toonName: string | undefined,
+    tabKey: string | undefined, 
+    isDesktop: boolean
+): string {
+    if (!toonName) return APP_NAME;
+
+    if (!isDesktop && tabKey === undefined) {
+        return `${toonName} | ${APP_NAME}`;
+    }
+
+    const tab = getToonTab(tabKey);
+    return `${toonName} - ${tab.name} | ${APP_NAME}`;
+}
 
 export default function ToonPage() {
     const { search: queryString, pathname } = useLocation();
@@ -38,6 +55,12 @@ export default function ToonPage() {
     if (tabKey !== undefined && !isToonTabKey(tabKey)) {
         return <Navigate to={composeEndpoint(selectedToonData.slug)} replace />;
     }
+
+    const title = getTitle(
+        toonSlug === undefined && !isDesktop ? undefined : selectedToonData.name,
+        tabKey,
+        isDesktop
+    );
 
     const page = () => {
         if (!isDesktop && toonSlug === undefined) {
@@ -78,6 +101,7 @@ export default function ToonPage() {
 
     return (
         <div className="h-dvh flex flex-col">
+            <title>{title}</title>
             <div className="flex-1 min-h-0">{page()}</div>
             {showFooter && <Footer />}
         </div>
