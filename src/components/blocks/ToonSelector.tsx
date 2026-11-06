@@ -6,6 +6,7 @@ import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons";
 import { sortLabel, type SortKey } from "../../utils/toonsFiltering";
 import { useToonListParams } from "../../hooks/useToonListParams";
+import { useScrollRestoration } from "../../hooks/useScrollRestoration";
 
 const SORT_GROUPS: { 
     title?: string,
@@ -34,6 +35,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
+    const listRef = useScrollRestoration<HTMLUListElement>("toon-selector");
 
     useEffect(() => {
         if (!isSortOpen) return;
@@ -145,10 +147,10 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                             </>
                         )}
                     </div>
-                    <ul 
+                    <ul
+                        ref={listRef}
                         className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-2 p-1 scrollbar-thumb-black/80 top-17.5"
                         style={{
-                            
                             gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "136px"})`,
                         }}
                     >
