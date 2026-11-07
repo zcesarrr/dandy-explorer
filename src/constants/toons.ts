@@ -7,6 +7,7 @@ import gourdy from "./toons/gourdy";
 import eclipse from "./toons/eclipse";
 import ginger from "./toons/ginger";
 import astro from "./toons/astro";
+import razzleAndDazzle from "./toons/razzle-and-dazzle";
 
 const TOONS = [
     yatta,
@@ -17,6 +18,7 @@ const TOONS = [
     eclipse,
     ginger,
     astro,
+    razzleAndDazzle
 ] as const satisfies Toon[];
 
 export default TOONS;
