@@ -28,7 +28,7 @@ export function getTitle(
 }
 
 export default function ToonPage() {
-    const location = useLocation();
+    const { search: queryString, pathname } = useLocation();
     const { toonSlug, tabKey } = useParams();
     const { sortKey, sortDir, search } = useToonListParams();
     const isDesktop = useIsDesktop();
@@ -37,14 +37,14 @@ export default function ToonPage() {
         toonSlug: string,
         tabKey: ToonTabKey | undefined = undefined
     ): string => {
-        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${location.search}`
+        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
     }
 
     const toonsFiltered = filterToons(TOONS, search, sortKey, sortDir);
     const defaultToon = toonsFiltered[0] ?? filterToons(TOONS, "", sortKey, sortDir)[0]!;
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
 
-    if (location.pathname === "/" && isDesktop) {
+    if (pathname === "/" && isDesktop) {
         return <Navigate to={composeEndpoint(defaultToon.slug, "abilities")} replace />;
     }
 
@@ -68,7 +68,6 @@ export default function ToonPage() {
                 <MobileSelectorScreen
                     getHrefToonButton={slug => `/toon/${slug}`}
                     toons={toonsFiltered}
-                    location={location}
                 />
             );
         }

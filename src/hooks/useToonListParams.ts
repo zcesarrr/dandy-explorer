@@ -23,6 +23,11 @@ export function useToonListParams() {
         );
     };
 
+    const getParams = (): string => {
+        const query = params.toString();
+        return query ? `?${query}` : "";
+    };
+
     return {
         search,
         sortKey,
@@ -30,5 +35,6 @@ export function useToonListParams() {
         setSearch: (value: string) => update("q", value),
         setSortKey: (value: SortKey) => update("sort", value, DEFAULT_SORT_KEY),
         setSortDir: (value: SortDir) => update("dir", value, DEFAULT_SORT_DIR),
+        getParams,
     }
 }

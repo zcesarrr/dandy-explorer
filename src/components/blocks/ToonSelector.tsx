@@ -7,7 +7,6 @@ import ICONS from "../../constants/icons";
 import { sortLabel, type SortKey } from "../../utils/toonsFiltering";
 import { useToonListParams } from "../../hooks/useToonListParams";
 import { useScrollRestoration } from "../../hooks/useScrollRestoration";
-import { type Location } from "react-router";
 
 const SORT_GROUPS: { 
     title?: string,
@@ -27,11 +26,10 @@ export type ToonSelectorProps = {
     toons: Toon[];
     getHrefToonButton: (slug: string) => string;
     toonButtonSize?: string;
-    location?: Location;
 };
 
-export default function ToonSelector({ className, toons, getHrefToonButton, toonButtonSize = undefined, location }: ToonSelectorProps) {
-    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir } = useToonListParams();
+export default function ToonSelector({ className, toons, getHrefToonButton, toonButtonSize = undefined }: ToonSelectorProps) {
+    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir, getParams } = useToonListParams();
 
     const [searchInput, setSearchInput] = useState<string>(search);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
@@ -162,7 +160,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                                     buttonProps={{
                                         href: getHrefToonButton(item.slug),
                                         onClick: () => {
-                                            sessionStorage.setItem("from", `/${location?.search}`);
+                                            sessionStorage.setItem("from", `/${getParams()}`);
                                         },
                                     }}
                                     toon={item}
