@@ -36,9 +36,9 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHref
                     <section className="flex flex-col justify-between min-h-0" aria-label="Toon details">
                         {/* PANEL */}
                         <div className="bg-black/30 p-4 rounded-xl flex flex-col min-h-0">
-                            <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">
+                            <h2 className="font-fredoka text-white text-stroke text-3xl text-center mb-4">
                                 {currentTab.name}
-                            </p>
+                            </h2>
 
                             {/* TAB CONTENT */}
                             <div className="flex-1 min-h-0 overflow-y-auto">

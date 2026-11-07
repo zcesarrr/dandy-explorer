@@ -51,7 +51,7 @@ export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack
             <main key={`${toon.slug}-${tabKey ?? "info"}`} className="flex-1 min-h-0 overflow-y-auto p-4 bg-black/40 m-2 rounded-lg">
                 {currentTab ? (
                     <div>
-                        <p className="font-fredoka text-white text-stroke text-3xl text-center mb-4">{currentTab.name}</p>
+                        <h1 className="font-fredoka text-white text-stroke text-3xl text-center mb-4">{currentTab.name}</h1>
                         <currentTab.Component toon={toon} />
                     </div>
                 ): (

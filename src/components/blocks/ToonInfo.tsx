@@ -47,7 +47,7 @@ export default function ToonInfo({ className, toon }: ToonInfoProps) {
                 toon={toon}
                 className="w-[max(128px,30dvh)] mx-auto rounded-lg"
             />
-            <p className="font-fredoka text-white text-3xl text-stroke text-center my-1">{toon.name}</p>
+            <h1 className="font-fredoka text-white text-3xl text-stroke text-center my-1">{toon.name}</h1>
             <ul className="flex flex-col gap-2">
                 {STATS_BASE.map((stat, index) => (
                     <li key={index}>
