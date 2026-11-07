@@ -8,6 +8,7 @@ export type RequirementParams = {
     mastery: { toon: string },
     toonsOwning: { count: number },
     titlesOwning: { count: number },
+    pickItmes: { rarity: "Common" | "Uncommon" | "Rare" | "Very Rare" | "Ultra Rare", count: number };
 };
 
 export type RequirementType = keyof RequirementParams;

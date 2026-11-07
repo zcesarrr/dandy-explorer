@@ -12,7 +12,7 @@ export default function NotFoundPage() {
                 alt="Shrimpo Render"
                 className="w-64 my-8"
             />
-            <ShinyButton className="p-4" href="/">
+            <ShinyButton className="p-4 text-stroke" href="/">
                 GET OUT OF HERE!!!!
             </ShinyButton>
         </div>

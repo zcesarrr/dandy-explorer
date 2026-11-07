@@ -17,6 +17,7 @@ import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
 import MagnifierIcon from "../components/icons/MagnifierIcon";
+import CandyIcon from "../components/icons/CandyIcon";
 
 const ICONS = {
     heart: {
@@ -90,6 +91,10 @@ const ICONS = {
     sort: {
         node: SortFromBottomToTopIcon,
         alt: "Sort Icon",
+    },
+    candy: {
+        node: CandyIcon,
+        alt: "Candy Icon",
     },
 } as const satisfies Record<string, IconEntry>;
 

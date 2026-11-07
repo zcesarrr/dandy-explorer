@@ -22,7 +22,7 @@ export default function StatCard({ name, value, icon, color }: StatCardProps) {
         >
             <p className="font-fredoka text-white text-stroke text-center leading-none text-[clamp(0.8rem,1.9dvh,1rem)]">{name}</p>
             <ul className="p-[clamp(0.15rem,0.4dvh,0.2rem)] flex justify-center gap-4 bg-black/50 rounded-sm min-h-0">
-                {Array.from({ length: length }, (_, index) => {
+                {Array.from({ length: length !== -1 ? length : 1 }, (_, index) => {
                     const selectedIcon = getIcon(index);
                     const Icon = selectedIcon.node;
 

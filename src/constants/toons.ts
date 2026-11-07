@@ -8,6 +8,8 @@ import eclipse from "./toons/eclipse";
 import ginger from "./toons/ginger";
 import astro from "./toons/astro";
 import razzleAndDazzle from "./toons/razzle-and-dazzle";
+import shrimpo from "./toons/shrimpo";
+import gigi from "./toons/gigi";
 
 const TOONS = [
     yatta,
@@ -18,7 +20,9 @@ const TOONS = [
     eclipse,
     ginger,
     astro,
-    razzleAndDazzle
+    razzleAndDazzle,
+    shrimpo,
+    gigi,
 ] as const satisfies Toon[];
 
 export default TOONS;
