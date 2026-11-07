@@ -7,6 +7,7 @@ import ICONS from "../../constants/icons";
 import { sortLabel, type SortKey } from "../../utils/toonsFiltering";
 import { useToonListParams } from "../../hooks/useToonListParams";
 import { useScrollRestoration } from "../../hooks/useScrollRestoration";
+import { type Location } from "react-router";
 
 const SORT_GROUPS: { 
     title?: string,
@@ -26,9 +27,10 @@ export type ToonSelectorProps = {
     toons: Toon[];
     getHrefToonButton: (slug: string) => string;
     toonButtonSize?: string;
+    location?: Location;
 };
 
-export default function ToonSelector({ className, toons, getHrefToonButton, toonButtonSize = undefined }: ToonSelectorProps) {
+export default function ToonSelector({ className, toons, getHrefToonButton, toonButtonSize = undefined, location }: ToonSelectorProps) {
     const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir } = useToonListParams();
 
     const [searchInput, setSearchInput] = useState<string>(search);
@@ -159,6 +161,9 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                                 <ToonButton
                                     buttonProps={{
                                         href: getHrefToonButton(item.slug),
+                                        onClick: () => {
+                                            sessionStorage.setItem("from", `/${location?.search}`);
+                                        },
                                     }}
                                     toon={item}
                                 />

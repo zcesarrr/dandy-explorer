@@ -28,7 +28,7 @@ export function getTitle(
 }
 
 export default function ToonPage() {
-    const { search: queryString, pathname } = useLocation();
+    const location = useLocation();
     const { toonSlug, tabKey } = useParams();
     const { sortKey, sortDir, search } = useToonListParams();
     const isDesktop = useIsDesktop();
@@ -37,14 +37,14 @@ export default function ToonPage() {
         toonSlug: string,
         tabKey: ToonTabKey | undefined = undefined
     ): string => {
-        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
+        return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${location.search}`
     }
 
     const toonsFiltered = filterToons(TOONS, search, sortKey, sortDir);
     const defaultToon = toonsFiltered[0] ?? filterToons(TOONS, "", sortKey, sortDir)[0]!;
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
 
-    if (pathname === "/" && isDesktop) {
+    if (location.pathname === "/" && isDesktop) {
         return <Navigate to={composeEndpoint(defaultToon.slug, "abilities")} replace />;
     }
 
@@ -66,8 +66,9 @@ export default function ToonPage() {
         if (!isDesktop && toonSlug === undefined) {
             return (
                 <MobileSelectorScreen
-                    getHrefToonButton={slug => composeEndpoint(slug)}
+                    getHrefToonButton={slug => `/toon/${slug}`}
                     toons={toonsFiltered}
+                    location={location}
                 />
             );
         }
@@ -92,7 +93,7 @@ export default function ToonPage() {
                     ? composeEndpoint(selectedToonData.slug)
                     : composeEndpoint(selectedToonData.slug, key as ToonTabKey)
                 }
-                getHrefBack={() => `/${queryString}`}
+                getHrefBack={() => sessionStorage.getItem("from") || "/"}
             />
         );
     }
