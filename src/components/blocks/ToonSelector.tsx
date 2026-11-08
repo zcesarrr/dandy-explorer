@@ -60,7 +60,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                     placeholder="Search Toons..."
                     icon="magnifier"
                     className="w-full min-w-0 flex-1"
-                    value={searchInput}
+                    value={searchInput.slice(0, 20)}
                     maxLength={20}
                     onChange={(value) => {
                         setSearchInput(value);
