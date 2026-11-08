@@ -131,7 +131,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                     </p>
                     <img
                         src="/vee.webp"
-                        className="h-64"
+                        width={256}
                         alt="Vee Render"
                         loading="lazy"
                     />

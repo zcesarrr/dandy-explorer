@@ -12,7 +12,7 @@ import { filterToons } from "../utils/toonsFiltering";
 
 const APP_NAME = "Dandy Explorer"
 
-export function getTitle(
+function getTitle(
     toonName: string | undefined,
     tabKey: string | undefined, 
     isDesktop: boolean

@@ -10,7 +10,8 @@ export default function NotFoundPage() {
             <img
                 src="/shrimpo.webp"
                 alt="Shrimpo Render"
-                className="w-64 my-8"
+                className="my-8"
+                width={256}
             />
             <ShinyButton className="p-4 text-stroke" href="/">
                 GET OUT OF HERE!!!!

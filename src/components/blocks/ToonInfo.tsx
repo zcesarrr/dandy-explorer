@@ -45,7 +45,7 @@ export default function ToonInfo({ className, toon }: ToonInfoProps) {
         <div className={`${className ?? ""}`}>
             <ToonImage
                 toon={toon}
-                className="w-[max(128px,30dvh)] mx-auto rounded-lg"
+                className="w-[max(128px,30dvh)] mx-auto rounded-lg aspect-square"
             />
             <h1 
                 className="font-fredoka text-white text-[29px] text-stroke text-center my-1"
