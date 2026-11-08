@@ -1,5 +1,5 @@
 import ICONS from "../../constants/icons";
-import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs";
+import { TOON_TABS, type MobileTabKey, type ToonTabKey } from "../../constants/toonTabs";
 import type { Toon } from "../../types/toons";
 import { getToonTab } from "../../utils/toonTabs";
 import TabBar, { type TabBarItem } from "../blocks/TabBar";
@@ -9,7 +9,7 @@ import ToonImage from "../ToonImage";
 
 const items: TabBarItem[] = [
     {
-        key: "info" as ToonTabKey,
+        key: "info",
         name: "Info",
         icon: "person",
     },
@@ -19,7 +19,7 @@ const items: TabBarItem[] = [
 type MobileToonScreenProps = {
     toon: Toon;
     tabKey: ToonTabKey | undefined;
-    getHrefTab: (key: string) => string;
+    getHrefTab: (key: MobileTabKey) => string;
     getHrefBack: () => string;
 };
 

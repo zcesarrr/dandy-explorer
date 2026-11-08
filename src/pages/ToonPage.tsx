@@ -6,7 +6,7 @@ import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons";
-import type { ToonTabKey } from "../constants/toonTabs";
+import type { MobileTabKey } from "../constants/toonTabs";
 import { useToonListParams } from "../hooks/useToonListParams";
 import { filterToons } from "../utils/toonsFiltering";
 
@@ -35,7 +35,7 @@ export default function ToonPage() {
 
     const composeEndpoint = (
         toonSlug: string,
-        tabKey: ToonTabKey | undefined = undefined
+        tabKey: MobileTabKey | undefined = undefined
     ): string => {
         return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
     }
@@ -90,7 +90,7 @@ export default function ToonPage() {
                 tabKey={tabKey}
                 getHrefTab={(key) => key === "info" 
                     ? composeEndpoint(selectedToonData.slug)
-                    : composeEndpoint(selectedToonData.slug, key as ToonTabKey)
+                    : composeEndpoint(selectedToonData.slug, key)
                 }
                 getHrefBack={() => sessionStorage.getItem("from") || "/"}
             />

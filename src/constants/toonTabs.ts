@@ -10,3 +10,4 @@ export const TOON_TABS = [
 ] as const satisfies readonly ToonTabDef[];
 
 export type ToonTabKey = (typeof TOON_TABS)[number]["key"];
+export type MobileTabKey = ToonTabKey | "info";

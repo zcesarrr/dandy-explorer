@@ -50,7 +50,7 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHref
                         <nav aria-label="Detail sections" className="shrink-0 mt-4">
                             <TabBar
                                 items={TOON_TABS}
-                                getHref={getHrefTab}
+                                getHref={(key) => getHrefTab(key as ToonTabKey)}
                             />
                         </nav>
                     </section>
