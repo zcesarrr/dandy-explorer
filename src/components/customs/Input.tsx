@@ -10,9 +10,10 @@ type InputProps = {
     value: string;
     onChange: (value: string) => void;
     ariaLabel?: string;
+    maxLength?: number;
 }
 
-export default function Input({ className, icon, placeholder, type, value, onChange, ariaLabel }: InputProps) {
+export default function Input({ className, icon, placeholder, type, value, onChange, ariaLabel, maxLength }: InputProps) {
     const Icon = icon ? ICONS[icon].node : null;
     const isInputSearch = type === "search";
 
@@ -28,6 +29,7 @@ export default function Input({ className, icon, placeholder, type, value, onCha
                 type={type}
                 placeholder={placeholder}
                 value={value}
+                maxLength={maxLength}
                 onChange={(event) => onChange(event.currentTarget.value)}
                 aria-label={ariaLabel}
                 className="w-full h-full rounded-xl bg-[linear-gradient(to_top,#111,#333)] text-white font-fredoka text-xl border-2 border-black shadow-[0_4px_0px_0px_black] focus:outline-none focus:border-white placeholder:text-white/20 placeholder:tracking-wide"

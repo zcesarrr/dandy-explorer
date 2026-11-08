@@ -32,7 +32,7 @@ export function useToonListParams() {
         search,
         sortKey,
         sortDir,
-        setSearch: (value: string) => update("q", value),
+        setSearch: (value: string) => update("q", value.slice(0, 20)),
         setSortKey: (value: SortKey) => update("sort", value, DEFAULT_SORT_KEY),
         setSortDir: (value: SortDir) => update("dir", value, DEFAULT_SORT_DIR),
         getParams,

@@ -4,6 +4,7 @@ function anchor(url: string) {
     return {
         href: url,
         target: "_blank",
+        rel: "noopener noreferrer",
         className: "hover:text-yellow-300 active:text-yellow-300 text-white",
     };
 }
@@ -18,7 +19,7 @@ export default function AboutPage() {
 
             <div className="max-w-lg">
                 <div className="mb-8">
-                    <p className="text-3xl mb-1.5">Dandy Explorer</p>
+                    <h1 className="text-3xl mb-1.5">Dandy Explorer</h1>
                     <p className="text-lg">Explore the details about the Toons of Dandy's World, such as stats, quests and requirements.</p>
                 </div>
 

@@ -12,7 +12,7 @@ const iconByType = {
     mastery: "medal",
     toonsOwning: "person",
     titlesOwning: "diploma",
-    pickItmes: "candy",
+    pickItems: "candy",
 } satisfies Record<RequirementType, IconId> ;
 
 type RequirementProps = {

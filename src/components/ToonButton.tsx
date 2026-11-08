@@ -1,4 +1,3 @@
-import { useIsDesktop } from "../hooks/useIsDesktop";
 import type { Toon } from "../types/toons";
 import ShinyButton, { type ShinyButtonProps } from "./customs/ShinyButton";
 import ToonImage from "./ToonImage";
@@ -9,8 +8,7 @@ type ToonButtonProps = {
 };
 
 export default function ToonButton({ buttonProps, toon }: ToonButtonProps) {
-    const isDesktop = useIsDesktop();
-    const size = 18 - (toon.name.length > 10 ? isDesktop ? 3 : 7 : 0);
+    const isLongName = toon.name.length > 10;
 
     return (
         <ShinyButton 
@@ -21,11 +19,9 @@ export default function ToonButton({ buttonProps, toon }: ToonButtonProps) {
                 className="rounded-lg w-full aspect-square"
                 toon={toon}
             />
-            <p 
-                className="font-fredoka text-white text-stroke text-center leading-none min-h-5 flex items-center justify-center"
-                style={{
-                    fontSize: `${size}px`,
-                }}
+            <p
+                data-long-name={isLongName ? "true" : undefined}
+                className="font-fredoka text-white text-stroke text-center leading-none min-h-5 flex items-center justify-center text-[18px] data-[long-name=true]:text-[11px] min-[640px]:landscape:data-[long-name=true]:text-[15px]"
             >
                 {toon.name}
             </p>

@@ -51,7 +51,7 @@ const gigi: Toon = {
             params: { count: 50, twisted: "Twisted Gigi" },
         },
         {
-            type: "pickItmes",
+            type: "pickItems",
             params: { rarity: "Rare", count: 45 },
         },
     ],

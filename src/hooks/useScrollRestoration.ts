@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 
-const positions = new Map<string, number>;
+const positions = new Map<string, number>();
 
 export function useScrollRestoration<T extends HTMLElement>(key: string) {
     return useCallback((element: T | null) => {
