@@ -7,5 +7,4 @@ export type IconProps = {
 };
 
 export type IconComponent = ComponentType<IconProps>;
-export type IconEntry = { node: IconComponent; alt: string };
 export type IconId = keyof typeof ICONS;

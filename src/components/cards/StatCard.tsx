@@ -24,7 +24,7 @@ export default function StatCard({ name, value, icon, color }: StatCardProps) {
             <ul className="p-[clamp(0.15rem,0.4dvh,0.2rem)] flex justify-center gap-4 bg-black/50 rounded-sm min-h-0">
                 {Array.from({ length: length !== -1 ? length : 1 }, (_, index) => {
                     const selectedIcon = getIcon(index);
-                    const Icon = selectedIcon.node;
+                    const Icon = selectedIcon;
 
                     return (
                         <li key={index} className="h-full">

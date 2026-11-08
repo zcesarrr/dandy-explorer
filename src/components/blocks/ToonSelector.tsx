@@ -76,7 +76,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                             className="flex shrink-0 justify-center items-center w-16 h-full"
                             onClick={() => setIsSortOpen((prev) => !prev)}
                         >
-                            <ICONS.filter.node color="white" />
+                            <ICONS.filter color="white" />
                         </ShinyButton>
 
                         {isSortOpen && (
@@ -115,7 +115,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                         ariaLabel="Switch sort direction"
                         onClick={() => setSortDir(sortDir === "asc" ? "desc" : "asc")}
                     >
-                        <ICONS.sort.node
+                        <ICONS.sort
                             color="white"
                             style={{
                                 transform: `scale(1, ${sortDir === "asc" ? "":"-"}1.2)`,

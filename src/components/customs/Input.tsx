@@ -14,7 +14,7 @@ type InputProps = {
 }
 
 export default function Input({ className, icon, placeholder, type, value, onChange, ariaLabel, maxLength }: InputProps) {
-    const Icon = icon ? ICONS[icon].node : null;
+    const Icon = icon ? ICONS[icon] : null;
     const isInputSearch = type === "search";
 
     return (
@@ -45,7 +45,7 @@ export default function Input({ className, icon, placeholder, type, value, onCha
                     aria-label="Clear search"
                     onClick={() => onChange("")}
                 >
-                    <ICONS.cross.node className="w-full h-full" color={"#aaa"} />
+                    <ICONS.cross className="w-full h-full" color={"#aaa"} />
                 </button>
             )}
         </div>

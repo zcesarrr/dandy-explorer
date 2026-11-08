@@ -21,7 +21,7 @@ type RequirementProps = {
 };
 
 export default function RequirementCard({ type, label }: RequirementProps) {
-    const Icon = ICONS[iconByType[type]].node;
+    const Icon = ICONS[iconByType[type]];
 
     return (
         <div className="bg-black/40 rounded-lg p-2 grid grid-cols-[24px_1fr] items-center gap-2">

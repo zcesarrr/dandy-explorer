@@ -41,7 +41,7 @@ export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack
                     ariaLabel="Back to toons"
                     href={getHrefBack()}
                 >
-                    <ICONS.leftArrow.node
+                    <ICONS.leftArrow
                         className="w-full h-full"
                         color="white"
                     />
