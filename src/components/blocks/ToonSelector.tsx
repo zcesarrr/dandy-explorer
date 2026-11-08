@@ -44,9 +44,19 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
             if (!sortRef.current?.contains(e.target as Node)) setIsSortOpen(false);
         };
 
-        document.addEventListener("mousedown", handleClick);
+        const handleEscape = (e: KeyboardEvent) => {
+            if (e.key === "Escape") {
+                setIsSortOpen(false);
+            }
+        };
 
-        return () => document.removeEventListener("mousedown", handleClick);
+        document.addEventListener("mousedown", handleClick);
+        document.addEventListener("keydown", handleEscape);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClick);
+            document.removeEventListener("keydown", handleEscape);
+        };
     }, [isSortOpen]);
 
     const resultsCount = toons.length;
@@ -73,42 +83,46 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                 <div className="flex gap-1">
                     <div ref={sortRef} className="relative">
                         <ShinyButton 
+                            ariaLabel="Toggle sort options menu"
+                            ariaExpanded={isSortOpen}
+                            ariaControls="sortMenu"
                             className="flex shrink-0 justify-center items-center w-16 h-full"
                             onClick={() => setIsSortOpen((prev) => !prev)}
                         >
                             <ICONS.filter color="white" />
                         </ShinyButton>
-
-                        {isSortOpen && (
-                            <ul className="absolute right-0 flex flex-col gap-2 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/95 p-1 font-fredoka text-white">
-                                {SORT_GROUPS.map((group, index) => (
-                                    <li key={index}>
-                                        {group.title && <p className="px-1 text-white/50">{group.title}</p>}
-                                        <ul className="flex flex-col gap-1">
-                                            {group.entries.map(key => (
-                                                <li key={key}>
-                                                    <button
-                                                        type="button"
-                                                        aria-label="Toggle sort popover"
-                                                        onClick={() => {
-                                                            setSortKey(key);
-                                                            setIsSortOpen(false);
-                                                        }}
-                                                        className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10 hover:cursor-pointer"
-                                                        style={{
-                                                            background: key === sortKey ? "#ffffff30" : "",
-                                                            cursor: key === sortKey ? "default" : "",
-                                                        }}
-                                                    >
-                                                        {sortLabel(key)}
-                                                    </button>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
+                        <ul 
+                            hidden={!isSortOpen}
+                            id="sortMenu"
+                            className="absolute right-0 flex flex-col gap-2 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/95 p-1 font-fredoka text-white"
+                        >
+                            {SORT_GROUPS.map((group, index) => (
+                                <li key={index}>
+                                    {group.title && <p className="px-1 text-white/50">{group.title}</p>}
+                                    <ul className="flex flex-col gap-1">
+                                        {group.entries.map(key => (
+                                            <li key={key}>
+                                                <button
+                                                    type="button"
+                                                    aria-label="Toggle sort popover"
+                                                    onClick={() => {
+                                                        setSortKey(key);
+                                                        setIsSortOpen(false);
+                                                    }}
+                                                    className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10 hover:cursor-pointer"
+                                                    style={{
+                                                        background: key === sortKey ? "#ffffff30" : "",
+                                                        cursor: key === sortKey ? "default" : "",
+                                                    }}
+                                                >
+                                                    {sortLabel(key)}
+                                                </button>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                     <ShinyButton 
                         className="flex shrink-0 justify-center items-center w-12"

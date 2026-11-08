@@ -1,5 +1,6 @@
 import type { IconComponent } from "../types/icons";
 import { HeartIcon } from "@solar-icons/react/bold/heart";
+import { StarIcon } from "@solar-icons/react/bold/star";
 import { HeartCrackIcon } from "@solar-icons/react/bold/heart-crack";
 import { MedalRibbonStarIcon } from "@solar-icons/react/bold/medal-ribbon-star";
 import { KeyIcon } from "@solar-icons/react/bold/key";
@@ -21,7 +22,7 @@ import CandyIcon from "../components/icons/CandyIcon";
 const ICONS = {
     heart: HeartIcon,
     heartBroken: HeartCrackIcon,
-    star: HeartCrackIcon,
+    star: StarIcon,
     medal: MedalRibbonStarIcon,
     key: KeyIcon,
     handStars: HandStarsIcon,

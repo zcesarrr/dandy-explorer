@@ -13,7 +13,7 @@ export default function NotFoundPage() {
                 className="my-8"
                 width={256}
             />
-            <ShinyButton className="p-4 text-stroke" href="/">
+            <ShinyButton ariaLabel="Return to Main Page" className="p-4 text-stroke" href="/">
                 GET OUT OF HERE!!!!
             </ShinyButton>
         </div>
