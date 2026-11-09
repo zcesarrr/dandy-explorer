@@ -1,9 +1,11 @@
+import type { Ability, AbilityType } from "../types/abilities";
 import type { Toon, ToonCategory, ToonRarity } from "../types/toons";
 
 const SORT_LABELS = {
     name: "Name",
     rarity: "Rarity",
     category: "Event",
+    abilityType: "Ability Type",
     health: "Health",
     skillCheck: "Skill Check",
     moveSpeed: "Movement Speed",
@@ -33,6 +35,11 @@ const CATEGORY_PRIORITY: Record<ToonCategory, number> = {
     holiday: 3,
 };
 
+const ABILITY_TYPE_PRIORITY: Record<AbilityType, number> = {
+    passive: 0,
+    active: 1,
+};
+
 const STAT_INDEX: Partial<Record<SortKey, number>> = {
     health: 0,
     skillCheck: 1,
@@ -44,6 +51,11 @@ const STAT_INDEX: Partial<Record<SortKey, number>> = {
 
 function normalizeString(str: string): string {
     return str.toLowerCase().trim();
+}
+
+function getAbilityPriorityResult(abilities: Ability[]): number {
+    if (abilities.length > 1) return abilities.length;
+    return ABILITY_TYPE_PRIORITY[abilities[0]?.type ?? "passive"];
 }
 
 const collator = new Intl.Collator("en", { sensitivity: "base" });
@@ -68,6 +80,10 @@ export function filterToons(toons: Toon[], search: string, sortKey: SortKey, sor
             case "category":
                 return sortFallback(
                     (CATEGORY_PRIORITY[a.category] - CATEGORY_PRIORITY[b.category])
+                );
+            case "abilityType":
+                return sortFallback(
+                    getAbilityPriorityResult(a.abilities) - getAbilityPriorityResult(b.abilities)
                 );
             default: {
                 const index = STAT_INDEX[sortKey];

@@ -17,7 +17,7 @@ type ComponentProps = ShinyButtonProps & {
 };
 
 const baseClasses =
-    "active:outline-2 hover:outline-2 hover:shadow-none active:translate-y-0.5 outline-white/50 flex flex-col gap-1 bg-[linear-gradient(to_top,#111111,#444444)] border-2 border-black rounded-xl shadow-[0_4px_0px_0px_black] focus-visible:outline-2 focus-visible:outline-[#fff]";
+    "active:outline-2 hover:outline-2 hover:shadow-none active:translate-y-0.5 outline-white/50 flex flex-col gap-1 bg-[linear-gradient(to_top,#111111,#444444)] border-2 border-black rounded-xl shadow-[0_4px_0px_0px_black] focus-visible:outline-2 focus-visible:outline-[#fff] hover:cursor-pointer";
 
 function getStyle(active?: boolean): CSSProperties {
     return {
