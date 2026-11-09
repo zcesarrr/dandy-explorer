@@ -104,7 +104,6 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                                             <li key={key}>
                                                 <button
                                                     type="button"
-                                                    aria-label="Toggle sort popover"
                                                     onClick={() => {
                                                         setSortKey(key);
                                                         setIsSortOpen(false);

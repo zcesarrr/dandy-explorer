@@ -28,7 +28,7 @@ function getTitle(
 }
 
 export default function ToonPage() {
-    const { search: queryString, pathname } = useLocation();
+    const { search: queryString } = useLocation();
     const { toonSlug, tabKey } = useParams();
     const { sortKey, sortDir, search } = useToonListParams();
     const isDesktop = useIsDesktop();
@@ -44,12 +44,12 @@ export default function ToonPage() {
     const defaultToon = toonsFiltered[0] ?? filterToons(TOONS, "", sortKey, sortDir)[0]!;
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
 
-    if (pathname === "/" && isDesktop) {
-        return <Navigate to={composeEndpoint(defaultToon.slug, "abilities")} replace />;
-    }
-
     if (!selectedToonData) {
         return <Navigate to={composeEndpoint(defaultToon.slug)} replace />;
+    }
+
+    if (isDesktop && tabKey === undefined) {
+        return <Navigate to={composeEndpoint(selectedToonData.slug, "abilities")} replace />;
     }
 
     if (tabKey !== undefined && !isToonTabKey(tabKey)) {
