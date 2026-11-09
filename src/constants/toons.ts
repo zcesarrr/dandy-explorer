@@ -10,6 +10,10 @@ import astro from "./toons/astro";
 import razzleAndDazzle from "./toons/razzle-and-dazzle";
 import shrimpo from "./toons/shrimpo";
 import gigi from "./toons/gigi";
+import scraps from "./toons/scraps";
+import brusha from "./toons/brusha";
+import connie from "./toons/connie";
+import blot from "./toons/blot";
 
 const TOONS = [
     yatta,
@@ -23,6 +27,10 @@ const TOONS = [
     razzleAndDazzle,
     shrimpo,
     gigi,
+    scraps,
+    brusha,
+    connie,
+    blot,
 ] as const satisfies Toon[];
 
 export default TOONS;
