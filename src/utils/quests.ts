@@ -1,13 +1,27 @@
 import type { QuestParams, QuestType } from "../types/quests";
 import { createRenderer } from "./render";
 
+function getToons(toons: string[]) {
+    let result = "";
+
+    const length = toons.length;
+    for (let i = 0; i < length; i++) {
+        result += toons[i];
+        if (i < length - 1) {
+            result += i < (length - 2) ? ", " : " and ";
+        }
+    }
+
+    return result;
+}
+
 const questTemplates = {
     custom: ({ text }) => text,
     travel: ({ meters }) => `Travel ${meters} Meters!`,
     dandysShop: ({ count }) => `Purchase ${count} Items from Dandy's Elevator Shop!`,
     pickItems: ({ count }) => `Pick up ${count} Items!`,
     surviveFloors: ({ count }) => `Survive ${count} Floors!`,
-    surviveFloorsWith: ({ count, toon }) => `Survive ${count} Floors with ${toon} in your run!`,
+    surviveFloorsWith: ({ count, toons }) => `Survive ${count} Floors with ${getToons(toons)} in your run!`,
     surviveFloorsWithAny: ({ count, any }) => `Survive ${count} Floors with any ${any} in your run!`,
     useItems: ({ count  }) => `Use ${count} Items!`,
     finishMachines: ({ count }) => `Finish ${count} Machines!`,

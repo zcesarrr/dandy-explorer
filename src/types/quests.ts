@@ -3,7 +3,7 @@ export type QuestParams = {
     pickCapsules: { count: number };
     pickItems: { count: number };
     surviveFloors: { count: number };
-    surviveFloorsWith: { count: number, toon: string };
+    surviveFloorsWith: { count: number, toons: string[] };
     surviveFloorsWithAny: { count: number, any: string };
     reachFloor: { count: number };
     travel: { meters: number };
