@@ -9,8 +9,7 @@ import TOONS from "../constants/toons";
 import type { MobileTabKey } from "../constants/toonTabs";
 import { useToonListParams } from "../hooks/useToonListParams";
 import { filterToons } from "../utils/toonsFiltering";
-
-const APP_NAME = "Dandy Explorer"
+import { APP_NAME } from "../constants/app";
 
 function getTitle(
     toonName: string | undefined,
