@@ -5,10 +5,11 @@ export type ShinyButtonProps = {
     className?: string;
     onClick?: () => void;
     active?: boolean;
-    href?: string;
+    nav?: { href: string, replace?: boolean };
     ariaLabel?: string;
     ariaExpanded?: boolean;
     ariaControls?: string;
+    replace?: boolean;
 };
 
 type ComponentProps = ShinyButtonProps & {
@@ -28,18 +29,19 @@ function getStyle(active?: boolean): CSSProperties {
     };
 }
 
-export default function ShinyButton({ children, className, onClick, active, ariaLabel, href, ariaExpanded, ariaControls }: ComponentProps) {
+export default function ShinyButton({ children, className, onClick, active, ariaLabel, nav, ariaExpanded, ariaControls }: ComponentProps) {
     const classes = `${className ?? ""} ${baseClasses}`;
 
-    if (href) {
+    if (nav) {
         return (
             <NavLink
-                to={href}
+                to={nav.href}
                 className={classes}
                 onClick={onClick}
                 aria-label={ariaLabel}
                 aria-expanded={ariaExpanded}
                 aria-controls={ariaControls}
+                replace={nav.replace ?? false}
                 style={({ isActive }) => getStyle(active ?? isActive)}
                 end
             >

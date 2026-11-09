@@ -9,9 +9,10 @@ type TabBarProps = {
     className?: string;
     items: readonly TabBarItem[];
     getHref: (key: MobileTabKey) => string;
+    replaceOnClick?: boolean;
 }
 
-export default function TabBar({ className, items, getHref }: TabBarProps) {
+export default function TabBar({ className, items, getHref, replaceOnClick = false }: TabBarProps) {
     return (
         <ul className={`${className ?? ""} grid grid-flow-col auto-cols-fr grid-rows-1 gap-2 h-12`}>
             {items.map(item => {
@@ -21,7 +22,7 @@ export default function TabBar({ className, items, getHref }: TabBarProps) {
                     <li key={item.key}>
                         <ShinyButton
                             className="w-full h-full p-1"
-                            href={getHref(item.key)}
+                            nav={{ href: getHref(item.key), replace: replaceOnClick }}
                             ariaLabel={item.name}
                         >
                             <Icon className="w-full h-full" color="white" />

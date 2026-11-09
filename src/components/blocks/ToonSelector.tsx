@@ -173,7 +173,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                             <li key={item.slug}>
                                 <ToonButton
                                     buttonProps={{
-                                        href: getHrefToonButton(item.slug),
+                                        nav: { href: getHrefToonButton(item.slug) },
                                         onClick: () => {
                                             sessionStorage.setItem("from", `/${getParams()}`);
                                         },

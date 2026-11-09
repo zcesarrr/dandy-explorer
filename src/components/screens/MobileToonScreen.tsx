@@ -39,7 +39,7 @@ export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack
                 <ShinyButton 
                     className="flex h-full w-24 justify-center items-center" 
                     ariaLabel="Back to toons"
-                    href={getHrefBack()}
+                    nav={{href: getHrefBack()}}
                 >
                     <ICONS.leftArrow
                         className="w-full h-full"
@@ -65,7 +65,7 @@ export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack
                 className="shrink-0 p-2 mb-[max(0.5rem,env(safe-area-inset-bottom))]"
                 aria-label="Toon sections"
             >
-                <TabBar items={items} getHref={getHrefTab} />
+                <TabBar items={items} getHref={getHrefTab} replaceOnClick />
             </nav>
         </div>
     );
