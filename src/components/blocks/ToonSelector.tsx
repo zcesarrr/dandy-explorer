@@ -163,7 +163,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                     </div>
                     <ul
                         ref={listRef}
-                        className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-x-2 gap-y-3 p-1 scrollbar-thumb-black/80 top-17.5"
+                        className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-x-2 gap-y-3 p-1 top-17.5"
                         style={{
                             gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "132px"})`,
                         }}

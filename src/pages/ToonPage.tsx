@@ -100,7 +100,7 @@ export default function ToonPage() {
     const showFooter = isDesktop || toonSlug === undefined;
 
     return (
-        <div className="h-dvh flex flex-col">
+        <div className="h-dvh flex flex-col scrollbar-thumb-black/80">
             <title>{title}</title>
             <div className="flex-1 min-h-0">{page()}</div>
             {showFooter && <Footer />}

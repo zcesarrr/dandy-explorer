@@ -28,7 +28,7 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHref
                 {/* TOON INFORMATION */}
                 <div className="min-h-0 grid grid-cols-2 grid-rows-1 gap-3">
                     <ToonInfo
-                        className="bg-black/30 p-4 rounded-xl"
+                        className="bg-black/30 p-4 rounded-xl overflow-y-auto"
                         toon={selectedToon}
                     />
 
