@@ -1,6 +1,6 @@
 import type React from "react";
-import ICONS from "../../constants/icons";
-import type { IconId } from "../../types/icons";
+import ICONS from "../../constants/icons.constants";
+import type { IconId } from "../../types/icons.types";
 
 type InputProps = {
     className?: string;

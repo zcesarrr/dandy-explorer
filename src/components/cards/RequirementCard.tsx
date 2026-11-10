@@ -1,6 +1,6 @@
-import ICONS from "../../constants/icons";
-import type { IconId } from "../../types/icons";
-import type { RequirementType } from "../../types/requirements";
+import ICONS from "../../constants/icons.constants";
+import type { IconId } from "../../types/icons.types";
+import type { RequirementType } from "../../types/requirements.types";
 
 const iconByType = {
     ichor: "waterdrop",

@@ -1,6 +1,6 @@
-import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs";
-import type { Toon } from "../../types/toons";
-import { getToonTab } from "../../utils/toonTabs";
+import { TOON_TABS, type ToonTabKey } from "../../constants/toonTabs.constants";
+import type { Toon } from "../../types/toons.types";
+import { getToonTab } from "../../utils/toonTabs.utils";
 import TabBar from "../blocks/TabBar";
 import ToonInfo from "../blocks/ToonInfo";
 import ToonSelector from "../blocks/ToonSelector";

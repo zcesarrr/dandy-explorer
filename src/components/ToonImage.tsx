@@ -1,5 +1,5 @@
-import type { Toon } from "../types/toons";
-import { TOON_BACKGROUND_COLOR } from "../constants/styles";
+import type { Toon } from "../types/toons.types";
+import { TOON_BACKGROUND_COLOR } from "../constants/styles.constants";
 
 type ToonImageProps = {
     className?: string;

@@ -1,6 +1,6 @@
-import ICONS from "../../constants/icons";
-import type { MobileTabKey } from "../../constants/toonTabs";
-import type { IconId } from "../../types/icons";
+import ICONS from "../../constants/icons.constants";
+import type { MobileTabKey } from "../../constants/toonTabs.constants";
+import type { IconId } from "../../types/icons.types";
 import ShinyButton from "../customs/ShinyButton";
 
 export type TabBarItem = { key: MobileTabKey, icon: IconId, name: string };

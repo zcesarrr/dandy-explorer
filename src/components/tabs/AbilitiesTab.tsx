@@ -1,6 +1,6 @@
 import { CloseIcon } from "@solar-icons/react/bold/close";
 import AbilityCard from "../cards/AbilityCard";
-import type { ToonTabProps } from "../../types/toonTabs";
+import type { ToonTabProps } from "../../types/toonTabs.types";
 
 export default function AbilitiesTab({ toon }: ToonTabProps) {
     return (

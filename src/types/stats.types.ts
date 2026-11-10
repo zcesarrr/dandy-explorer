@@ -1,4 +1,4 @@
-import type { IconId } from "./icons";
+import type { IconId } from "./icons.types";
 
 export type StatCardProps = {
     name: string;

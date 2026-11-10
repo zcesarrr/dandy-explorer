@@ -1,6 +1,6 @@
-import type { Ability } from "./abilities";
-import type { Quest } from "./quests";
-import type { Requirement } from "./requirements";
+import type { Ability } from "./abilities.types";
+import type { Quest } from "./quests.types";
+import type { Requirement } from "./requirements.types";
 
 export type ToonRarity = "normal" | "main";
 export type ToonCategory = "none" | "halloween" | "holiday" | "easter";

@@ -1,4 +1,4 @@
-import type { Toon } from "../types/toons";
+import type { Toon } from "../types/toons.types";
 import yatta from "./toons/yatta";
 import looey from "./toons/looey";
 import bobette from "./toons/bobette";

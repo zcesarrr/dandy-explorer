@@ -1,4 +1,4 @@
-import type { ToonCategory, ToonRarity } from "../types/toons";
+import type { ToonCategory, ToonRarity } from "../types/toons.types";
 
 const blackOverlay = "linear-gradient(#00000050, #00000050)";
 const mainRarityBackground =

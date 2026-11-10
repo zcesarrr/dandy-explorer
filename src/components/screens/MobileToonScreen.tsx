@@ -1,7 +1,7 @@
-import ICONS from "../../constants/icons";
-import { TOON_TABS, type MobileTabKey, type ToonTabKey } from "../../constants/toonTabs";
-import type { Toon } from "../../types/toons";
-import { getToonTab } from "../../utils/toonTabs";
+import ICONS from "../../constants/icons.constants";
+import { TOON_TABS, type MobileTabKey, type ToonTabKey } from "../../constants/toonTabs.constants";
+import type { Toon } from "../../types/toons.types";
+import { getToonTab } from "../../utils/toonTabs.utils";
 import TabBar, { type TabBarItem } from "../blocks/TabBar";
 import ToonInfo from "../blocks/ToonInfo";
 import ShinyButton from "../customs/ShinyButton";

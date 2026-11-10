@@ -1,15 +1,15 @@
 import { Navigate, useLocation, useParams } from "react-router";
-import { getToonTab, isToonTabKey } from "../utils/toonTabs";
+import { getToonTab, isToonTabKey } from "../utils/toonTabs.utils";
 import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
-import TOONS from "../constants/toons";
-import type { MobileTabKey } from "../constants/toonTabs";
+import TOONS from "../constants/toons.constants";
+import type { MobileTabKey } from "../constants/toonTabs.constants";
 import { useToonListParams } from "../hooks/useToonListParams";
-import { filterToons } from "../utils/toonsFiltering";
-import { APP_NAME } from "../constants/app";
+import { filterToons } from "../utils/toonsFiltering.utils";
+import { APP_NAME } from "../constants/app.constants";
 
 function getTitle(
     toonName: string | undefined,

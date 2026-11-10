@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import Input from "../customs/Input";
 import ToonButton from "../ToonButton";
-import type { Toon } from "../../types/toons";
+import type { Toon } from "../../types/toons.types";
 import ShinyButton from "../customs/ShinyButton";
-import ICONS from "../../constants/icons";
-import { sortLabel, type SortKey } from "../../utils/toonsFiltering";
+import ICONS from "../../constants/icons.constants";
+import { sortLabel, type SortKey } from "../../utils/toonsFiltering.utils";
 import { useToonListParams } from "../../hooks/useToonListParams";
 import { useScrollRestoration } from "../../hooks/useScrollRestoration";
 

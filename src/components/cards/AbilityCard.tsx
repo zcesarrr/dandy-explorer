@@ -1,4 +1,4 @@
-import type { AbilityType } from "../../types/abilities";
+import type { AbilityType } from "../../types/abilities.types";
 
 const strings = {
     passive: "Passive",

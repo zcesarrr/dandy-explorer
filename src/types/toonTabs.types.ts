@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
-import type { IconId } from "./icons";
-import type { Toon } from "./toons";
+import type { IconId } from "./icons.types";
+import type { Toon } from "./toons.types";
 
 export type ToonTabProps = {
     toon: Toon;

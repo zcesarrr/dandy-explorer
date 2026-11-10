@@ -1,6 +1,6 @@
 import StatCard from "../cards/StatCard";
 import ToonImage from "../ToonImage";
-import type { Toon } from "../../types/toons";
+import type { Toon } from "../../types/toons.types";
 
 const STATS_BASE = [
     {

@@ -1,4 +1,4 @@
-import type { Toon } from "../../types/toons";
+import type { Toon } from "../../types/toons.types";
 import icon from "../../assets/toons/astro.webp";
 
 const astro: Toon = {

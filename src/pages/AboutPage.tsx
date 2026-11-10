@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router";
-import { APP_NAME } from "../constants/app";
+import { APP_NAME } from "../constants/app.constants";
 
 function anchor(url: string) {
     return {

@@ -1,5 +1,5 @@
-import type { QuestParams, QuestType } from "../types/quests";
-import { createRenderer } from "./render";
+import type { QuestParams, QuestType } from "../types/quests.types";
+import { createRenderer } from "./render.utils";
 
 function hl(value: string | number) {
     return `{{${value}}}`;

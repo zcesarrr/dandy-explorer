@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import type ICONS from "../constants/icons";
+import type ICONS from "../constants/icons.constants";
 
 export type IconProps = {
     className?: string;

@@ -1,5 +1,5 @@
-import type { Ability, AbilityType } from "../types/abilities";
-import type { Toon, ToonCategory, ToonRarity } from "../types/toons";
+import type { Ability, AbilityType } from "../types/abilities.types";
+import type { Toon, ToonCategory, ToonRarity } from "../types/toons.types";
 
 const SORT_LABELS = {
     name: "Name",

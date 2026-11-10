@@ -1,4 +1,4 @@
-import type { IconComponent } from "../types/icons";
+import type { IconComponent } from "../types/icons.types";
 import { HeartIcon } from "@solar-icons/react/bold/heart";
 import { StarIcon } from "@solar-icons/react/bold/star";
 import { HeartCrackIcon } from "@solar-icons/react/bold/heart-crack";

@@ -1,7 +1,7 @@
 import AbilitiesTab from "../components/tabs/AbilitiesTab";
 import QuestsTab from "../components/tabs/QuestsTab";
 import RequirementsTab from "../components/tabs/RequirementsTab";
-import type { ToonTabDef } from "../types/toonTabs";
+import type { ToonTabDef } from "../types/toonTabs.types";
 
 export const TOON_TABS = [
     { key: "abilities", name: "Abilities", icon: "handStars", Component: AbilitiesTab },

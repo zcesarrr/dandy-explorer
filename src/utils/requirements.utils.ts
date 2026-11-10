@@ -1,5 +1,5 @@
-import type { RequirementParams, RequirementType } from "../types/requirements";
-import { createRenderer } from "./render";
+import type { RequirementParams, RequirementType } from "../types/requirements.types";
+import { createRenderer } from "./render.utils";
 
 const requirementTemplates = {
     ichor: ({ count }) => `${count} Ichor`,

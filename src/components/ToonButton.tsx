@@ -1,4 +1,4 @@
-import type { Toon } from "../types/toons";
+import type { Toon } from "../types/toons.types";
 import ShinyButton, { type ShinyButtonProps } from "./customs/ShinyButton";
 import ToonImage from "./ToonImage";
 
