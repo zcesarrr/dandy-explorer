@@ -13,6 +13,7 @@ const ginger: Toon = {
             name: "Baked with Care!",
             description: "This toon can heal a nearby targeted Toon to full Hearts for 100 tapes with a cooldown of 100. For every extra Ginger, the cost increases by 50 Tapes and the Cooldown increases by 30.",
             type: "active",
+            icon: "bakedWithCare",
         },
     ],
     quests: [

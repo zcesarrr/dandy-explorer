@@ -10,6 +10,10 @@ import blotJr from "../../assets/abilities/blotJr.webp";
 import nightLight from "../../assets/abilities/nightLight.webp";
 import artisticInspiration from "../../assets/abilities/artisticInspiration.webp";
 import hauntingEscape from "../../assets/abilities/hauntingEscape.webp";
+import surprise from "../../assets/abilities/surprise.webp";
+import bakedWithCare from "../../assets/abilities/bakedWithCare.webp";
+import distressedDelicacy from "../../assets/abilities/distressedDelicacy.webp";
+import tidyUp from "../../assets/abilities/tidyUp.webp";
 
 type AbilityIconProps = IconProps & {
     src: string;
@@ -52,3 +56,7 @@ export const BlotJrIcon = createIcon(blotJr, "Minimalist blot-like character");
 export const NightLightIcon = createIcon(nightLight, "Minimalist light bulb", "120%");
 export const ArtisticInspirationIcon = createIcon(artisticInspiration, "Minimalist brush", "105%");
 export const HauntingEscapeIcon = createIcon(hauntingEscape, "Minimalist bomb ghost");
+export const SurpriseIcon = createIcon(surprise, "Minimalist roulette", "110%");
+export const BakedWithCareIcon = createIcon(bakedWithCare, "Minimalist gingerbread", "105%");
+export const DistressedDelicacyIcon = createIcon(distressedDelicacy, "Minimalist book", "115%");
+export const TidyUpIcon = createIcon(tidyUp, "Minimalist cleaner", "105%");

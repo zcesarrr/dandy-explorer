@@ -13,6 +13,7 @@ const squirm: Toon = {
             name: "Distressed Delicacy",
             description: "Hold down your ability to eat books, gaining 100% extraction speed for 10 seconds. Proximity to a bookshelf makes this Toon's cooldown recover twice as fast. Cooldown of 80.",
             type: "active",
+            icon: "distressedDelicacy",
         },
     ],
     quests: [

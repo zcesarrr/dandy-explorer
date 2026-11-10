@@ -13,6 +13,7 @@ const tisha: Toon = {
             name: "Tidy Up!",
             description: "This Toon can create a pulse that increases the Movement Speed of Toons around her by 25% for 5 seconds. This pulse also removes any Ichor puddles within its radius. Has a Cooldown of 50.",
             type: "active",
+            icon: "tidyUp",
         },
     ],
     quests: [

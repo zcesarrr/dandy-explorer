@@ -13,6 +13,7 @@ const gigi: Toon = {
             name: "Surprise!",
             description: "This Toon can grant herself a random item from any Tier (Dandy's Shop items included). Has a Cooldown of 60.",
             type: "active",
+            icon: "surprise",
         },
     ],
     quests: [
