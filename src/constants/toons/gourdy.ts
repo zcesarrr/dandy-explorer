@@ -13,6 +13,7 @@ const gourdy: Toon = {
             name: "Trick or Treat",
             description: "This Toon applies a random 20% boost for 15 seconds to all Toons within range. Has a cooldown of 35.",
             type: "active",
+            icon: "trickOrTreat",
         },
         {
             name: "Sugar Rush",

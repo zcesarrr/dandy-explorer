@@ -13,6 +13,7 @@ const blot: Toon = {
             name: "Blot Jr.",
             description: "This Toon places a decoy that attracts nearby Twisteds and has 1 Heart. This ability costs 10 Tapes and has a cooldown of 60 seconds. For each extra Blot on a team the cost of the decoy costs an additional 10 tapes.",
             type: "active",
+            icon: "blotJr",
         },
     ],
     quests: [

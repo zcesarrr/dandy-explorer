@@ -13,6 +13,7 @@ const vee: Toon = {
             name: "Mic Check",
             description: "This Toon can highlight all Twisteds and Machines on the Floor for 5 seconds. Has a Cooldown of 50.",
             type: "active",
+            icon: "micCheck",
         },
         {
             name: "Camera Hijack",

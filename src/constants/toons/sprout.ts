@@ -13,6 +13,7 @@ const sprout: Toon = {
             name: "Baked Sweets",
             description: "This Toon can heal a targeted Toon by 1 Heart at the cost of 100 Tapes Tapes. Has a cooldown of 100. Tape cost scales with the number of Sprouts in the round.",
             type: "active",
+            icon: "bakedSweets",
         },
         {
             name: "Overprotective",

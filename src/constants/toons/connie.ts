@@ -13,6 +13,7 @@ const connie: Toon = {
             name: "Haunting Escape",
             description: "This Toon uses her ability to become invisible for 5 seconds. Twisteds will not be able to notice her during this time, unless she is up against a Lethal Twisted which will still see her. Has a cooldown of 50.",
             type: "active",
+            icon: "hauntingEscape",
         },
     ],
     quests: [

@@ -13,6 +13,7 @@ const brusha: Toon = {
             name: "Artistic Inspiration",
             description: "This Toon can paint her artwork on nearby machines, inspiring extracting Toons with 25% faster Extraction speed and a 15% higher Skill Check chance. Has a cooldown of 15.",
             type: "active",
+            icon: "artisticInspiration",
         },
     ],
     quests: [

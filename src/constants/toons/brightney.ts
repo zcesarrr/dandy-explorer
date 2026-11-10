@@ -13,6 +13,7 @@ const brightney: Toon = {
             name: "Night Light",
             description: "This Toon can shine lights on Twisteds to make them visible during Blackouts for 8 seconds. Has a Cooldown of 45.",
             type: "active",
+            icon: "nightLight",
         },
     ],
     quests: [
