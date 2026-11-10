@@ -14,6 +14,8 @@ import scraps from "./toons/scraps";
 import brusha from "./toons/brusha";
 import connie from "./toons/connie";
 import blot from "./toons/blot";
+import sprout from "./toons/sprout";
+import finn from "./toons/finn";
 
 const TOONS = [
     yatta,
@@ -31,6 +33,8 @@ const TOONS = [
     brusha,
     connie,
     blot,
+    sprout,
+    finn,
 ] as const satisfies Toon[];
 
 export default TOONS;

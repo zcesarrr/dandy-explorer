@@ -9,6 +9,7 @@ export type RequirementParams = {
     toonsOwning: { count: number },
     titlesOwning: { count: number },
     pickItems: { rarity: "Common" | "Uncommon" | "Rare" | "Very Rare" | "Ultra Rare", count: number };
+    finishMachines: { count: number };
 };
 
 export type RequirementType = keyof RequirementParams;
