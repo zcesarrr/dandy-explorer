@@ -34,8 +34,8 @@ const sprout: Toon = {
             params: { count: 125 },
         },
         {
-            type: "custom",
-            params: { text: "Surive 15 Floors with 4 other Players in your round!" },
+            type: "surviveFloorsWithOther",
+            params: { count: 15, playersCount: 4 },
         },
         {
             type: "surviveFloorsWith",

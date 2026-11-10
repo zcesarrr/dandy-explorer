@@ -33,8 +33,8 @@ const connie: Toon = {
             params: { count: 50 },
         },
         {
-            type: "custom",
-            params: { text: "Survive 5 Floors with 2 other Players in your round!" },
+            type: "surviveFloorsWithOther",
+            params: { count: 5, playersCount: 2 },
         },
         {
             type: "useItems",

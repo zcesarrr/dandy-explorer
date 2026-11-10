@@ -33,8 +33,8 @@ const eclipse: Toon = {
             params: { count: 75 },
         },
         {
-            type: "custom",
-            params: { text: "Survive 3 Floors with 7 other Players in your round!" },
+            type: "surviveFloorsWithOther",
+            params: { count: 3, playersCount: 7 },
         },
         {
             type: "useItems",

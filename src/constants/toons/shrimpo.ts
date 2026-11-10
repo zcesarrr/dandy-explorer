@@ -33,8 +33,8 @@ const shrimpo: Toon = {
             params: { count: 30 },
         },
         {
-            type: "custom",
-            params: { text: "Survive 5 Floors with 2 or more Players in your round!" },
+            type: "surviveFloorsWithOther",
+            params: { count: 5, playersCount: 2 },
         },
         {
             type: "useItems",

@@ -29,8 +29,8 @@ const ginger: Toon = {
             params: { count: 30 },
         },
         {
-            type: "custom",
-            params: { text: "Survive 10 Floors with 2 other Players in your round!" },
+            type: "surviveFloorsWithOther",
+            params: { count: 10, playersCount: 2 },
         },
         {
             type: "travel",

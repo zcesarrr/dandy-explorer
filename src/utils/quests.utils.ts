@@ -27,6 +27,7 @@ const questTemplates = {
     surviveFloors: ({ count }) => `Survive ${hl(count)} Floors!`,
     surviveFloorsWith: ({ count, toons }) => `Survive ${hl(count)} Floors with ${getToons(toons)} in your run!`,
     surviveFloorsWithAny: ({ count, any }) => `Survive ${hl(count)} Floors with any ${hl(any)} in your run!`,
+    surviveFloorsWithOther: ({ count, playersCount }) => `Survive ${hl(count)} Floors with ${hl(playersCount)} or more Players in your round!`,
     useItems: ({ count  }) => `Use ${hl(count)} Items!`,
     finishMachines: ({ count }) => `Finish ${hl(count)} Machines!`,
     pickCapsules: ({ count }) => `Pick up ${hl(count)} Research Capsules!`,

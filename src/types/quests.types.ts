@@ -5,6 +5,7 @@ export type QuestParams = {
     surviveFloors: { count: number };
     surviveFloorsWith: { count: number, toons: string[] };
     surviveFloorsWithAny: { count: number, any: string };
+    surviveFloorsWithOther: { count: number, playersCount: number };
     reachFloor: { count: number };
     travel: { meters: number };
     useItems: { count: number };
