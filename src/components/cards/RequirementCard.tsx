@@ -13,6 +13,8 @@ const iconByType = {
     toonsOwning: "person",
     titlesOwning: "diploma",
     pickItems: "candy",
+    experienceBlackouts: "lightbulbBolt",
+    finishMachines: "gear",
 } satisfies Record<RequirementType, IconId> ;
 
 type RequirementProps = {

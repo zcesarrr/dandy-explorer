@@ -13,6 +13,7 @@ const requirementTemplates = {
     toonsOwning: ({ count }) => `Own ${count} or more Toons`,
     pickItems: ({ rarity, count }) => `Pick up ${count} ${rarity} or higher tier Items`,
     finishMachines: ({ count }) => `Finish ${count} Machines`,
+    experienceBlackouts: ({ count }) => `Experience ${count} Blackouts`,
 } satisfies {
     [K in RequirementType]: (p: RequirementParams[K]) => string
 };

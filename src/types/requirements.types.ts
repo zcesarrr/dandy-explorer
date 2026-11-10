@@ -10,6 +10,7 @@ export type RequirementParams = {
     titlesOwning: { count: number },
     pickItems: { rarity: "Common" | "Uncommon" | "Rare" | "Very Rare" | "Ultra Rare", count: number };
     finishMachines: { count: number };
+    experienceBlackouts: { count: number };
 };
 
 export type RequirementType = keyof RequirementParams;

@@ -16,6 +16,10 @@ import connie from "./toons/connie";
 import blot from "./toons/blot";
 import sprout from "./toons/sprout";
 import finn from "./toons/finn";
+import squirm from "./toons/squirm";
+import tisha from "./toons/tisha";
+import vee from "./toons/vee";
+import brightney from "./toons/brightney";
 
 const TOONS = [
     yatta,
@@ -35,6 +39,10 @@ const TOONS = [
     blot,
     sprout,
     finn,
+    squirm,
+    tisha,
+    vee,
+    brightney,
 ] as const satisfies Toon[];
 
 export default TOONS;

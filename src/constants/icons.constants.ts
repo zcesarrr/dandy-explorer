@@ -13,6 +13,8 @@ import {  AltArrowLeftIcon } from "@solar-icons/react/bold/alt-arrow-left";
 import {  CloseIcon } from "@solar-icons/react/bold/close";
 import { FilterIcon } from "@solar-icons/react/bold/filter";
 import { SortFromBottomToTopIcon } from "@solar-icons/react/bold/sort-from-bottom-to-top";
+import { LightbulbBoltIcon } from "@solar-icons/react/bold/lightbulb-bolt";
+import { SettingsIcon } from "@solar-icons/react/bold/settings";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -39,6 +41,8 @@ const ICONS = {
     filter: FilterIcon,
     sort: SortFromBottomToTopIcon,
     candy: CandyIcon,
+    lightbulbBolt: LightbulbBoltIcon,
+    gear: SettingsIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;
