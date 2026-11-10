@@ -12,6 +12,7 @@ export default function ToonImage({ className = "", toon }: ToonImageProps) {
             src={toon.iconUrl}
             alt=""
             className={className}
+            loading="lazy"
             style={{
                 background: TOON_BACKGROUND_COLOR[toon.rarity][toon.category],
             }}

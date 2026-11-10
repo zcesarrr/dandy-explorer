@@ -13,6 +13,7 @@ const bobette: Toon = {
             name: "Precious Packaging",
             description: "This Toon can duck and cover herself into a gift box for 8 seconds, in which she is invincible yet unable to move.",
             type: "active",
+            icon: "preciousPackaging",
         },
         {
             name: "Festive Aura",

@@ -2,6 +2,7 @@ import type { IconComponent, IconProps } from "../../types/icons.types";
 import napTime from "../../assets/abilities/napTime.webp";
 import springfulSharing from "../../assets/abilities/springfulSharing.webp"
 import craftyGrapple from "../../assets/abilities/craftyGrapple.webp";
+import preciousPackaging from "../../assets/abilities/preciousPackaging.webp";
 
 type AbilityIconProps = IconProps & {
     src: string;
@@ -14,6 +15,7 @@ function AbilityIcon({ className, src, alt}: AbilityIconProps) {
             className={className ?? ""}
             alt={alt}
             src={src}
+            loading="lazy"
         />
     );
 }
@@ -27,3 +29,4 @@ function createIcon(src: string, alt: string): IconComponent {
 export const NapTimeIcon = createIcon(napTime, "Minimalist moon with a sparkle");
 export const SpringfulSharingIcon = createIcon(springfulSharing, "Minimalist basket");
 export const CraftyGrappleIcon = createIcon(craftyGrapple, "Minimalist Scraps's Tail");
+export const PreciousPackagingIcon = createIcon(preciousPackaging, "Minimalist gift box");

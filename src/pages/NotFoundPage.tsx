@@ -12,6 +12,7 @@ export default function NotFoundPage() {
                 alt="Shrimpo Render"
                 className="my-8"
                 width={256}
+                loading="lazy"
             />
             <ShinyButton ariaLabel="Return to Main Page" className="p-4 text-stroke" nav={{href: "/"}}>
                 GET OUT OF HERE!!!!
