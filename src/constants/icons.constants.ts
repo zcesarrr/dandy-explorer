@@ -20,6 +20,8 @@ import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
 import MagnifierIcon from "../components/icons/MagnifierIcon";
 import CandyIcon from "../components/icons/CandyIcon";
+import { CraftyGrappleIcon, NapTimeIcon } from "../components/icons/AbilitiesIcon";
+import { SpringfulSharingIcon } from "../components/icons/AbilitiesIcon";
 
 const ICONS = {
     heart: HeartIcon,
@@ -43,6 +45,9 @@ const ICONS = {
     candy: CandyIcon,
     lightbulbBolt: LightbulbBoltIcon,
     gear: SettingsIcon,
+    napTime: NapTimeIcon,
+    springfulSharing: SpringfulSharingIcon,
+    craftyGrapple: CraftyGrappleIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;

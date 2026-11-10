@@ -13,6 +13,7 @@ const scraps: Toon = {
             name: "Crafty Grapple",
             description: "This Toon can pull herself towards another Toon or Machine's targeted position. Needs direct line of sight. 25 second cooldown.",
             type: "active",
+            icon: "craftyGrapple",
         },
     ],
     quests: [

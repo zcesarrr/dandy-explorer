@@ -13,6 +13,7 @@ const astro: Toon = {
             name: "Nap Time",
             description: "Hold to release a pulse that fully restores Stamina to nearby Toons and increases their Stamina regeneration to 50% for 10s. Restores the User's Stamina 20% for each Toon reached. Collect Star Pillows to grow its range, carrying up to 10. Nap Time spends up to 5 pillows when used. Has a cooldown of 55.",
             type: "active",
+            icon: "napTime",
         },
         {
             name: "Well Rested",

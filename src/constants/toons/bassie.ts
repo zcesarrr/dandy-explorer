@@ -13,6 +13,7 @@ const bassie: Toon = {
             name: "Springful Sharing",
             description: "This Toon can drop items from her inventory, sharing them with other Toons.",
             type: "active",
+            icon: "springfulSharing",
         },
         {
             name: "Easter Basket",
