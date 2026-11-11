@@ -1,13 +1,14 @@
-import type { ToonTabProps } from "../../types/toonTabs.types";
+import type { TabProps } from "../../types/collection.types";
+import type { Toon } from "../../types/toons.types";
 import { renderQuest } from "../../utils/quests.utils";
 import QuestCard from "../cards/QuestCard";
 
-export default function QuestsTab({ toon }: ToonTabProps) {
+export default function QuestsTab({ item }: TabProps<Toon>) {
     return (
         <ul className="flex flex-col gap-2">
-            {toon.quests.map((item, index) => (
+            {item.quests.map((quest, index) => (
                 <li key={index}>
-                    <QuestCard content={renderQuest(item)} />
+                    <QuestCard content={renderQuest(quest)} />
                 </li>
             ))}
         </ul>
