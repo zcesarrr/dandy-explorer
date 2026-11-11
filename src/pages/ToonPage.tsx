@@ -7,7 +7,8 @@ import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons.constants";
 import { useToonListParams } from "../hooks/useToonListParams";
-import { filterToons } from "../utils/toonsFiltering.utils";
+import { filterItems } from "../utils/collectionFiltering.utils";
+import { TOON_SORT } from "../collections/toons/sort";
 import { APP_NAME } from "../constants/app.constants";
 
 function getTitle(
@@ -38,8 +39,8 @@ export default function ToonPage() {
         return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
     }
 
-    const toonsFiltered = filterToons(TOONS, search, sortKey, sortDir);
-    const defaultToon = toonsFiltered[0] ?? filterToons(TOONS, "", sortKey, sortDir)[0]!;
+    const toonsFiltered = filterItems(TOONS, search, TOON_SORT,sortKey, sortDir);
+    const defaultToon = toonsFiltered[0] ?? filterItems(TOONS, "", TOON_SORT, sortKey, sortDir)[0]!;
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
 
     if (!selectedToonData) {

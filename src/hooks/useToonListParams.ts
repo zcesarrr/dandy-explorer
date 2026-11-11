@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router";
-import { DEFAULT_SORT_DIR, DEFAULT_SORT_KEY, SORT_KEYS, type SortDir, type SortKey } from "../utils/toonsFiltering.utils";
+import { DEFAULT_SORT_DIR, findSortOption, type SortDir } from "../utils/collectionFiltering.utils";
+import { TOON_SORT } from "../collections/toons/sort";
 
 export function useToonListParams() {
     const [params, setParams] = useSearchParams();
@@ -8,7 +9,7 @@ export function useToonListParams() {
     const rawSortDir = params.get("dir");
     const search = params.get("q") ?? "";
 
-    const sortKey: SortKey = SORT_KEYS.includes(rawSortKey as SortKey) ? rawSortKey as SortKey : DEFAULT_SORT_KEY;
+    const sortKey: string = rawSortKey !== null && findSortOption(TOON_SORT.groups, rawSortKey) ? rawSortKey : TOON_SORT.defaultKey;
     const sortDir: SortDir = rawSortDir === "asc" || rawSortDir === "desc" ? rawSortDir : DEFAULT_SORT_DIR;
 
     const update = (name: string, value: string, defaultValue: string = "") => {
@@ -33,7 +34,7 @@ export function useToonListParams() {
         sortKey,
         sortDir,
         setSearch: (value: string) => update("q", value.slice(0, 20)),
-        setSortKey: (value: SortKey) => update("sort", value, DEFAULT_SORT_KEY),
+        setSortKey: (value: string) => update("sort", value, TOON_SORT.defaultKey),
         setSortDir: (value: SortDir) => update("dir", value, DEFAULT_SORT_DIR),
         getParams,
     }

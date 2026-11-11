@@ -4,22 +4,10 @@ import ToonButton from "../ToonButton";
 import type { Toon } from "../../types/toons.types";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons.constants";
-import { sortLabel, type SortKey } from "../../utils/toonsFiltering.utils";
 import { useToonListParams } from "../../hooks/useToonListParams";
 import { useScrollRestoration } from "../../hooks/useScrollRestoration";
-
-const SORT_GROUPS: { 
-    title?: string,
-    entries: SortKey[],
-}[] = [
-    { 
-        entries: ["name", "rarity", "category", "abilityType"],
-    },
-    {
-        title: "Stats",
-        entries: ["health", "skillCheck", "moveSpeed", "stamina", "stealth", "extSpeed"],
-    },
-];
+import { findSortOption } from "../../utils/collectionFiltering.utils";
+import { TOON_SORT } from "../../collections/toons/sort";
 
 export type ToonSelectorProps = {
     className?: string;
@@ -59,6 +47,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
         };
     }, [isSortOpen]);
 
+    const sortLabel = findSortOption(TOON_SORT.groups, sortKey)?.label ?? "";
     const resultsCount = toons.length;
 
     return (
@@ -96,25 +85,25 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                             id="sortMenu"
                             className="absolute right-0 flex flex-col gap-2 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/95 p-1 font-fredoka text-white"
                         >
-                            {SORT_GROUPS.map((group, index) => (
+                            {TOON_SORT.groups.map((group, index) => (
                                 <li key={index}>
                                     {group.title && <p className="px-1 text-white/50">{group.title}</p>}
                                     <ul className="flex flex-col gap-1">
-                                        {group.entries.map(key => (
-                                            <li key={key}>
+                                        {group.options.map(option => (
+                                            <li key={option.key}>
                                                 <button
                                                     type="button"
                                                     onClick={() => {
-                                                        setSortKey(key);
+                                                        setSortKey(option.key);
                                                         setIsSortOpen(false);
                                                     }}
                                                     className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10 hover:cursor-pointer"
                                                     style={{
-                                                        background: key === sortKey ? "#ffffff30" : "",
-                                                        cursor: key === sortKey ? "default" : "",
+                                                        background: option.key === sortKey ? "#ffffff30" : "",
+                                                        cursor: option.key === sortKey ? "default" : "",
                                                     }}
                                                 >
-                                                    {sortLabel(key)}
+                                                    {option.label}
                                                 </button>
                                             </li>
                                         ))}
@@ -153,7 +142,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
             ) : (
                 <div>
                     <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide max-xs:text-sm">
-                        <p>Ordering by: {sortLabel(sortKey)}</p>
+                        <p>Ordering by: {sortLabel}</p>
                         {search.trim() !== "" && (
                             <>
                                 <div className="w-1 h-1 rounded-full bg-[#aaa] mt-0.5"/>

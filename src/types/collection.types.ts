@@ -28,6 +28,11 @@ export type SortGroup<T> = {
     options: SortOption<T>[];
 };
 
+export type CollectionSort<T> = {
+    defaultKey: string;
+    groups: SortGroup<T>[];
+};
+
 export type CollectionConfig<T extends CollectionItem> = {
     id: string;
     basePath: string;
@@ -37,10 +42,7 @@ export type CollectionConfig<T extends CollectionItem> = {
         emptyMessage: string;
     };
     items: readonly T[];
-    sort: {
-        defaultKey: string;
-        groups: SortGroup<T>[];
-    };
+    sort: CollectionSort<T>;
     ItemImage: ComponentType<{ item: T; className?: string }>;
     Info: ComponentType<{ item: T }>;
     tabs: readonly TabDef<T>[];
