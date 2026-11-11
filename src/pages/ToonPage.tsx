@@ -39,7 +39,7 @@ export default function ToonPage() {
         return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
     }
 
-    const toonsFiltered = filterItems(TOONS, search, TOON_SORT,sortKey, sortDir);
+    const toonsFiltered = filterItems(TOONS, search, TOON_SORT, sortKey, sortDir);
     const defaultToon = toonsFiltered[0] ?? filterItems(TOONS, "", TOON_SORT, sortKey, sortDir)[0]!;
     const selectedToonData = TOONS.find(toon => toon.slug === (toonSlug ?? defaultToon.slug));
 
