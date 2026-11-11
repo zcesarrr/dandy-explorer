@@ -31,7 +31,7 @@ const waxwell: Toon = {
         },
         {
             type: "custom",
-            params: { text: "Complete Floor 10 with the Cherished Blanket Cherished Blanket equipped!" },
+            params: { text: "Complete Floor 10 with the Cherished Blanket equipped!" },
         },
         {
             type: "travel",
