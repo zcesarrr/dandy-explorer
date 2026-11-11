@@ -6,7 +6,6 @@ import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons.constants";
-import type { MobileTabKey } from "../constants/toonTabs.constants";
 import { useToonListParams } from "../hooks/useToonListParams";
 import { filterToons } from "../utils/toonsFiltering.utils";
 import { APP_NAME } from "../constants/app.constants";
@@ -34,7 +33,7 @@ export default function ToonPage() {
 
     const composeEndpoint = (
         toonSlug: string,
-        tabKey: MobileTabKey | undefined = undefined
+        tabKey: string | undefined = undefined
     ): string => {
         return `/toon/${toonSlug}${tabKey ? `/${tabKey}` : ""}${queryString}`
     }

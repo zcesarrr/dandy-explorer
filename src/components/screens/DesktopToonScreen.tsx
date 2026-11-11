@@ -10,7 +10,7 @@ type DesktopToonScreenProps = {
     selectedToon: Toon;
     tabKey: ToonTabKey | undefined;
     getHrefToonButton: (slug: string) => string;
-    getHrefTab: (key: ToonTabKey) => string;
+    getHrefTab: (key: string) => string;
 };
 
 export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHrefToonButton, getHrefTab }: DesktopToonScreenProps) {
@@ -50,7 +50,7 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHref
                         <nav aria-label="Detail sections" className="shrink-0 mt-4">
                             <TabBar
                                 items={TOON_TABS}
-                                getHref={(key) => getHrefTab(key as ToonTabKey)}
+                                getHref={getHrefTab}
                             />
                         </nav>
                     </section>

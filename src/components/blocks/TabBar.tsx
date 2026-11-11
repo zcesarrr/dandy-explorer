@@ -1,14 +1,13 @@
 import ICONS from "../../constants/icons.constants";
-import type { MobileTabKey } from "../../constants/toonTabs.constants";
 import type { IconId } from "../../types/icons.types";
 import ShinyButton from "../customs/ShinyButton";
 
-export type TabBarItem = { key: MobileTabKey, icon: IconId, name: string };
+export type TabBarItem = { key: string, icon: IconId, name: string };
 
 type TabBarProps = {
     className?: string;
     items: readonly TabBarItem[];
-    getHref: (key: MobileTabKey) => string;
+    getHref: (key: string) => string;
     replaceOnClick?: boolean;
 }
 
