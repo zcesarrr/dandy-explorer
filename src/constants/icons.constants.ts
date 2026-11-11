@@ -22,6 +22,7 @@ import MagnifierIcon from "../components/icons/MagnifierIcon";
 import CandyIcon from "../components/icons/CandyIcon";
 import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon } from "../components/icons/AbilitiesIcon";
 import { SpringfulSharingIcon } from "../components/icons/AbilitiesIcon";
+import { FloatyDashIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilities/abilitiesIcons";
 
 const ICONS = {
     heart: HeartIcon,
@@ -60,6 +61,9 @@ const ICONS = {
     bakedWithCare: BakedWithCareIcon,
     distressedDelicacy: DistressedDelicacyIcon,
     tidyUp: TidyUpIcon,
+    sharingIsCaring: SharingIsCaringIcon,
+    floatyDash: FloatyDashIcon,
+    speak: SpeakIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;

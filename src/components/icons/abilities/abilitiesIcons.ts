@@ -1,3 +1,4 @@
+import createIcon from "./createIcon";
 import napTime from "../../../assets/abilities/napTime.webp";
 import springfulSharing from "../../../assets/abilities/springfulSharing.webp"
 import craftyGrapple from "../../../assets/abilities/craftyGrapple.webp";
@@ -13,7 +14,9 @@ import surprise from "../../../assets/abilities/surprise.webp";
 import bakedWithCare from "../../../assets/abilities/bakedWithCare.webp";
 import distressedDelicacy from "../../../assets/abilities/distressedDelicacy.webp";
 import tidyUp from "../../../assets/abilities/tidyUp.webp";
-import createIcon from "./createIcon";
+import sharingIsCaring from "../../../assets/abilities/sharingIsCaring.webp";
+import floatyDash from "../../../assets/abilities/floatyDash.webp";
+import speak from "../../../assets/abilities/speak.webp";
 
 export const NapTimeIcon = createIcon(napTime, "Minimalist moon with a sparkle");
 export const SpringfulSharingIcon = createIcon(springfulSharing, "Minimalist basket");
@@ -34,3 +37,6 @@ export const SurpriseIcon = createIcon(surprise, "Minimalist roulette", "110%");
 export const BakedWithCareIcon = createIcon(bakedWithCare, "Minimalist gingerbread", "105%");
 export const DistressedDelicacyIcon = createIcon(distressedDelicacy, "Minimalist book", "115%");
 export const TidyUpIcon = createIcon(tidyUp, "Minimalist cleaner", "105%");
+export const SharingIsCaringIcon = createIcon(sharingIsCaring, "Minimalist cookie");
+export const FloatyDashIcon = createIcon(floatyDash, "Minimalist butterfly flying");
+export const SpeakIcon = createIcon(speak, "Minimalist three anger mark");

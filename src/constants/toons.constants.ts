@@ -20,6 +20,10 @@ import squirm from "./toons/squirm";
 import tisha from "./toons/tisha";
 import vee from "./toons/vee";
 import brightney from "./toons/brightney";
+import cosmo from "./toons/cosmo";
+import flutter from "./toons/flutter";
+import eggson from "./toons/eggson";
+import pebble from "./toons/pebble";
 
 const TOONS = [
     yatta,
@@ -43,6 +47,10 @@ const TOONS = [
     tisha,
     vee,
     brightney,
+    cosmo,
+    flutter,
+    eggson,
+    pebble,
 ] as const satisfies Toon[];
 
 export default TOONS;
