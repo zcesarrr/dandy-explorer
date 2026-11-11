@@ -15,6 +15,7 @@ const iconByType = {
     pickItems: "candy",
     experienceBlackouts: "lightbulbBolt",
     finishMachines: "gear",
+    quests: "starCircle",
 } satisfies Record<RequirementType, IconId> ;
 
 type RequirementProps = {

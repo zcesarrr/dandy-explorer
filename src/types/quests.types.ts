@@ -16,6 +16,7 @@ export type QuestParams = {
     ichorSpills: { count: number };
     dandysShop: { count: number };
     encounterTwisteds: { count: number };
+    collectResearch: { count: number };
     custom: { text: string };
 };
 

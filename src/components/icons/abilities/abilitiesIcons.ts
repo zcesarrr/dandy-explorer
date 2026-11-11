@@ -17,6 +17,8 @@ import tidyUp from "../../../assets/abilities/tidyUp.webp";
 import sharingIsCaring from "../../../assets/abilities/sharingIsCaring.webp";
 import floatyDash from "../../../assets/abilities/floatyDash.webp";
 import speak from "../../../assets/abilities/speak.webp";
+import inspiration from "../../../assets/abilities/inspiration.webp";
+import ignite from "../../../assets/abilities/ignite.webp";
 
 export const NapTimeIcon = createIcon(napTime, "Minimalist moon with a sparkle");
 export const SpringfulSharingIcon = createIcon(springfulSharing, "Minimalist basket");
@@ -40,3 +42,5 @@ export const TidyUpIcon = createIcon(tidyUp, "Minimalist cleaner", "105%");
 export const SharingIsCaringIcon = createIcon(sharingIsCaring, "Minimalist cookie");
 export const FloatyDashIcon = createIcon(floatyDash, "Minimalist butterfly flying");
 export const SpeakIcon = createIcon(speak, "Minimalist three anger mark");
+export const InspirationIcon = createIcon(inspiration, "Minimalist exclamation symbols and up arrows");
+export const IgniteIcon = createIcon(ignite, "Minimalist flame");

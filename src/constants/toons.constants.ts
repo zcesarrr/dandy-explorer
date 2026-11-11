@@ -24,6 +24,10 @@ import cosmo from "./toons/cosmo";
 import flutter from "./toons/flutter";
 import eggson from "./toons/eggson";
 import pebble from "./toons/pebble";
+import ribecca from "./toons/ribecca";
+import rodger from "./toons/rodger";
+import shelly from "./toons/shelly";
+import waxwell from "./toons/waxwell";
 
 const TOONS = [
     yatta,
@@ -51,6 +55,10 @@ const TOONS = [
     flutter,
     eggson,
     pebble,
+    ribecca,
+    rodger,
+    shelly,
+    waxwell,
 ] as const satisfies Toon[];
 
 export default TOONS;

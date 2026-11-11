@@ -8,9 +8,10 @@ export type RequirementParams = {
     mastery: { toon: string },
     toonsOwning: { count: number },
     titlesOwning: { count: number },
-    pickItems: { rarity: "Common" | "Uncommon" | "Rare" | "Very Rare" | "Ultra Rare", count: number };
-    finishMachines: { count: number };
-    experienceBlackouts: { count: number };
+    pickItems: { rarity: "Common" | "Uncommon" | "Rare" | "Very Rare" | "Ultra Rare", count: number },
+    finishMachines: { count: number },
+    experienceBlackouts: { count: number },
+    quests: { count: number, toon: string },
 };
 
 export type RequirementType = keyof RequirementParams;

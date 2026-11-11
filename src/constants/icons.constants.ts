@@ -15,6 +15,7 @@ import { FilterIcon } from "@solar-icons/react/bold/filter";
 import { SortFromBottomToTopIcon } from "@solar-icons/react/bold/sort-from-bottom-to-top";
 import { LightbulbBoltIcon } from "@solar-icons/react/bold/lightbulb-bolt";
 import { SettingsIcon } from "@solar-icons/react/bold/settings";
+import { StarCircleIcon } from "@solar-icons/react/bold/star-circle";
 import PumpkinIcon from "../components/icons/PumpkinIcon";
 import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
@@ -22,7 +23,7 @@ import MagnifierIcon from "../components/icons/MagnifierIcon";
 import CandyIcon from "../components/icons/CandyIcon";
 import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon } from "../components/icons/AbilitiesIcon";
 import { SpringfulSharingIcon } from "../components/icons/AbilitiesIcon";
-import { FloatyDashIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilities/abilitiesIcons";
+import { FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilities/abilitiesIcons";
 
 const ICONS = {
     heart: HeartIcon,
@@ -64,6 +65,9 @@ const ICONS = {
     sharingIsCaring: SharingIsCaringIcon,
     floatyDash: FloatyDashIcon,
     speak: SpeakIcon,
+    inspiration: InspirationIcon,
+    ignite: IgniteIcon,
+    starCircle: StarCircleIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;

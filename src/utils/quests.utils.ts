@@ -38,6 +38,7 @@ const questTemplates = {
     useActiveAbility: ({ count }) => `Use this Toon's Active Ability ${hl(count)} Times!`,
     usePassiveAbility: ({ count }) => `Use this Toon's Passive Ability ${hl(count)} Times!`,
     useInstructions: ({ count }) => `Use ${hl(count)} Instructions!`,
+    collectResearch: ({ count }) => `Collect ${hl(count)}% of Twisted Research!`,
 } satisfies {
     [K in QuestType]: (p: QuestParams[K]) => string;
 };

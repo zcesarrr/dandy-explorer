@@ -14,6 +14,7 @@ const requirementTemplates = {
     pickItems: ({ rarity, count }) => `Pick up ${count} ${rarity} or higher tier Items`,
     finishMachines: ({ count }) => `Finish ${count} Machines`,
     experienceBlackouts: ({ count }) => `Experience ${count} Blackouts`,
+    quests: ({ count, toon }) => `Complete ${count} Mastery Quests on ${toon}`,
 } satisfies {
     [K in RequirementType]: (p: RequirementParams[K]) => string
 };
