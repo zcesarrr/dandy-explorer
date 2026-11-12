@@ -7,6 +7,7 @@ import NotFoundPage from "./pages/NotFoundPage";
 import CollectionPage from "./pages/CollectionPage";
 import { toonsConfig } from "./collections/toons/config";
 import { twistedsConfig } from "./collections/twisteds/config";
+import { trinketsConfig } from "./collections/trinkets/config";
 
 export default function App() {
   return (
@@ -20,6 +21,10 @@ export default function App() {
       <Route path="/twisteds" element={<CollectionPage config={twistedsConfig} />} />
       <Route path="/twisteds/:slug" element={<CollectionPage config={twistedsConfig} />} />
       <Route path="/twisteds/:slug/:tabKey" element={<CollectionPage config={twistedsConfig} />} />
+
+      <Route path="/trinkets" element={<CollectionPage config={trinketsConfig} />} />
+      <Route path="/trinkets/:slug" element={<CollectionPage config={trinketsConfig} />} />
+      <Route path="/trinkets/:slug/:tabKey" element={<CollectionPage config={trinketsConfig} />} />
 
       <Route path="/about" element={<AboutPage />} />
 
