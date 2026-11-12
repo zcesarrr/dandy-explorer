@@ -1,4 +1,4 @@
-import type { ToonCategory } from "../../../types/toons.types";
+import type { EventTheme } from "../../../types/general.types";
 
 export const TRINKET_DATA = {
     skillCheck: { label: "Skill Check", color: "#d09257" },
@@ -32,7 +32,7 @@ export type Trinket = {
     name: string;
     iconUrl: string;
     description: string;
-    event: ToonCategory;
+    event: EventTheme;
     category: TrinkeyCategory;
     requirement: Requirement;
 };

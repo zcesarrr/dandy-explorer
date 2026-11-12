@@ -1,6 +1,7 @@
 import type { Ability, AbilityType } from "../../types/abilities.types";
 import type { CollectionSort, SortOption } from "../../types/collection.types";
-import type { Toon, ToonCategory, ToonRarity } from "../../types/toons.types";
+import type { EventTheme } from "../../types/general.types";
+import type { Toon, ToonRarity } from "../../types/toons.types";
 import { compareNames } from "../../utils/collectionFiltering.utils";
 
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
@@ -8,7 +9,7 @@ const RARITY_PRIORITY: Record<ToonRarity, number> = {
     main: 1,
 };
 
-const CATEGORY_PRIORITY: Record<ToonCategory, number> = {
+const CATEGORY_PRIORITY: Record<EventTheme, number> = {
     none: 0,
     easter: 1,
     halloween: 2,

@@ -1,4 +1,5 @@
-import type { ToonCategory, ToonRarity } from "../types/toons.types";
+import type { EventTheme } from "../types/general.types";
+import type { ToonRarity } from "../types/toons.types";
 
 const blackOverlay = "linear-gradient(#00000050, #00000050)";
 const mainRarityBackground =
@@ -7,7 +8,7 @@ const categoryBackground = {
     easter: "linear-gradient(0deg, #71e1f5, #fad9a5, #ffa6c9)",
     halloween: "linear-gradient(0deg, #f27d16 0%, #f27c87 50%, #9b55e0 100%)",
     holiday: "linear-gradient(0deg, #4eed69 0%, #f7e186 50%, #f26255 100%)",
-} satisfies Record<Exclude<ToonCategory, "none">, string>;
+} satisfies Record<Exclude<EventTheme, "none">, string>;
 
 export const TOON_BACKGROUND_COLOR = {
     normal: {
@@ -22,4 +23,4 @@ export const TOON_BACKGROUND_COLOR = {
         halloween: `${blackOverlay}, ${mainRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.halloween} right / 50% 100% no-repeat`,
         holiday: `${blackOverlay}, ${mainRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.holiday} right / 50% 100% no-repeat`,
     },
-} satisfies Record<ToonRarity, Record<ToonCategory, string>>;
+} satisfies Record<ToonRarity, Record<EventTheme, string>>;
