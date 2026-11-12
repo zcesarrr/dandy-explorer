@@ -1,3 +1,4 @@
+import { TOON_BACKGROUND_COLOR } from "../../../constants/styles.constants";
 import type { Trinket } from "../types/trinkets.types";
 
 type TrinketImageProps = {
@@ -13,7 +14,9 @@ export default function TrinketImage({ className = "", item }: TrinketImageProps
             className={className}
             loading="lazy"
             style={{
-                background: "#00000050",
+                background: TOON_BACKGROUND_COLOR[
+                    item.requirement.type === "research" ? "main"  : "normal"
+                ][item.event],
             }}
         />
     );
