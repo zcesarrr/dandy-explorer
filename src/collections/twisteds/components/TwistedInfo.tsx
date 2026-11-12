@@ -1,4 +1,12 @@
-import { TWISTED_RARITY_LABELS, type Twisted } from "../types/twisteds.types";
+import { TWISTED_RARITY_LABELS, type Twisted, type TwistedRarity } from "../types/twisteds.types";
+
+const RARITY_COLORS: Record<TwistedRarity, string> = {
+    common: "#fff",
+    uncommon: "#aba9aa",
+    rare: "#020201",
+    main: "linear-gradient(-90deg,rgba(132, 84, 208, 1) 0%, rgba(91, 142, 206, 1) 20%, rgba(95, 206, 96, 1) 40%, rgba(207, 205, 100, 1) 60%, rgba(209, 146, 89, 1) 80%, rgba(211, 93, 97, 1) 100%)",
+    lethal: "linear-gradient(90deg,rgba(227, 78, 79, 1) 0%, rgba(187, 50, 50, 1) 100%)",
+};
 
 type TwistedInfoProps = {
     className?: string;
@@ -6,12 +14,33 @@ type TwistedInfoProps = {
 };
 
 export default function TwistedInfo({ className, item }: TwistedInfoProps) {
+    const hasRarityGradient = item.rarity === "main" || item.rarity === "lethal";
+    const rarityColor = RARITY_COLORS[item.rarity];
+
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
             <h1 className="text-[29px] my-1 leading-none">
                 {item.name}
             </h1>
-            <p className="text-lg leading-none">{TWISTED_RARITY_LABELS[item.rarity]}</p>
+            <p 
+                className="text-lg leading-none text-shadow-none"
+                style={{
+                    textShadow: item.rarity === "rare" ? `
+                    1px 1px 0 white,
+                    -1px -1px 0 white,
+                        1px -1px 0 white,
+                        -1px 1px 0 white
+                        ` : "",
+                    backgroundImage: hasRarityGradient ? rarityColor : "",
+                    color: hasRarityGradient ? "transparent" : rarityColor,
+                    backgroundClip: hasRarityGradient ? "text" : "",
+                    WebkitBackgroundClip: hasRarityGradient ? "text" : "",
+                    WebkitTextFillColor: hasRarityGradient ? "transparent" : "",
+                    WebkitTextStroke: hasRarityGradient ? "0 transparent" : "",
+                }}
+            >
+                {TWISTED_RARITY_LABELS[item.rarity]}
+            </p>
             <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg my-4 overflow-x-hidden">
                 <img
                     width="100%"
