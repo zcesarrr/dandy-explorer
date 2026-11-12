@@ -18,13 +18,7 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
-            <h1 className="text-[29px] my-1 leading-none">
-                {item.name}
-            </h1>
-            <p className="leading-none">
-                Category: <span style={{ color: categoryData.color }}>{categoryData.label}</span>
-            </p>
-            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg my-4 overflow-hidden">
+            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg overflow-hidden mb-1">
                 <img
                     width="100%"
                     height="100%"
@@ -33,9 +27,19 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
                     className="object-contain"
                 />
             </div>
-            <p>{item.description}</p>
-            <div role="separator" className="bg-black/40 shrink-0 h-px w-full rounded-full my-2" />
-            <p className="text-xl tracking-wide mb-1 text-gray-400">Requirement</p>
+            
+            <h1 className="text-[29px] my-1 leading-none">
+                {item.name}
+            </h1>
+            <p className="leading-none mb-4">
+                Category: <span style={{ color: categoryData.color }}>{categoryData.label}</span>
+            </p>
+
+            <p className="text-gray-300">{item.description}</p>
+
+            <div role="separator" className="bg-black/40 shrink-0 h-0.5 w-full rounded-full my-2" />
+
+            <p className="text-xl tracking-wide mb-1">Requirement</p>
             <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">
                 <p>{renderRequirement(item.requirement)}</p>
             </div>

@@ -19,5 +19,5 @@ export const twistedsConfig: CollectionConfig<Twisted> = {
     Info: TwistedInfo,
     ItemImage: TwistedImage,
     tabs: [],
-    desktopInfoSize: 384,
+    desktopInfoSize: 288,
 };

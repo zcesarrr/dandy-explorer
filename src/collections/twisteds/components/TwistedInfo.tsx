@@ -24,11 +24,24 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
+            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg mb-1 overflow-x-hidden">
+                <img
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    src={item.render.url}
+                    className="object-contain"
+                    style={{
+                        translate: `${item.render?.offsetX ?? "0px"} ${item.render?.offsetY ?? "0px"}`
+                    }}
+                />
+            </div>
+
             <h1 className="text-[29px] my-1 leading-none">
                 {item.name}
             </h1>
             <p 
-                className="text-lg leading-none text-shadow-none"
+                className="text-lg leading-none text-shadow-none mb-4"
                 style={{
                     textShadow: item.rarity === "rare" ? `
                     1px 1px 0 white,
@@ -46,20 +59,11 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
             >
                 {TWISTED_RARITY_LABELS[item.rarity]}
             </p>
-            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg my-4 overflow-x-hidden">
-                <img
-                    width="100%"
-                    height="100%"
-                    loading="lazy"
-                    src={item.render.url}
-                    className="object-contain"
-                    style={{
-                        translate: `${item.render?.offsetX ?? "0px"} ${item.render?.offsetY ?? "0px"}`
-                    }}
-                />
-            </div>
-            <p>{item.description}</p>
+
+            <p className="text-gray-300">{item.description}</p>
+
             <div role="separator" className="bg-black/40 shrink-0 h-px w-full rounded-full my-2" />
+
             {trinket && (
                 <>
                     <p className="text-xl tracking-wide mb-1 text-yellow-300">100% Research Reward</p>
