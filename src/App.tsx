@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import CollectionPage from "./pages/CollectionPage";
 import { toonsConfig } from "./collections/toons/config";
+import { twistedsConfig } from "./collections/twisteds/config";
 
 export default function App() {
   return (
@@ -15,6 +16,10 @@ export default function App() {
       <Route path="/toons" element={<CollectionPage config={toonsConfig} />} />
       <Route path="/toons/:slug" element={<CollectionPage config={toonsConfig} />} />
       <Route path="/toons/:slug/:tabKey" element={<CollectionPage config={toonsConfig} />} />
+
+      <Route path="/twisteds" element={<CollectionPage config={twistedsConfig} />} />
+      <Route path="/twisteds/:slug" element={<CollectionPage config={twistedsConfig} />} />
+      <Route path="/twisteds/:slug/:tabKey" element={<CollectionPage config={twistedsConfig} />} />
 
       <Route path="/about" element={<AboutPage />} />
 
