@@ -1,4 +1,12 @@
-import type { Trinket } from "../types/trinkets.types";
+import { TRINKET_CATEGORY_DATA, type Trinket, type TrinketRequirement } from "../types/trinkets.types";
+
+function renderRequirement(requirement: TrinketRequirement) {
+    if (requirement.type === "research") {
+        return `${requirement.params.count}% Research on ${requirement.params.twisted}`;
+    }
+
+    return `Dandy's Shop: ${requirement.params.price} Ichor`;
+}
 
 type TrinketInfoProps = {
     className?: string;
@@ -6,12 +14,17 @@ type TrinketInfoProps = {
 };
 
 export default function TrinketInfo({ className, item }: TrinketInfoProps) {
+    const categoryData = TRINKET_CATEGORY_DATA[item.category];
+
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
             <h1 className="text-[29px] my-1 leading-none">
                 {item.name}
             </h1>
-            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg my-4 overflow-x-hidden">
+            <p className="leading-none">
+                Category: <span style={{ color: categoryData.color }}>{categoryData.label}</span>
+            </p>
+            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg my-4 overflow-hidden">
                 <img
                     width="100%"
                     height="100%"
@@ -21,6 +34,11 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
                 />
             </div>
             <p>{item.description}</p>
+            <div role="separator" className="bg-black/40 shrink-0 h-px w-full rounded-full my-2" />
+            <p className="text-xl tracking-wide mb-1 text-gray-400">Requirement</p>
+            <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">
+                <p>{renderRequirement(item.requirement)}</p>
+            </div>
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import type { EventTheme } from "../../../types/general.types";
 
-export const TRINKET_DATA = {
+export const TRINKET_CATEGORY_DATA = {
     skillCheck: { label: "Skill Check", color: "#d09257" },
     movement: { label: "Movement", color: "#cfd05e" },
     stamina: { label: "Stamina", color: "#5ccf5a" },
@@ -9,8 +9,8 @@ export const TRINKET_DATA = {
     other: { label: "Other", color: "#343434" },
 };
 
-export type TrinkeyCategory = keyof typeof TRINKET_DATA;
-export type RequirementParams = {
+export type TrinkeyCategory = keyof typeof TRINKET_CATEGORY_DATA;
+type RequirementParams = {
     research: {
         count: number,
         twisted: string;
@@ -19,13 +19,13 @@ export type RequirementParams = {
         price: number;
     };
 };
-export type RequirementType = keyof RequirementParams;
-export type Requirement = {
-    [K in RequirementType]: {
+export type TrinketRequirementType = keyof RequirementParams;
+export type TrinketRequirement = {
+    [K in TrinketRequirementType]: {
         type: K;
         params: RequirementParams[K];
     };
-}[RequirementType];
+}[TrinketRequirementType];
 
 export type Trinket = {
     slug: string;
@@ -34,5 +34,5 @@ export type Trinket = {
     description: string;
     event: EventTheme;
     category: TrinkeyCategory;
-    requirement: Requirement;
+    requirement: TrinketRequirement;
 };
