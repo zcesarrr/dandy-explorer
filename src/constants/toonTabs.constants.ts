@@ -9,6 +9,3 @@ export const TOON_TABS = [
     { key: "quests", name: "Mastery Quests", icon: "medal", Component: QuestsTab },
     { key: "requirements", name: "Requirements", icon: "key", Component: RequirementsTab },
 ] as const satisfies readonly TabDef<Toon>[];
-
-export type ToonTabKey = (typeof TOON_TABS)[number]["key"];
-export type MobileTabKey = ToonTabKey | "info";

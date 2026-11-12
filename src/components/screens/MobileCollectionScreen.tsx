@@ -53,7 +53,7 @@ export default function MobileCollectionScreen<T extends CollectionItem>({
 
             <main
                 key={`${item.slug}-${tabKey ?? "info"}`}
-                className={`flex-1 min-h-0 overflow-y-auto p-4 bg-black/40 m-2 rounded-lg ${hasTabs ? "m-2" : "mx-2 mt-2 mb-[max(0.5rem,env(safe-area-inset-bottom))]"}`}
+                className={`flex-1 min-h-0 overflow-y-auto p-4 bg-black/40 rounded-lg ${hasTabs ? "m-2" : "mx-2 mt-2 mb-[max(0.5rem,env(safe-area-inset-bottom))]"}`}
             >
                 {currentTab ? (
                     <div>

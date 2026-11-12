@@ -170,7 +170,7 @@ export default function CollectionSelector<T extends CollectionItem>({
                                     buttonProps={{
                                         nav: { href: getHrefItemButton(item.slug) },
                                         onClick: () => {
-                                            sessionStorage.setItem("from", `/${getParams()}`);
+                                            sessionStorage.setItem("from", `${config.basePath}${getParams()}`);
                                         },
                                     }}
                                     item={item}
