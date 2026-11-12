@@ -9,6 +9,7 @@ import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopCollectionScreen from "../components/screens/DesktopCollectionScreen";
 import MobileCollectionScreen from "../components/screens/MobileCollectionScreen";
 import Footer from "../components/blocks/Footer";
+import SectionNav from "../components/blocks/SectionNav";
 
 function getTitle(itemName: string | undefined, tabName: string | undefined): string {
     if (!itemName) return APP_NAME;
@@ -92,10 +93,12 @@ export default function CollectionPage<T extends CollectionItem>({ config }: Col
     };
 
     const showFooter = isDesktop || slug === undefined;
+    const showNav = isDesktop || showsSelector;
 
     return (
-        <div className="h-dvh flex flex-col scrollbar-thumb-black/80">
+        <div key={config.id} className="h-dvh flex flex-col scrollbar-thumb-black/80">
             <title>{title}</title>
+            {showNav && <SectionNav />}
             <div className="flex-1 min-h-0">{page()}</div>
             {showFooter && <Footer />}
         </div>
