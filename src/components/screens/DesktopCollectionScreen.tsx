@@ -26,7 +26,7 @@ export default function DesktopCollectionScreen<T extends CollectionItem>({
     return (
         <div className="flex flex-col justify-center items-center h-full p-4">
             {/* CONTAINER */}
-            <main className="w-full max-w-7xl max-h-full grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] grid-rows-1 bg-black/40 rounded-xl p-4 gap-3">
+            <main className="w-full max-w-7xl h-full grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] grid-rows-1 bg-black/40 rounded-xl p-4 gap-3">
                 <CollectionSelector
                     config={config}
                     items={items}
