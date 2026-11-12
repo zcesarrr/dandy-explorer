@@ -25,7 +25,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
                 />
             </div>
             <p>{item.description}</p>
-            <div role="separator" className="bg-black/40 h-1 w-full rounded-full my-3" />
+            <div role="separator" className="bg-black/40 shrink-0 h-1 w-full rounded-full my-3" />
             <p className="text-xl tracking-wide">Research Reward</p>
         </div>
     );
