@@ -6,7 +6,6 @@ import { useScrollRestoration } from "../../hooks/useScrollRestoration";
 import { findSortOption } from "../../utils/collectionFiltering.utils";
 import type { CollectionConfig, CollectionItem } from "../../types/collection.types";
 import { useCollectionListParams } from "../../hooks/useCollectionListParams";
-import CollectionButton from "../CollectionButton";
 
 export type CollectionSelectorProps<T extends CollectionItem> = {
     className?: string;
@@ -23,7 +22,7 @@ export default function CollectionSelector<T extends CollectionItem>({
     getHrefItemButton,
     itemButtonSize = undefined
 }: CollectionSelectorProps<T>) {
-    const { labels, sort, ItemImage } = config;
+    const { labels, sort, ItemImage, ItemButton } = config;
     const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir, getParams } = useCollectionListParams(sort);
 
     const [searchInput, setSearchInput] = useState<string>(search);
@@ -166,7 +165,7 @@ export default function CollectionSelector<T extends CollectionItem>({
                     >
                         {items.map(item => (
                             <li key={item.slug}>
-                                <CollectionButton
+                                <ItemButton
                                     buttonProps={{
                                         nav: { href: getHrefItemButton(item.slug) },
                                         onClick: () => {

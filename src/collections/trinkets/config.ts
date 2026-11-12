@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "../../types/collection.types";
+import TrinketButton from "./components/TrinketButton";
 import TrinketImage from "./components/TrinketImage";
 import TrinketInfo from "./components/TrinketInfo";
 import TRINKETS from "./data";
@@ -17,6 +18,7 @@ export const trinketsConfig: CollectionConfig<Trinket> = {
     items: TRINKETS,
     sort: TRINKET_SORT,
     Info: TrinketInfo,
+    ItemButton: TrinketButton,
     ItemImage: TrinketImage,
     tabs: [],
     desktopInfoSize: 256,

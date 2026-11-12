@@ -1,5 +1,6 @@
 import type { ComponentType } from "react";
 import type { IconId } from "./icons.types";
+import type { ShinyButtonProps } from "../components/customs/ShinyButton";
 
 export type CollectionItem = {
     slug: string;
@@ -33,6 +34,9 @@ export type CollectionSort<T> = {
     groups: SortGroup<T>[];
 };
 
+export type ItemImageComponent<T extends CollectionItem> = 
+    ComponentType<{ item: T; className?: string }>;
+
 export type CollectionConfig<T extends CollectionItem> = {
     id: string;
     basePath: string;
@@ -44,7 +48,10 @@ export type CollectionConfig<T extends CollectionItem> = {
     };
     items: readonly T[];
     sort: CollectionSort<T>;
-    ItemImage: ComponentType<{ item: T; className?: string }>;
+    ItemImage: ItemImageComponent<T>;
+    ItemButton: ComponentType<{ 
+        buttonProps: ShinyButtonProps, item: T, ItemImage: ItemImageComponent<T> 
+    }>;
     Info: ComponentType<{ item: T, className?: string }>;
     tabs: readonly TabDef<T>[];
     mobileInfoTab?: { name: string; icon: IconId };

@@ -1,4 +1,5 @@
 import type { CollectionConfig } from "../../types/collection.types";
+import TwistedButton from "./components/TwistedButton";
 import TwistedImage from "./components/TwistedImage";
 import TwistedInfo from "./components/TwistedInfo";
 import TWISTEDS from "./data";
@@ -16,8 +17,9 @@ export const twistedsConfig: CollectionConfig<Twisted> = {
     },
     items: TWISTEDS,
     sort: TWISTED_SORT,
-    Info: TwistedInfo,
     ItemImage: TwistedImage,
+    ItemButton: TwistedButton,
+    Info: TwistedInfo,
     tabs: [],
     desktopInfoSize: 288,
 };
