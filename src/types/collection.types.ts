@@ -48,4 +48,5 @@ export type CollectionConfig<T extends CollectionItem> = {
     Info: ComponentType<{ item: T, className?: string }>;
     tabs: readonly TabDef<T>[];
     mobileInfoTab?: { name: string; icon: IconId };
+    desktopInfoSize?: number;
 };
