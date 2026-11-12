@@ -1,15 +1,16 @@
-import type { ToonTabProps } from "../../types/toonTabs.types";
+import type { TabProps } from "../../types/collection.types";
+import type { Toon } from "../../types/toons.types";
 import { renderRequirement } from "../../utils/requirements.utils";
 import RequirementCard from "../cards/RequirementCard";
 
-export default function RequirementsTab({ toon }: ToonTabProps) {
+export default function RequirementsTab({ item }: TabProps<Toon>) {
     return (
         <ul className="flex flex-col gap-2">
-            {toon.requirements.map((item, index) => (
+            {item.requirements.map((requirement, index) => (
                 <li key={index}>
                     <RequirementCard
-                        type={item.type}
-                        label={renderRequirement(item)}
+                        type={requirement.type}
+                        label={renderRequirement(requirement)}
                     />
                 </li>
             ))}

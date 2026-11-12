@@ -1,41 +1,36 @@
 import { useEffect, useRef, useState } from "react";
 import Input from "../customs/Input";
-import ToonButton from "../ToonButton";
-import type { Toon } from "../../types/toons.types";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons.constants";
-import { sortLabel, type SortKey } from "../../utils/toonsFiltering.utils";
-import { useToonListParams } from "../../hooks/useToonListParams";
 import { useScrollRestoration } from "../../hooks/useScrollRestoration";
+import { findSortOption } from "../../utils/collectionFiltering.utils";
+import type { CollectionConfig, CollectionItem } from "../../types/collection.types";
+import { useCollectionListParams } from "../../hooks/useCollectionListParams";
+import CollectionButton from "../CollectionButton";
 
-const SORT_GROUPS: { 
-    title?: string,
-    entries: SortKey[],
-}[] = [
-    { 
-        entries: ["name", "rarity", "category", "abilityType"],
-    },
-    {
-        title: "Stats",
-        entries: ["health", "skillCheck", "moveSpeed", "stamina", "stealth", "extSpeed"],
-    },
-];
-
-export type ToonSelectorProps = {
+export type CollectionSelectorProps<T extends CollectionItem> = {
     className?: string;
-    toons: Toon[];
-    getHrefToonButton: (slug: string) => string;
-    toonButtonSize?: string;
+    config: CollectionConfig<T>;
+    items: readonly T[];
+    getHrefItemButton: (slug: string) => string;
+    itemButtonSize?: string;
 };
 
-export default function ToonSelector({ className, toons, getHrefToonButton, toonButtonSize = undefined }: ToonSelectorProps) {
-    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir, getParams } = useToonListParams();
+export default function CollectionSelector<T extends CollectionItem>({
+    className,
+    config,
+    items,
+    getHrefItemButton,
+    itemButtonSize = undefined
+}: CollectionSelectorProps<T>) {
+    const { labels, sort, ItemImage } = config;
+    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir, getParams } = useCollectionListParams(sort);
 
     const [searchInput, setSearchInput] = useState<string>(search);
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
-    const listRef = useScrollRestoration<HTMLUListElement>("toon-selector");
+    const listRef = useScrollRestoration<HTMLUListElement>(config.id);
 
     useEffect(() => {
         if (!isSortOpen) return;
@@ -59,15 +54,16 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
         };
     }, [isSortOpen]);
 
-    const resultsCount = toons.length;
+    const sortLabel = findSortOption(sort.groups, sortKey)?.label ?? "";
+    const resultsCount = items.length;
 
     return (
         <div className={`${className ?? ""} relative w-full`}>
             <div className="flex h-10 mx-1.5 gap-1">
                 <Input
-                    ariaLabel="Search Toons"
+                    ariaLabel={`Search ${labels.plural}`}
                     type="search"
-                    placeholder="Search Toons..."
+                    placeholder={labels.searchPlaceholder}
                     icon="magnifier"
                     className="w-full min-w-0 flex-1"
                     value={searchInput.slice(0, 20)}
@@ -96,25 +92,25 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                             id="sortMenu"
                             className="absolute right-0 flex flex-col gap-2 top-full mt-2 z-10 w-max min-w-32 rounded-lg bg-black/95 p-1 font-fredoka text-white"
                         >
-                            {SORT_GROUPS.map((group, index) => (
+                            {sort.groups.map((group, index) => (
                                 <li key={index}>
                                     {group.title && <p className="px-1 text-white/50">{group.title}</p>}
                                     <ul className="flex flex-col gap-1">
-                                        {group.entries.map(key => (
-                                            <li key={key}>
+                                        {group.options.map(option => (
+                                            <li key={option.key}>
                                                 <button
                                                     type="button"
                                                     onClick={() => {
-                                                        setSortKey(key);
+                                                        setSortKey(option.key);
                                                         setIsSortOpen(false);
                                                     }}
                                                     className="w-full text-left px-3 py-1.5 rounded font-fredoka text-white hover:bg-white/10 hover:cursor-pointer"
                                                     style={{
-                                                        background: key === sortKey ? "#ffffff30" : "",
-                                                        cursor: key === sortKey ? "default" : "",
+                                                        background: option.key === sortKey ? "#ffffff30" : "",
+                                                        cursor: option.key === sortKey ? "default" : "",
                                                     }}
                                                 >
-                                                    {sortLabel(key)}
+                                                    {option.label}
                                                 </button>
                                             </li>
                                         ))}
@@ -141,7 +137,7 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
             {resultsCount === 0 ? (
                 <div className="flex flex-col items-center p-8 gap-4">
                     <p className="font-fredoka text-white text-2xl text-stroke text-center">
-                        Sorry, but your Toon is in another show!
+                        {config.labels.emptyMessage}
                     </p>
                     <img
                         src="/vee.webp"
@@ -153,11 +149,11 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
             ) : (
                 <div>
                     <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide max-xs:text-sm">
-                        <p>Ordering by: {sortLabel(sortKey)}</p>
+                        <p>Ordering by: {sortLabel}</p>
                         {search.trim() !== "" && (
                             <>
                                 <div className="w-1 h-1 rounded-full bg-[#aaa] mt-0.5"/>
-                                <p>Results: {resultsCount} toon{resultsCount > 1 ? "s" : ""}</p>
+                                <p>Results: {resultsCount} {(resultsCount > 1 ? labels.plural : labels.singular).toLowerCase()}</p>
                             </>
                         )}
                     </div>
@@ -165,19 +161,20 @@ export default function ToonSelector({ className, toons, getHrefToonButton, toon
                         ref={listRef}
                         className="absolute inset-0 overflow-y-auto grid content-start justify-center gap-x-2 gap-y-3 p-1 top-17.5"
                         style={{
-                            gridTemplateColumns: `repeat(auto-fit, ${toonButtonSize ?? "132px"})`,
+                            gridTemplateColumns: `repeat(auto-fit, ${itemButtonSize ?? "132px"})`,
                         }}
                     >
-                        {toons.map(item => (
+                        {items.map(item => (
                             <li key={item.slug}>
-                                <ToonButton
+                                <CollectionButton
                                     buttonProps={{
-                                        nav: { href: getHrefToonButton(item.slug) },
+                                        nav: { href: getHrefItemButton(item.slug) },
                                         onClick: () => {
-                                            sessionStorage.setItem("from", `/${getParams()}`);
+                                            sessionStorage.setItem("from", `${config.basePath}${getParams()}`);
                                         },
                                     }}
-                                    toon={item}
+                                    item={item}
+                                    ItemImage={ItemImage}
                                 />
                             </li>
                         ))}

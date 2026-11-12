@@ -21,9 +21,7 @@ import EasterEggIcon from "../components/icons/EasterEggIcon";
 import OrnamentIcon from "../components/icons/OrnamentIcon";
 import MagnifierIcon from "../components/icons/MagnifierIcon";
 import CandyIcon from "../components/icons/CandyIcon";
-import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon } from "../components/icons/AbilitiesIcon";
-import { SpringfulSharingIcon } from "../components/icons/AbilitiesIcon";
-import { FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilities/abilitiesIcons";
+import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon, SpringfulSharingIcon, FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilities/abilitiesIcons";
 
 const ICONS = {
     heart: HeartIcon,
