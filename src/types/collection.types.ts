@@ -45,7 +45,7 @@ export type CollectionConfig<T extends CollectionItem> = {
     items: readonly T[];
     sort: CollectionSort<T>;
     ItemImage: ComponentType<{ item: T; className?: string }>;
-    Info: ComponentType<{ item: T }>;
+    Info: ComponentType<{ item: T, className?: string }>;
     tabs: readonly TabDef<T>[];
     mobileInfoTab?: { name: string; icon: IconId };
 };

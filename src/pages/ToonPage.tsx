@@ -1,9 +1,7 @@
 import { Navigate, useLocation, useParams } from "react-router";
 import { getToonTab, isToonTabKey } from "../utils/toonTabs.utils";
-import MobileToonScreen from "../components/screens/MobileToonScreen";
 import { useIsDesktop } from "../hooks/useIsDesktop";
 import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
-import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons.constants";
 import { filterItems } from "../utils/collectionFiltering.utils";
@@ -11,6 +9,8 @@ import { TOON_SORT } from "../collections/toons/sort";
 import { APP_NAME } from "../constants/app.constants";
 import { useCollectionListParams } from "../hooks/useCollectionListParams";
 import { toonsConfig } from "../collections/toons/config";
+import DesktopCollectionScreen from "../components/screens/DesktopCollectionScreen";
+import MobileCollectionScreen from "../components/screens/MobileCollectionScreen";
 
 function getTitle(
     toonName: string | undefined,
@@ -75,19 +75,21 @@ export default function ToonPage() {
 
         if (isDesktop) {
             return (
-                <DesktopToonScreen
-                    getHrefToonButton={slug => composeEndpoint(slug, tabKey)}
-                    getHrefTab={key => composeEndpoint(selectedToonData.slug, key)}
-                    toons={toonsFiltered}
-                    selectedToon={selectedToonData}
+                <DesktopCollectionScreen
+                    config={toonsConfig}
+                    items={toonsFiltered}
+                    selectedItem={selectedToonData}
                     tabKey={tabKey}
+                    getHrefItemButton={slug => composeEndpoint(slug, tabKey)}
+                    getHrefTab={key => composeEndpoint(selectedToonData.slug, key)}
                 />
             );
         }
 
         return (
-            <MobileToonScreen
-                toon={selectedToonData}
+            <MobileCollectionScreen
+                config={toonsConfig}
+                item={selectedToonData}
                 tabKey={tabKey}
                 getHrefTab={(key) => key === "info" 
                     ? composeEndpoint(selectedToonData.slug)
