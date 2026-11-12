@@ -1,4 +1,5 @@
 import { TWISTED_RARITY_LABELS, type Twisted, type TwistedRarity } from "../types/twisteds.types";
+import nightCap from "../../../assets/trinkets/night-cap.webp";
 
 const RARITY_COLORS: Record<TwistedRarity, string> = {
     common: "#fff",
@@ -54,8 +55,18 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
                 />
             </div>
             <p>{item.description}</p>
-            <div role="separator" className="bg-black/40 shrink-0 h-1 w-full rounded-full my-3" />
-            <p className="text-xl tracking-wide">Research Reward</p>
+            <div role="separator" className="bg-black/40 shrink-0 h-px w-full rounded-full my-2" />
+            <p className="text-xl tracking-wide mb-1 text-yellow-300">Research Reward</p>
+            <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">
+                <img
+                    src={nightCap}
+                    loading="lazy"
+                    width={48}
+                    height={48}
+                    className="bg-black/40 rounded-full p-1"
+                />
+                <p>Night Cap</p>
+            </div>
         </div>
     );
 }
