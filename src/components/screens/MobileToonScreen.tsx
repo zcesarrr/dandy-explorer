@@ -32,7 +32,7 @@ export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack
                 <div className="flex h-full items-center gap-1">
                     <ToonImage
                         className="h-full aspect-square rounded-lg"
-                        toon={toon}
+                        item={toon}
                     />
                     <p className="font-fredoka text-stroke text-white">{toon.name}</p>
                 </div>
@@ -56,7 +56,7 @@ export default function MobileToonScreen({ toon, tabKey, getHrefTab, getHrefBack
                     </div>
                 ): (
                     <ToonInfo
-                        toon={toon}
+                        item={toon}
                     />
                 )}
             </main>

@@ -37,6 +37,7 @@ export type CollectionConfig<T extends CollectionItem> = {
     id: string;
     basePath: string;
     labels: {
+        singular: string;
         plural: string;
         searchPlaceholder: string;
         emptyMessage: string;

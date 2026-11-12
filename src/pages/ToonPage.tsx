@@ -6,10 +6,11 @@ import MobileSelectorScreen from "../components/screens/MobileSelectorScreen";
 import DesktopToonScreen from "../components/screens/DesktopToonScreen";
 import Footer from "../components/blocks/Footer";
 import TOONS from "../constants/toons.constants";
-import { useToonListParams } from "../hooks/useToonListParams";
 import { filterItems } from "../utils/collectionFiltering.utils";
 import { TOON_SORT } from "../collections/toons/sort";
 import { APP_NAME } from "../constants/app.constants";
+import { useCollectionListParams } from "../hooks/useCollectionListParams";
+import { toonsConfig } from "../collections/toons/config";
 
 function getTitle(
     toonName: string | undefined,
@@ -29,7 +30,7 @@ function getTitle(
 export default function ToonPage() {
     const { search: queryString } = useLocation();
     const { toonSlug, tabKey } = useParams();
-    const { sortKey, sortDir, search } = useToonListParams();
+    const { sortKey, sortDir, search } = useCollectionListParams(toonsConfig.sort);
     const isDesktop = useIsDesktop();
 
     const composeEndpoint = (
@@ -65,8 +66,9 @@ export default function ToonPage() {
         if (!isDesktop && toonSlug === undefined) {
             return (
                 <MobileSelectorScreen
-                    getHrefToonButton={slug => `/toon/${slug}`}
-                    toons={toonsFiltered}
+                    config={toonsConfig}
+                    items={toonsFiltered}
+                    getHrefItemButton={slug => `/toon/${slug}`}
                 />
             );
         }

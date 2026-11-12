@@ -3,18 +3,18 @@ import { TOON_BACKGROUND_COLOR } from "../constants/styles.constants";
 
 type ToonImageProps = {
     className?: string;
-    toon: Toon;
+    item: Toon;
 };
 
-export default function ToonImage({ className = "", toon }: ToonImageProps) {
+export default function ToonImage({ className = "", item }: ToonImageProps) {
     return (
         <img
-            src={toon.iconUrl}
+            src={item.iconUrl}
             alt=""
             className={className}
             loading="lazy"
             style={{
-                background: TOON_BACKGROUND_COLOR[toon.rarity][toon.category],
+                background: TOON_BACKGROUND_COLOR[item.rarity][item.category],
             }}
         />
     );

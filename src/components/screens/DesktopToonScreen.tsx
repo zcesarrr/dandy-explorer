@@ -3,7 +3,8 @@ import type { Toon } from "../../types/toons.types";
 import { getToonTab } from "../../utils/toonTabs.utils";
 import TabBar from "../blocks/TabBar";
 import ToonInfo from "../blocks/ToonInfo";
-import ToonSelector from "../blocks/ToonSelector";
+import CollectionSelector from "../blocks/CollectionSelector";
+import { toonsConfig } from "../../collections/toons/config";
 
 type DesktopToonScreenProps = {
     toons: Toon[];
@@ -20,16 +21,17 @@ export default function DesktopToonScreen({ toons, selectedToon, tabKey, getHref
         <div className="flex flex-col justify-center items-center h-full p-4">
             {/* CONTAINER */}
             <main className="w-full max-w-7xl max-h-full grid grid-cols-[minmax(172px,1fr)_minmax(0,512px)] grid-rows-1 bg-black/40 rounded-xl p-4 gap-3">
-                <ToonSelector
-                    toons={toons}
-                    getHrefToonButton={getHrefToonButton}
+                <CollectionSelector
+                    config={toonsConfig}
+                    items={toons}
+                    getHrefItemButton={getHrefToonButton}
                 />
 
                 {/* TOON INFORMATION */}
                 <div className="min-h-0 grid grid-cols-2 grid-rows-1 gap-3">
                     <ToonInfo
                         className="bg-black/30 p-4 rounded-xl overflow-y-auto"
-                        toon={selectedToon}
+                        item={selectedToon}
                     />
 
                     {/* DETAILS SECTION */}

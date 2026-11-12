@@ -37,27 +37,27 @@ const STATS_BASE = [
 
 type ToonInfoProps = {
     className?: string;
-    toon: Toon
+    item: Toon
 };
 
-export default function ToonInfo({ className, toon }: ToonInfoProps) {
+export default function ToonInfo({ className, item }: ToonInfoProps) {
     return (
         <div className={`${className ?? ""}`}>
             <ToonImage
-                toon={toon}
+                item={item}
                 className="w-[max(128px,30dvh)] mx-auto rounded-lg aspect-square"
             />
             <h1 
                 className="font-fredoka text-white text-[29px] text-stroke text-center my-1"
             >
-                {toon.name}
+                {item.name}
             </h1>
             <ul className="flex flex-col gap-2">
                 {STATS_BASE.map((stat, index) => (
                     <li key={index}>
                         <StatCard
                             {...stat}
-                            value={toon.stats[index] ?? 1}
+                            value={item.stats[index] ?? 1}
                         />
                     </li>
                 ))}
