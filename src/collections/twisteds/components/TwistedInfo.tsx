@@ -1,5 +1,7 @@
 import { TWISTED_RARITY_LABELS, type Twisted, type TwistedRarity } from "../types/twisteds.types";
-import nightCap from "../../../assets/trinkets/night-cap.webp";
+import type { Trinket } from "../../trinkets/types/trinkets.types";
+import TRINKETS from "../../trinkets/data";
+import { Link } from "react-router";
 
 const RARITY_COLORS: Record<TwistedRarity, string> = {
     common: "#fff",
@@ -17,6 +19,8 @@ type TwistedInfoProps = {
 export default function TwistedInfo({ className, item }: TwistedInfoProps) {
     const hasRarityGradient = item.rarity === "main" || item.rarity === "lethal";
     const rarityColor = RARITY_COLORS[item.rarity];
+
+    const trinket: Trinket | undefined = TRINKETS.find(trink => trink.slug === item.trinketReward);
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
@@ -56,17 +60,24 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
             </div>
             <p>{item.description}</p>
             <div role="separator" className="bg-black/40 shrink-0 h-px w-full rounded-full my-2" />
-            <p className="text-xl tracking-wide mb-1 text-yellow-300">Research Reward</p>
-            <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">
-                <img
-                    src={nightCap}
-                    loading="lazy"
-                    width={48}
-                    height={48}
-                    className="bg-black/40 rounded-full p-1"
-                />
-                <p>Night Cap</p>
-            </div>
+            {trinket && (
+                <>
+                    <p className="text-xl tracking-wide mb-1 text-yellow-300">100% Research Reward</p>
+                    <Link 
+                        to={`/trinkets/${trinket.slug}`}
+                        className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1 active:bg-black/90"
+                    >
+                        <img
+                            src={trinket.iconUrl}
+                            loading="lazy"
+                            width={48}
+                            height={48}
+                            className="bg-black/40 rounded-full p-1"
+                        />
+                        <p>{trinket.name}</p>
+                    </Link>
+                </>
+            )}
         </div>
     );
 }

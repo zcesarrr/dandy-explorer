@@ -19,4 +19,5 @@ export type Twisted = {
         offsetY?: string;
     };
     description: string;
+    trinketReward: string;
 };
