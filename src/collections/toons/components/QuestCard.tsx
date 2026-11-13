@@ -1,29 +1,36 @@
+import type { ReactNode } from "react";
 import { Link } from "react-router";
 
+const TOKEN_REGEX = /\{\{(.*?)\}\}|##(.*?)##/g;
+
 function renderContent(content: string) {
-    const contentRegex = /\{\{(.*?)\}\}/g;
-    const linkRegex = /\#\#(.*?)\#\#/g;
+    const nodes: ReactNode[] = [];
+    let lastIndex = 0;
 
-    const createLink = (part: string, index: number) => {
-        const parts = part.split(":");
-        return (
-            <Link key={index} to={parts[1] ?? ""} className="text-[#fa70ff]">{parts[0]}</Link>
-        );
+    for (const match of content.matchAll(TOKEN_REGEX)) {
+        const [full, highlist, link] = match;
+        const start = match.index;
+
+        if (start > lastIndex) nodes.push(content.slice(lastIndex, start));
+
+        if (highlist !== undefined) {
+            nodes.push(
+                <span key={start} className="text-[#f4fd53]">{highlist}</span>
+            );
+        } else {
+            const separator = link?.indexOf(":");
+            const label = separator === 1 ? link : link?.slice(0, separator);
+            const to = separator === -1 ? "" : link?.slice((separator ?? 0) + 1);
+            nodes.push(
+                <Link key={start} to={to ?? ""} className="text-[#fa70ff] underline underline-offset-1">{label}</Link>
+            );
+        }
+
+        lastIndex = start + full.length;
     }
 
-    if (content.match(linkRegex)) {
-        return content.split(linkRegex).map((part, index) =>
-            index % 2 === 1
-                ? createLink(part, index)   
-                : part
-        );
-    }
-
-    return content.split(contentRegex).map((part, index) => 
-        index % 2 === 1
-            ? <span key={index} className="text-[#f4fd53]">{part}</span>
-            : part
-    );
+    if (lastIndex < content.length) nodes.push(content.slice(lastIndex));
+    return nodes;
 }
 
 type QuestCardProps = {
