@@ -34,6 +34,7 @@ export default function CollectionSelector<T extends CollectionItem>({
 
     const sortRef = useRef<HTMLDivElement>(null);
     const selectedRef = useRef<HTMLLIElement>(null);
+    const hasScrolledRef = useRef(false);
     const listRef = useScrollRestoration<HTMLUListElement>(config.id);
 
     if (search !== prevSearch) {
@@ -64,8 +65,18 @@ export default function CollectionSelector<T extends CollectionItem>({
     }, [isSortOpen]);
 
     useEffect(() => {
-        selectedRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        selectedRef.current?.scrollIntoView({ 
+            block: "nearest",
+            behavior: hasScrolledRef.current ? "smooth" : "instant",
+        });
+        hasScrolledRef.current = true;
     }, [selectedSlug]);
+
+    useEffect(() => {
+        return () => {
+            hasScrolledRef.current = false;
+        };
+    }, []);
 
     const sortLabel = findSortOption(sort.groups, sortKey)?.label ?? "";
     const resultsCount = items.length;
