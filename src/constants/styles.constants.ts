@@ -1,8 +1,10 @@
-import type { EventTheme, Rarity, ToonRarity } from "../types/rarity.types";
+import type { EventTheme, Rarity } from "../types/rarity.types";
 
 const blackOverlay = "linear-gradient(#00000050, #00000050)";
 const mainRarityBackground =
     "linear-gradient(0deg, #8454d0, #5b8ece, #5fce60, #cfcd64, #d19259, #d35d61)";
+const lethalRarityBackground =
+    "linear-gradient(0deg,#c22828, #f68686)";
 const categoryBackground = {
     easter: "linear-gradient(0deg, #71e1f5, #fad9a5, #ffa6c9)",
     halloween: "linear-gradient(0deg, #f27d16 0%, #f27c87 50%, #9b55e0 100%)",
@@ -22,7 +24,13 @@ export const SPECIAL_BACKGROUND_COLORS = {
         halloween: `${blackOverlay}, ${mainRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.halloween} right / 50% 100% no-repeat`,
         holiday: `${blackOverlay}, ${mainRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.holiday} right / 50% 100% no-repeat`,
     },
-} satisfies Record<ToonRarity, Record<EventTheme, string>>;
+    lethal: {
+        none: `${blackOverlay}, ${lethalRarityBackground}`,
+        easter: `${blackOverlay}, ${lethalRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.easter} right / 50% 100% no-repeat`,
+        halloween: `${blackOverlay}, ${lethalRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.halloween} right / 50% 100% no-repeat`,
+        holiday: `${blackOverlay}, ${lethalRarityBackground} left / 50% 100% no-repeat, ${categoryBackground.holiday} right / 50% 100% no-repeat`,
+    },
+} satisfies Partial<Record<Rarity, Record<EventTheme, string>>>;
 
 export const RARITY_COLORS: Record<Rarity, string> = {
     common: "#fff",

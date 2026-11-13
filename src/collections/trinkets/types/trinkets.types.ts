@@ -1,5 +1,5 @@
 import { STATS_DATA } from "../../../constants/stats.constants";
-import type { EventTheme } from "../../../types/rarity.types";
+import type { EventTheme, Rarity } from "../../../types/rarity.types";
 
 export const TRINKET_CATEGORY_DATA = {
     skillCheck: STATS_DATA.skillCheck,
@@ -35,5 +35,6 @@ export type Trinket = {
     description: string;
     event: EventTheme;
     category: TrinketCategory;
+    rarity: Rarity;
     requirement: TrinketRequirement;
 };

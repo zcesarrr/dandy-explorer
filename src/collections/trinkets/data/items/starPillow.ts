@@ -8,6 +8,7 @@ const starPillow: Trinket = {
     description: "Increases Stamina Regeneration by 100% while extracting. As Astro, increases ability range by 25%, and spawns 1 more star pillow pickup per floor.",
     category: "stamina",
     event: "none",
+    rarity: "main",
     requirement: { type: "research", params: { count: 100, twisted: "Twisted Astro" } },
 };
 

@@ -7,6 +7,8 @@ type TrinketImageProps = {
 };
 
 export default function TrinketImage({ className = "", item }: TrinketImageProps) {
+    const rarityColor = item.rarity === "uncommon" || item.rarity === "rare" ? "common" : item.rarity;
+
     return (
         <img
             src={item.iconUrl}
@@ -14,9 +16,7 @@ export default function TrinketImage({ className = "", item }: TrinketImageProps
             className={className}
             loading="lazy"
             style={{
-                background: SPECIAL_BACKGROUND_COLORS[
-                    item.requirement.type === "research" ? "main"  : "common"
-                ][item.event],
+                background: SPECIAL_BACKGROUND_COLORS[rarityColor][item.event],
             }}
         />
     );
