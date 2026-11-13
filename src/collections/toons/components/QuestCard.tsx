@@ -1,9 +1,10 @@
 import type { ReactNode } from "react";
 import { Link } from "react-router";
+import { useToonLinkHref } from "../hooks/useToonLinkHref";
 
 const TOKEN_REGEX = /\{\{(.*?)\}\}|##(.*?)##/g;
 
-function renderContent(content: string) {
+function renderContent(content: string, buildHref: (to: string) => string) {
     const nodes: ReactNode[] = [];
     let lastIndex = 0;
 
@@ -22,7 +23,7 @@ function renderContent(content: string) {
             const label = separator === 1 ? link : link?.slice(0, separator);
             const to = separator === -1 ? "" : link?.slice((separator ?? 0) + 1);
             nodes.push(
-                <Link key={start} to={to ?? ""} className="text-[#fa70ff] underline underline-offset-1">{label}</Link>
+                <Link key={start} to={buildHref(to ?? "")} className="text-[#fa70ff] underline underline-offset-1">{label}</Link>
             );
         }
 
@@ -38,10 +39,14 @@ type QuestCardProps = {
 };
 
 export default function QuestCard({ content }: QuestCardProps) {
+    const buildHref = useToonLinkHref();
+
     return (
         <div className="bg-black/40 rounded-lg p-2 grid grid-cols-[10px_1fr] gap-3 items-center">
             <div className="w-full aspect-square bg-white rounded-full border border-black" />
-            <p className="font-fredoka text-white text-stroke leading-5">{renderContent(content)}</p>
+            <p className="font-fredoka text-white text-stroke leading-5">
+                {renderContent(content, buildHref)}
+            </p>
         </div>
     );
 }

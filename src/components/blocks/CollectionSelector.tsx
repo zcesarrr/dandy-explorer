@@ -26,10 +26,17 @@ export default function CollectionSelector<T extends CollectionItem>({
     const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir, getParams } = useCollectionListParams(sort);
 
     const [searchInput, setSearchInput] = useState<string>(search);
+    const [prevSearch, setPrevSearch] = useState<string>(search);
+
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
     const listRef = useScrollRestoration<HTMLUListElement>(config.id);
+
+    if (search !== prevSearch) {
+        setPrevSearch(search);
+        setSearchInput(search);
+    }
 
     useEffect(() => {
         if (!isSortOpen) return;
