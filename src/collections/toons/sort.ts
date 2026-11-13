@@ -3,6 +3,7 @@ import type { CollectionSort, SortOption } from "../../types/collection.types";
 import type { EventTheme, ToonRarity } from "../../types/rarity.types";
 import type { Toon } from "./types/toons.types";
 import { compareNames } from "../../utils/collectionFiltering.utils";
+import { STATS_DATA } from "../../constants/stats.constants";
 
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
     common: 0,
@@ -26,18 +27,9 @@ function getAbilityPriority(abilities: Ability[]): number {
     return ABILITY_TYPE_PRIORITY[abilities[0]?.type ?? "passive"];
 }
 
-const STATS = [
-    { key: "health", label: "Health" },
-    { key: "skillCheck", label: "Skill Check" },
-    { key: "moveSpeed", label: "Movement Speed" },
-    { key: "stamina", label: "Stamina" },
-    { key: "stealth", label: "Stealth" },
-    { key: "extSpeed", label: "Extraction Speed" },
-] as const;
-
-const statOptions: SortOption<Toon>[] = STATS.map(({ key, label }, index) => ({
+const statOptions: SortOption<Toon>[] = Object.entries(STATS_DATA).map(([key, value], index) => ({
     key,
-    label,
+    label: value.label,
     compare: (a: Toon, b: Toon) => (a.stats[index] ?? 0) - (b.stats[index] ?? 0),
 }));
 

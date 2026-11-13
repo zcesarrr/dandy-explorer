@@ -1,39 +1,16 @@
 import StatCard from "../../../components/cards/StatCard";
 import ToonImage from "./ToonImage";
 import type { Toon } from "../types/toons.types";
+import { STATS_DATA } from "../../../constants/stats.constants";
+import type { StatCardProps } from "../../../types/stats.types";
 
-const STATS_BASE = [
-    {
-        name: "Health",
-        color: "#ce5c5d",
-        icon: "heart",
-    },
-    {
-        name: "Skill Check",
-        color: "#d09158",
-        icon: "star",
-    },
-    {
-        name: "Movement Speed",
-        color: "#cdce5d",
-        icon: "star",
-    },
-    {
-        name: "Stamina",
-        color: "#5acd59",
-        icon: "star",
-    },
-    {
-        name: "Stealth",
-        color: "#5b8ecf",
-        icon: "star",
-    },
-    {
-        name: "Extraction Speed",
-        color: "#854ecf",
-        icon: "star",
-    },
-] as const;
+const STATS_BASE: Omit<StatCardProps, "value">[] = Object.values(STATS_DATA).map(item => {
+    return {
+        name: item.label,
+        color: item.color,
+        icon: item.icon,
+    };
+});
 
 type ToonInfoProps = {
     className?: string;
