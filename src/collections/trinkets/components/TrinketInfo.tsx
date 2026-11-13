@@ -33,7 +33,20 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
                 {item.name}
             </h1>
             <p className="leading-none mb-4">
-                Category: <span style={{ color: categoryData.color }}>{categoryData.label}</span>
+                Category:{" "}
+                <span 
+                    style={{ 
+                        color: categoryData.color,
+                        textShadow: item.category === "other" ? `
+                            1px 1px 0 #ccc,
+                            -1px -1px 0 #ccc,
+                            1px -1px 0 #ccc,
+                            -1px 1px 0 #ccc
+                        ` : "",
+                    }}
+                >
+                    {categoryData.label}
+                </span>
             </p>
 
             <p className="text-gray-300">{item.description}</p>
