@@ -31,7 +31,7 @@ const blot: Toon = {
         },
         {
             type: "surviveFloorsWith",
-            params: { count: 10, toons: ["Looey", "Yatta"] },
+            params: { count: 10, toons: ["looey", "yatta"] },
         },
         {
             type: "travel",

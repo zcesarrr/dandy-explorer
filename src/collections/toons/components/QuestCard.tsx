@@ -1,5 +1,25 @@
+import { Link } from "react-router";
+
 function renderContent(content: string) {
-    return content.split(/\{\{(.*?)\}\}/g).map((part, index) => 
+    const contentRegex = /\{\{(.*?)\}\}/g;
+    const linkRegex = /\#\#(.*?)\#\#/g;
+
+    const createLink = (part: string, index: number) => {
+        const parts = part.split(":");
+        return (
+            <Link key={index} to={parts[1] ?? ""} className="text-[#fa70ff]">{parts[0]}</Link>
+        );
+    }
+
+    if (content.match(linkRegex)) {
+        return content.split(linkRegex).map((part, index) =>
+            index % 2 === 1
+                ? createLink(part, index)   
+                : part
+        );
+    }
+
+    return content.split(contentRegex).map((part, index) => 
         index % 2 === 1
             ? <span key={index} className="text-[#f4fd53]">{part}</span>
             : part

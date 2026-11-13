@@ -40,7 +40,7 @@ const sprout: Toon = {
         },
         {
             type: "surviveFloorsWith",
-            params: { count: 30, toons: ["Cosmo"] },
+            params: { count: 30, toons: ["cosmo"] },
         },
         {
             type: "travel",

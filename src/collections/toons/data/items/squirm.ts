@@ -35,7 +35,7 @@ const squirm: Toon = {
         },
         {
             type: "surviveFloorsWith",
-            params: { count: 5, toons: ["Brightney"] },
+            params: { count: 5, toons: ["brightney"] },
         },
         {
             type: "travel",

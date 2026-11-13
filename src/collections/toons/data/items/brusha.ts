@@ -27,7 +27,7 @@ const brusha: Toon = {
         },
         {
             type: "surviveFloorsWith",
-            params: { count: 5, toons: ["Tisha"] },
+            params: { count: 5, toons: ["tisha"] },
         },
         {
             type: "dandysShop",

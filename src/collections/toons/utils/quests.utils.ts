@@ -1,8 +1,13 @@
 import type { QuestParams, QuestType } from "../types/quests.types";
 import { createRenderer } from "../../../utils/render.utils";
+import { toonsConfig } from "../config";
 
 function hl(value: string | number) {
     return `{{${value}}}`;
+}
+
+function a(value: string | number, href: string) {
+    return `##${value}:${href}##`
 }
 
 function getToons(toons: string[]) {
@@ -10,7 +15,9 @@ function getToons(toons: string[]) {
 
     const length = toons.length;
     for (let i = 0; i < length; i++) {
-        result += hl(toons[i] || "");
+        const toon = toonsConfig.items.find(t => t.slug === toons[i]);
+
+        result += a(toon?.name || "", `${toonsConfig.basePath}/${toons[i]}`);
         if (i < length - 1) {
             result += i < (length - 2) ? ", " : " and ";
         }

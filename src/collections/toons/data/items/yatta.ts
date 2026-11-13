@@ -30,7 +30,7 @@ const yatta: Toon = {
         },
         {
             type: "surviveFloorsWith",
-            params: { count: 20, toons: ["Looey"] },
+            params: { count: 20, toons: ["looey"] },
         },
         {
             type: "travel",
