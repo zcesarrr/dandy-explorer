@@ -11,6 +11,7 @@ export type CollectionSelectorProps<T extends CollectionItem> = {
     className?: string;
     config: CollectionConfig<T>;
     items: readonly T[];
+    selectedSlug?: string;
     getHrefItemButton: (slug: string) => string;
     itemButtonSize?: string;
 };
@@ -19,6 +20,7 @@ export default function CollectionSelector<T extends CollectionItem>({
     className,
     config,
     items,
+    selectedSlug,
     getHrefItemButton,
     itemButtonSize = undefined
 }: CollectionSelectorProps<T>) {
@@ -31,6 +33,7 @@ export default function CollectionSelector<T extends CollectionItem>({
     const [isSortOpen, setIsSortOpen] = useState<boolean>(false);
 
     const sortRef = useRef<HTMLDivElement>(null);
+    const selectedRef = useRef<HTMLLIElement>(null);
     const listRef = useScrollRestoration<HTMLUListElement>(config.id);
 
     if (search !== prevSearch) {
@@ -59,6 +62,10 @@ export default function CollectionSelector<T extends CollectionItem>({
             document.removeEventListener("keydown", handleEscape);
         };
     }, [isSortOpen]);
+
+    useEffect(() => {
+        selectedRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+    }, [selectedSlug]);
 
     const sortLabel = findSortOption(sort.groups, sortKey)?.label ?? "";
     const resultsCount = items.length;
@@ -171,7 +178,11 @@ export default function CollectionSelector<T extends CollectionItem>({
                         }}
                     >
                         {items.map(item => (
-                            <li key={item.slug}>
+                            <li 
+                                key={item.slug}
+                                ref={item.slug === selectedSlug ? selectedRef : undefined}
+                                className="scroll-my-2"
+                            >
                                 <ItemButton
                                     buttonProps={{
                                         nav: { href: getHrefItemButton(item.slug) },

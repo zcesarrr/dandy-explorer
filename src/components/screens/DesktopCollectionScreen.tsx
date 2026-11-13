@@ -35,6 +35,7 @@ export default function DesktopCollectionScreen<T extends CollectionItem>({
                 <CollectionSelector
                     config={config}
                     items={items}
+                    selectedSlug={selectedItem.slug}
                     getHrefItemButton={getHrefItemButton}
                 />
 
