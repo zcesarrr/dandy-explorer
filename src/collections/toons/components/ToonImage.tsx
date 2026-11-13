@@ -1,4 +1,4 @@
-import { SPECIAL_BACKGROUND_COLORS } from "../../../constants/styles.constants";
+import { specialBackgroundColor } from "../../../constants/styles.constants";
 import type { Toon } from "../types/toons.types";
 
 type ToonImageProps = {
@@ -14,7 +14,7 @@ export default function ToonImage({ className = "", item }: ToonImageProps) {
             className={className}
             loading="lazy"
             style={{
-                background: SPECIAL_BACKGROUND_COLORS[item.rarity][item.category],
+                background: specialBackgroundColor(item.rarity, item.category),
             }}
         />
     );

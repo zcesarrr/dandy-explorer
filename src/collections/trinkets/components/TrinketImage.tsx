@@ -1,4 +1,4 @@
-import { SPECIAL_BACKGROUND_COLORS } from "../../../constants/styles.constants";
+import { specialBackgroundColor } from "../../../constants/styles.constants";
 import type { Trinket } from "../types/trinkets.types";
 
 type TrinketImageProps = {
@@ -7,8 +7,6 @@ type TrinketImageProps = {
 };
 
 export default function TrinketImage({ className = "", item }: TrinketImageProps) {
-    const rarityColor = item.rarity === "uncommon" || item.rarity === "rare" ? "common" : item.rarity;
-
     return (
         <img
             src={item.iconUrl}
@@ -16,7 +14,7 @@ export default function TrinketImage({ className = "", item }: TrinketImageProps
             className={className}
             loading="lazy"
             style={{
-                background: SPECIAL_BACKGROUND_COLORS[rarityColor][item.event],
+                background: specialBackgroundColor(item.rarity, item.event),
             }}
         />
     );
