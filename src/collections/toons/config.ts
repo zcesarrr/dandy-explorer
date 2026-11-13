@@ -1,9 +1,9 @@
-import ToonInfo from "../../components/blocks/ToonInfo";
-import ToonImage from "../../components/ToonImage";
-import TOONS from "../../constants/toons.constants";
-import { TOON_TABS } from "../../constants/toonTabs.constants";
+import ToonInfo from "./components/ToonInfo";
+import ToonImage from "./components/ToonImage";
+import TOONS from "./data";
+import { TOON_TABS } from "./tabs";
 import type { CollectionConfig } from "../../types/collection.types";
-import type { Toon } from "../../types/toons.types";
+import type { Toon } from "./types/toons.types";
 import ToonButton from "./components/ToonButton";
 import { TOON_SORT } from "./sort";
 

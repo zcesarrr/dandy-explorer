@@ -1,7 +1,7 @@
 import CollectionButton from "../../../components/CollectionButton";
 import type { ShinyButtonProps } from "../../../components/customs/ShinyButton";
 import type { ItemImageComponent } from "../../../types/collection.types";
-import type { Toon } from "../../../types/toons.types";
+import type { Toon } from "../types/toons.types";
 
 type ToonButtonProps = {
     buttonProps: ShinyButtonProps;

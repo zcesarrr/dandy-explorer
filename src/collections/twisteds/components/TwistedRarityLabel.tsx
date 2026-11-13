@@ -1,10 +1,10 @@
-import { TWISTED_RARITY_COLORS } from "../constants";
-import { type TwistedRarity } from "../types/twisteds.types";
+import { RARITY_COLORS } from "../../../constants/styles.constants";
+import type { Rarity } from "../../../types/rarity.types";
 
 type TwistedRarityLabelProps = {
     className?: string;
     "data-long-name"?: string | undefined;
-    rarity: TwistedRarity,
+    rarity: Rarity,
     label: string;
 };
 
@@ -15,7 +15,7 @@ export default function TwistedRarityLabel({
     label
 }: TwistedRarityLabelProps) {
     const hasRarityGradient = rarity === "main" || rarity === "lethal";
-    const rarityColor = TWISTED_RARITY_COLORS[rarity];
+    const rarityColor = RARITY_COLORS[rarity];
 
     return (
         <p 

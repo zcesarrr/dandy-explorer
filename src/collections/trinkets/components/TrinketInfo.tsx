@@ -20,6 +20,7 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
             <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg overflow-hidden mb-1">
                 <img
+                    alt=""
                     width="100%"
                     height="100%"
                     loading="lazy"
@@ -37,7 +38,7 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
 
             <p className="text-gray-300">{item.description}</p>
 
-            <div role="separator" className="bg-black/40 shrink-0 h-0.5 w-full rounded-full my-2" />
+            <hr className="bg-black/40 border-0 w-full shrink-0 h-0.5 my-2" />
 
             <p className="text-xl tracking-wide mb-1">Requirement</p>
             <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">

@@ -1,17 +1,9 @@
-export const TWISTED_RARITY_LABELS = {
-    common: "Common",
-    uncommon: "Uncommon",
-    rare: "Rare",
-    main: "Main Character",
-    lethal: "Lethal",
-};
-
-export type TwistedRarity = keyof typeof TWISTED_RARITY_LABELS;
+import type { Rarity } from "../../../types/rarity.types";
 
 export type Twisted = {
     slug: string;
     name: string;
-    rarity: TwistedRarity;
+    rarity: Rarity;
     iconUrl: string;
     render: {
         url: string;

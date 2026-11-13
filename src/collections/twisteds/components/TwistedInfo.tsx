@@ -1,15 +1,9 @@
-import { TWISTED_RARITY_LABELS, type Twisted, type TwistedRarity } from "../types/twisteds.types";
+import { type Twisted } from "../types/twisteds.types";
 import type { Trinket } from "../../trinkets/types/trinkets.types";
 import TRINKETS from "../../trinkets/data";
 import { Link } from "react-router";
-
-const RARITY_COLORS: Record<TwistedRarity, string> = {
-    common: "#fff",
-    uncommon: "#aba9aa",
-    rare: "#020201",
-    main: "linear-gradient(-90deg,rgba(132, 84, 208, 1) 0%, rgba(91, 142, 206, 1) 20%, rgba(95, 206, 96, 1) 40%, rgba(207, 205, 100, 1) 60%, rgba(209, 146, 89, 1) 80%, rgba(211, 93, 97, 1) 100%)",
-    lethal: "linear-gradient(90deg,rgba(227, 78, 79, 1) 0%, rgba(187, 50, 50, 1) 100%)",
-};
+import TwistedRarityLabel from "./TwistedRarityLabel";
+import { RARITY_LABELS } from "../../../constants/rarity.constants";
 
 type TwistedInfoProps = {
     className?: string;
@@ -17,15 +11,13 @@ type TwistedInfoProps = {
 };
 
 export default function TwistedInfo({ className, item }: TwistedInfoProps) {
-    const hasRarityGradient = item.rarity === "main" || item.rarity === "lethal";
-    const rarityColor = RARITY_COLORS[item.rarity];
-
     const trinket: Trinket | undefined = TRINKETS.find(trink => trink.slug === item.trinketReward);
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
             <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg mb-1 overflow-x-hidden">
                 <img
+                    alt=""
                     width="100%"
                     height="100%"
                     loading="lazy"
@@ -40,29 +32,15 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
             <h1 className="text-[29px] my-1 leading-none">
                 {item.name}
             </h1>
-            <p 
-                className="text-lg leading-none text-shadow-none mb-4"
-                style={{
-                    textShadow: item.rarity === "rare" ? `
-                    1px 1px 0 white,
-                    -1px -1px 0 white,
-                        1px -1px 0 white,
-                        -1px 1px 0 white
-                        ` : "",
-                    backgroundImage: hasRarityGradient ? rarityColor : "",
-                    color: hasRarityGradient ? "transparent" : rarityColor,
-                    backgroundClip: hasRarityGradient ? "text" : "",
-                    WebkitBackgroundClip: hasRarityGradient ? "text" : "",
-                    WebkitTextFillColor: hasRarityGradient ? "transparent" : "",
-                    WebkitTextStroke: hasRarityGradient ? "0 transparent" : "",
-                }}
-            >
-                {TWISTED_RARITY_LABELS[item.rarity]}
-            </p>
+            <TwistedRarityLabel
+                className="text-lg mb-4"
+                rarity={item.rarity}
+                label={RARITY_LABELS[item.rarity]}
+            />
 
             <p className="text-gray-300">{item.description}</p>
 
-            <div role="separator" className="bg-black/40 shrink-0 h-0.5 w-full rounded-full my-2" />
+            <hr className="bg-black/40 border-0 w-full shrink-0 h-0.5 my-2" />
 
             {trinket && (
                 <>
@@ -72,6 +50,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
                         className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1 active:bg-black/90"
                     >
                         <img
+                            alt=""
                             src={trinket.iconUrl}
                             loading="lazy"
                             width={48}

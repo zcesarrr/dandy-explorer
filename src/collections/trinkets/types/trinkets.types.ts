@@ -1,4 +1,4 @@
-import type { EventTheme } from "../../../types/general.types";
+import type { EventTheme } from "../../../types/rarity.types";
 
 export const TRINKET_CATEGORY_DATA = {
     skillCheck: { label: "Skill Check", color: "#d09257" },
@@ -9,7 +9,7 @@ export const TRINKET_CATEGORY_DATA = {
     other: { label: "Other", color: "#343434" },
 };
 
-export type TrinkeyCategory = keyof typeof TRINKET_CATEGORY_DATA;
+export type TrinketCategory = keyof typeof TRINKET_CATEGORY_DATA;
 type RequirementParams = {
     research: {
         count: number,
@@ -33,6 +33,6 @@ export type Trinket = {
     iconUrl: string;
     description: string;
     event: EventTheme;
-    category: TrinkeyCategory;
+    category: TrinketCategory;
     requirement: TrinketRequirement;
 };

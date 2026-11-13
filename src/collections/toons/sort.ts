@@ -1,11 +1,11 @@
-import type { Ability, AbilityType } from "../../types/abilities.types";
+import type { Ability, AbilityType } from "./types/abilities.types";
 import type { CollectionSort, SortOption } from "../../types/collection.types";
-import type { EventTheme } from "../../types/general.types";
-import type { Toon, ToonRarity } from "../../types/toons.types";
+import type { EventTheme, ToonRarity } from "../../types/rarity.types";
+import type { Toon } from "./types/toons.types";
 import { compareNames } from "../../utils/collectionFiltering.utils";
 
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
-    normal: 0,
+    common: 0,
     main: 1,
 };
 
