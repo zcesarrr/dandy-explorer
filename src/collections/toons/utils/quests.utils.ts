@@ -1,14 +1,7 @@
 import type { QuestParams, QuestType } from "../types/quests.types";
 import { createRenderer } from "../../../utils/render.utils";
 import { toonsConfig } from "../config";
-
-function hl(value: string | number) {
-    return `{{${value}}}`;
-}
-
-function a(value: string | number, href: string) {
-    return `##${value}:${href}##`
-}
+import { a, hl } from "./highlist.utils";
 
 function getToons(toons: string[]) {
     let result = "";
