@@ -62,7 +62,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
 
             <p className="text-gray-300">{item.description}</p>
 
-            <div role="separator" className="bg-black/40 shrink-0 h-px w-full rounded-full my-2" />
+            <div role="separator" className="bg-black/40 shrink-0 h-0.5 w-full rounded-full my-2" />
 
             {trinket && (
                 <>

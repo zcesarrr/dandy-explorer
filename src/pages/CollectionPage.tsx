@@ -96,10 +96,10 @@ export default function CollectionPage<T extends CollectionItem>({ config }: Col
     const showNav = isDesktop || showsSelector;
 
     return (
-        <div key={config.id} className="h-dvh flex flex-col scrollbar-thumb-black/80">
+        <div className="h-dvh flex flex-col scrollbar-thumb-black/80">
             <title>{title}</title>
             {showNav && <SectionNav />}
-            <div className="flex-1 min-h-0">{page()}</div>
+            <div key={config.id} className="flex-1 min-h-0 animate-fade-in">{page()}</div>
             {showFooter && <Footer />}
         </div>
     );
