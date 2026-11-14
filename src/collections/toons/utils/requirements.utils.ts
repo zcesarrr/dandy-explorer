@@ -16,14 +16,14 @@ function getToonHref(slug: string): string {
 }
 
 const requirementTemplates = {
-    ichor: ({ count }) => `${hl(count)} Ichor`,
-    pumpkin: ({ count }) => `${hl(count)} Pumpkins`,
-    easter: ({ count }) => `${hl(count)} Baskets`,
-    ornament: ({ count }) => `${hl(count)} Ornaments`,
+    ichor: ({ count }) => `${count} Ichor`,
+    pumpkin: ({ count }) => `${count} Pumpkins`,
+    easter: ({ count }) => `${count} Baskets`,
+    ornament: ({ count }) => `${count} Ornaments`,
     encounter: ({ twisted }) => `Encounter ${getTwistedHref(twisted)}`,
     mastery: ({ toon }) => `Complete all Mastery Quests on ${getToonHref(toon)}`,
-    research: ({ count, twisted }) => `${hl(count)}% Research on ${getTwistedHref(twisted)}`,
-    titlesOwning: ({ count }) => `Own ${hl(count)}+ Titles`,
+    research: ({ count, twisted }) => `${count} Research on ${getTwistedHref(twisted)}`,
+    titlesOwning: ({ count }) => `Own ${hl(`${count}+`)} Titles`,
     toonsOwning: ({ count }) => `Own ${hl(count)} or more Toons`,
     pickItems: ({ rarity, count }) => `Pick up ${hl(count)} ${hl(ITEM_RARITY_LABELS[rarity])} or higher tier Items`,
     finishMachines: ({ count }) => `Finish ${hl(count)} Machines`,

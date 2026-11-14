@@ -3,7 +3,7 @@ import { useIsDesktop } from "../../../hooks/useIsDesktop";
 
 const PRESERVED_PARAMS = ["sort", "dir"] as const;
 
-export function useToonLinkHref() {
+export function useHighlistLinkHref() {
     const [params] = useSearchParams();
     const isDesktop = useIsDesktop();
 

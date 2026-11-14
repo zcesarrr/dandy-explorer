@@ -1,6 +1,8 @@
 import ICONS from "../../../constants/icons.constants";
 import type { IconId } from "../../../types/icons.types";
+import { useHighlistLinkHref } from "../hooks/useToonLinkHref";
 import type { RequirementType } from "../types/requirements.types";
+import { renderContent } from "../utils/render.utils";
 
 const iconByType = {
     ichor: "waterdrop",
@@ -24,12 +26,13 @@ type RequirementProps = {
 };
 
 export default function RequirementCard({ type, label }: RequirementProps) {
+    const buildHref = useHighlistLinkHref();
     const Icon = ICONS[iconByType[type]];
 
     return (
         <div className="bg-black/40 rounded-lg p-2 grid grid-cols-[24px_1fr] items-center gap-2">
             <Icon color="white" className="w-full h-full" />
-            <p className="font-fredoka text-stroke text-white leading-5">{label}</p>
+            <p className="font-fredoka text-stroke text-white leading-5">{renderContent(label, buildHref)}</p>
         </div>
     );
 }
