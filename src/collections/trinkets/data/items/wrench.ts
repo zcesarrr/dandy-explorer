@@ -9,7 +9,7 @@ const wrench: Trinket = {
     category: "extSpeed",
     event: "none",
     rarity: "common",
-    requirement: { type: "shop", params: { price: 325 } },
+    holder: { type: "shop", params: { price: 325 } },
 };
 
 export default wrench;

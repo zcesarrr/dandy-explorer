@@ -9,7 +9,7 @@ const pullToy: Trinket = {
     category: "moveSpeed",
     event: "none",
     rarity: "common",
-    requirement: { type: "shop", params: { price: 1250 } },
+    holder: { type: "shop", params: { price: 1250 } },
 };
 
 export default pullToy;

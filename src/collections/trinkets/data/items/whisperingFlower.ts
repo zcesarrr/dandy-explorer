@@ -9,7 +9,7 @@ const whisperingFlower: Trinket = {
     category: "stamina",
     event: "easter",
     rarity: "main",
-    requirement: { type: "research", params: { count: 100, twisted: "twisted-bassie" } },
+    holder: { type: "research", params: { count: 100, twisted: "twisted-bassie" } },
 };
 
 export default whisperingFlower;

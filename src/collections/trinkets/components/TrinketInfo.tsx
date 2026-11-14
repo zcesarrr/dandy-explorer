@@ -1,15 +1,15 @@
 import { Link } from "react-router";
 import { twistedsConfig } from "../../twisteds/config";
 import type { Twisted } from "../../twisteds/types/twisteds.types";
-import { TRINKET_CATEGORY_DATA, type Trinket, type TrinketRequirement } from "../types/trinkets.types";
+import { TRINKET_CATEGORY_DATA, type Trinket, type TrinketHolder } from "../types/trinkets.types";
 import ICONS from "../../../constants/icons.constants";
 
-function renderRequirement(requirement: TrinketRequirement) {
-    if (requirement.type === "research") {
-        const twisted: Twisted | undefined = twistedsConfig.items.find(t => t.slug === requirement.params.twisted);
+function renderRequirement(holder: TrinketHolder) {
+    if (holder.type === "research") {
+        const twisted: Twisted | undefined = twistedsConfig.items.find(t => t.slug === holder.params.twisted);
         return (
             <>
-                {requirement.params.count}% Research on <Link 
+                {holder.params.count}% Research on <Link 
                     className="hover:underline active:underline text-gray-500" 
                     to={`/twisteds/${twisted?.slug}`}>
                         {twisted?.name}
@@ -19,7 +19,7 @@ function renderRequirement(requirement: TrinketRequirement) {
     }
 
     return (
-        <><span className="text-[#70d44b]">Dandy's Shop</span>: {requirement.params.price} Ichor</>
+        <><span className="text-[#70d44b]">Dandy's Shop</span>: {holder.params.price} Ichor</>
     );
 }
 
@@ -74,9 +74,9 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
 
             <hr className="bg-black/40 border-0 w-full shrink-0 h-0.5 my-2" />
 
-            <p className="text-xl tracking-wide mb-1">Requirement</p>
+            <p className="text-xl tracking-wide mb-1">Availability</p>
             <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">
-                <p className="tracking-wide">{renderRequirement(item.requirement)}</p>
+                <p className="tracking-wide">{renderRequirement(item.holder)}</p>
             </div>
         </div>
     );

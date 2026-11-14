@@ -12,7 +12,7 @@ export const TRINKET_CATEGORY_DATA = {
 } satisfies Record<Exclude<keyof typeof STATS_DATA, "health"> | "other", { label: string, color: string, Icon: IconId }>;
 
 export type TrinketCategory = keyof typeof TRINKET_CATEGORY_DATA;
-type RequirementParams = {
+type HolderParams = {
     research: {
         count: number,
         twisted: string;
@@ -21,13 +21,13 @@ type RequirementParams = {
         price: number;
     };
 };
-export type TrinketRequirementType = keyof RequirementParams;
-export type TrinketRequirement = {
-    [K in TrinketRequirementType]: {
+export type TrinketHolderType = keyof HolderParams;
+export type TrinketHolder = {
+    [K in TrinketHolderType]: {
         type: K;
-        params: RequirementParams[K];
+        params: HolderParams[K];
     };
-}[TrinketRequirementType];
+}[TrinketHolderType];
 
 export type Trinket = {
     slug: string;
@@ -37,5 +37,5 @@ export type Trinket = {
     event: EventTheme;
     category: TrinketCategory;
     rarity: Rarity;
-    requirement: TrinketRequirement;
+    holder: TrinketHolder;
 };

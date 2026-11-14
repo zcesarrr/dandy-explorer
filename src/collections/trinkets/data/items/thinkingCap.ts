@@ -9,7 +9,7 @@ const thinkingCap: Trinket = {
     category: "skillCheck",
     event: "none",
     rarity: "common",
-    requirement: { type: "shop", params: { price: 750 } },
+    holder: { type: "shop", params: { price: 750 } },
 };
 
 export default thinkingCap;
