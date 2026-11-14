@@ -30,6 +30,7 @@ type TrinketInfoProps = {
 
 export default function TrinketInfo({ className, item }: TrinketInfoProps) {
     const categoryData = TRINKET_CATEGORY_DATA[item.category];
+    const CategoryIcon = ICONS[categoryData.Icon];
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
@@ -64,7 +65,9 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
                         {categoryData.label}
                     </span>
                 </p>
-                <ICONS.stamina className="w-3 h-3 mt-0.5" />
+                <span className="w-5 h-5 bg-black/40 p-1 rounded-full">
+                    <CategoryIcon className="w-full h-full" />
+                </span>
             </div>
 
             <p className="text-gray-300">{item.description}</p>

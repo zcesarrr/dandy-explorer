@@ -22,7 +22,7 @@ import OrnamentIcon from "../components/icons/customs/OrnamentIcon";
 import MagnifierIcon from "../components/icons/customs/MagnifierIcon";
 import CandyIcon from "../components/icons/customs/CandyIcon";
 import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon, SpringfulSharingIcon, FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilitiesIcons";
-import { StaminaIcon } from "../components/icons/statsIcons";
+import { ExtractionSpeedIcon, MovementSpeedIcon, OtherIcon, SkillCheckIcon, StaminaIcon, StealthIcon } from "../components/icons/statsIcons";
 
 const ICONS = {
     heart: HeartIcon,
@@ -67,7 +67,12 @@ const ICONS = {
     inspiration: InspirationIcon,
     ignite: IgniteIcon,
     starCircle: StarCircleIcon,
+    skillCheck: SkillCheckIcon,
+    movementSpeed: MovementSpeedIcon,
     stamina: StaminaIcon,
+    stealth: StealthIcon,
+    extractionSpeed: ExtractionSpeedIcon,
+    other: OtherIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;
