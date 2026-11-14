@@ -3,14 +3,12 @@ import type { Rarity } from "../../../types/rarity.types";
 
 type TwistedRarityLabelProps = {
     className?: string;
-    "data-long-name"?: string | undefined;
     rarity: Rarity,
     label: string;
 };
 
 export default function TwistedRarityLabel({
     className,
-    "data-long-name": dataLongName = undefined,
     rarity,
     label
 }: TwistedRarityLabelProps) {
@@ -19,7 +17,6 @@ export default function TwistedRarityLabel({
 
     return (
         <p 
-            data-long-name={dataLongName}
             className={`${className ?? ""} leading-none text-shadow-none`}
             style={{
                 textShadow: rarity === "rare" ? `

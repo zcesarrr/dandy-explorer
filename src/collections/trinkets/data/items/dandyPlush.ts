@@ -9,7 +9,7 @@ const dandyPlush: Trinket = {
     category: "other",
     event: "none",
     rarity: "lethal",
-    requirement: { type: "research", params: { count: 100, twisted: "Twisted Dandy" } },
+    requirement: { type: "research", params: { count: 100, twisted: "twisted-dandy" } },
 };
 
 export default dandyPlush;

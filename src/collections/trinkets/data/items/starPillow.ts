@@ -9,7 +9,7 @@ const starPillow: Trinket = {
     category: "stamina",
     event: "none",
     rarity: "main",
-    requirement: { type: "research", params: { count: 100, twisted: "Twisted Astro" } },
+    requirement: { type: "research", params: { count: 100, twisted: "twisted-astro" } },
 };
 
 export default starPillow;
