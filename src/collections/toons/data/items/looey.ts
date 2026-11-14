@@ -48,7 +48,7 @@ const looey: Toon = {
         },
         {
             type: "mastery",
-            params: { toon: "Poppy" },
+            params: { toon: "poppy" },
         },
     ],
 };

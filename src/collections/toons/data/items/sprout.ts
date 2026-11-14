@@ -54,11 +54,11 @@ const sprout: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Sprout" },
+            params: { count: 100, twisted: "twisted-sprout" },
         },
         {
             type: "mastery",
-            params: { toon: "Cosmo" },
+            params: { toon: "cosmo" },
         },
     ],
 };

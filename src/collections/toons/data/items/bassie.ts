@@ -58,7 +58,7 @@ const bassie: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Bassie" },
+            params: { count: 100, twisted: "twisted-bassie" },
         },
     ],
 };

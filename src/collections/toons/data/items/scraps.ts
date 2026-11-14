@@ -49,7 +49,7 @@ const scraps: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Goob" },
+            params: { count: 50, twisted: "twisted-goob" },
         },
     ],
 };

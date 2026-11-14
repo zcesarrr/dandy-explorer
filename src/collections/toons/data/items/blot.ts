@@ -49,11 +49,11 @@ const blot: Toon = {
         },
         {
             type: "mastery",
-            params: { toon: "Looey" },
+            params: { toon: "looey" },
         },
         {
             type: "mastery",
-            params: { toon: "Yatta" },
+            params: { toon: "yatta" },
         },
     ],
 };

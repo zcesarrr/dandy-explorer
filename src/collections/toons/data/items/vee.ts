@@ -54,11 +54,11 @@ const vee: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Vee" },
+            params: { count: 100, twisted: "twisted-vee" },
         },
         {
             type: "mastery",
-            params: { toon: "Brightney" },
+            params: { toon: "brigthney" },
         },
     ],
 };

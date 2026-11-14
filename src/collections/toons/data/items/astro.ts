@@ -54,11 +54,11 @@ const astro: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Astro" },
+            params: { count: 100, twisted: "twisted-astro" },
         },
         {
             type: "encounter",
-            params: { twisted: "Twisted Dandy" },
+            params: { twisted: "twisted-dandy" },
         },
     ],
 };

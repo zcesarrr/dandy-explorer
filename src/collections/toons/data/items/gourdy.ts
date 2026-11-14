@@ -58,7 +58,7 @@ const gourdy: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Gourdy" },
+            params: { count: 100, twisted: "twisted-gourdy" },
         },
     ],
 };

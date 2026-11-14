@@ -49,11 +49,11 @@ const waxwell: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Waxwell" },
+            params: { count: 50, twisted: "twisted-waxwell" },
         },
         {
             type: "quests",
-            params: { count: 3, toon: "Goob" },
+            params: { count: 3, toon: "goob" },
         },
     ],
 };

@@ -49,7 +49,7 @@ const connie: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Connie" },
+            params: { count: 50, twisted: "twisted-connie" },
         },
     ],
 };

@@ -49,7 +49,7 @@ const gigi: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Gigi" },
+            params: { count: 50, twisted: "twisted-gigi" },
         },
         {
             type: "pickItems",

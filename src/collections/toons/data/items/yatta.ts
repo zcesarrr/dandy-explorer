@@ -52,7 +52,7 @@ const yatta: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Yatta" },
+            params: { count: 50, twisted: "twisted-yatta" },
         },
     ],
 };

@@ -58,7 +58,7 @@ const bobette: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Bobette" },
+            params: { count: 100, twisted: "twisted-bobette" },
         },
     ],
 };

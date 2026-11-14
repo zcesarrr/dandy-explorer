@@ -54,11 +54,11 @@ const pebble: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Pebble" },
+            params: { count: 100, twisted: "twisted-pebble" },
         },
         {
             type: "mastery",
-            params: { toon: "Toodles" },
+            params: { toon: "toodles" },
         },
     ],
 };

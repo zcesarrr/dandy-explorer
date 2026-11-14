@@ -49,7 +49,7 @@ const flutter: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Flutter" },
+            params: { count: 100, twisted: "twisted-flutter" },
         },
     ],
 };

@@ -49,7 +49,7 @@ const ginger: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Ginger" },
+            params: { count: 50, twisted: "twisted-ginger" },
         },
     ],
 };

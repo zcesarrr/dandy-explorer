@@ -54,11 +54,11 @@ const shelly: Toon = {
         },
         {
             type: "research",
-            params: { count: 100, twisted: "Twisted Shelly" },
+            params: { count: 100, twisted: "twisted-shelly" },
         },
         {
             type: "mastery",
-            params: { toon: "Tisha" },
+            params: { toon: "tisha" },
         },
     ],
 };

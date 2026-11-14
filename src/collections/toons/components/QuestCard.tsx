@@ -23,7 +23,7 @@ function renderContent(content: string, buildHref: (to: string) => string) {
             const label = separator === 1 ? link : link?.slice(0, separator);
             const to = separator === -1 ? "" : link?.slice((separator ?? 0) + 1);
             nodes.push(
-                <Link key={start} to={buildHref(to ?? "")} className="text-[#fa70ff] underline underline-offset-1">{label}</Link>
+                <Link key={start} to={buildHref(to ?? "")} className="text-[#70d44b] hover:underline active:underline">{label}</Link>
             );
         }
 

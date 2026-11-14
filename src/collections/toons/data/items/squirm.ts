@@ -45,7 +45,7 @@ const squirm: Toon = {
     requirements: [
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Squirm" },
+            params: { count: 50, twisted: "twisted-squirm" },
         },
         {
             type: "titlesOwning",

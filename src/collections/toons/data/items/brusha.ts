@@ -49,7 +49,7 @@ const brusha: Toon = {
         },
         {
             type: "research",
-            params: { count: 50, twisted: "Twisted Brusha" },
+            params: { count: 50, twisted: "twisted-brusha" },
         },
     ],
 };
