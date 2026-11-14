@@ -3,6 +3,17 @@ import { Link } from "react-router";
 
 const TOKEN_REGEX = /\{\{(.*?)\}\}|##(.*?)##/g;
 
+export function createRenderer<Params extends object>(
+    templates: {
+        [K in keyof Params]: (params: Params[K]) => string;
+    },
+) {
+    return <K extends keyof Params>(value: {
+        type: K;
+        params: Params[K];
+    }) => templates[value.type](value.params);
+}
+
 export function renderContent(content: string, buildHref: (to: string) => string): ReactNode[] {
     const nodes: ReactNode[] = [];
     let lastIndex = 0;
@@ -38,3 +49,4 @@ export function renderContent(content: string, buildHref: (to: string) => string
     if (lastIndex < content.length) nodes.push(content.slice(lastIndex));
     return nodes;
 }
+

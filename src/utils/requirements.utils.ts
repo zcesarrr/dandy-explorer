@@ -1,9 +1,9 @@
 import type { RequirementParams, RequirementType } from "../types/requirements.types";
-import { createRenderer } from "../../../utils/render.utils";
-import { ITEM_RARITY_LABELS } from "../../../constants/rarity.constants";
-import { a, hl } from "./highlist.utils";
-import { twistedsConfig } from "../../twisteds/config";
-import { toonsConfig } from "../config";
+import { createRenderer } from "./render.utils";
+import { ITEM_RARITY_LABELS } from "../constants/rarity.constants";
+import { a, hl } from "../collections/toons/utils/highlist.utils";
+import { twistedsConfig } from "../collections/twisteds/config";
+import { toonsConfig } from "../collections/toons/config";
 
 function getTwistedHref(slug: string): string {
     const twisted = twistedsConfig.items.find(t => t.slug === slug);

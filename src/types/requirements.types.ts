@@ -1,4 +1,4 @@
-import type { ItemRarity } from "../../../types/rarity.types";
+import type { ItemRarity } from "./rarity.types";
 
 export type RequirementParams = {
     ichor: { count: number },

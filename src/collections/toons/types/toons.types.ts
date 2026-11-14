@@ -1,7 +1,7 @@
 import type { Ability } from "./abilities.types";
 import type { EventTheme, ToonRarity } from "../../../types/rarity.types";
 import type { Quest } from "./quests.types";
-import type { Requirement } from "./requirements.types";
+import type { Requirement } from "../../../types/requirements.types";
 
 export type Toon = {
     slug: string;

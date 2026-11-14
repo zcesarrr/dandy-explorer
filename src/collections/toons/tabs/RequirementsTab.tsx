@@ -1,6 +1,6 @@
 import type { TabProps } from "../../../types/collection.types";
 import type { Toon } from "../types/toons.types";
-import { renderRequirement } from "../utils/requirements.utils";
+import { renderRequirement } from "../../../utils/requirements.utils";
 import RequirementCard from "../components/RequirementCard";
 
 export default function RequirementsTab({ item }: TabProps<Toon>) {
