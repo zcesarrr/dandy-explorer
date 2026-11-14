@@ -1,4 +1,4 @@
-import type { IconProps } from "../../types/icons.types";
+import type { IconProps } from "../../../types/icons.types";
 
 export default function EasterEggIcon({ className, color }: IconProps) {
     return (

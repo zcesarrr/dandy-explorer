@@ -16,12 +16,13 @@ import { SortFromBottomToTopIcon } from "@solar-icons/react/bold/sort-from-botto
 import { LightbulbBoltIcon } from "@solar-icons/react/bold/lightbulb-bolt";
 import { SettingsIcon } from "@solar-icons/react/bold/settings";
 import { StarCircleIcon } from "@solar-icons/react/bold/star-circle";
-import PumpkinIcon from "../components/icons/PumpkinIcon";
-import EasterEggIcon from "../components/icons/EasterEggIcon";
-import OrnamentIcon from "../components/icons/OrnamentIcon";
-import MagnifierIcon from "../components/icons/MagnifierIcon";
-import CandyIcon from "../components/icons/CandyIcon";
+import PumpkinIcon from "../components/icons/customs/PumpkinIcon";
+import EasterEggIcon from "../components/icons/customs/EasterEggIcon";
+import OrnamentIcon from "../components/icons/customs/OrnamentIcon";
+import MagnifierIcon from "../components/icons/customs/MagnifierIcon";
+import CandyIcon from "../components/icons/customs/CandyIcon";
 import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon, SpringfulSharingIcon, FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon } from "../components/icons/abilities/abilitiesIcons";
+import { StaminaIcon } from "../components/icons/stats/statsIcons";
 
 const ICONS = {
     heart: HeartIcon,
@@ -66,6 +67,7 @@ const ICONS = {
     inspiration: InspirationIcon,
     ignite: IgniteIcon,
     starCircle: StarCircleIcon,
+    stamina: StaminaIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;

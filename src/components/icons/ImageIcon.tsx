@@ -1,12 +1,12 @@
-import type { IconProps } from "../../../types/icons.types";
+import type { IconProps } from "../../types/icons.types";
 
-type AbilityIconProps = IconProps & {
+type ImageIconProps = IconProps & {
     src: string;
     alt: string;
     size?: string | undefined;
 };
 
-export default function AbilityIcon({ className, src, alt, size}: AbilityIconProps) {
+export default function ImageIcon({ className, src, alt, size}: ImageIconProps) {
     return (
         <img
             className={className ?? ""}

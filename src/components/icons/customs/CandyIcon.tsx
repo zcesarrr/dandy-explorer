@@ -1,4 +1,4 @@
-import type { IconProps } from "../../types/icons.types";
+import type { IconProps } from "../../../types/icons.types";
 
 export default function CandyIcon({ className, color }: IconProps) {
     return (

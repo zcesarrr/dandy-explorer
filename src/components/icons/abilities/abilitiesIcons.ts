@@ -1,4 +1,4 @@
-import createIcon from "./createIcon";
+import createIcon from "../createImageIcon";
 import napTime from "../../../assets/abilities/napTime.webp";
 import springfulSharing from "../../../assets/abilities/springfulSharing.webp"
 import craftyGrapple from "../../../assets/abilities/craftyGrapple.webp";

@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import { twistedsConfig } from "../../twisteds/config";
 import type { Twisted } from "../../twisteds/types/twisteds.types";
 import { TRINKET_CATEGORY_DATA, type Trinket, type TrinketRequirement } from "../types/trinkets.types";
+import ICONS from "../../../constants/icons.constants";
 
 function renderRequirement(requirement: TrinketRequirement) {
     if (requirement.type === "research") {
@@ -46,22 +47,25 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
             <h1 className="text-[29px] my-1 leading-none">
                 {item.name}
             </h1>
-            <p className="leading-none mb-4">
-                Category:{" "}
-                <span 
-                    style={{ 
-                        color: categoryData.color,
-                        textShadow: item.category === "other" ? `
-                            1px 1px 0 #ccc,
-                            -1px -1px 0 #ccc,
-                            1px -1px 0 #ccc,
-                            -1px 1px 0 #ccc
-                        ` : "",
-                    }}
-                >
-                    {categoryData.label}
-                </span>
-            </p>
+            <div className="flex gap-1 items-center mb-4">
+                <p className="leading-none">
+                    Category:{" "}
+                    <span 
+                        style={{ 
+                            color: categoryData.color,
+                            textShadow: item.category === "other" ? `
+                                1px 1px 0 #ccc,
+                                -1px -1px 0 #ccc,
+                                1px -1px 0 #ccc,
+                                -1px 1px 0 #ccc
+                            ` : "",
+                        }}
+                    >
+                        {categoryData.label}
+                    </span>
+                </p>
+                <ICONS.stamina className="w-3 h-3 mt-0.5" />
+            </div>
 
             <p className="text-gray-300">{item.description}</p>
 
