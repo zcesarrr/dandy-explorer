@@ -7,6 +7,7 @@ export type RequirementParams = {
     ornament: { count: number },
     encounter: { twisted: string },
     research: { count: number, twisted: string },
+    researchAny: { count: number },
     mastery: { toon: string },
     toonsOwning: { count: number },
     titlesOwning: { count: number },
@@ -14,6 +15,7 @@ export type RequirementParams = {
     finishMachines: { count: number },
     experienceBlackouts: { count: number },
     quests: { count: number, toon: string },
+    surviveFloors: { count: number },
 };
 
 export type RequirementType = keyof RequirementParams;

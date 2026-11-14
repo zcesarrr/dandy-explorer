@@ -1,6 +1,7 @@
 import { STATS_DATA } from "../../../constants/stats.constants";
 import type { IconId } from "../../../types/icons.types";
 import type { EventTheme, Rarity } from "../../../types/rarity.types";
+import type { Requirement } from "../../../types/requirements.types";
 
 export const TRINKET_CATEGORY_DATA = {
     skillCheck: { ...STATS_DATA.skillCheck, Icon: "skillCheck" },
@@ -19,6 +20,7 @@ type HolderParams = {
     };
     shop: {
         price: number;
+        requirements?: Requirement[];
     };
 };
 export type TrinketHolderType = keyof HolderParams;

@@ -3,23 +3,40 @@ import { twistedsConfig } from "../../twisteds/config";
 import type { Twisted } from "../../twisteds/types/twisteds.types";
 import { TRINKET_CATEGORY_DATA, type Trinket, type TrinketHolder } from "../types/trinkets.types";
 import ICONS from "../../../constants/icons.constants";
+import RequirementCard from "../../toons/components/RequirementCard";
+import { renderRequirement } from "../../../utils/requirements.utils";
+import TwistedImage from "../../twisteds/components/TwistedImage";
 
-function renderRequirement(holder: TrinketHolder) {
+function renderHolder(holder: TrinketHolder) {
     if (holder.type === "research") {
         const twisted: Twisted | undefined = twistedsConfig.items.find(t => t.slug === holder.params.twisted);
-        return (
-            <>
-                {holder.params.count}% Research on <Link 
-                    className="hover:underline active:underline text-gray-500" 
-                    to={`/twisteds/${twisted?.slug}`}>
-                        {twisted?.name}
-                    </Link>
-            </>
-        );
+        if (twisted) {
+            return (
+                <span className="flex justify-center items-center text-center mt-2 p-2 gap-2 bg-black/40 rounded-md">
+                    <TwistedImage
+                        className="w-8 h-8 aspect-square rounded-md"
+                        item={twisted}
+                    />
+                    <p>
+                        {holder.params.count}% Research on <Link 
+                        className="hover:underline active:underline text-gray-500 leading-none" 
+                        to={`/twisteds/${twisted?.slug}`}>
+                            {twisted.name}
+                        </Link>
+                    </p>
+                </span>
+            );
+        } else {
+            return (
+                <p>No twisted found.</p>
+            )
+        }
     }
 
     return (
-        <><span className="text-[#70d44b]">Dandy's Shop</span>: {holder.params.price} Ichor</>
+        <p>
+            <span className="text-[#70d44b]">Dandy's Shop</span>: {holder.params.price} Ichor
+        </p>
     );
 }
 
@@ -74,10 +91,26 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
 
             <hr className="bg-black/40 border-0 w-full shrink-0 h-0.5 my-2" />
 
-            <p className="text-xl tracking-wide mb-1">Availability</p>
-            <div className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1">
-                <p className="tracking-wide">{renderRequirement(item.holder)}</p>
-            </div>
+            <span className="mb-2">
+                <p className="text-xl tracking-wide leading-none">Availability</p>
+                {renderHolder(item.holder)}
+            </span>
+
+            {item.holder.type === "shop" && item.holder.params.requirements?.length && (
+                <>
+                    <p className="text-lg">Requirements</p>
+                    <ul className="w-full flex flex-col gap-1">
+                        {item.holder.params.requirements?.map((req, index) => (
+                            <li key={index}>
+                                <RequirementCard
+                                    type={req.type}
+                                    label={renderRequirement(req)}
+                                />
+                            </li>
+                        ))}
+                    </ul>
+                </>
+            )}
         </div>
     );
 }

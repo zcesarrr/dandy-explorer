@@ -1,24 +1,8 @@
 import ICONS from "../../../constants/icons.constants";
-import type { IconId } from "../../../types/icons.types";
 import { useHighlistLinkHref } from "../hooks/useHighlistLinkHref";
 import type { RequirementType } from "../../../types/requirements.types";
 import { renderContent } from "../../../utils/render.utils";
-
-const iconByType = {
-    ichor: "waterdrop",
-    pumpkin: "pumpkin",
-    easter: "easterEgg",
-    ornament: "ornament",
-    encounter: "question",
-    research: "magnifier",
-    mastery: "medal",
-    toonsOwning: "person",
-    titlesOwning: "diploma",
-    pickItems: "candy",
-    experienceBlackouts: "lightbulbBolt",
-    finishMachines: "gear",
-    quests: "starCircle",
-} satisfies Record<RequirementType, IconId> ;
+import { REQUIREMENT_ICON } from "../../../utils/requirements.utils";
 
 type RequirementProps = {
     type: RequirementType;
@@ -27,7 +11,7 @@ type RequirementProps = {
 
 export default function RequirementCard({ type, label }: RequirementProps) {
     const buildHref = useHighlistLinkHref();
-    const Icon = ICONS[iconByType[type]];
+    const Icon = ICONS[REQUIREMENT_ICON[type]];
 
     return (
         <div className="bg-black/40 rounded-lg p-2 grid grid-cols-[24px_1fr] items-center gap-2">
