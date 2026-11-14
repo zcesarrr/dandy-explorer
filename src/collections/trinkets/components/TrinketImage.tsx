@@ -1,4 +1,4 @@
-import { specialBackgroundColor } from "../../../constants/styles.constants";
+import { getSpecialBackgroundColor } from "../../../utils/styles.utils";
 import type { Trinket } from "../types/trinkets.types";
 
 type TrinketImageProps = {
@@ -14,7 +14,7 @@ export default function TrinketImage({ className = "", item }: TrinketImageProps
             className={className}
             loading="lazy"
             style={{
-                background: specialBackgroundColor(item.rarity, item.event),
+                background: getSpecialBackgroundColor(item.rarity, item.event),
             }}
         />
     );

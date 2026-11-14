@@ -3,7 +3,9 @@ import type { Trinket } from "../../trinkets/types/trinkets.types";
 import TRINKETS from "../../trinkets/data";
 import { Link } from "react-router";
 import TwistedRarityLabel from "./TwistedRarityLabel";
-import { RARITY_LABELS } from "../../../constants/rarity.constants";
+import { EVENT_THEME_DATA, RARITY_LABELS } from "../../../constants/rarity.constants";
+import GradientLabel from "../../../components/GradientLabel";
+import { getEventColor } from "../../../utils/styles.utils";
 
 type TwistedInfoProps = {
     className?: string;
@@ -32,8 +34,16 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
             <h1 className="text-[29px] my-1 leading-none">
                 {item.name}
             </h1>
+            
+            {item.event !== "none" && (
+                <GradientLabel
+                    className="text-lg leading-none"
+                    gradientColor={getEventColor("easter", 90) ?? "white"} 
+                    label={EVENT_THEME_DATA[item.event].label}
+                />
+            )}
             <TwistedRarityLabel
-                className="text-lg mb-4"
+                className="text-lg mb-4 leading-none"
                 rarity={item.rarity}
                 label={RARITY_LABELS[item.rarity]}
             />

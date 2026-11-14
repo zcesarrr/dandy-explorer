@@ -2,7 +2,10 @@ import type { EventTheme, Rarity } from "../types/rarity.types";
 
 const blackOverlay = "linear-gradient(#00000050, #00000050)";
 
-function rarityColor(rarity: Rarity, deg: number): string | undefined {
+export function getRarityColor(rarity: Rarity, deg: number): string {
+    if (rarity === "uncommon") return "#aba9aa";
+    if (rarity === "rare") return "#020201";
+
     if (rarity === "main") {
         return `linear-gradient(${deg}deg, #8454d0, #5b8ece, #5fce60, #cfcd64, #d19259, #d35d61)`;
     }
@@ -11,10 +14,10 @@ function rarityColor(rarity: Rarity, deg: number): string | undefined {
         return `linear-gradient(${deg}deg,#c22828, #f68686)`;
     }
 
-    return undefined;
+    return "#fff";
 }
 
-function eventColor(event: EventTheme, deg: number): string | undefined {
+export function getEventColor(event: EventTheme, deg: number): string | undefined {
     if (event === "easter") {
         return `linear-gradient(${deg}deg, #71e1f5, #fad9a5, #ffa6c9)`;
     }
@@ -30,24 +33,17 @@ function eventColor(event: EventTheme, deg: number): string | undefined {
     return undefined;
 }
 
-export function specialBackgroundColor(rarity: Rarity, event: EventTheme): string {
-    const rarityBackground = rarityColor(rarity, 0);
+export function getSpecialBackgroundColor(rarity: Rarity, event: EventTheme): string {
+    const rarityBackground = getRarityColor(rarity, 0);
+    const isSpecialRarity = ["main", "lethal"].includes(rarity);
 
     if (event === "none") {
-        return rarityBackground ? `${blackOverlay}, ${rarityBackground}` : blackOverlay;
+        return isSpecialRarity ? `${blackOverlay}, ${rarityBackground}` : blackOverlay;
     }
 
-    const eventBackground = eventColor(event, 0);
+    const eventBackground = getEventColor(event, 0);
 
-    return rarityBackground
+    return isSpecialRarity
         ? `${blackOverlay}, ${rarityBackground} left / 50% 100% no-repeat, ${eventBackground} right / 50% 100% no-repeat`
         : `${blackOverlay}, ${eventBackground}`;
 }
-
-export const RARITY_COLORS: Record<Rarity, string> = {
-    common: "#fff",
-    uncommon: "#aba9aa",
-    rare: "#020201",
-    main: rarityColor("main", -90)!,
-    lethal: rarityColor("lethal", -90)!,
-};

@@ -1,5 +1,6 @@
-import { RARITY_COLORS } from "../../../constants/styles.constants";
+import GradientLabel from "../../../components/GradientLabel";
 import type { Rarity } from "../../../types/rarity.types";
+import { getRarityColor } from "../../../utils/styles.utils";
 
 type TwistedRarityLabelProps = {
     className?: string;
@@ -13,24 +14,23 @@ export default function TwistedRarityLabel({
     label
 }: TwistedRarityLabelProps) {
     const hasRarityGradient = rarity === "main" || rarity === "lethal";
-    const rarityColor = RARITY_COLORS[rarity];
+    const color = getRarityColor(rarity, -90);
+
+    if (hasRarityGradient) return (
+        <GradientLabel className={className ?? ""} gradientColor={color} label={label} />
+    )
 
     return (
-        <p 
-            className={`${className ?? ""} leading-none text-shadow-none`}
+        <p
+            className={`${className} text-stroke`}
             style={{
                 textShadow: rarity === "rare" ? `
-                1px 1px 0 white,
-                -1px -1px 0 white,
+                    1px 1px 0 white,
+                    -1px -1px 0 white,
                     1px -1px 0 white,
                     -1px 1px 0 white
-                    ` : "",
-                backgroundImage: hasRarityGradient ? rarityColor : "",
-                color: hasRarityGradient ? "transparent" : rarityColor,
-                backgroundClip: hasRarityGradient ? "text" : "",
-                WebkitBackgroundClip: hasRarityGradient ? "text" : "",
-                WebkitTextFillColor: hasRarityGradient ? "transparent" : "",
-                WebkitTextStroke: hasRarityGradient ? "0 transparent" : "",
+                ` : "",
+                color: color
             }}
         >
             {label}

@@ -24,6 +24,7 @@ export default function TwistedButton({
         >
             <CollectionButtonName name={item.name}>
                 <TwistedRarityLabel
+                    className="leading-none"
                     rarity={item.rarity}
                     label={item.name}
                 />
