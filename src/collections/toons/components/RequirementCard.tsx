@@ -1,6 +1,6 @@
 import ICONS from "../../../constants/icons.constants";
 import type { IconId } from "../../../types/icons.types";
-import { useHighlistLinkHref } from "../hooks/useToonLinkHref";
+import { useHighlistLinkHref } from "../hooks/useHighlistLinkHref";
 import type { RequirementType } from "../types/requirements.types";
 import { renderContent } from "../utils/render.utils";
 

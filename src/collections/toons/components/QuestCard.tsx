@@ -1,4 +1,4 @@
-import { useHighlistLinkHref } from "../hooks/useToonLinkHref";
+import { useHighlistLinkHref } from "../hooks/useHighlistLinkHref";
 import { renderContent } from "../utils/render.utils";
 
 type QuestCardProps = {
