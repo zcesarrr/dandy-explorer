@@ -1,9 +1,10 @@
-import type { Rarity } from "../../../types/rarity.types";
+import type { EventTheme, Rarity } from "../../../types/rarity.types";
 
 export type Twisted = {
     slug: string;
     name: string;
     rarity: Rarity;
+    event: EventTheme;
     iconUrl: string;
     render: {
         url: string;

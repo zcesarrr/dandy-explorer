@@ -49,5 +49,5 @@ export const RARITY_COLORS: Record<Rarity, string> = {
     uncommon: "#aba9aa",
     rare: "#020201",
     main: rarityColor("main", -90)!,
-    lethal: rarityColor("lethal", 90)!,
+    lethal: rarityColor("lethal", -90)!,
 };

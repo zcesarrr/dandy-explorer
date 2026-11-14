@@ -1,3 +1,4 @@
+import { specialBackgroundColor } from "../../../constants/styles.constants";
 import type { Twisted } from "../types/twisteds.types";
 
 type TwistedImageProps = {
@@ -13,7 +14,7 @@ export default function TwistedImage({ className = "", item }: TwistedImageProps
             className={className}
             loading="lazy"
             style={{
-                background: "#00000050",
+                background: specialBackgroundColor(item.rarity, item.event),
             }}
         />
     );

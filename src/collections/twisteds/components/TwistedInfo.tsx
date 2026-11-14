@@ -47,7 +47,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
                     <p className="text-xl tracking-wide mb-1 text-yellow-300">100% Research Reward</p>
                     <Link 
                         to={`/trinkets/${trinket.slug}`}
-                        className="flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1 active:bg-black/90"
+                        className="group flex gap-2 items-center bg-black/40 rounded-lg px-2 py-1 active:bg-white/10"
                     >
                         <img
                             alt=""
@@ -57,7 +57,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
                             height={48}
                             className="bg-black/40 rounded-full p-1"
                         />
-                        <p>{trinket.name}</p>
+                        <p className="group-hover:underline">{trinket.name}</p>
                     </Link>
                 </>
             )}
