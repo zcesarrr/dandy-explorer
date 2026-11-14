@@ -22,7 +22,13 @@ export function renderContent(content: string, buildHref: (to: string) => string
             const label = separator === 1 ? link : link?.slice(0, separator);
             const to = separator === -1 ? "" : link?.slice((separator ?? 0) + 1);
             nodes.push(
-                <Link key={start} to={buildHref(to ?? "")} className="text-[#70d44b] hover:underline active:underline">{label}</Link>
+                <Link 
+                    key={start} 
+                    to={buildHref(to ?? "")} 
+                    className={`${label?.startsWith("Twisted") ? "text-gray-500" : "text-[#70d44b]"} hover:underline active:underline`}
+                >
+                    {label}
+                </Link>
             );
         }
 
