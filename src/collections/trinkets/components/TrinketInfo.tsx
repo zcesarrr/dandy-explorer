@@ -1,8 +1,16 @@
+import { Link } from "react-router";
+import { twistedsConfig } from "../../twisteds/config";
+import type { Twisted } from "../../twisteds/types/twisteds.types";
 import { TRINKET_CATEGORY_DATA, type Trinket, type TrinketRequirement } from "../types/trinkets.types";
 
 function renderRequirement(requirement: TrinketRequirement) {
     if (requirement.type === "research") {
-        return `${requirement.params.count}% Research on ${requirement.params.twisted}`;
+        const twisted: Twisted | undefined = twistedsConfig.items.find(t => t.slug === requirement.params.twisted);
+        return (
+            <>
+                {requirement.params.count}% Research on <Link className="hover:underline active:underline text-gray-500" to={`/twisteds/${twisted?.slug}`}>{twisted?.name}</Link>
+            </>
+        );
     }
 
     return `Dandy's Shop: ${requirement.params.price} Ichor`;
