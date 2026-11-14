@@ -3,6 +3,8 @@ import ToonImage from "./ToonImage";
 import type { Toon } from "../types/toons.types";
 import { STATS_DATA } from "../../../constants/stats.constants";
 import type { StatCardProps } from "../../../types/stats.types";
+import ICONS from "../../../constants/icons.constants";
+import { EVENT_THEME_DATA } from "../../../constants/rarity.constants";
 
 const STATS_BASE: Omit<StatCardProps, "value">[] = Object.values(STATS_DATA).map(item => {
     return {
@@ -18,12 +20,24 @@ type ToonInfoProps = {
 };
 
 export default function ToonInfo({ className, item }: ToonInfoProps) {
+    const eventData = item.category !== "none" ? EVENT_THEME_DATA[item.category] : undefined;
+    const EventIcon = eventData ? ICONS[eventData.Icon] : undefined;
+
     return (
         <div className={`${className ?? ""}`}>
-            <ToonImage
-                item={item}
-                className="w-[max(128px,30dvh)] mx-auto rounded-lg aspect-square"
-            />
+            <div className="relative max-w-[max(128px,30dvh)] w-full aspect-square mx-auto">
+                <ToonImage
+                    item={item}
+                    className="w-full h-full object-contain rounded-lg"
+                />
+                {EventIcon && (
+                    <div 
+                        className="absolute top-1 left-1 bg-black/60 rounded-full p-1.5" 
+                        title={`${eventData?.label} Theme`}>
+                        <EventIcon className="w-8 h-8" color="white" />
+                    </div>
+                )}
+            </div>
             <h1 
                 className="font-fredoka text-white text-[29px] text-stroke text-center my-1"
             >
