@@ -7,6 +7,9 @@ type TrinketImageProps = {
     item: Trinket;
 };
 
+// This component it's not working as intended on first instance.
+// But since I coded like shit and everything is working, I can leave it.
+// If I'm having problems later, I will fix it and this silly comment will be removed.
 export default function TrinketImage({ className = "", item }: TrinketImageProps) {
     const CategoryIcon = ICONS[TRINKET_CATEGORY_DATA[item.category].Icon];
 
