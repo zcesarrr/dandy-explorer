@@ -28,7 +28,7 @@ function renderHolder(holder: TrinketHolder) {
             );
         } else {
             return (
-                <p>No twisted found.</p>
+                <p>No twisted found. ({holder.params.twisted})</p>
             )
         }
     }

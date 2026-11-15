@@ -9,7 +9,7 @@ type CollectionButtonNameProps = {
 export default function CollectionButtonName({ className, children, name }: CollectionButtonNameProps) {
     const props: ComponentProps<"p"> = {
         style: { "--chars": name.length } as CSSProperties,
-        className: `font-fredoka text-center leading-none text-balance text-[clamp(12px,calc(100cqw/(var(--chars)*0.52)),18px)] ${className}`,
+        className: `font-fredoka text-center leading-none text-balance text-[clamp(12px,calc(100cqw/(var(--chars)*0.55)),18px)] ${className}`,
     };
 
     return (
