@@ -1,5 +1,6 @@
 import type { Trinket } from "../types/trinkets.types";
 import dandyPlush from "./items/dandyPlush";
+import diary from "./items/diary";
 import pullToy from "./items/pullToy";
 import starPillow from "./items/starPillow";
 import thinkingCap from "./items/thinkingCap";
@@ -13,6 +14,7 @@ const TRINKETS: Trinket[] = [
     wrench,
     pullToy,
     thinkingCap,
+    diary,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;
