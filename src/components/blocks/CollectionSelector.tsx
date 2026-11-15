@@ -164,9 +164,9 @@ export default function CollectionSelector<T extends CollectionItem>({
                         {config.labels.emptyMessage}
                     </p>
                     <img
-                        src="/vee.webp"
+                        src={`/${config.noItemsImage.name}.webp`}
                         width={256}
-                        alt="Vee Render"
+                        alt={config.noItemsImage.alt}
                         loading="lazy"
                     />
                 </div>

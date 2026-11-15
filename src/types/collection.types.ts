@@ -48,6 +48,10 @@ export type CollectionConfig<T extends CollectionItem> = {
     };
     items: readonly T[];
     sort: CollectionSort<T>;
+    noItemsImage: {
+        name: string;
+        alt: string;
+    };
     ItemImage: ItemImageComponent<T>;
     ItemButton: ComponentType<{ 
         buttonProps: ShinyButtonProps, item: T, ItemImage: ItemImageComponent<T> 

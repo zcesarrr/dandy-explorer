@@ -9,11 +9,15 @@ import type { Trinket } from "./types/trinkets.types";
 export const trinketsConfig: CollectionConfig<Trinket> = {
     id: "trinkets",
     basePath: "/trinkets",
+    noItemsImage: {
+        name: "yatta",
+        alt: "Yatta Render",
+    },
     labels: {
         singular: "Trinket",
         plural: "Trinkets",
         searchPlaceholder: "Search Trinkets...",
-        emptyMessage: "Your Trinket doesn't exist",
+        emptyMessage: "Your dream TRINKET doesn't exist!",
     },
     items: TRINKETS,
     sort: TRINKET_SORT,
