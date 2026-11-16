@@ -21,7 +21,8 @@ export const REQUIREMENT_ICON = {
     experienceBlackouts: "lightbulbBolt",
     finishMachines: "gear",
     quests: "starCircle",
-    surviveFloors: "artisticInspiration",
+    surviveFloors: "moon",
+    custom: "clipboard",
 } as const satisfies Record<RequirementType, IconId> ;
 
 function getTwistedHref(slug: string): string {
@@ -50,6 +51,7 @@ const requirementTemplates = {
     experienceBlackouts: ({ count }) => `Experience ${hl(count)} Blackouts`,
     quests: ({ count, toon }) => `Complete ${hl(count)} Mastery Quests on ${getToonHref(toon)}`,
     surviveFloors: ({ count }) => `Survive ${hl(count)} Floors`,
+    custom: ({ text }) => text,
 } satisfies {
     [K in RequirementType]: (p: RequirementParams[K]) => string
 };

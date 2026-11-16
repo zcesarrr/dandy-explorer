@@ -16,6 +16,7 @@ export type RequirementParams = {
     experienceBlackouts: { count: number },
     quests: { count: number, toon: string },
     surviveFloors: { count: number },
+    custom: { text: string };
 };
 
 export type RequirementType = keyof RequirementParams;

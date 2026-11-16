@@ -1,3 +1,4 @@
+import createImageIcon from "./createImageIcon";
 import napTime from "../../assets/abilities/napTime.webp";
 import springfulSharing from "../../assets/abilities/springfulSharing.webp"
 import craftyGrapple from "../../assets/abilities/craftyGrapple.webp";
@@ -18,7 +19,7 @@ import floatyDash from "../../assets/abilities/floatyDash.webp";
 import speak from "../../assets/abilities/speak.webp";
 import inspiration from "../../assets/abilities/inspiration.webp";
 import ignite from "../../assets/abilities/ignite.webp";
-import createImageIcon from "./createImageIcon";
+import hug from "../../assets/abilities/hug.webp";
 
 export const NapTimeIcon = createImageIcon(napTime, "Minimalist moon with a sparkle");
 export const SpringfulSharingIcon = createImageIcon(springfulSharing, "Minimalist basket");
@@ -44,3 +45,4 @@ export const FloatyDashIcon = createImageIcon(floatyDash, "Minimalist butterfly 
 export const SpeakIcon = createImageIcon(speak, "Minimalist three anger mark");
 export const InspirationIcon = createImageIcon(inspiration, "Minimalist exclamation symbols and up arrows");
 export const IgniteIcon = createImageIcon(ignite, "Minimalist flame");
+export const HugIcon = createImageIcon(hug, "Minimalist Goob's hand");

@@ -28,6 +28,8 @@ import ribecca from "./items/ribecca";
 import rodger from "./items/rodger";
 import shelly from "./items/shelly";
 import waxwell from "./items/waxwell";
+import goob from "./items/goob";
+import boxten from "./items/boxten";
 
 const TOONS = [
     yatta,
@@ -59,6 +61,8 @@ const TOONS = [
     rodger,
     shelly,
     waxwell,
+    goob,
+    boxten,
 ] as const satisfies Toon[];
 
 export default TOONS;
