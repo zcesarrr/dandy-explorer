@@ -51,7 +51,7 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
-            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg overflow-hidden mb-1">
+            <div className="w-full max-w-[50dvh] shrink-0 aspect-square bg-black/40 p-2 rounded-lg overflow-hidden mb-1">
                 <img
                     alt=""
                     width="100%"

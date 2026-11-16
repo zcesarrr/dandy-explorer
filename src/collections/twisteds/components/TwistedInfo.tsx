@@ -17,7 +17,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
 
     return (
         <div className={`${className ?? ""} font-fredoka text-white text-stroke text-center flex flex-col items-center w-full`}>
-            <div className="w-full shrink-0 aspect-square bg-black/40 p-2 rounded-lg mb-1 overflow-x-hidden">
+            <div className="w-full max-w-[50dvh] shrink-0 aspect-square bg-black/40 p-2 rounded-lg mb-1 overflow-x-hidden">
                 <img
                     alt=""
                     width="100%"
