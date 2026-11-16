@@ -23,7 +23,7 @@ export const REQUIREMENT_ICON = {
     quests: "starCircle",
     surviveFloors: "moon",
     buyDandysShop: "shop",
-    trinketsOwning: "star",
+    trinketsOwning: "wrench",
     custom: "clipboard",
 } as const satisfies Record<RequirementType, IconId> ;
 

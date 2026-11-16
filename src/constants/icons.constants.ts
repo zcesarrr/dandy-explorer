@@ -26,6 +26,7 @@ import { ExtractionSpeedIcon, MovementSpeedIcon, OtherIcon, SkillCheckIcon, Stam
 import { ClipboardIcon } from "@solar-icons/react/bold/clipboard";
 import { MoonIcon } from "@solar-icons/react/bold/moon";
 import { ShopMinimalisticIcon } from "@solar-icons/react/bold/shop-minimalistic";
+import { WrenchIcon } from "@solar-icons/react/bold/wrench";
 
 const ICONS = {
     heart: HeartIcon,
@@ -88,6 +89,7 @@ const ICONS = {
     gust: GustIcon,
     antlerCharge: AntlerChargeIcon,
     soulShield: SoulShieldIcon,
+    wrench: WrenchIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;
