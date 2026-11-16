@@ -30,6 +30,9 @@ import shelly from "./items/shelly";
 import waxwell from "./items/waxwell";
 import goob from "./items/goob";
 import boxten from "./items/boxten";
+import poppy from "./items/poppy";
+import glisten from "./items/glisten";
+import teagan from "./items/teagan";
 
 const TOONS = [
     yatta,
@@ -63,6 +66,9 @@ const TOONS = [
     waxwell,
     goob,
     boxten,
+    poppy,
+    glisten,
+    teagan,
 ] as const satisfies Toon[];
 
 export default TOONS;

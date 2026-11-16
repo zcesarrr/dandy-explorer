@@ -22,6 +22,7 @@ export const REQUIREMENT_ICON = {
     finishMachines: "gear",
     quests: "starCircle",
     surviveFloors: "moon",
+    buyDandysShop: "shop",
     custom: "clipboard",
 } as const satisfies Record<RequirementType, IconId> ;
 
@@ -51,6 +52,7 @@ const requirementTemplates = {
     experienceBlackouts: ({ count }) => `Experience ${hl(count)} Blackouts`,
     quests: ({ count, toon }) => `Complete ${hl(count)} Mastery Quests on ${getToonHref(toon)}`,
     surviveFloors: ({ count }) => `Survive ${hl(count)} Floors`,
+    buyDandysShop: ({ count }) => `Buy ${hl(count)} Items from Dandy's Elevator Shop`,
     custom: ({ text }) => text,
 } satisfies {
     [K in RequirementType]: (p: RequirementParams[K]) => string

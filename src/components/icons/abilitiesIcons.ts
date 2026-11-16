@@ -20,6 +20,8 @@ import speak from "../../assets/abilities/speak.webp";
 import inspiration from "../../assets/abilities/inspiration.webp";
 import ignite from "../../assets/abilities/ignite.webp";
 import hug from "../../assets/abilities/hug.webp";
+import reflection from "../../assets/abilities/reflection.webp";
+import teaTime from "../../assets/abilities/tea-time.webp";
 
 export const NapTimeIcon = createImageIcon(napTime, "Minimalist moon with a sparkle");
 export const SpringfulSharingIcon = createImageIcon(springfulSharing, "Minimalist basket");
@@ -46,3 +48,5 @@ export const SpeakIcon = createImageIcon(speak, "Minimalist three anger mark");
 export const InspirationIcon = createImageIcon(inspiration, "Minimalist exclamation symbols and up arrows");
 export const IgniteIcon = createImageIcon(ignite, "Minimalist flame");
 export const HugIcon = createImageIcon(hug, "Minimalist Goob's hand");
+export const ReflectionIcon = createImageIcon(reflection, "Minimalist shiny mirror");
+export const TeaTimeIcon = createImageIcon(teaTime, "Minimalist cup of tea");
