@@ -39,6 +39,8 @@ import cocoa from "./items/cocoa";
 import flyte from "./items/flyte";
 import rudie from "./items/rudie";
 import soulvester from "./items/soulvester";
+import dandy from "./items/dandy";
+import dyle from "./items/dyle";
 
 const TOONS = [
     yatta,
@@ -81,6 +83,8 @@ const TOONS = [
     flyte,
     rudie,
     soulvester,
+    dandy,
+    dyle,
 ] as const satisfies Toon[];
 
 export default TOONS;

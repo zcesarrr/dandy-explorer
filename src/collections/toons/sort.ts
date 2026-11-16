@@ -8,6 +8,7 @@ import { STATS_DATA } from "../../constants/stats.constants";
 const RARITY_PRIORITY: Record<ToonRarity, number> = {
     common: 0,
     main: 1,
+    lethal: 2,
 };
 
 const CATEGORY_PRIORITY: Record<EventTheme, number> = {

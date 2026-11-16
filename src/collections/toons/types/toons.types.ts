@@ -11,6 +11,6 @@ export type Toon = {
     category: EventTheme;
     stats: [number, number, number, number, number, number];
     abilities: Ability[];
-    quests: Quest[];
+    quests?: Quest[];
     requirements: Requirement[];
 };
