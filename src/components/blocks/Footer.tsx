@@ -7,6 +7,9 @@ export default function Footer() {
     return (
         <footer className="px-2 py-1.5 font-fredoka text-center text-sm text-white/70 text-stroke flex justify-between">
             <p>{APP_NAME} v{APP_VERSION}</p>
+            <p className="max-lg:hidden">
+                {APP_NAME} is not affiliated with BlushCrunch Studio, this content is not official or endorsed by BlushCrunch Studio in any way.
+            </p>
             <Link 
                 to="/about"
                 state={{ from: location }}
