@@ -9,6 +9,7 @@ import type { Twisted } from "./types/twisteds.types";
 export const twistedsConfig: CollectionConfig<Twisted> = {
     id: "twisteds",
     basePath: "/twisteds",
+    icon: "heartBroken",
     noItemsImage: {
         name: "rodger",
         alt: "Rodger Render",

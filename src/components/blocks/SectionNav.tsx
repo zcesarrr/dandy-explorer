@@ -1,6 +1,16 @@
 import { useLocation } from "react-router";
 import { COLLECTIONS } from "../../collections";
 import ShinyButton from "../customs/ShinyButton";
+import ICONS from "../../constants/icons.constants";
+import type { ReactNode } from "react";
+
+function getCollectionIcon(index: number): ReactNode {
+    if (!COLLECTIONS[index]) return null
+    const Icon = ICONS[COLLECTIONS[index].icon];
+    return (
+        <Icon />
+    );
+}
 
 export default function SectionNav() {
     const { pathname } = useLocation();
@@ -13,7 +23,7 @@ export default function SectionNav() {
             className="shrink-0 px-2 pt-[max(0.5rem,env(safe-area-inset-top))]"
         >
             <ul className="flex justify-center gap-2">
-                {COLLECTIONS.map(collection => {
+                {COLLECTIONS.map((collection, index)=> {
                     const isActive = pathname === collection.basePath || pathname.startsWith(`${collection.basePath}/`);
                     
                     return (
@@ -21,8 +31,9 @@ export default function SectionNav() {
                             <ShinyButton
                                 nav={{ href: collection.basePath }}
                                 active={isActive}
-                                className="items-center px-4 py-1 font-fredoka text-white text-stroke"
+                                className="flex flex-row items-center px-4 py-1 font-fredoka text-white text-stroke max-sm:text-sm"
                             >
+                                {getCollectionIcon(index)}
                                 {collection.labels.plural}
                             </ShinyButton>
                         </li>

@@ -9,6 +9,7 @@ import type { Trinket } from "./types/trinkets.types";
 export const trinketsConfig: CollectionConfig<Trinket> = {
     id: "trinkets",
     basePath: "/trinkets",
+    icon: "star",
     noItemsImage: {
         name: "yatta",
         alt: "Yatta Render",

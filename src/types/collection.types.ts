@@ -40,6 +40,7 @@ export type ItemImageComponent<T extends CollectionItem> =
 export type CollectionConfig<T extends CollectionItem> = {
     id: string;
     basePath: string;
+    icon: IconId,
     labels: {
         singular: string;
         plural: string;

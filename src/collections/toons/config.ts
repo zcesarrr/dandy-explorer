@@ -10,6 +10,7 @@ import { TOON_SORT } from "./sort";
 export const toonsConfig: CollectionConfig<Toon> = {
     id: "toons",
     basePath: "/toons",
+    icon: "heart",
     noItemsImage: {
         name: "vee",
         alt: "Vee Render",
