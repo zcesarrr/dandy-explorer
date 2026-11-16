@@ -8,7 +8,7 @@ const twistedTisha: Twisted = {
     rarity: "common",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render },
     description: "This commonly seen Twisted is most often spotted moving from place to place spending a considerably long time cleaning the floor. No matter how hard she tries to clean ichor puddles, the mess only seems to grow. Interrupting her work would not be wise!",
     trinketReward: "feather-duster",
 };

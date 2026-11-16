@@ -8,7 +8,7 @@ const twistedYatta: Twisted = {
     rarity: "common",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render, offsetX: "-5px" },
     description: "While this Twisted is more common than others, Yatta is dangerous when running on her tails. Overcome with Ichor, her tails provide her with a higher run speed compared to other common Twisteds.",
     trinketReward: "party-popper",
 };

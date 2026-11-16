@@ -8,7 +8,7 @@ const twistedCosmo: Twisted = {
     rarity: "common",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render },
     description: "One of the most common Twisteds you'll encounter. Being overcome by Ichor and separated from his best friend has driven this Twisted to chase Toons down. It appears this Twisted lacks any noteworthy abilities, however.",
     trinketReward: "sweet-charm",
 };

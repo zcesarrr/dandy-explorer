@@ -8,7 +8,7 @@ const twistedFlutter: Twisted = {
     rarity: "rare",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render },
     description: "This Twisted is as dangerous as it is agile, constantly on the move with nimble speed and never stopping to rest. Flutter will quickly patrol the room for any easy targets, so be vigilant and hide when she's near.",
     trinketReward: "diary",
 };

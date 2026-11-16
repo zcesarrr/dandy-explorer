@@ -8,7 +8,7 @@ const twistedLooey: Twisted = {
     rarity: "common",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render },
     description: "While this Twisted is more common than others, Looey is still a dangerous foe. Overcome with Ichor his physical changes have provided him a higher point of view compared to other common Twisteds, able to see further and retain attention within chase for longer periods of time.",
     trinketReward: "clown-horn",
 };

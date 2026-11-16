@@ -20,5 +20,5 @@ export const ITEM_RARITY_LABELS = {
 export const EVENT_THEME_DATA: Record<Exclude<EventTheme, "none">, { label: string, Icon: IconId }> = {
     easter: { label: "Easter", Icon: "easterEgg" },
     halloween: { label: "Halloween", Icon: "pumpkin" },
-    holiday: { label: "Holiday", Icon: "ornament" },
+    holiday: { label: "Christmas", Icon: "ornament" },
 } as const;

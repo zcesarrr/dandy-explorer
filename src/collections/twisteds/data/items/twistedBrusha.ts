@@ -8,7 +8,7 @@ const twistedBrusha: Twisted = {
     rarity: "common",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render },
     description: "This commonly seen Twisted has a sharp eye and an even sharper paintbrush. Overcome with Ichor, Twisted Brusha's artwork causes Toons to extract slower from affected machines.",
     trinketReward: "paint-bucket",
 };

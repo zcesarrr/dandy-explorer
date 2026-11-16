@@ -8,7 +8,7 @@ const twistedBrightney: Twisted = {
     rarity: "uncommon",
     event: "none",
     iconUrl: icon,
-    render: { url: render},
+    render: { url: render },
     description: "A more uncommon Twisted, Brightney uses her knowledge and cunning to tamper with the lighting system, increasing the chance of a Blackout occuring on the Floor she resides in. Be sure to come prepared if this happens!",
     trinketReward: "spare-bulb",
 };

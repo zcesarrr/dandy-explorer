@@ -38,7 +38,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
             {item.event !== "none" && (
                 <GradientLabel
                     className="text-lg leading-none"
-                    gradientColor={getEventColor("easter", 90) ?? "white"} 
+                    gradientColor={getEventColor(item.event, 90) ?? "white"} 
                     label={EVENT_THEME_DATA[item.event].label}
                 />
             )}
