@@ -31,6 +31,8 @@ export default function AboutPage() {
 
     return (
         <div className="font-fredoka text-white text-stroke p-4 flex flex-col min-h-dvh justify-center items-center text-center tracking-wide">
+            <title>{title}</title>
+            
             <div className="w-full max-w-lg flex flex-col gap-3">
                 <header className="text-stroke mb-8">
                     <GradientLabel 
