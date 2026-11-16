@@ -7,7 +7,7 @@ export type RequirementParams = {
     ornament: { count: number },
     encounter: { twisted: string },
     research: { count: number, twisted: string },
-    researchAny: { count: number },
+    researchAny: { researchCount: number, twistedsCount: number },
     mastery: { toon: string },
     toonsOwning: { count: number },
     titlesOwning: { count: number },
@@ -17,6 +17,7 @@ export type RequirementParams = {
     quests: { count: number, toon: string },
     surviveFloors: { count: number },
     buyDandysShop: { count: number },
+    trinketsOwning: { count: number },
     custom: { text: string };
 };
 

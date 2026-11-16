@@ -33,6 +33,12 @@ import boxten from "./items/boxten";
 import poppy from "./items/poppy";
 import glisten from "./items/glisten";
 import teagan from "./items/teagan";
+import toodles from "./items/toodles";
+import coal from "./items/coal";
+import cocoa from "./items/cocoa";
+import flyte from "./items/flyte";
+import rudie from "./items/rudie";
+import soulvester from "./items/soulvester";
 
 const TOONS = [
     yatta,
@@ -69,6 +75,12 @@ const TOONS = [
     poppy,
     glisten,
     teagan,
+    toodles,
+    coal,
+    cocoa,
+    flyte,
+    rudie,
+    soulvester,
 ] as const satisfies Toon[];
 
 export default TOONS;

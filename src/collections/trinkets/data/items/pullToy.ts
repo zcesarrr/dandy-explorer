@@ -20,7 +20,7 @@ const pullToy: Trinket = {
                 },
                 {
                     type: "researchAny",
-                    params: { count: 100 },
+                    params: { researchCount: 100, twistedsCount: 1 },
                 },
             ],
         },

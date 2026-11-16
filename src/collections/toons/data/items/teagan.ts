@@ -3,7 +3,7 @@ import icon from "../../../../assets/toons/teagan.webp";
 
 const teagan: Toon = {
     slug: "teagan",
-    name: "Glisten",
+    name: "Teagan",
     iconUrl: icon,
     rarity: "common",
     category: "none",

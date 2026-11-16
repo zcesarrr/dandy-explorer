@@ -21,7 +21,7 @@ import EasterEggIcon from "../components/icons/customs/EasterEggIcon";
 import OrnamentIcon from "../components/icons/customs/OrnamentIcon";
 import MagnifierIcon from "../components/icons/customs/MagnifierIcon";
 import CandyIcon from "../components/icons/customs/CandyIcon";
-import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon, SpringfulSharingIcon, FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon, HugIcon, ReflectionIcon, TeaTimeIcon } from "../components/icons/abilitiesIcons";
+import { ArtisticInspirationIcon, BakedSweetsIcon, BakedWithCareIcon, BlotJrIcon, CraftyGrappleIcon, DistressedDelicacyIcon, HauntingEscapeIcon, MicCheckIcon, NapTimeIcon, NightLightIcon, PreciousPackagingIcon, SurpriseIcon, TidyUpIcon, TrickOrTreatIcon, SpringfulSharingIcon, FloatyDashIcon, IgniteIcon, InspirationIcon, SharingIsCaringIcon, SpeakIcon, HugIcon, ReflectionIcon, TeaTimeIcon, BeginnersLuckIcon, ScoutIcon, BonbonIcon, GustIcon, AntlerChargeIcon, SoulShieldIcon } from "../components/icons/abilitiesIcons";
 import { ExtractionSpeedIcon, MovementSpeedIcon, OtherIcon, SkillCheckIcon, StaminaIcon, StealthIcon } from "../components/icons/statsIcons";
 import { ClipboardIcon } from "@solar-icons/react/bold/clipboard";
 import { MoonIcon } from "@solar-icons/react/bold/moon";
@@ -82,6 +82,12 @@ const ICONS = {
     reflection: ReflectionIcon,
     teaTime: TeaTimeIcon,
     shop: ShopMinimalisticIcon,
+    beginnersLuck: BeginnersLuckIcon,
+    scout: ScoutIcon,
+    bonbon: BonbonIcon,
+    gust: GustIcon,
+    antlerCharge: AntlerChargeIcon,
+    soulShield: SoulShieldIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;

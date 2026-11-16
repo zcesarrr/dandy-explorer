@@ -23,6 +23,7 @@ export const REQUIREMENT_ICON = {
     quests: "starCircle",
     surviveFloors: "moon",
     buyDandysShop: "shop",
+    trinketsOwning: "star",
     custom: "clipboard",
 } as const satisfies Record<RequirementType, IconId> ;
 
@@ -44,7 +45,10 @@ const requirementTemplates = {
     encounter: ({ twisted }) => `Encounter ${getTwistedHref(twisted)}`,
     mastery: ({ toon }) => `Complete all Mastery Quests on ${getToonHref(toon)}`,
     research: ({ count, twisted }) => `${count}% Research on ${getTwistedHref(twisted)}`,
-    researchAny: ({ count }) => `${count}% Research on any Twisted`,
+    researchAny: ({ researchCount, twistedsCount }) => { 
+        const manyTwisteds = twistedsCount > 1;
+        return `${researchCount}% Research on ${hl(!manyTwisteds ? "any" : twistedsCount)} Twisted${manyTwisteds ? "s" : ""}`;
+    },
     titlesOwning: ({ count }) => `Own ${hl(`${count}+`)} Titles`,
     toonsOwning: ({ count }) => `Own ${hl(count)} or more Toons`,
     pickItems: ({ rarity, count }) => `Pick up ${hl(count)} ${hl(ITEM_RARITY_LABELS[rarity])} or higher tier Items`,
@@ -53,6 +57,7 @@ const requirementTemplates = {
     quests: ({ count, toon }) => `Complete ${hl(count)} Mastery Quests on ${getToonHref(toon)}`,
     surviveFloors: ({ count }) => `Survive ${hl(count)} Floors`,
     buyDandysShop: ({ count }) => `Buy ${hl(count)} Items from Dandy's Elevator Shop`,
+    trinketsOwning: ({ count }) => `Own ${hl(count)} or more Trinkets`,
     custom: ({ text }) => text,
 } satisfies {
     [K in RequirementType]: (p: RequirementParams[K]) => string
