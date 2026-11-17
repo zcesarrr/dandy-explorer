@@ -7,6 +7,7 @@ import clownHorn from "./items/clownHorn";
 import coal from "./items/coal";
 import coinPurse from "./items/coinPurse";
 import cooler from "./items/cooler";
+import crayonSet from "./items/crayonSet";
 import dandyPlush from "./items/dandyPlush";
 import diary from "./items/diary";
 import eggRadar from "./items/eggRadar";
@@ -34,6 +35,7 @@ import sweetCharm from "./items/sweetCharm";
 import thermos from "./items/thermos";
 import thinkingCap from "./items/thinkingCap";
 import toyKit from "./items/toyKit";
+import trainWhistle from "./items/trainWhistle";
 import whisperingFlower from "./items/whisperingFlower";
 import wrench from "./items/wrench";
 
@@ -74,7 +76,9 @@ const TRINKETS: Trinket[] = [
     popPack,
     megaphone,
     cooler,
-    cardboardArmor
+    cardboardArmor,
+    crayonSet,
+    trainWhistle,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;
