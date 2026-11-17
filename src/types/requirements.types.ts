@@ -11,13 +11,16 @@ export type RequirementParams = {
     mastery: { toon: string },
     toonsOwning: { count: number },
     titlesOwning: { count: number },
-    pickItems: { rarity: ItemRarity, count: number },
+    pickItems: { rarity?: ItemRarity, count: number },
     finishMachines: { count: number },
     experienceBlackouts: { count: number },
     quests: { count: number, toon: string },
     surviveFloors: { count: number },
     buyDandysShop: { count: number },
     trinketsOwning: { count: number },
+    encounterTwisteds: { count: number };
+    reachFloor: { count: number };
+    travel: { meters: number },
     custom: { text: string };
 };
 

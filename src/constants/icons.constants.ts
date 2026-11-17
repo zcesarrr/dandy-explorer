@@ -27,6 +27,9 @@ import { ClipboardIcon } from "@solar-icons/react/bold/clipboard";
 import { MoonIcon } from "@solar-icons/react/bold/moon";
 import { ShopMinimalisticIcon } from "@solar-icons/react/bold/shop-minimalistic";
 import { WrenchIcon } from "@solar-icons/react/bold/wrench";
+import { SirenRoundedIcon } from "@solar-icons/react/bold/siren-rounded";
+import { ExitIcon } from "@solar-icons/react/bold/exit";
+import { RunningIcon } from "@solar-icons/react/bold/running";
 
 const ICONS = {
     heart: HeartIcon,
@@ -90,6 +93,9 @@ const ICONS = {
     antlerCharge: AntlerChargeIcon,
     soulShield: SoulShieldIcon,
     wrench: WrenchIcon,
+    siren: SirenRoundedIcon,
+    exitDoor: ExitIcon,
+    running: RunningIcon,
 } as const satisfies Record<string, IconComponent>;
 
 export default ICONS;
