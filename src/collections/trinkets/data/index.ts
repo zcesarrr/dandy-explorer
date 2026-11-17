@@ -1,5 +1,6 @@
 import type { Trinket } from "../types/trinkets.types";
 import alarm from "./items/alarm";
+import blueBandana from "./items/blueBandana";
 import boneNeedle from "./items/boneNeedle";
 import brick from "./items/brick";
 import cardboardArmor from "./items/cardboardArmor";
@@ -13,6 +14,7 @@ import diary from "./items/diary";
 import eggRadar from "./items/eggRadar";
 import featherDuster from "./items/featherDuster";
 import festiveLights from "./items/festiveLights";
+import fishingRod from "./items/fishingRod";
 import ghostSnakes from "./items/ghostSnakes";
 import glazedBag from "./items/glazedBag";
 import machineManual from "./items/machineManual";
@@ -22,6 +24,7 @@ import moonPack from "./items/moonPack";
 import paintBucket from "./items/paintBucket";
 import partyPopper from "./items/partyPopper";
 import peppermintIcing from "./items/peppermintIcing";
+import pinkBow from "./items/pinkBow";
 import popPack from "./items/popPack";
 import pullToy from "./items/pullToy";
 import researchMap from "./items/researchMap";
@@ -79,6 +82,9 @@ const TRINKETS: Trinket[] = [
     cardboardArmor,
     crayonSet,
     trainWhistle,
+    blueBandana,
+    pinkBow,
+    fishingRod,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;

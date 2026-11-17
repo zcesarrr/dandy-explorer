@@ -26,5 +26,5 @@ export const trinketsConfig: CollectionConfig<Trinket> = {
     ItemButton: TrinketButton,
     ItemImage: TrinketImage,
     tabs: [],
-    desktopInfoSize: 256,
+    desktopInfoSize: 240,
 };
