@@ -11,15 +11,20 @@ import cooler from "./items/cooler";
 import crayonSet from "./items/crayonSet";
 import dandyPlush from "./items/dandyPlush";
 import diary from "./items/diary";
+import dogPlush from "./items/dogPlush";
 import eggRadar from "./items/eggRadar";
+import fancyPurse from "./items/fancyPurse";
 import featherDuster from "./items/featherDuster";
 import festiveLights from "./items/festiveLights";
 import fishingRod from "./items/fishingRod";
 import ghostSnakes from "./items/ghostSnakes";
 import glazedBag from "./items/glazedBag";
+import luckyCoin from "./items/luckyCoin";
 import machineManual from "./items/machineManual";
+import magnifyingGlass from "./items/magnifyingGlass";
 import megaphone from "./items/megaphone";
 import memoryLocket from "./items/memoryLocket";
+import mimeMakeup from "./items/mimeMakeup";
 import moonPack from "./items/moonPack";
 import paintBucket from "./items/paintBucket";
 import partyPopper from "./items/partyPopper";
@@ -28,6 +33,7 @@ import pinkBow from "./items/pinkBow";
 import popPack from "./items/popPack";
 import pullToy from "./items/pullToy";
 import researchMap from "./items/researchMap";
+import ribbonSpool from "./items/ribbonSpool";
 import scrapbook from "./items/scrapbook";
 import soulSword from "./items/soulSword";
 import spareBulb from "./items/spareBulb";
@@ -85,6 +91,12 @@ const TRINKETS: Trinket[] = [
     blueBandana,
     pinkBow,
     fishingRod,
+    ribbonSpool,
+    magnifyingGlass,
+    fancyPurse,
+    dogPlush,
+    mimeMakeup,
+    luckyCoin,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;

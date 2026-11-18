@@ -1,6 +1,7 @@
 import type { Twisted } from "../types/twisteds.types";
 import twistedAstro from "./items/twistedAstro";
 import twistedBassie from "./items/twistedBassie";
+import twistedBlot from "./items/twistedBlot";
 import twistedBobette from "./items/twistedBobette";
 import twistedBoxten from "./items/twistedBoxten";
 import twistedBrightney from "./items/twistedBrightney";
@@ -16,16 +17,21 @@ import twistedEggson from "./items/twistedEggson";
 import twistedFinn from "./items/twistedFinn";
 import twistedFlutter from "./items/twistedFlutter";
 import twistedFlyte from "./items/twistedFlyte";
+import twistedGigi from "./items/twistedGigi";
 import twistedGinger from "./items/twistedGinger";
 import twistedGourdy from "./items/twistedGourdy";
 import twistedLooey from "./items/twistedLooey";
 import twistedPoppy from "./items/twistedPoppy";
+import twistedRazzleAndDazzle from "./items/twistedRazzleAndDazzle";
 import twistedRibecca from "./items/twistedRibecca";
+import twistedRodger from "./items/twistedRodger";
 import twistedRudie from "./items/twistedRudie";
 import twistedScraps from "./items/twistedScraps";
 import twistedShrimpo from "./items/twistedShrimpo";
 import twistedSoulvester from "./items/twistedSoulvester";
+import twistedTeagan from "./items/twistedTeagan";
 import twistedTisha from "./items/twistedTisha";
+import twistedToodles from "./items/twistedToodles";
 import twistedYatta from "./items/twistedYatta";
 
 const TWISTEDS: Twisted[] = [
@@ -57,6 +63,12 @@ const TWISTEDS: Twisted[] = [
     twistedBoxten,
     twistedPoppy,
     twistedFinn,
+    twistedRazzleAndDazzle,
+    twistedRodger,
+    twistedTeagan,
+    twistedToodles,
+    twistedBlot,
+    twistedGigi,
 ] as const satisfies Twisted[];
 
 export default TWISTEDS;
