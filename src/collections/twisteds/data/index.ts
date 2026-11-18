@@ -23,18 +23,22 @@ import twistedGlisten from "./items/twistedGlisten";
 import twistedGoob from "./items/twistedGoob";
 import twistedGourdy from "./items/twistedGourdy";
 import twistedLooey from "./items/twistedLooey";
+import twistedPebble from "./items/twistedPebble";
 import twistedPoppy from "./items/twistedPoppy";
 import twistedRazzleAndDazzle from "./items/twistedRazzleAndDazzle";
 import twistedRibecca from "./items/twistedRibecca";
 import twistedRodger from "./items/twistedRodger";
 import twistedRudie from "./items/twistedRudie";
 import twistedScraps from "./items/twistedScraps";
+import twistedShelly from "./items/twistedShelly";
 import twistedShrimpo from "./items/twistedShrimpo";
 import twistedSoulvester from "./items/twistedSoulvester";
+import twistedSprout from "./items/twistedSprout";
 import twistedSquirm from "./items/twistedSquirm";
 import twistedTeagan from "./items/twistedTeagan";
 import twistedTisha from "./items/twistedTisha";
 import twistedToodles from "./items/twistedToodles";
+import twistedVee from "./items/twistedVee";
 import twistedWaxwell from "./items/twistedWaxwell";
 import twistedYatta from "./items/twistedYatta";
 
@@ -77,6 +81,10 @@ const TWISTEDS: Twisted[] = [
     twistedGoob,
     twistedSquirm,
     twistedWaxwell,
+    twistedPebble,
+    twistedShelly,
+    twistedSprout,
+    twistedVee,
 ] as const satisfies Twisted[];
 
 export default TWISTEDS;

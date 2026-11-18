@@ -2,6 +2,7 @@ import type { Trinket } from "../types/trinkets.types";
 import alarm from "./items/alarm";
 import blueBandana from "./items/blueBandana";
 import blushyBat from "./items/blushyBat";
+import bone from "./items/bone";
 import boneNeedle from "./items/boneNeedle";
 import brick from "./items/brick";
 import cardboardArmor from "./items/cardboardArmor";
@@ -30,6 +31,7 @@ import memoryLocket from "./items/memoryLocket";
 import mimeMakeup from "./items/mimeMakeup";
 import moonPack from "./items/moonPack";
 import paintBucket from "./items/paintBucket";
+import participationAward from "./items/participationAward";
 import partyPopper from "./items/partyPopper";
 import peppermintIcing from "./items/peppermintIcing";
 import pinkBow from "./items/pinkBow";
@@ -37,6 +39,7 @@ import popPack from "./items/popPack";
 import pullToy from "./items/pullToy";
 import researchMap from "./items/researchMap";
 import ribbonSpool from "./items/ribbonSpool";
+import savoryCharm from "./items/savoryCharm";
 import scrapbook from "./items/scrapbook";
 import soulSword from "./items/soulSword";
 import spareBulb from "./items/spareBulb";
@@ -50,6 +53,7 @@ import thinkingCap from "./items/thinkingCap";
 import toyKit from "./items/toyKit";
 import trainWhistle from "./items/trainWhistle";
 import vanityMirror from "./items/vanityMirror";
+import veesRemote from "./items/veesRemote";
 import whisperingFlower from "./items/whisperingFlower";
 import wrench from "./items/wrench";
 
@@ -107,6 +111,10 @@ const TRINKETS: Trinket[] = [
     friendshipBracelet,
     stressBall,
     cherisedBlanket,
+    bone,
+    participationAward,
+    savoryCharm,
+    veesRemote,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;
