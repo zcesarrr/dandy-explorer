@@ -18,6 +18,7 @@ import fancyPurse from "./items/fancyPurse";
 import featherDuster from "./items/featherDuster";
 import festiveLights from "./items/festiveLights";
 import fishingRod from "./items/fishingRod";
+import friendshipBracelet from "./items/friendshipBracelet";
 import ghostSnakes from "./items/ghostSnakes";
 import glazedBag from "./items/glazedBag";
 import luckyCoin from "./items/luckyCoin";
@@ -41,11 +42,13 @@ import spareBulb from "./items/spareBulb";
 import speedometer from "./items/speedometer";
 import speedyShoes from "./items/speedyShoes";
 import starPillow from "./items/starPillow";
+import stressBall from "./items/stressBall";
 import sweetCharm from "./items/sweetCharm";
 import thermos from "./items/thermos";
 import thinkingCap from "./items/thinkingCap";
 import toyKit from "./items/toyKit";
 import trainWhistle from "./items/trainWhistle";
+import vanityMirror from "./items/vanityMirror";
 import whisperingFlower from "./items/whisperingFlower";
 import wrench from "./items/wrench";
 
@@ -99,6 +102,9 @@ const TRINKETS: Trinket[] = [
     mimeMakeup,
     luckyCoin,
     blushyBat,
+    vanityMirror,
+    friendshipBracelet,
+    stressBall,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;

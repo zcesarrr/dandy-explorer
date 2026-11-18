@@ -9,7 +9,7 @@ const twistedGigi: Twisted = {
     event: "none",
     iconUrl: icon,
     render: { url: render },
-    description: "f you have your hands full with items, this Twisted is your worst nightmare. Gigi has the ability to reach out and snatch items from afar. Everything she gathers is hoarded inside her gachapon stash. Search the stash to win your belongings back!",
+    description: "If you have your hands full with items, this Twisted is your worst nightmare. Gigi has the ability to reach out and snatch items from afar. Everything she gathers is hoarded inside her gachapon stash. Search the stash to win your belongings back!",
     trinketReward: "lucky-coin",
 };
 

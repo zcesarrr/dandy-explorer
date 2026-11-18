@@ -19,6 +19,8 @@ import twistedFlutter from "./items/twistedFlutter";
 import twistedFlyte from "./items/twistedFlyte";
 import twistedGigi from "./items/twistedGigi";
 import twistedGinger from "./items/twistedGinger";
+import twistedGlisten from "./items/twistedGlisten";
+import twistedGoob from "./items/twistedGoob";
 import twistedGourdy from "./items/twistedGourdy";
 import twistedLooey from "./items/twistedLooey";
 import twistedPoppy from "./items/twistedPoppy";
@@ -69,6 +71,8 @@ const TWISTEDS: Twisted[] = [
     twistedToodles,
     twistedBlot,
     twistedGigi,
+    twistedGlisten,
+    twistedGoob,
 ] as const satisfies Twisted[];
 
 export default TWISTEDS;
