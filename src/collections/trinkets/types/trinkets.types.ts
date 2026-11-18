@@ -19,7 +19,7 @@ type HolderParams = {
         twisted: string;
     };
     shop: {
-        price: number;
+        price?: number;
         requirements?: Requirement[];
     };
 };

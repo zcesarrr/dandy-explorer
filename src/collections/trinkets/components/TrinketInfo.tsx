@@ -91,10 +91,12 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
 
             <hr className="bg-black/40 border-0 w-full shrink-0 h-0.5 my-2" />
 
-            <span className="mb-2">
-                <p className="text-xl tracking-wide leading-none">Availability</p>
-                {renderHolder(item.holder)}
-            </span>
+            {((item.holder.type === "shop" && item.holder.params.price !== undefined) || item.holder.type === "research") && 
+                <span className="mb-2">
+                    <p className="text-xl tracking-wide leading-none">Availability</p>
+                    {renderHolder(item.holder)}
+                </span>
+            }
 
             {item.holder.type === "shop" && item.holder.params.requirements?.length && (
                 <>

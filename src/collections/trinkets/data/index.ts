@@ -1,6 +1,7 @@
 import type { Trinket } from "../types/trinkets.types";
 import alarm from "./items/alarm";
 import blueBandana from "./items/blueBandana";
+import blushyBat from "./items/blushyBat";
 import boneNeedle from "./items/boneNeedle";
 import brick from "./items/brick";
 import cardboardArmor from "./items/cardboardArmor";
@@ -97,6 +98,7 @@ const TRINKETS: Trinket[] = [
     dogPlush,
     mimeMakeup,
     luckyCoin,
+    blushyBat,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;
