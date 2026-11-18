@@ -31,9 +31,11 @@ import twistedRudie from "./items/twistedRudie";
 import twistedScraps from "./items/twistedScraps";
 import twistedShrimpo from "./items/twistedShrimpo";
 import twistedSoulvester from "./items/twistedSoulvester";
+import twistedSquirm from "./items/twistedSquirm";
 import twistedTeagan from "./items/twistedTeagan";
 import twistedTisha from "./items/twistedTisha";
 import twistedToodles from "./items/twistedToodles";
+import twistedWaxwell from "./items/twistedWaxwell";
 import twistedYatta from "./items/twistedYatta";
 
 const TWISTEDS: Twisted[] = [
@@ -73,6 +75,8 @@ const TWISTEDS: Twisted[] = [
     twistedGigi,
     twistedGlisten,
     twistedGoob,
+    twistedSquirm,
+    twistedWaxwell,
 ] as const satisfies Twisted[];
 
 export default TWISTEDS;

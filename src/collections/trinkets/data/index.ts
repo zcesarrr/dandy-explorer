@@ -5,6 +5,7 @@ import blushyBat from "./items/blushyBat";
 import boneNeedle from "./items/boneNeedle";
 import brick from "./items/brick";
 import cardboardArmor from "./items/cardboardArmor";
+import cherisedBlanket from "./items/cherishedBlanket";
 import clownHorn from "./items/clownHorn";
 import coal from "./items/coal";
 import coinPurse from "./items/coinPurse";
@@ -105,6 +106,7 @@ const TRINKETS: Trinket[] = [
     vanityMirror,
     friendshipBracelet,
     stressBall,
+    cherisedBlanket,
 ] as const satisfies Trinket[];
 
 export default TRINKETS;
