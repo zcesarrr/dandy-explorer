@@ -106,10 +106,13 @@ export default function CollectionSelector<T extends CollectionItem>({
                             ariaLabel="Toggle sort options menu"
                             ariaExpanded={isSortOpen}
                             ariaControls="sortMenu"
-                            className="flex shrink-0 justify-center items-center w-16 h-full"
+                            className="relative flex shrink-0 justify-center items-center w-16 h-full"
                             onClick={() => setIsSortOpen((prev) => !prev)}
                         >
                             <ICONS.filter color="white" />
+                            {sortKey !== config.sort.defaultKey && 
+                                <div className="absolute w-2 h-2 bg-white rounded-full right-1 bottom-1" />
+                            }
                         </ShinyButton>
                         <ul 
                             hidden={!isSortOpen}
@@ -132,6 +135,7 @@ export default function CollectionSelector<T extends CollectionItem>({
                                                     style={{
                                                         background: option.key === sortKey ? "#ffffff30" : "",
                                                         cursor: option.key === sortKey ? "default" : "",
+                                                        color: option.key === config.sort.defaultKey ? "#999" : "",
                                                     }}
                                                 >
                                                     {option.label}
