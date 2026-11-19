@@ -24,11 +24,6 @@ export function useCollectionListParams<T>(sort: CollectionSort<T>) {
         );
     };
 
-    const getParams = (): string => {
-        const query = params.toString();
-        return query ? `?${query}` : "";
-    };
-
     return {
         search,
         sortKey,
@@ -36,6 +31,5 @@ export function useCollectionListParams<T>(sort: CollectionSort<T>) {
         setSearch: (value: string) => update("q", value.slice(0, 20)),
         setSortKey: (value: string) => update("sort", value, sort.defaultKey),
         setSortDir: (value: SortDir) => update("dir", value, DEFAULT_SORT_DIR),
-        getParams,
     }
 }

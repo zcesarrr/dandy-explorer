@@ -25,7 +25,7 @@ export default function CollectionSelector<T extends CollectionItem>({
     itemButtonSize = undefined
 }: CollectionSelectorProps<T>) {
     const { labels, sort, ItemImage, ItemButton } = config;
-    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir, getParams } = useCollectionListParams(sort);
+    const { search, sortKey, sortDir, setSearch, setSortKey, setSortDir } = useCollectionListParams(sort);
 
     const [searchInput, setSearchInput] = useState<string>(search);
     const [prevSearch, setPrevSearch] = useState<string>(search);
@@ -201,9 +201,6 @@ export default function CollectionSelector<T extends CollectionItem>({
                                 <ItemButton
                                     buttonProps={{
                                         nav: { href: getHrefItemButton(item.slug) },
-                                        onClick: () => {
-                                            sessionStorage.setItem("from", `${config.basePath}${getParams()}`);
-                                        },
                                     }}
                                     item={item}
                                     ItemImage={ItemImage}

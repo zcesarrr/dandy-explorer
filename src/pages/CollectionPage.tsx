@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, useLocation, useParams } from "react-router";
 import type { CollectionConfig, CollectionItem } from "../types/collection.types";
 import { useCollectionListParams } from "../hooks/useCollectionListParams";
@@ -10,6 +11,7 @@ import DesktopCollectionScreen from "../components/screens/DesktopCollectionScre
 import MobileCollectionScreen from "../components/screens/MobileCollectionScreen";
 import Footer from "../components/blocks/Footer";
 import SectionNav from "../components/blocks/SectionNav";
+import { getLastListLocation, saveLastLocation } from "../utils/lastLocation.utils";
 
 function getTitle(itemName: string | undefined, tabName: string | undefined): string {
     if (!itemName) return APP_NAME;
@@ -22,7 +24,7 @@ type CollectionPageProps<T extends CollectionItem> = {
 };
 
 export default function CollectionPage<T extends CollectionItem>({ config }: CollectionPageProps<T>) {
-    const { search: queryString } = useLocation();
+    const { search: queryString, pathname } = useLocation();
     const { slug, tabKey } = useParams();
     const { sortKey, sortDir, search } = useCollectionListParams(config.sort);
     const isDesktop = useIsDesktop();
@@ -36,22 +38,34 @@ export default function CollectionPage<T extends CollectionItem>({ config }: Col
 
     const itemsFiltered = filterItems(items, search, config.sort, sortKey, sortDir);
     const defaultItem = itemsFiltered[0] ?? filterItems(items, "", config.sort, sortKey, sortDir)[0];
+    const selectedItem = defaultItem ? items.find(item => item.slug === (slug ?? defaultItem.slug)) : undefined;
 
-    if (!defaultItem) return null;
+    const getRedirect = (): string | null => {
+        if (!defaultItem) return null;
+        if (!selectedItem) return composeEndpoint(defaultItem.slug);
 
-    const selectedItem = items.find(item => item.slug === (slug ?? defaultItem.slug));
+        if (isDesktop && (slug === undefined || (firstTab && tabKey === undefined))) {
+            return composeEndpoint(selectedItem.slug, firstTab?.key);
+        }
 
-    if (!selectedItem) {
-        return <Navigate to={composeEndpoint(defaultItem.slug)} replace />;
-    }
+        if (tabKey !== undefined && !isTabKey(tabs, tabKey)) {
+            return composeEndpoint(selectedItem.slug);
+        }
 
-    if (isDesktop && (slug === undefined || (firstTab && tabKey === undefined))) {
-        return <Navigate to={composeEndpoint(selectedItem.slug, firstTab?.key)} replace />;
-    }
+        return null;
+    };
 
-    if (tabKey !== undefined && !isTabKey(tabs, tabKey)) {
-        return <Navigate to={composeEndpoint(selectedItem.slug)} replace />
-    }
+    const redirectTo = getRedirect();
+
+    const shouldSave = redirectTo === null && selectedItem !== undefined && (isDesktop || slug === undefined);
+    const urlToSave = shouldSave ? `${pathname}${queryString}` : null;
+
+    useEffect(() => {
+        if (urlToSave) saveLastLocation(basePath, urlToSave);
+    }, [basePath, urlToSave]);
+
+    if (redirectTo) return <Navigate to={redirectTo} replace />;
+    if (!selectedItem) return null;
 
     const showsSelector = !isDesktop && slug === undefined;
     const currentTab = !isDesktop && tabKey === undefined ? undefined : getTab(tabs, tabKey);
@@ -87,7 +101,7 @@ export default function CollectionPage<T extends CollectionItem>({ config }: Col
                 item={selectedItem}
                 tabKey={tabKey}
                 getHrefTab={key => composeEndpoint(selectedItem.slug, key)}
-                getHrefBack={() => sessionStorage.getItem("from") || basePath}
+                getHrefBack={() => getLastListLocation(basePath) ?? basePath}
             />
         );
     };

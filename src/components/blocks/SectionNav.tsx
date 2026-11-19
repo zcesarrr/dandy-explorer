@@ -3,6 +3,8 @@ import { COLLECTIONS } from "../../collections";
 import ShinyButton from "../customs/ShinyButton";
 import ICONS from "../../constants/icons.constants";
 import type { ReactNode } from "react";
+import { getLastListLocation, getLastLocation } from "../../utils/lastLocation.utils";
+import { useIsDesktop } from "../../hooks/useIsDesktop";
 
 function getCollectionIcon(index: number): ReactNode {
     if (!COLLECTIONS[index]) return null
@@ -14,6 +16,7 @@ function getCollectionIcon(index: number): ReactNode {
 
 export default function SectionNav() {
     const { pathname } = useLocation();
+    const isDesktop = useIsDesktop();
 
     if (COLLECTIONS.length < 2) return null;
 
@@ -29,7 +32,13 @@ export default function SectionNav() {
                     return (
                         <li key={collection.id}>
                             <ShinyButton
-                                nav={{ href: collection.basePath }}
+                                nav={{ 
+                                    href: (isDesktop 
+                                            ? getLastLocation(collection.basePath) 
+                                            : getLastListLocation(collection.basePath)
+                                        ) 
+                                        ?? collection.basePath 
+                                }}
                                 active={isActive}
                                 className="flex flex-row items-center px-4 py-1 font-fredoka text-white text-stroke max-sm:text-sm"
                             >
