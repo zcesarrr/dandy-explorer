@@ -150,7 +150,7 @@ export default function CollectionSelector<T extends CollectionItem>({
                     </div>
                     <ShinyButton 
                         className="flex shrink-0 justify-center items-center w-12"
-                        ariaLabel="Switch sort direction"
+                        ariaLabel={`Sort direction: ${sortDir === "asc" ? "ascending" : "descending"}`}
                         onClick={() => setSortDir(sortDir === "asc" ? "desc" : "asc")}
                     >
                         <ICONS.sort

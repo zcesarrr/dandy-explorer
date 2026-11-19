@@ -10,7 +10,7 @@ export default function MobileSelectorScreen<T extends CollectionItem>({
     getHrefItemButton,
 }: MobileSelectorScreenProps<T>) {
     return (
-        <div className="h-full pt-2">
+        <main className="h-full pt-2">
             <CollectionSelector
                 className="h-full"
                 config={config}
@@ -18,6 +18,6 @@ export default function MobileSelectorScreen<T extends CollectionItem>({
                 getHrefItemButton={getHrefItemButton}
                 itemButtonSize="106px"
             />
-        </div>
+        </main>
     );
 }

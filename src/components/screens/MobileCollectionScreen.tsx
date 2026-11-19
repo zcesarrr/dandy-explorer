@@ -31,7 +31,7 @@ export default function MobileCollectionScreen<T extends CollectionItem>({
 
     return (
         <div className="h-full flex flex-col">
-            <div className="flex justify-between items-center h-10 mx-2 mt-[max(0.5rem,env(safe-area-inset-top))] gap-2 mb-1">
+            <header className="flex justify-between items-center h-10 mx-2 mt-[max(0.5rem,env(safe-area-inset-top))] gap-2 mb-1">
                 <div className="flex h-full items-center gap-1">
                     <ItemImage
                         className="h-full aspect-square rounded-lg"
@@ -49,7 +49,7 @@ export default function MobileCollectionScreen<T extends CollectionItem>({
                         color="white"
                     />
                 </ShinyButton>
-            </div>
+            </header>
 
             <main
                 key={`${item.slug}-${tabKey ?? "info"}`}

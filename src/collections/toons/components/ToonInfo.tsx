@@ -23,6 +23,8 @@ export default function ToonInfo({ className, item }: ToonInfoProps) {
     const eventData = item.category !== "none" ? EVENT_THEME_DATA[item.category] : undefined;
     const EventIcon = eventData ? ICONS[eventData.Icon] : undefined;
 
+    const theme = `${eventData?.label} Theme`;
+
     return (
         <div className={`${className ?? ""}`}>
             <div className="relative max-w-[max(128px,30dvh)] w-full aspect-square mx-auto">
@@ -34,7 +36,10 @@ export default function ToonInfo({ className, item }: ToonInfoProps) {
                 {EventIcon && (
                     <div 
                         className="absolute top-1 left-1 bg-black/60 rounded-full p-1.5" 
-                        title={`${eventData?.label} Theme`}>
+                        role="img"
+                        aria-label={theme}
+                        title={theme}
+                    >
                         <EventIcon className="w-8 h-8" color="white" />
                     </div>
                 )}

@@ -40,6 +40,7 @@ export default function AboutPage() {
                         gradientColor="linear-gradient(0deg, #aaa 20%, #fff 50%, #fff 100%)"
                         label={APP_NAME}
                     />
+                    <h1 className="sr-only">{APP_NAME}</h1>
                     <p className="text-lg">Explore the details about the characters of Dandy's World, such as stats, quests, requirements and trinkets.</p>
                 </header>
 
