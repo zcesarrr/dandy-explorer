@@ -22,7 +22,7 @@ export default function TwistedInfo({ className, item }: TwistedInfoProps) {
                     alt=""
                     width="100%"
                     height="100%"
-                    loading="lazy"
+                    loading="eager"
                     src={item.render.url}
                     className="object-contain"
                     style={{

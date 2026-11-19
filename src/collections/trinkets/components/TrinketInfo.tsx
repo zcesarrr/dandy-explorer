@@ -19,7 +19,7 @@ function renderHolder(holder: TrinketHolder) {
                     />
                     <p>
                         {holder.params.count}% Research on <Link 
-                        className="hover:underline active:underline text-gray-500 leading-none" 
+                        className="underline active:text-white text-gray-500 leading-none" 
                         to={`/twisteds/${twisted?.slug}`}>
                             {twisted.name}
                         </Link>
@@ -56,7 +56,7 @@ export default function TrinketInfo({ className, item }: TrinketInfoProps) {
                     alt=""
                     width="100%"
                     height="100%"
-                    loading="lazy"
+                    loading="eager"
                     src={item.iconUrl}
                     className="object-contain"
                 />

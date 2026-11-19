@@ -36,7 +36,7 @@ export function renderContent(content: string, buildHref: (to: string) => string
                 <Link 
                     key={start} 
                     to={buildHref(to ?? "")} 
-                    className={`${label?.startsWith("Twisted") ? "text-gray-500" : "text-[#70d44b]"} hover:underline active:underline`}
+                    className={`${label?.startsWith("Twisted") ? "text-gray-500" : "text-[#70d44b]"} underline active:text-white`}
                 >
                     {label}
                 </Link>

@@ -29,6 +29,7 @@ export default function ToonInfo({ className, item }: ToonInfoProps) {
                 <ToonImage
                     item={item}
                     className="w-full h-full object-contain rounded-lg"
+                    loading="eager"
                 />
                 {EventIcon && (
                     <div 

@@ -127,6 +127,7 @@ export default function CollectionSelector<T extends CollectionItem>({
                                             <li key={option.key}>
                                                 <button
                                                     type="button"
+                                                    aria-pressed={option.key === sortKey}
                                                     onClick={() => {
                                                         setSortKey(option.key);
                                                         setIsSortOpen(false);
@@ -176,7 +177,10 @@ export default function CollectionSelector<T extends CollectionItem>({
                 </div>
             ) : (
                 <div>
-                    <div className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide max-xs:text-sm">
+                    <div 
+                        className="flex items-center gap-2 mt-1 mx-2 font-fredoka text-[#aaa] tracking-wide max-xs:text-sm"
+                        aria-live="polite"
+                    >
                         <p>Ordering by: {sortLabel}{search.trim() ===  "" ? ` (${resultsCount})` : ""}</p>
                         {search.trim() !== "" && (
                             <>
