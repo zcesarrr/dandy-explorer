@@ -58,8 +58,8 @@ export default function AboutPage() {
 
                 <Section title="Contact">
                     <p>
-                        If you have any issues related to {APP_NAME}, please contact me via email:
-                        <a className={anchorStyles} href={`mailto:cesarz.contact@gmail.com?subject=${encodeURIComponent("Dandy's Explorer subject")}`}> cesarz.contact@gmail.com</a>
+                        If you have any issues related to {APP_NAME}, please contact me via email:{" "}
+                        <a className={anchorStyles} href={`mailto:cesarz.contact@gmail.com?subject=${encodeURIComponent("Dandy's Explorer subject")}`}>cesarz.contact@gmail.com</a>
                     </p>
                 </Section>
 
