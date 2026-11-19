@@ -26,7 +26,7 @@ export default function TrinketImage({ className = "", item, showCategoryIcon = 
                 }}
             />
             {showCategoryIcon && (
-                <span className="absolute left-1 top-1 w-6 h-6 bg-black/40 p-1 rounded-full">
+                <span className="absolute left-1 top-1 w-6 h-6 bg-black/65 p-1 rounded-full">
                     <CategoryIcon className="w-full h-full" />
                 </span>
             )}

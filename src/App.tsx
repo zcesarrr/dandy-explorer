@@ -1,6 +1,3 @@
-// I don't know where else to put this, but this is my TODO/Plan list:
-// Add a little cooldown timer indicator on AbilityCard (research time)
-
 import { Navigate, Route, Routes } from "react-router";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
