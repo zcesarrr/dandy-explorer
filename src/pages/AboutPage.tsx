@@ -42,6 +42,7 @@ export default function AboutPage() {
                     />
                     <h1 className="sr-only">{APP_NAME}</h1>
                     <p className="text-lg">Explore the details about the characters of Dandy's World, such as stats, quests, requirements and trinkets.</p>
+                    <p className="text-gray-400">Disclaimer: All information you see is before Dandy's World 1.0</p>
                 </header>
 
                 <Section title="Sources">
@@ -54,13 +55,6 @@ export default function AboutPage() {
                         <li>Some other icons are in the public domain (CC0 license).</li>
                         <li>This website was made by Cess.</li>
                     </ul>
-                </Section>
-
-                <Section title="Contact">
-                    <p>
-                        If you have any issues related to {APP_NAME}, please contact me via email:{" "}
-                        <a className={anchorStyles} href={`mailto:cesarz.contact@gmail.com?subject=${encodeURIComponent("Dandy's Explorer subject")}`}>cesarz.contact@gmail.com</a>
-                    </p>
                 </Section>
 
                 <p className="text-sm">{APP_NAME} is not affiliated with BlushCrunch Studio, this content is not official or endorsed by BlushCrunch Studio in any way.</p>

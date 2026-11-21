@@ -36,7 +36,6 @@ export default function ToonInfo({ className, item }: ToonInfoProps) {
                 {EventIcon && (
                     <div 
                         className="absolute top-1 left-1 bg-black/60 rounded-full p-1.5" 
-                        role="img"
                         aria-label={theme}
                         title={theme}
                     >
